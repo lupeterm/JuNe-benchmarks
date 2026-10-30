@@ -67,8 +67,8 @@ def plot(data: pd.DataFrame, column: str, ylabel: str, out: Path):
                        loc="upper left", bbox_to_anchor=(1.02, 1.0), borderaxespad=0.0, frameon=False,
                        labelspacing=1.6, handletextpad=0.8)
     fig.savefig(out.with_suffix(".svg"), bbox_inches="tight", bbox_extra_artists=[legend])
-    fig.savefig(out.with_suffix(".png"), dpi=200, bbox_inches="tight", bbox_extra_artists=[legend])
-    print("wrote", out.with_suffix(".svg"), "and .png")
+    fig.savefig(out.with_suffix(".pdf"), bbox_inches="tight", bbox_extra_artists=[legend])
+    print("wrote", out.with_suffix(".pdf"), "and .svg")
 
 
 def main(results: Path):
@@ -77,8 +77,8 @@ def main(results: Path):
     data = pd.concat([gpu, cpu], ignore_index=True)
     data = data.loc[data["strategy"].isin(SERIES)]  # drops nothing today, guards against new strategies
     plot(data, "throughput_gbs", "Matrix assembly throughput [GB/s]", results / "cavity_combined_gbs")
-    plot(data, "throughput_mcells_s", "Matrix assembly throughput [million cells/s]", results / "cavity_combined_mcells")
+    # plot(data, "throughput_mcells_s", "Matrix assembly throughput [million cells/s]", results / "cavity_combined_mcells")
 
 
 if __name__ == "__main__":
-    main(Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent / "results")
+    main(Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent / "june_neon")

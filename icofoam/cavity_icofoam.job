@@ -1,0 +1,58 @@
+#!/bin/bash
+#SBATCH --job-name=icofoam
+#SBATCH --nodes=1
+#SBATCH --ntasks=64
+#SBATCH --cpus-per-task=2
+#SBATCH --time=05:00:00
+#SBATCH --output=/storage/home/lupeterm/JuNe-benchmarks/results/%x-%N-%j.out
+#
+# Assembles div(phi,U) - laplacian(nu,U) on every lid-driven cavity case with the instrumented
+# icoFoam (openfoam-OpenFOAM-v2412: one warm-up assembly, one timed, prints "Momentum <s>" per
+# rank) on 64 MPI ranks, three times per case. Submit with
+#   sbatch --nodelist=gpu-nvidia-h200-2 icofoam/cavity_icofoam.job
+#
+# The 64-rank decompositions in DECOMPOSED use a linear div scheme, the NeoFOAM benchmark cases in
+# SCHEMES_FROM upwind div and an uncorrected laplacian. Every case is therefore run through a view
+# in VIEWS that links the decomposed mesh and fields and copies system/ from the NeoFOAM case.
+
+DECOMPOSED=/storage/home/lupeterm/nobackup/ldcDist/view/base/LDC   # <n>/decompose/64/case
+SCHEMES_FROM=/storage/home/lupeterm/nobackup/julia/view/base/mesh   # <n>/case/system
+VIEWS=/storage/home/lupeterm/nobackup/june-icofoam
+CASES=${CASES:-$(ls "$DECOMPOSED" | sort -n | tr '\n' ' ')}   # e.g. CASES="100 200" sbatch ...
+NRANKS=64
+RUNS=3
+
+cd /storage/home/lupeterm/JuNe-benchmarks
+source /storage/home/lupeterm/openfoam-OpenFOAM-v2412/etc/bashrc
+case "$(hostname -s)" in
+    gpu-nvidia-h100) node=h100 ;;
+    gpu-nvidia-h200-*) node=h200 ;;
+    *) node=$(hostname -s) ;;
+esac
+out="results/$node-icofoam-$NRANKS"
+mkdir -p "$out"
+lscpu | grep -E "Model name|Socket|Core|Thread|NUMA node\(" > "$out/cpu.txt"
+echo "icoFoam: $(which icoFoam)" >> "$out/cpu.txt"
+
+for n in $CASES; do
+    src="$DECOMPOSED/$n/decompose/$NRANKS/case"
+    [ -d "$src/processor0/constant/polyMesh" ] || { echo "skip $n: no $NRANKS-rank decomposition"; continue; }
+    view="$VIEWS/$n/case"
+    mkdir -p "$view/system"
+    ln -sfn "$src/constant" "$view/constant"
+    ln -sfn "$src/0" "$view/0"
+    for p in "$src"/processor*; do ln -sfn "$p" "$view/$(basename "$p")"; done
+    cp "$SCHEMES_FROM/$n/case/system/"{controlDict,fvSchemes,fvSolution} "$view/system/"
+    cp "$src/system/decomposeParDict" "$view/system/"
+
+    log="$out/cavity_$n.log"
+    echo "cells: $((n * n * n))" > "$log"
+    echo "=== $n^3 cells on $node, $(date)"
+    for run in $(seq 0 $((RUNS - 1))); do
+        echo "--- run $run" >> "$log"
+        mpirun -np $NRANKS --map-by socket --bind-to core icoFoam -case "$view" -parallel >> "$log" 2>&1 \
+            || echo "case $n run $run failed, see $log"
+    done
+    grep -c "^Momentum" "$log" | xargs echo "Momentum lines:"
+done
+echo "done $(date)"

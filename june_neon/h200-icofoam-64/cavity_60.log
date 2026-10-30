@@ -1,0 +1,340 @@
+cells: 216000
+--- run 0
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : icoFoam -case /storage/home/lupeterm/nobackup/june-icofoam/60/case -parallel
+Date   : Oct 30 2026
+Time   : 17:22:03
+Host   : gpu-nvidia-h200-2.int.coma-cluster.de
+PID    : 175223
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/june-icofoam/60/case
+nProcs : 64
+Hosts  :
+(
+    (gpu-nvidia-h200-2.int.coma-cluster.de 64)
+)
+Pstream initialized with:
+    floatTransfer      : false
+    maxCommsSize       : 0
+    nProcsSimpleSum    : 0
+    nonBlockingExchange: 0 (tuning: 0)
+    exchange algorithm : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+profiling initialized
+Create mesh for time = 0
+
+Reading transportProperties
+
+Reading field p
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+Momentum 0.000535397
+Momentum 0.0005371590000000001
+Momentum 0.00053736
+Momentum 0.00053722
+Momentum 0.00053753
+Momentum 0.00053725
+Momentum 0.00053774
+Momentum 0.000537
+Momentum 0.0005378
+Momentum 0.000536979
+Momentum 0.00053714
+Momentum 0.00053716
+Momentum 0.000537631
+Momentum 0.000538191
+Momentum 0.00053735
+Momentum 0.00053765
+Momentum 0.000536619
+Momentum 0.000537189
+Momentum 0.00053748
+Momentum 0.00053768
+Momentum 0.00053749
+Momentum 0.000537039
+Momentum 0.00053761
+Momentum 0.00053741
+Momentum 0.0005363879999999999
+Momentum 0.0005375
+Momentum 0.00053747
+Momentum 0.000536068
+Momentum 0.000536929
+Momentum 0.00053706
+Momentum 0.00053703
+Momentum 0.00053761
+Momentum 0.000536718
+Momentum 0.000537
+Momentum 0.00053752
+Momentum 0.00053763
+Momentum 0.000537601
+Momentum 0.000536469
+Momentum 0.000537179
+Momentum 0.000536969
+Momentum 0.000538291
+Momentum 0.00053742
+Momentum 0.00053732
+Momentum 0.0005369389999999999
+Momentum 0.000536128
+Momentum 0.00053773
+Momentum 0.00053769
+Momentum 0.0005372
+Momentum 0.000537881
+Momentum 0.00053717
+Momentum 0.0005373
+Momentum 0.000536959
+Momentum 0.00053762
+Momentum 0.00053761
+Momentum 0.00053747
+Momentum 0.00053742
+Momentum 0.000536769
+Momentum 0.00053767
+Momentum 0.000536889
+Momentum 0.00053716
+Momentum 0.00053727
+Momentum 0.0005375999999999999
+Momentum 0.00053776
+Momentum 0.00053745
+Finalising parallel run
+--- run 1
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : icoFoam -case /storage/home/lupeterm/nobackup/june-icofoam/60/case -parallel
+Date   : Oct 30 2026
+Time   : 17:22:04
+Host   : gpu-nvidia-h200-2.int.coma-cluster.de
+PID    : 175362
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/june-icofoam/60/case
+nProcs : 64
+Hosts  :
+(
+    (gpu-nvidia-h200-2.int.coma-cluster.de 64)
+)
+Pstream initialized with:
+    floatTransfer      : false
+    maxCommsSize       : 0
+    nProcsSimpleSum    : 0
+    nonBlockingExchange: 0 (tuning: 0)
+    exchange algorithm : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+profiling initialized
+Create mesh for time = 0
+
+Reading transportProperties
+
+Reading field p
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+Momentum 0.000562755
+Momentum 0.000557037
+Momentum 0.000560371
+Momentum 0.000559961
+Momentum 0.0005594210000000001
+Momentum 0.000560121
+Momentum 0.000557147
+Momentum 0.000557698
+Momentum 0.000557608
+Momentum 0.000561283
+Momentum 0.000558539
+Momentum 0.000557547
+Momentum 0.000557598
+Momentum 0.0005569769999999999
+Momentum 0.000561383
+Momentum 0.0005568870000000001
+Momentum 0.000557648
+Momentum 0.000560732
+Momentum 0.000560802
+Momentum 0.000562975
+Momentum 0.000557688
+Momentum 0.000558008
+Momentum 0.00055935
+Momentum 0.000559541
+Momentum 0.000558368
+Momentum 0.000560992
+Momentum 0.000560531
+Momentum 0.0005576379999999999
+Momentum 0.000557348
+Momentum 0.000556786
+Momentum 0.00055868
+Momentum 0.000557518
+Momentum 0.000557558
+Momentum 0.000560011
+Momentum 0.0005595
+Momentum 0.000560371
+Momentum 0.000560361
+Momentum 0.000556907
+Momentum 0.000558198
+Momentum 0.000556677
+Momentum 0.0005590289999999999
+Momentum 0.000560492
+Momentum 0.0005600409999999999
+Momentum 0.000558679
+Momentum 0.000560021
+Momentum 0.00055937
+Momentum 0.000556806
+Momentum 0.000561603
+Momentum 0.000562635
+Momentum 0.000560031
+Momentum 0.000560051
+Momentum 0.000556406
+Momentum 0.000563696
+Momentum 0.0005567359999999999
+Momentum 0.000558759
+Momentum 0.000558839
+Momentum 0.00055924
+Momentum 0.000557267
+Momentum 0.0005576170000000001
+Momentum 0.000558889
+Momentum 0.0005591
+Momentum 0.000556526
+Momentum 0.000559641
+Momentum 0.00055945
+Finalising parallel run
+--- run 2
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : icoFoam -case /storage/home/lupeterm/nobackup/june-icofoam/60/case -parallel
+Date   : Oct 30 2026
+Time   : 17:22:04
+Host   : gpu-nvidia-h200-2.int.coma-cluster.de
+PID    : 175506
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/june-icofoam/60/case
+nProcs : 64
+Hosts  :
+(
+    (gpu-nvidia-h200-2.int.coma-cluster.de 64)
+)
+Pstream initialized with:
+    floatTransfer      : false
+    maxCommsSize       : 0
+    nProcsSimpleSum    : 0
+    nonBlockingExchange: 0 (tuning: 0)
+    exchange algorithm : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+profiling initialized
+Create mesh for time = 0
+
+Reading transportProperties
+
+Reading field p
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+Momentum 0.000557968
+Momentum 0.0005607020000000001
+Momentum 0.000560602
+Momentum 0.000560782
+Momentum 0.000561202
+Momentum 0.000560552
+Momentum 0.0005605919999999999
+Momentum 0.000560822
+Momentum 0.00055952
+Momentum 0.000561312
+Momentum 0.000560562
+Momentum 0.000561413
+Momentum 0.000561583
+Momentum 0.000560121
+Momentum 0.0005596
+Momentum 0.000560532
+Momentum 0.000560271
+Momentum 0.000560332
+Momentum 0.000560191
+Momentum 0.000560171
+Momentum 0.000561133
+Momentum 0.000560442
+Momentum 0.000561443
+Momentum 0.000560792
+Momentum 0.0005607020000000001
+Momentum 0.000561422
+Momentum 0.000561382
+Momentum 0.000560952
+Momentum 0.000561023
+Momentum 0.000560622
+Momentum 0.000561092
+Momentum 0.000560492
+Momentum 0.000561142
+Momentum 0.000560902
+Momentum 0.000560221
+Momentum 0.000560061
+Momentum 0.0005609430000000001
+Momentum 0.000560631
+Momentum 0.00055954
+Momentum 0.000559671
+Momentum 0.00055944
+Momentum 0.000560131
+Momentum 0.000561033
+Momentum 0.000560562
+Momentum 0.000560572
+Momentum 0.000560742
+Momentum 0.0005612529999999999
+Momentum 0.000560762
+Momentum 0.000560952
+Momentum 0.000561383
+Momentum 0.000560191
+Momentum 0.000560031
+Momentum 0.00055952
+Momentum 0.000560552
+Momentum 0.000561313
+Momentum 0.000560632
+Momentum 0.000560031
+Momentum 0.000560862
+Momentum 0.000561062
+Momentum 0.0005605919999999999
+Momentum 0.000561222
+Momentum 0.000560742
+Momentum 0.0005601510000000001
+Momentum 0.000560522
+Finalising parallel run

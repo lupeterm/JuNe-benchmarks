@@ -1,0 +1,80 @@
+/storage/home/lupeterm/NeoFOAM/test/catch2/test_main.cpp:25
+Initializing NeoN
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu/bin/tests/cavity
+Date   : Oct 24 2026
+Time   : 12:48:48
+Host   : gpu-nvidia-h200-2.int.coma-cluster.de
+PID    : 159883
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/julia/view/base/mesh/240/case
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+profiling initialized
+Create mesh for time = 0
+Randomness seeded to: 1257501408
+Creating NeoFOAM runTime
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,T)'
+cells: 13824000
+Assembly time (JuNe batched 0) = 15538628 [us]
+Assembly time (JuNe batched 1) = 20126 [us]
+Assembly time (JuNe batched 2) = 19933 [us]
+batches: 6
+nnz: 96422400
+Assembly time (NeoN face-based 0) = 34665 [us]
+Assembly time (NeoN face-based 1) = 32072 [us]
+Assembly time (NeoN face-based 2) = 31996 [us]
+Assembly time (NeoN cell-based 0) = 851586 [us]
+Assembly time (NeoN cell-based 1) = 19567 [us]
+Assembly time (NeoN cell-based 2) = 19029 [us]
+Assembly time (NeoN batched 0) = 41026 [us]
+Assembly time (NeoN batched 1) = 39325 [us]
+Assembly time (NeoN batched 2) = 39290 [us]
+Assembly time (NeoN fused face-based 0) = 15980 [us]
+Assembly time (NeoN fused face-based 1) = 14935 [us]
+Assembly time (NeoN fused face-based 2) = 14930 [us]
+Assembly time (NeoN fused cell-based 0) = 14910 [us]
+Assembly time (NeoN fused cell-based 1) = 13401 [us]
+Assembly time (NeoN fused cell-based 2) = 13289 [us]
+Assembly time (NeoN fused batched 0) = 17786 [us]
+Assembly time (NeoN fused batched 1) = 16866 [us]
+Assembly time (NeoN fused batched 2) = 16823 [us]
+Assembly time (JuNe face-based 0) = 1661925 [us]
+Assembly time (JuNe face-based 1) = 11209 [us]
+Assembly time (JuNe face-based 2) = 11210 [us]
+Assembly time (JuNe global face-based 0) = 507930 [us]
+Assembly time (JuNe global face-based 1) = 12160 [us]
+Assembly time (JuNe global face-based 2) = 12129 [us]
+Assembly time (JuNe cell-based 0) = 370465 [us]
+Assembly time (JuNe cell-based 1) = 13240 [us]
+Assembly time (JuNe cell-based 2) = 13993 [us]
+  Activating project at `~/JuNe.jl`
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcudart.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+===============================================================================
+All tests passed (9 assertions in 1 test case)
+
+Finalizing NeoN

@@ -3,9 +3,9 @@ H200 node's CPUs, 1 to 64 threads), in the style of the GPU figures: colours by 
 hollow circles for NeoN, filled circles for fused NeoN, filled squares for JuNe.
 
   cpu_h200_threads<t>_{gbs,mcells}   throughput over the number of cells, one figure per thread count
-  cpu_h200_speedup_n<n>              speedup over the thread count at the mesh sizes where the
-                                     throughput peaks (for every thread count the size with the
-                                     highest median throughput over the strategies)
+  cpu_h200_speedup_n<n>              speedup over the thread count, one subplot per executor, at the
+                                     mesh sizes where the throughput peaks (for every thread count
+                                     the size with the highest median throughput over the strategies)
 
     python3 plot_cpu.py [results_dir]
 
@@ -96,27 +96,35 @@ def plot_throughput(data: pd.DataFrame, threads: int, column: str, ylabel: str, 
 
 
 def plot_speedup(data: pd.DataFrame, n: int, out: Path):
-    """Speedup over the thread count for one mesh size: serial time / time with t threads."""
-    fig, ax = setup()
+    """Speedup over the thread count for one mesh size, one subplot per executor:
+    serial time / time with t threads."""
+    plt.style.use("seaborn-v0_8-whitegrid")
+    plt.rcParams.update({"font.size": 15, "axes.labelsize": 16, "axes.titlesize": 17, "xtick.labelsize": 14,
+                         "ytick.labelsize": 14, "legend.fontsize": 15})
+    fig, axes = plt.subplots(1, len(EXECUTORS), figsize=(15, 5.5), sharey=True, constrained_layout=True)
     size = data.loc[data["n"].eq(n)]
     threads = sorted(size["threads"].unique())
-    ax.plot(threads, threads, color="0.5", linestyle="--", linewidth=1.2)
-    for strategy in (s for s in SERIES if s in set(size["strategy"])):
-        col, m, filled = style(strategy)
-        points = size.loc[size["strategy"].eq(strategy)].set_index("threads")["time_mean_ms"].sort_index()
-        speedup = points.loc[1] / points
-        ax.plot(speedup.index, speedup.values, color=col, alpha=0.35, linewidth=1)
-        ax.scatter(speedup.index, speedup.values, s=50, marker=m, edgecolors=col,
-                   facecolors=col if filled else "none", linewidths=1.3, alpha=0.85)
-    ax.set(xscale="log", yscale="log", xlabel="Threads", ylabel="Speedup over 1 thread")
-    ax.set_xticks(threads)
-    ax.set_xticklabels([str(t) for t in threads])
-    ax.set_yticks(threads)
-    ax.set_yticklabels([str(t) for t in threads])
-    ax.minorticks_off()
-    ax.text(0.98, 0.03, f"{n}³ = {n**3:,} cells", transform=ax.transAxes, ha="right", va="bottom",
-            fontsize=18, fontweight="bold", color="0.2")
-    legends(ax, extra=[Line2D([], [], color="0.5", linestyle="--", linewidth=1.2, label="ideal")])
+    for ax, executor in zip(axes, EXECUTORS):
+        ax.plot(threads, threads, color="0.5", linestyle="--", linewidth=1.2, label="ideal")
+        for strategy in (s for s in SERIES if s in set(size["strategy"]) and SERIES[s][1] == executor):
+            col, m, filled = style(strategy)
+            points = size.loc[size["strategy"].eq(strategy)].set_index("threads")["time_mean_ms"].sort_index()
+            speedup = points.loc[1] / points
+            ax.plot(speedup.index, speedup.values, color=col, alpha=0.35, linewidth=1)
+            ax.scatter(speedup.index, speedup.values, s=50, marker=m, edgecolors=col,
+                       facecolors=col if filled else "none", linewidths=1.3, alpha=0.85)
+        ax.set(xscale="log", yscale="log", xlabel="Threads", title=executor)
+        ax.set_xticks(threads)
+        ax.set_xticklabels([str(t) for t in threads])
+        ax.set_yticks(threads)
+        ax.set_yticklabels([str(t) for t in threads])
+        ax.minorticks_off()
+    axes[0].set_ylabel("Speedup over 1 thread")
+    axes[0].legend(handles=[Line2D([], [], color="0.5", linestyle="--", linewidth=1.2, label="ideal")]
+                   + [Patch(facecolor=c, label=k) for k, c in KINDS.items()],
+                   loc="upper left", frameon=False, labelspacing=0.8)
+    axes[1].text(0.04, 0.96, f"{n}\u00b3 = {n**3:,} cells", transform=axes[1].transAxes, ha="left",
+                 va="top", fontsize=16, fontweight="bold", color="0.2")
     save(fig, out)
 
 

@@ -131,11 +131,17 @@ def plot_speedup(data: pd.DataFrame, n: int, out: Path):
 
 
 def peak_sizes(data: pd.DataFrame) -> list[int]:
-    """For every thread count the mesh size with the highest median throughput over the strategies."""
+    """For every thread count the mesh size where the median throughput over the strategies peaks:
+    the throughput plateaus over a wide range of sizes, so the largest size within 15 % of the best
+    median counts as the peak rather than the noisy maximum itself."""
     med = data.groupby(["threads", "n"])["throughput_gbs"].median().reset_index()
-    peaks = med.loc[med.groupby("threads")["throughput_gbs"].idxmax()]
-    for _, r in peaks.iterrows():
-        print(f"{int(r.threads):>3} threads peak at n = {int(r.n)} ({r.throughput_gbs:.1f} GB/s median)")
+    peaks = []
+    for threads, group in med.groupby("threads"):
+        plateau = group.loc[group["throughput_gbs"] >= 0.85 * group["throughput_gbs"].max()]
+        r = plateau.loc[plateau["n"].idxmax()]
+        peaks.append(r)
+        print(f"{int(threads):>3} threads peak at n = {int(r.n)} ({r.throughput_gbs:.1f} GB/s median)")
+    peaks = pd.DataFrame(peaks)
     # peaks on the same plateau (within a factor 1.5 in cells) count once, the larger size is kept
     sizes = []
     for n in sorted(set(peaks["n"].astype(int)), reverse=True):

@@ -4,8 +4,8 @@ hollow circles for NeoN, filled circles for fused NeoN, filled squares for JuNe.
 
   cpu_h200_threads<t>_{gbs,mcells}   throughput over the number of cells, one figure per thread count
   cpu_h200_speedup_n<n>              speedup over the thread count, one subplot per executor, at the
-                                     mesh sizes where the throughput peaks (for every thread count
-                                     the size with the highest median throughput over the strategies)
+                                     cache-resident size where the serial throughput peaks and at
+                                     the largest mesh
 
     python3 plot_cpu.py [results_dir]
 
@@ -131,23 +131,14 @@ def plot_speedup(data: pd.DataFrame, n: int, out: Path):
 
 
 def peak_sizes(data: pd.DataFrame) -> list[int]:
-    """For every thread count the mesh size where the median throughput over the strategies peaks:
-    the throughput plateaus over a wide range of sizes, so the largest size within 15 % of the best
-    median counts as the peak rather than the noisy maximum itself."""
-    med = data.groupby(["threads", "n"])["throughput_gbs"].median().reset_index()
-    peaks = []
-    for threads, group in med.groupby("threads"):
-        plateau = group.loc[group["throughput_gbs"] >= 0.85 * group["throughput_gbs"].max()]
-        r = plateau.loc[plateau["n"].idxmax()]
-        peaks.append(r)
-        print(f"{int(threads):>3} threads peak at n = {int(r.n)} ({r.throughput_gbs:.1f} GB/s median)")
-    peaks = pd.DataFrame(peaks)
-    # peaks on the same plateau (within a factor 1.5 in cells) count once, the larger size is kept
-    sizes = []
-    for n in sorted(set(peaks["n"].astype(int)), reverse=True):
-        if all(m**3 / n**3 > 1.5 for m in sizes):
-            sizes.append(n)
-    return sorted(sizes)
+    """The mesh sizes that show the two throughput peaks: the cache-resident size where the serial
+    median throughput over the strategies peaks, and the largest mesh, where the threaded runs reach
+    their plateau."""
+    serial = data.loc[data["threads"].eq(1)].groupby("n")["throughput_gbs"].median()
+    cache = int(serial.idxmax())
+    largest = int(data["n"].max())
+    print(f"serial throughput peaks at n = {cache} ({serial[cache]:.1f} GB/s median), largest n = {largest}")
+    return sorted({cache, largest})
 
 
 def main(results: Path):

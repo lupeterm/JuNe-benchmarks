@@ -1,6 +1,6 @@
 """Mean assembly time and throughput of the icoFoam cavity runs.
 
-Reads results/<node>-icofoam-<ranks>/cavity_<n>.log written by cavity_icofoam.job. Every run prints
+Reads june_neon/<node>-icofoam-<ranks>/cavity_<n>.log written by cavity_icofoam.job. Every run prints
 one "Momentum <seconds>" line per rank after a barrier; the run's time is the slowest rank. All runs
 count (no JIT), the matrix is Vec3 valued (24 bytes per entry) and the cavity mesh has
 n^3 cells and 3 n^2 (n - 1) internal faces, i.e. nnz = cells + 2 internal faces as in NeoN.
@@ -55,4 +55,4 @@ def main(results: Path):
 
 
 if __name__ == "__main__":
-    main(Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / "results")
+    main(Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / "june_neon")

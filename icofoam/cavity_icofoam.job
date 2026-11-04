@@ -4,7 +4,7 @@
 #SBATCH --ntasks=64
 #SBATCH --cpus-per-task=2
 #SBATCH --time=05:00:00
-#SBATCH --output=/storage/home/lupeterm/JuNe-benchmarks/results/%x-%N-%j.out
+#SBATCH --output=/storage/home/lupeterm/JuNe-benchmarks/june_neon/%x-%N-%j.out
 #
 # Assembles div(phi,U) - laplacian(nu,U) on every lid-driven cavity case with the instrumented
 # icoFoam (openfoam-OpenFOAM-v2412: one warm-up assembly, one timed, prints "Momentum <s>" per
@@ -29,7 +29,7 @@ case "$(hostname -s)" in
     gpu-nvidia-h200-*) node=h200 ;;
     *) node=$(hostname -s) ;;
 esac
-out="results/$node-icofoam-$NRANKS"
+out="june_neon/$node-icofoam-$NRANKS"
 mkdir -p "$out"
 lscpu | grep -E "Model name|Socket|Core|Thread|NUMA node\(" > "$out/cpu.txt"
 echo "icoFoam: $(which icoFoam)" >> "$out/cpu.txt"

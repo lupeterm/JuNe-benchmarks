@@ -33,9 +33,11 @@ EXECUTORS = {  # executor -> (marker, filled)
 }
 SERIES = {  # strategy in the CSVs -> (kind, executor)
     "NeoN face-based": ("Face-Based", "NeoN"),
+    "NeoN global face-based": ("Global Face-Based", "NeoN"),
     "NeoN cell-based": ("Cell-Based", "NeoN"),
     "NeoN batched": ("Batched Face-Based", "NeoN"),
     "NeoN fused face-based": ("Face-Based", "NeoN fused"),
+    "NeoN fused global face-based": ("Global Face-Based", "NeoN fused"),
     "NeoN fused cell-based": ("Cell-Based", "NeoN fused"),
     "NeoN fused batched": ("Batched Face-Based", "NeoN fused"),
     "JuNe face-based": ("Face-Based", "JuNe"),

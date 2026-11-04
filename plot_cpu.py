@@ -34,9 +34,11 @@ EXECUTORS = {  # executor -> (marker, filled)
 }
 SERIES = {  # strategy in the CSV -> (kind, executor)
     "NeoN face-based": ("Face-Based", "NeoN"),
+    "NeoN global face-based": ("Global Face-Based", "NeoN"),
     "NeoN cell-based": ("Cell-Based", "NeoN"),
     "NeoN batched": ("Batched Face-Based", "NeoN"),
     "NeoN fused face-based": ("Face-Based", "NeoN fused"),
+    "NeoN fused global face-based": ("Global Face-Based", "NeoN fused"),
     "NeoN fused cell-based": ("Cell-Based", "NeoN fused"),
     "NeoN fused batched": ("Batched Face-Based", "NeoN fused"),
     "JuNe face-based": ("Face-Based", "JuNe"),
@@ -111,8 +113,8 @@ def plot_speedup(data: pd.DataFrame, n: int, out: Path):
             points = size.loc[size["strategy"].eq(strategy)].set_index("threads")["time_mean_ms"].sort_index()
             speedup = points.loc[1] / points
             ax.plot(speedup.index, speedup.values, color=col, alpha=0.35, linewidth=1)
-            ax.scatter(speedup.index, speedup.values, s=50, marker=m, edgecolors=col,
-                       facecolors=col if filled else "none", linewidths=1.3, alpha=0.85)
+            ax.scatter(speedup.index, speedup.values, s=50, edgecolors=col,
+                       facecolors=col, linewidths=1.3, alpha=0.85)
         ax.set(xscale="log", yscale="log", xlabel="Threads", title=executor)
         ax.set_xticks(threads)
         ax.set_xticklabels([str(t) for t in threads])
@@ -123,8 +125,8 @@ def plot_speedup(data: pd.DataFrame, n: int, out: Path):
     axes[0].legend(handles=[Line2D([], [], color="0.5", linestyle="--", linewidth=1.2, label="ideal")]
                    + [Patch(facecolor=c, label=k) for k, c in KINDS.items()],
                    loc="upper left", frameon=False, labelspacing=0.8)
-    axes[1].text(0.04, 0.96, f"{n}\u00b3 = {n**3:,} cells", transform=axes[1].transAxes, ha="left",
-                 va="top", fontsize=16, fontweight="bold", color="0.2")
+    # axes[1].text(0.04, 0.96, f"{n}\u00b3 = {n**3:,} cells", transform=axes[1].transAxes, ha="left",
+                #  va="top", fontsize=16, fontweight="bold", color="0.2")
     save(fig, out)
 
 

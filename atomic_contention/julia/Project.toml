@@ -1,0 +1,10 @@
+[deps]
+Atomix = "a9b6321e-bd34-4604-b9c9-b65b8de01458"
+CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+KernelAbstractions = "63c18a36-062a-441e-b654-da1e3ab1ce7c"
+
+# same bounds as JuNe.jl
+[compat]
+Atomix = "1.1.3"
+CUDA = "6.1.0"
+KernelAbstractions = "0.9.41"

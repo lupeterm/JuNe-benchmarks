@@ -1,0 +1,400 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : build/julia-gpu-nvidia-h200-3-gpu/bin/neoIcoFoam -case /storage/home/lupeterm/nobackup/june-piso/400/june/case -executor GPU
+Date   : Nov 09 2026
+Time   : 23:56:53
+Host   : gpu-nvidia-h200-3.int.coma-cluster.de
+PID    : 2309412
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/june-piso/400/june/case
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Initializing NeoN
+Create time
+
+Creating Executor GPU
+Creating NeoFOAM runTime
+
+PISO: Operating solver in PISO mode
+
+Reading transportProperties
+
+Reading field p
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+Mapping OpenFOAM solver settings to NeoN settings.
+Currently, it is advisable to specify a configFile
+for fine grained Ginkgo solver control
+
+Replacing solver PCG by solver::Cg
+Mapping OpenFOAM solver settings to NeoN settings.
+Currently, it is advisable to specify a configFile
+for fine grained Ginkgo solver control
+
+Replacing solver PBiCGStab by solver::Bicgstab
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,T)'
+Creating phi
+JuNe warm-up [ms]: 21442.428888
+Starting time loop
+Time = 0.0001
+Courant Number mean: 0 max: 0
+Bicgstab:  Solving for Ux, Initial residual = 1, Final residual = 8.470067193989892e-07, No Iterations 69
+Bicgstab:  Solving for Uy, Initial residual = 0, Final residual = 0, No Iterations 69
+Bicgstab:  Solving for Uz, Initial residual = 0, Final residual = 0, No Iterations 69
+PISO loop
+Cg:  Solving for p, Initial residual = 1, Final residual = 9.913450942572111e-07, No Iterations 3649
+time step continuity errors : sum local = 1.9423367619912074e-11, global = 2.8434877365663937e-22, cumulative = 2.8434877365663937e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8231000159503304, Final residual = 9.939382451877752e-07, No Iterations 3638
+time step continuity errors : sum local = 2.3442212550111422e-11, global = 1.403651901935474e-22, cumulative = 4.247139638501868e-22
+step timing [ms]: momentum assembly 5857.38594 solve 2756.812629 | pressure assembly 36.934901000000536 solve 43471.587749 | step 52491.906853
+ExecutionTime = 187.98 s  ClockTime = 189 s
+
+Time = 0.0002
+Courant Number mean: 0.008955510824599536 max: 0.3453502491937975
+Bicgstab:  Solving for Ux, Initial residual = 0.11290096846900004, Final residual = 4.3587999767790916e-07, No Iterations 66
+Bicgstab:  Solving for Uy, Initial residual = 0.4429194438249152, Final residual = 1.6907721320494937e-06, No Iterations 66
+Bicgstab:  Solving for Uz, Initial residual = 0.9976914943294237, Final residual = 1.9624806618716938e-06, No Iterations 66
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8739386480765239, Final residual = 9.96466546669902e-07, No Iterations 3902
+time step continuity errors : sum local = 4.147906672262469e-11, global = 8.344710706637528e-22, cumulative = 1.2591850345139396e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.824419415389153, Final residual = 9.996698370882976e-07, No Iterations 3869
+time step continuity errors : sum local = 4.243618283070552e-11, global = 2.2038809743765425e-23, cumulative = 1.281223844257705e-21
+step timing [ms]: momentum assembly 78.8403400000002 solve 2632.339592 | pressure assembly 37.46680300000298 solve 46307.556521 | step 49404.313365
+ExecutionTime = 237.25 s  ClockTime = 239 s
+
+Time = 0.00030000000000000003
+Courant Number mean: 0.01357878326453757 max: 0.39967376808790644
+Bicgstab:  Solving for Ux, Initial residual = 0.05166382231047638, Final residual = 7.220410889545681e-07, No Iterations 67
+Bicgstab:  Solving for Uy, Initial residual = 0.21499455823497518, Final residual = 2.847192429251638e-06, No Iterations 67
+Bicgstab:  Solving for Uz, Initial residual = 0.8803553215817093, Final residual = 1.7710657248589107e-06, No Iterations 67
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9170791478190342, Final residual = 9.918460860593288e-07, No Iterations 3624
+time step continuity errors : sum local = 4.992815508898146e-11, global = 1.4865162369352662e-22, cumulative = 1.4298754679512318e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.892541108782988, Final residual = 9.85570356808698e-07, No Iterations 3622
+time step continuity errors : sum local = 4.8989938726694246e-11, global = 1.6787186245301868e-22, cumulative = 1.5977473304042504e-21
+step timing [ms]: momentum assembly 75.33743099999992 solve 2665.697983 | pressure assembly 37.42339400000492 solve 43212.815084999995 | step 46258.811733
+ExecutionTime = 283.39 s  ClockTime = 285 s
+
+Time = 0.0004
+Courant Number mean: 0.016408355846377884 max: 0.38043559724971543
+Bicgstab:  Solving for Ux, Initial residual = 0.036785512712764985, Final residual = 6.097021100815803e-07, No Iterations 66
+Bicgstab:  Solving for Uy, Initial residual = 0.1664585656839639, Final residual = 2.6115631537741112e-06, No Iterations 66
+Bicgstab:  Solving for Uz, Initial residual = 0.7452263510577833, Final residual = 1.7530378095509522e-06, No Iterations 66
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8954525804137067, Final residual = 9.909981269046942e-07, No Iterations 3568
+time step continuity errors : sum local = 5.2923275936378696e-11, global = -8.384289259269434e-22, cumulative = 7.59318404477307e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8389402579992155, Final residual = 9.873207241202097e-07, No Iterations 3565
+time step continuity errors : sum local = 5.381071369909108e-11, global = -2.0524217000580256e-22, cumulative = 5.540762344715045e-22
+step timing [ms]: momentum assembly 75.37464599999976 solve 2626.437589 | pressure assembly 37.39121100000193 solve 42543.195727 | step 45548.886539
+ExecutionTime = 328.82 s  ClockTime = 331 s
+
+Time = 0.0005
+Courant Number mean: 0.018887485855743402 max: 0.41333245588069534
+Bicgstab:  Solving for Ux, Initial residual = 0.031047727138643632, Final residual = 6.688744991777015e-07, No Iterations 65
+Bicgstab:  Solving for Uy, Initial residual = 0.12435351258412149, Final residual = 2.240691914017916e-06, No Iterations 65
+Bicgstab:  Solving for Uz, Initial residual = 0.6890163955391368, Final residual = 2.512357654713649e-06, No Iterations 65
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9155483705250861, Final residual = 9.836506661812043e-07, No Iterations 3567
+time step continuity errors : sum local = 5.375414408636035e-11, global = -4.1243688813452977e-22, cumulative = 1.416393463369747e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.882821658498575, Final residual = 9.898921812745625e-07, No Iterations 3565
+time step continuity errors : sum local = 5.3431071123040506e-11, global = 1.2165645768024277e-22, cumulative = 2.632958040172175e-22
+step timing [ms]: momentum assembly 75.26309300000003 solve 2591.719242 | pressure assembly 37.45815199999197 solve 42544.433529 | step 45510.185768
+ExecutionTime = 374.21 s  ClockTime = 376 s
+
+Time = 0.0006000000000000001
+Courant Number mean: 0.020837183988188412 max: 0.38539706992202716
+Bicgstab:  Solving for Ux, Initial residual = 0.02623453869991131, Final residual = 6.640745084554287e-07, No Iterations 65
+Bicgstab:  Solving for Uy, Initial residual = 0.10902089029816273, Final residual = 2.6457092689286095e-06, No Iterations 65
+Bicgstab:  Solving for Uz, Initial residual = 0.5986697973093026, Final residual = 4.510053184309746e-06, No Iterations 65
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8983399829183205, Final residual = 9.979106203199542e-07, No Iterations 3559
+time step continuity errors : sum local = 5.69493291575594e-11, global = -1.683576796015998e-22, cumulative = 9.493812441561767e-23
+PISO loop
+Cg:  Solving for p, Initial residual = 0.836839525550239, Final residual = 9.80480141126134e-07, No Iterations 3555
+time step continuity errors : sum local = 5.694157887600507e-11, global = 2.0762553968152867e-22, cumulative = 3.0256366409714637e-22
+step timing [ms]: momentum assembly 82.24150599999984 solve 2595.823054 | pressure assembly 37.46967799999402 solve 42428.806981 | step 45410.480286
+ExecutionTime = 419.5 s  ClockTime = 421 s
+
+Time = 0.0007000000000000001
+Courant Number mean: 0.022641999480125165 max: 0.42478582751629995
+Bicgstab:  Solving for Ux, Initial residual = 0.02407435379168066, Final residual = 6.502757030340322e-07, No Iterations 65
+Bicgstab:  Solving for Uy, Initial residual = 0.0966647236413209, Final residual = 2.052147091462797e-06, No Iterations 65
+Bicgstab:  Solving for Uz, Initial residual = 0.5789762082409224, Final residual = 3.914123744676626e-06, No Iterations 65
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9163985338001398, Final residual = 9.908183819179412e-07, No Iterations 3559
+time step continuity errors : sum local = 5.7213303658920575e-11, global = -4.572096644735159e-22, cumulative = -1.5464600037636952e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8751407768970664, Final residual = 9.87462662733236e-07, No Iterations 3556
+time step continuity errors : sum local = 5.643105470584412e-11, global = 1.6717396920085543e-22, cumulative = 1.2527968824485908e-23
+step timing [ms]: momentum assembly 83.19672899999978 solve 2596.36585 | pressure assembly 37.42836200000602 solve 42442.25103 | step 45428.125371
+ExecutionTime = 464.81 s  ClockTime = 467 s
+
+Time = 0.0008000000000000001
+Courant Number mean: 0.024156014345735517 max: 0.3880567274248746
+Bicgstab:  Solving for Ux, Initial residual = 0.022026621342535694, Final residual = 8.960588592633776e-07, No Iterations 63
+Bicgstab:  Solving for Uy, Initial residual = 0.08761188879681499, Final residual = 1.1999738785490921e-06, No Iterations 63
+Bicgstab:  Solving for Uz, Initial residual = 0.5466806395971818, Final residual = 2.507158133978911e-06, No Iterations 63
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9017367526970337, Final residual = 9.823879243390573e-07, No Iterations 3555
+time step continuity errors : sum local = 5.971888784084366e-11, global = 4.49476406746004e-22, cumulative = 4.620043755704898e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8355334154389211, Final residual = 9.791335504315673e-07, No Iterations 3552
+time step continuity errors : sum local = 6.048032205614624e-11, global = -3.1960262861632154e-22, cumulative = 1.424017469541683e-22
+step timing [ms]: momentum assembly 75.36959999999999 solve 2524.25513 | pressure assembly 37.411009000003105 solve 42383.361583 | step 45284.477782
+ExecutionTime = 509.97 s  ClockTime = 512 s
+
+Time = 0.0009000000000000002
+Courant Number mean: 0.025608421491574183 max: 0.4381798204975464
+Bicgstab:  Solving for Ux, Initial residual = 0.020840263850883757, Final residual = 8.843323722175553e-07, No Iterations 63
+Bicgstab:  Solving for Uy, Initial residual = 0.0839868589183033, Final residual = 1.311627160424247e-06, No Iterations 63
+Bicgstab:  Solving for Uz, Initial residual = 0.5496860378538323, Final residual = 2.732065481159908e-06, No Iterations 63
+PISO loop
+Cg:  Solving for p, Initial residual = 0.920086074876446, Final residual = 9.97295933201454e-07, No Iterations 3555
+time step continuity errors : sum local = 6.238105378002961e-11, global = -5.5582971007400855e-22, cumulative = -4.1342796311984025e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8714580208319528, Final residual = 9.878548473524886e-07, No Iterations 3553
+time step continuity errors : sum local = 6.123856307724482e-11, global = -4.1520478774296155e-22, cumulative = -8.286327508628018e-22
+step timing [ms]: momentum assembly 78.22004199999992 solve 2519.31684 | pressure assembly 37.42423300000519 solve 42402.892502999995 | step 45307.875891
+ExecutionTime = 555.16 s  ClockTime = 558 s
+
+Time = 0.0010000000000000002
+Courant Number mean: 0.026857437545014597 max: 0.3913676701914667
+Bicgstab:  Solving for Ux, Initial residual = 0.020016654639170642, Final residual = 5.5165566477748e-07, No Iterations 62
+Bicgstab:  Solving for Uy, Initial residual = 0.07763326151584367, Final residual = 7.411809744325706e-07, No Iterations 62
+Bicgstab:  Solving for Uz, Initial residual = 0.5383567843780376, Final residual = 1.7879863972836954e-06, No Iterations 62
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9085549973489812, Final residual = 9.872379935456683e-07, No Iterations 3554
+time step continuity errors : sum local = 6.602496917002761e-11, global = 1.612982163722298e-22, cumulative = -6.673345344905719e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.838619167121396, Final residual = 9.929778344940003e-07, No Iterations 3550
+time step continuity errors : sum local = 6.73856277037012e-11, global = 2.990357891454878e-22, cumulative = -3.6829874534508415e-22
+step timing [ms]: momentum assembly 77.19273900000007 solve 2488.993727 | pressure assembly 37.522317000009934 solve 42366.064530999996 | step 45231.235001
+ExecutionTime = 600.27 s  ClockTime = 603 s
+
+Time = 0.0011000000000000003
+Courant Number mean: 0.028088593464963243 max: 0.45524964370618537
+Bicgstab:  Solving for Ux, Initial residual = 0.019281126879798147, Final residual = 6.615589843499852e-07, No Iterations 60
+Bicgstab:  Solving for Uy, Initial residual = 0.07788770432967679, Final residual = 3.629190357649986e-07, No Iterations 60
+Bicgstab:  Solving for Uz, Initial residual = 0.5490232492801547, Final residual = 3.6778238527008476e-06, No Iterations 60
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9257004027713662, Final residual = 9.928208366078086e-07, No Iterations 3555
+time step continuity errors : sum local = 6.899575198562446e-11, global = 6.858578600786895e-23, cumulative = -2.997129593372152e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.871879222973042, Final residual = 9.81055368617689e-07, No Iterations 3553
+time step continuity errors : sum local = 6.76789385603465e-11, global = -7.000975441026232e-23, cumulative = -3.6972271374747755e-22
+step timing [ms]: momentum assembly 82.56319699999995 solve 2415.80154 | pressure assembly 37.457737999997335 solve 42400.384172000005 | step 45205.873122
+ExecutionTime = 645.35 s  ClockTime = 648 s
+
+Time = 0.0012000000000000003
+Courant Number mean: 0.029155553508764694 max: 0.3954459019188212
+Bicgstab:  Solving for Ux, Initial residual = 0.019164608209362166, Final residual = 3.9144154037477316e-07, No Iterations 59
+Bicgstab:  Solving for Uy, Initial residual = 0.07342131167939604, Final residual = 2.6371585204341055e-06, No Iterations 59
+Bicgstab:  Solving for Uz, Initial residual = 0.5473720936895159, Final residual = 1.2071666520500903e-05, No Iterations 59
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9158785223635904, Final residual = 9.908469935278595e-07, No Iterations 3555
+time step continuity errors : sum local = 7.389788707429235e-11, global = -4.113257908023892e-22, cumulative = -7.8104850454986675e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8438603602555984, Final residual = 9.950179249374158e-07, No Iterations 3550
+time step continuity errors : sum local = 7.519852427902359e-11, global = 5.620679867715278e-22, cumulative = -2.1898051777833895e-22
+step timing [ms]: momentum assembly 76.93223200000011 solve 2379.273921 | pressure assembly 37.46766200000275 solve 42371.399241 | step 45134.68206
+ExecutionTime = 690.36 s  ClockTime = 693 s
+
+Time = 0.0013000000000000004
+Courant Number mean: 0.03023415197307466 max: 0.47737898845651844
+Bicgstab:  Solving for Ux, Initial residual = 0.018731285294360415, Final residual = 1.8465135872828576e-07, No Iterations 58
+Bicgstab:  Solving for Uy, Initial residual = 0.07567310036986558, Final residual = 3.5259414360255918e-06, No Iterations 58
+Bicgstab:  Solving for Uz, Initial residual = 0.5618629190214885, Final residual = 1.3153858206690559e-05, No Iterations 58
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9312555481804645, Final residual = 9.96372816347736e-07, No Iterations 3557
+time step continuity errors : sum local = 7.771927858529458e-11, global = -2.7504142350993823e-22, cumulative = -4.940219412882771e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8733286557029399, Final residual = 9.862000550022566e-07, No Iterations 3554
+time step continuity errors : sum local = 7.648978430134111e-11, global = 4.460202569211144e-22, cumulative = -4.8001684367162754e-23
+step timing [ms]: momentum assembly 78.52435099999957 solve 2345.057192 | pressure assembly 37.49333699999988 solve 42418.307849 | step 45140.775001
+ExecutionTime = 735.39 s  ClockTime = 738 s
+
+Time = 0.0014000000000000004
+Courant Number mean: 0.031166739400128155 max: 0.40070176386494927
+Bicgstab:  Solving for Ux, Initial residual = 0.0190859268834758, Final residual = 4.1403142830112874e-07, No Iterations 57
+Bicgstab:  Solving for Uy, Initial residual = 0.07273162160553642, Final residual = 2.2798118403876158e-06, No Iterations 57
+Bicgstab:  Solving for Uz, Initial residual = 0.5653613094728343, Final residual = 2.6964045419904184e-05, No Iterations 57
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9228792304967226, Final residual = 9.942346894750304e-07, No Iterations 3558
+time step continuity errors : sum local = 8.34210540267726e-11, global = 2.895113772942835e-22, cumulative = 2.4150969292712075e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8495946004170901, Final residual = 9.807317359630877e-07, No Iterations 3554
+time step continuity errors : sum local = 8.327978214467114e-11, global = -1.0016616248762797e-22, cumulative = 1.413435304394928e-22
+step timing [ms]: momentum assembly 79.00790599999982 solve 2306.474526 | pressure assembly 37.40383400000428 solve 42420.81476 | step 45105.184236
+ExecutionTime = 780.38 s  ClockTime = 783 s
+
+Time = 0.0015000000000000005
+Courant Number mean: 0.03213451732195609 max: 0.5061643311919255
+Bicgstab:  Solving for Ux, Initial residual = 0.018944451433713774, Final residual = 7.117672491119624e-07, No Iterations 61
+Bicgstab:  Solving for Uy, Initial residual = 0.07628074024355572, Final residual = 1.8674895411672413e-06, No Iterations 61
+Bicgstab:  Solving for Uz, Initial residual = 0.5813818855467857, Final residual = 7.571171559955758e-06, No Iterations 61
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9362050378304047, Final residual = 9.907696646582782e-07, No Iterations 1966
+time step continuity errors : sum local = 9.531939657226832e-11, global = 4.521207669501458e-22, cumulative = 5.934642973896386e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8750511989920505, Final residual = 9.859063349336614e-07, No Iterations 1943
+time step continuity errors : sum local = 8.890699182827839e-11, global = -1.1808649479048022e-22, cumulative = 4.753778025991584e-22
+step timing [ms]: momentum assembly 79.22830599999998 solve 2450.661135 | pressure assembly 37.41154199999801 solve 23538.277801 | step 26373.308532
+ExecutionTime = 806.68 s  ClockTime = 810 s
+
+Time = 0.0016000000000000005
+Courant Number mean: 0.03296275661791068 max: 0.4074711216476306
+Bicgstab:  Solving for Ux, Initial residual = 0.01965522228746593, Final residual = 1.8425887191539506e-07, No Iterations 59
+Bicgstab:  Solving for Uy, Initial residual = 0.07469670580989039, Final residual = 3.965812772943782e-06, No Iterations 59
+Bicgstab:  Solving for Uz, Initial residual = 0.5873902294910505, Final residual = 6.992875479204508e-06, No Iterations 59
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9297997405710384, Final residual = 9.954472406106564e-07, No Iterations 2180
+time step continuity errors : sum local = 1.0132990667871021e-10, global = -3.752407913618775e-22, cumulative = 1.0013701123728095e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8556977544860095, Final residual = 9.95367823162797e-07, No Iterations 2154
+time step continuity errors : sum local = 9.797489750098163e-11, global = -3.3883918985457565e-22, cumulative = -2.387021786172947e-22
+step timing [ms]: momentum assembly 75.26130899999998 solve 2379.042877 | pressure assembly 37.446482000003016 solve 26046.672701 | step 28803.324215
+ExecutionTime = 835.41 s  ClockTime = 839 s
+
+Time = 0.0017000000000000006
+Courant Number mean: 0.03384792976948762 max: 0.5436016444036939
+Bicgstab:  Solving for Ux, Initial residual = 0.01983513671886789, Final residual = 3.849844689485418e-07, No Iterations 59
+Bicgstab:  Solving for Uy, Initial residual = 0.07938297420095039, Final residual = 2.5452438500850013e-06, No Iterations 59
+Bicgstab:  Solving for Uz, Initial residual = 0.6031779802317467, Final residual = 3.6052375934765065e-06, No Iterations 59
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9413288295681517, Final residual = 9.86970136402976e-07, No Iterations 3565
+time step continuity errors : sum local = 9.998808989834349e-11, global = 3.1471429866255953e-22, cumulative = 7.601212004526484e-23
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8771246422097471, Final residual = 9.939822488042844e-07, No Iterations 3561
+time step continuity errors : sum local = 1.0046534658152685e-10, global = -1.436320171877163e-22, cumulative = -6.761989714245145e-23
+step timing [ms]: momentum assembly 80.48239000000012 solve 2375.131958 | pressure assembly 37.474019000001135 solve 42505.687576 | step 45266.747733
+ExecutionTime = 880.56 s  ClockTime = 884 s
+
+Time = 0.0018000000000000006
+Courant Number mean: 0.03459202114371996 max: 0.4163246641279404
+Bicgstab:  Solving for Ux, Initial residual = 0.020882945819449054, Final residual = 6.868722864384288e-07, No Iterations 59
+Bicgstab:  Solving for Uy, Initial residual = 0.0792058312855326, Final residual = 1.364193081647554e-06, No Iterations 59
+Bicgstab:  Solving for Uz, Initial residual = 0.6105306904154106, Final residual = 2.4773048395455513e-06, No Iterations 59
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9378990526243729, Final residual = 9.913133176583183e-07, No Iterations 3566
+time step continuity errors : sum local = 1.0883524542181325e-10, global = 1.3679762922746905e-22, cumulative = 6.91777320850176e-23
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8631776370413332, Final residual = 9.862360133051833e-07, No Iterations 3562
+time step continuity errors : sum local = 1.0932652384358981e-10, global = -4.27339366780143e-22, cumulative = -3.5816163469512537e-22
+step timing [ms]: momentum assembly 78.05179799999996 solve 2379.101858 | pressure assembly 37.49084099999891 solve 42508.79447 | step 45265.593085
+ExecutionTime = 925.7 s  ClockTime = 929 s
+
+Time = 0.0019000000000000006
+Courant Number mean: 0.035415690458501375 max: 0.5923703007839503
+Bicgstab:  Solving for Ux, Initial residual = 0.02143722313720751, Final residual = 6.374337889844872e-07, No Iterations 60
+Bicgstab:  Solving for Uy, Initial residual = 0.08498054299415282, Final residual = 2.2934051144172413e-06, No Iterations 60
+Bicgstab:  Solving for Uz, Initial residual = 0.6252087472297008, Final residual = 3.0174789786107007e-06, No Iterations 60
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9469848119965817, Final residual = 9.945132095808951e-07, No Iterations 3568
+time step continuity errors : sum local = 1.171622888581481e-10, global = 1.8332992636784822e-22, cumulative = -1.7483170832727715e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8803982132954561, Final residual = 9.87093979086913e-07, No Iterations 3565
+time step continuity errors : sum local = 1.162010267507534e-10, global = -1.1005655266118424e-21, cumulative = -1.2753972349391195e-21
+step timing [ms]: momentum assembly 75.25500000000011 solve 2416.618817 | pressure assembly 37.46861199999694 solve 42556.841671 | step 45352.667922
+ExecutionTime = 970.94 s  ClockTime = 974 s
+
+Time = 0.0020000000000000005
+Courant Number mean: 0.03609042354057508 max: 0.44318857891284846
+Bicgstab:  Solving for Ux, Initial residual = 0.02286025212173747, Final residual = 5.494799603450076e-07, No Iterations 59
+Bicgstab:  Solving for Uy, Initial residual = 0.0861900219241545, Final residual = 1.1455760146484722e-06, No Iterations 59
+Bicgstab:  Solving for Uz, Initial residual = 0.6332336817832671, Final residual = 6.471274827114147e-06, No Iterations 59
+PISO loop
+Cg:  Solving for p, Initial residual = 0.9451777444516855, Final residual = 9.836461252928567e-07, No Iterations 3570
+time step continuity errors : sum local = 1.261248821447176e-10, global = 7.585888362509885e-22, cumulative = -5.16808398688131e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.8703251635326165, Final residual = 9.85468387231092e-07, No Iterations 3566
+time step continuity errors : sum local = 1.2746584755548902e-10, global = -3.661194085471506e-22, cumulative = -8.829278072352817e-22
+step timing [ms]: momentum assembly 81.97343099999989 solve 2379.209666 | pressure assembly 37.445770999998786 solve 42556.668151000005 | step 45316.745556
+ExecutionTime = 1016.13 s  ClockTime = 1020 s
+
+  Activating project at `~/JuNe.jl`
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcudart.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcublas.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcublas.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcublasLt.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcurand.so.10` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcurand.so.10`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcufft.so.11` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcufft.so.11`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+total timing [ms] over 20 steps: momentum assembly 7345.701985999998 solve 49824.13512600001 | pressure assembly 748.4898980000216 solve 819426.813631 | loop 904367.698586
+Finalizing NeoN

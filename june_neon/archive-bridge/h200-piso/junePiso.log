@@ -1,0 +1,7 @@
+Test project /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu
+    Start 23: neofoam_test_junePiso
+1/1 Test #23: neofoam_test_junePiso ............   Passed   27.99 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =  28.00 sec

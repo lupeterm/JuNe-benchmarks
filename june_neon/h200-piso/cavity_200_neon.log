@@ -1,0 +1,335 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : build/julia-gpu-nvidia-h200-3-gpu/bin/neoIcoFoam -case /storage/home/lupeterm/nobackup/june-piso/200/neon/case -executor GPU
+Date   : Nov 09 2026
+Time   : 23:18:55
+Host   : gpu-nvidia-h200-3.int.coma-cluster.de
+PID    : 2300910
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/june-piso/200/neon/case
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Initializing NeoN
+Create time
+
+Creating Executor GPU
+Creating NeoFOAM runTime
+
+PISO: Operating solver in PISO mode
+
+Reading transportProperties
+
+Reading field p
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+Mapping OpenFOAM solver settings to NeoN settings.
+Currently, it is advisable to specify a configFile
+for fine grained Ginkgo solver control
+
+Replacing solver PCG by solver::Cg
+Mapping OpenFOAM solver settings to NeoN settings.
+Currently, it is advisable to specify a configFile
+for fine grained Ginkgo solver control
+
+Replacing solver PBiCGStab by solver::Bicgstab
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,T)'
+Creating phi
+Starting time loop
+Time = 0.0002
+Courant Number mean: 0 max: 0
+Bicgstab:  Solving for Ux, Initial residual = 1, Final residual = 8.00278942480241e-07, No Iterations 54
+Bicgstab:  Solving for Uy, Initial residual = 0, Final residual = 0, No Iterations 54
+Bicgstab:  Solving for Uz, Initial residual = 0, Final residual = 0, No Iterations 54
+PISO loop
+Cg:  Solving for p, Initial residual = 1, Final residual = 9.84528769749574e-07, No Iterations 1814
+time step continuity errors : sum local = 5.3856562294664295e-11, global = 1.1263548890703259e-21, cumulative = 1.1263548890703259e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.7715874698376128, Final residual = 9.554423710241138e-07, No Iterations 1808
+time step continuity errors : sum local = 6.640524200740658e-11, global = 1.0430255880933992e-21, cumulative = 2.1693804771637253e-21
+step timing [ms]: momentum assembly 762.668035 solve 302.493658 | pressure assembly 5.515050999999858 solve 3273.650305 | step 4461.559375
+ExecutionTime = 18.47 s  ClockTime = 19 s
+
+Time = 0.0004
+Courant Number mean: 0.011990661486642512 max: 0.32326784281706605
+Bicgstab:  Solving for Ux, Initial residual = 0.13580921511970157, Final residual = 7.966658551722531e-07, No Iterations 49
+Bicgstab:  Solving for Uy, Initial residual = 0.4011031874832124, Final residual = 1.966013124558146e-06, No Iterations 49
+Bicgstab:  Solving for Uz, Initial residual = 0.9953387203860321, Final residual = 2.688760811754698e-06, No Iterations 49
+PISO loop
+Cg:  Solving for p, Initial residual = 0.7727900517766392, Final residual = 9.930633777697136e-07, No Iterations 1922
+time step continuity errors : sum local = 8.867955526289189e-11, global = -1.548695344006102e-21, cumulative = 6.206851331576233e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.7121228757731944, Final residual = 9.947536879418784e-07, No Iterations 1917
+time step continuity errors : sum local = 9.042801562764493e-11, global = 2.9783407378344267e-22, cumulative = 9.18519206941066e-22
+step timing [ms]: momentum assembly 15.117306999999983 solve 268.433308 | pressure assembly 5.114781000000221 solve 3463.484469 | step 3860.916629
+ExecutionTime = 22.33 s  ClockTime = 23 s
+
+Time = 0.0006000000000000001
+Courant Number mean: 0.01812878986664274 max: 0.36903525832690637
+Bicgstab:  Solving for Ux, Initial residual = 0.05336529573769769, Final residual = 6.490683162537983e-07, No Iterations 47
+Bicgstab:  Solving for Uy, Initial residual = 0.15395387102435956, Final residual = 1.580636655297139e-06, No Iterations 47
+Bicgstab:  Solving for Uz, Initial residual = 0.8044582998947845, Final residual = 3.0083678025048656e-05, No Iterations 47
+PISO loop
+Cg:  Solving for p, Initial residual = 0.7891802240331451, Final residual = 9.954868002518682e-07, No Iterations 1785
+time step continuity errors : sum local = 7.716141550586368e-11, global = -1.3243631136984755e-22, cumulative = 7.860828955712184e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.7519806934842853, Final residual = 9.79665049460861e-07, No Iterations 1783
+time step continuity errors : sum local = 7.414779488355023e-11, global = 1.6354950044016317e-22, cumulative = 9.496323960113816e-22
+step timing [ms]: momentum assembly 14.925314000000014 solve 259.408746 | pressure assembly 5.095633999999336 solve 3220.9445210000003 | step 3571.069337
+ExecutionTime = 25.89 s  ClockTime = 26 s
+
+Time = 0.0008
+Courant Number mean: 0.021895219018774528 max: 0.3716822786437703
+Bicgstab:  Solving for Ux, Initial residual = 0.03314970601725078, Final residual = 6.472706664390586e-07, No Iterations 44
+Bicgstab:  Solving for Uy, Initial residual = 0.10307894017464624, Final residual = 1.6232491194816369e-06, No Iterations 44
+Bicgstab:  Solving for Uz, Initial residual = 0.47397856067912586, Final residual = 2.3437782659122987e-06, No Iterations 44
+PISO loop
+Cg:  Solving for p, Initial residual = 0.6584565265106008, Final residual = 9.646746303991346e-07, No Iterations 1806
+time step continuity errors : sum local = 6.345708680691835e-11, global = -1.7143339197794232e-21, cumulative = -7.647015237680417e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.5941330472160832, Final residual = 9.85459187316152e-07, No Iterations 1803
+time step continuity errors : sum local = 6.547958430124183e-11, global = 5.031435127985327e-23, cumulative = -7.143871724881884e-22
+step timing [ms]: momentum assembly 14.780154000000039 solve 245.076059 | pressure assembly 5.094161999999869 solve 3252.299468 | step 3587.892323
+ExecutionTime = 29.46 s  ClockTime = 30 s
+
+Time = 0.001
+Courant Number mean: 0.024990497412587576 max: 0.37595448929758457
+Bicgstab:  Solving for Ux, Initial residual = 0.025434661583454737, Final residual = 6.648736100675819e-07, No Iterations 42
+Bicgstab:  Solving for Uy, Initial residual = 0.06419011246411986, Final residual = 1.084815087746329e-06, No Iterations 42
+Bicgstab:  Solving for Uz, Initial residual = 0.2390966405639461, Final residual = 1.955468671240795e-05, No Iterations 42
+PISO loop
+Cg:  Solving for p, Initial residual = 0.6288059317335477, Final residual = 9.860510393624337e-07, No Iterations 1753
+time step continuity errors : sum local = 5.11077022752598e-11, global = -5.051514856575695e-22, cumulative = -1.219538658145758e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.5733100351199054, Final residual = 9.757969744953017e-07, No Iterations 1751
+time step continuity errors : sum local = 5.0110351788463213e-11, global = 5.919557706712701e-22, cumulative = -6.275828874744879e-22
+step timing [ms]: momentum assembly 14.753387000000004 solve 235.035689 | pressure assembly 5.089273000000048 solve 3160.7768379999998 | step 3486.280726
+ExecutionTime = 32.94 s  ClockTime = 33 s
+
+Time = 0.0012000000000000001
+Courant Number mean: 0.027512629361248254 max: 0.37862846878755674
+Bicgstab:  Solving for Ux, Initial residual = 0.01927873424352425, Final residual = 6.821601048729576e-07, No Iterations 40
+Bicgstab:  Solving for Uy, Initial residual = 0.05107353006461754, Final residual = 1.3268806330366868e-06, No Iterations 40
+Bicgstab:  Solving for Uz, Initial residual = 0.17498431277640436, Final residual = 1.7335514560303928e-05, No Iterations 40
+PISO loop
+Cg:  Solving for p, Initial residual = 0.4950667052280305, Final residual = 9.83145036641159e-07, No Iterations 1735
+time step continuity errors : sum local = 4.678601643666523e-11, global = -9.582059408020702e-22, cumulative = -1.5857888282765581e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.43831824982122386, Final residual = 9.98445457554401e-07, No Iterations 1732
+time step continuity errors : sum local = 4.750582051224058e-11, global = 1.018227385817204e-21, cumulative = -5.675614424593542e-22
+step timing [ms]: momentum assembly 15.194311999999996 solve 226.051815 | pressure assembly 5.097035999999662 solve 3130.073758 | step 3447.9952
+ExecutionTime = 36.38 s  ClockTime = 37 s
+
+Time = 0.0014000000000000002
+Courant Number mean: 0.02970205166978015 max: 0.3804960947819491
+Bicgstab:  Solving for Ux, Initial residual = 0.016307925220102125, Final residual = 7.792800400743193e-07, No Iterations 38
+Bicgstab:  Solving for Uy, Initial residual = 0.03839090752586061, Final residual = 1.1767361752508398e-06, No Iterations 38
+Bicgstab:  Solving for Uz, Initial residual = 0.10799812785216716, Final residual = 1.4433061909224203e-05, No Iterations 38
+PISO loop
+Cg:  Solving for p, Initial residual = 0.4522506069049157, Final residual = 9.833551839134993e-07, No Iterations 1679
+time step continuity errors : sum local = 3.960945755602805e-11, global = 1.1860550215724323e-23, cumulative = -5.557008922436299e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.3971851301960762, Final residual = 9.939667364989271e-07, No Iterations 1676
+time step continuity errors : sum local = 3.9972262298414737e-11, global = 2.0617569664144406e-22, cumulative = -3.495251956021858e-22
+step timing [ms]: momentum assembly 14.765873 solve 216.300944 | pressure assembly 5.09364000000005 solve 3030.500447 | step 3337.215995
+ExecutionTime = 39.71 s  ClockTime = 40 s
+
+Time = 0.0016000000000000003
+Courant Number mean: 0.03161946295587633 max: 0.381902966757345
+Bicgstab:  Solving for Ux, Initial residual = 0.013619737202552645, Final residual = 6.940372485663161e-07, No Iterations 37
+Bicgstab:  Solving for Uy, Initial residual = 0.032790036109896316, Final residual = 1.2565283717766043e-06, No Iterations 37
+Bicgstab:  Solving for Uz, Initial residual = 0.08661728604196994, Final residual = 1.5215199584964423e-05, No Iterations 37
+PISO loop
+Cg:  Solving for p, Initial residual = 0.3509674720666642, Final residual = 9.963492577118564e-07, No Iterations 1680
+time step continuity errors : sum local = 3.853248743698863e-11, global = -1.212637003700578e-21, cumulative = -1.5621621993027638e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.3059506761201789, Final residual = 9.661274162154048e-07, No Iterations 1678
+time step continuity errors : sum local = 3.7232091001661743e-11, global = -1.1242549362919179e-21, cumulative = -2.6864171355946814e-21
+step timing [ms]: momentum assembly 14.737624000000011 solve 211.733457 | pressure assembly 5.0916369999999915 solve 3033.67783 | step 3335.731632
+ExecutionTime = 43.04 s  ClockTime = 44 s
+
+Time = 0.0018000000000000004
+Courant Number mean: 0.03333976363009797 max: 0.38300827786206604
+Bicgstab:  Solving for Ux, Initial residual = 0.011949832658509909, Final residual = 7.822853366091574e-07, No Iterations 35
+Bicgstab:  Solving for Uy, Initial residual = 0.027002196817941776, Final residual = 1.3019284755721973e-06, No Iterations 35
+Bicgstab:  Solving for Uz, Initial residual = 0.06356800133052022, Final residual = 1.4494893739602164e-05, No Iterations 35
+PISO loop
+Cg:  Solving for p, Initial residual = 0.30524357537565633, Final residual = 9.851423854144916e-07, No Iterations 1675
+time step continuity errors : sum local = 3.4887013561845806e-11, global = 4.39312735464911e-22, cumulative = -2.2471044001297705e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.26324401036754946, Final residual = 9.919867295463047e-07, No Iterations 1672
+time step continuity errors : sum local = 3.516324075918288e-11, global = 2.5973502536165775e-22, cumulative = -1.987369374768113e-21
+step timing [ms]: momentum assembly 14.754286999999977 solve 202.315084 | pressure assembly 5.1001790000000256 solve 3024.008061 | step 3316.734114
+ExecutionTime = 46.34 s  ClockTime = 47 s
+
+Time = 0.0020000000000000005
+Courant Number mean: 0.03489538704464052 max: 0.38390729963229037
+Bicgstab:  Solving for Ux, Initial residual = 0.010495870385393019, Final residual = 7.186564522637644e-07, No Iterations 34
+Bicgstab:  Solving for Uy, Initial residual = 0.023923383714842435, Final residual = 1.3324391039199593e-06, No Iterations 34
+Bicgstab:  Solving for Uz, Initial residual = 0.05433872913990484, Final residual = 1.497055708868649e-05, No Iterations 34
+PISO loop
+Cg:  Solving for p, Initial residual = 0.24213985975865362, Final residual = 9.721624081625581e-07, No Iterations 1665
+time step continuity errors : sum local = 3.3124885639733434e-11, global = 3.849781369662401e-22, cumulative = -1.6023912378018727e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.2085678055688322, Final residual = 9.89326574088291e-07, No Iterations 1662
+time step continuity errors : sum local = 3.3580815304131804e-11, global = 5.34829114487806e-22, cumulative = -1.0675621233140666e-21
+step timing [ms]: momentum assembly 14.763449000000008 solve 197.934735 | pressure assembly 5.11239599999999 solve 3005.424552 | step 3293.985944
+ExecutionTime = 49.63 s  ClockTime = 50 s
+
+Time = 0.0022000000000000006
+Courant Number mean: 0.036319500281048675 max: 0.3846544253745534
+Bicgstab:  Solving for Ux, Initial residual = 0.009424542953124851, Final residual = 8.739369430576814e-07, No Iterations 33
+Bicgstab:  Solving for Uy, Initial residual = 0.02074417542868609, Final residual = 1.1317990615367682e-06, No Iterations 33
+Bicgstab:  Solving for Uz, Initial residual = 0.044092609054949716, Final residual = 1.3664120867229474e-05, No Iterations 33
+PISO loop
+Cg:  Solving for p, Initial residual = 0.20468970832861835, Final residual = 9.909973881080911e-07, No Iterations 1659
+time step continuity errors : sum local = 3.263814949737436e-11, global = 3.450117939448441e-21, cumulative = 2.3825558161343744e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.1746954759211677, Final residual = 9.701027273441487e-07, No Iterations 1657
+time step continuity errors : sum local = 3.199024618584638e-11, global = -2.3683497337984705e-21, cumulative = 1.4206082335903872e-23
+step timing [ms]: momentum assembly 14.74681799999999 solve 193.141116 | pressure assembly 5.102373000000171 solve 2996.3554999999997 | step 3279.90245
+ExecutionTime = 52.9 s  ClockTime = 54 s
+
+Time = 0.0024000000000000007
+Courant Number mean: 0.03763257466846669 max: 0.3852905455766775
+Bicgstab:  Solving for Ux, Initial residual = 0.008512107173158713, Final residual = 6.973610722863546e-07, No Iterations 32
+Bicgstab:  Solving for Uy, Initial residual = 0.018790150318530093, Final residual = 1.2047385606384684e-06, No Iterations 32
+Bicgstab:  Solving for Uz, Initial residual = 0.03953407710829696, Final residual = 1.3035019378783995e-05, No Iterations 32
+PISO loop
+Cg:  Solving for p, Initial residual = 0.16566301859817945, Final residual = 9.821519069293842e-07, No Iterations 1648
+time step continuity errors : sum local = 3.107245256514636e-11, global = 1.2283265963978237e-21, cumulative = 1.2425326787337276e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.1413664618865983, Final residual = 9.915854240696626e-07, No Iterations 1645
+time step continuity errors : sum local = 3.128352718230912e-11, global = -8.087820740316075e-22, cumulative = 4.337506047021201e-22
+step timing [ms]: momentum assembly 14.755549000000002 solve 188.524533 | pressure assembly 5.098127000000204 solve 2974.1707749999996 | step 3254.237195
+ExecutionTime = 56.15 s  ClockTime = 57 s
+
+Time = 0.0026000000000000007
+Courant Number mean: 0.03885007385325375 max: 0.38583770811114193
+Bicgstab:  Solving for Ux, Initial residual = 0.007767633059253527, Final residual = 6.760975676659639e-07, No Iterations 32
+Bicgstab:  Solving for Uy, Initial residual = 0.016804864717949064, Final residual = 1.1428340658036703e-06, No Iterations 32
+Bicgstab:  Solving for Uz, Initial residual = 0.034012793977448004, Final residual = 9.054125060822045e-06, No Iterations 32
+PISO loop
+Cg:  Solving for p, Initial residual = 0.13872011970338657, Final residual = 9.96864338314805e-07, No Iterations 1642
+time step continuity errors : sum local = 3.12763363218992e-11, global = 5.899644989442299e-22, cumulative = 1.02371510364635e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.11780505111980584, Final residual = 9.933479636345525e-07, No Iterations 1640
+time step continuity errors : sum local = 3.1190803093051366e-11, global = -2.255779903614737e-21, cumulative = -1.232064799968387e-21
+step timing [ms]: momentum assembly 15.600701999999984 solve 188.466112 | pressure assembly 5.106819999999971 solve 2967.092382 | step 3246.949624
+ExecutionTime = 59.39 s  ClockTime = 60 s
+
+Time = 0.002800000000000001
+Courant Number mean: 0.03998565089577355 max: 0.3863170951296511
+Bicgstab:  Solving for Ux, Initial residual = 0.007136806171426993, Final residual = 7.127347422885483e-07, No Iterations 31
+Bicgstab:  Solving for Uy, Initial residual = 0.015451667467098706, Final residual = 1.2428584505752133e-06, No Iterations 31
+Bicgstab:  Solving for Uz, Initial residual = 0.03139800321677868, Final residual = 9.48631556294699e-06, No Iterations 31
+PISO loop
+Cg:  Solving for p, Initial residual = 0.11259140312427893, Final residual = 9.964759497775655e-07, No Iterations 1632
+time step continuity errors : sum local = 3.028814528913731e-11, global = -1.9729779290521438e-22, cumulative = -1.4293625928736013e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.09573458810371137, Final residual = 9.910523659504146e-07, No Iterations 1629
+time step continuity errors : sum local = 3.0072986570526784e-11, global = -1.470290597475705e-21, cumulative = -2.8996531903493062e-21
+step timing [ms]: momentum assembly 14.797215999999992 solve 183.758373 | pressure assembly 5.107652000000144 solve 2947.441875 | step 3221.880139
+ExecutionTime = 62.6 s  ClockTime = 63 s
+
+Time = 0.003000000000000001
+Courant Number mean: 0.041049957737139015 max: 0.3867393817595872
+Bicgstab:  Solving for Ux, Initial residual = 0.00659031111099923, Final residual = 8.548152609476575e-07, No Iterations 29
+Bicgstab:  Solving for Uy, Initial residual = 0.014091891123787356, Final residual = 1.2475449247766634e-06, No Iterations 29
+Bicgstab:  Solving for Uz, Initial residual = 0.027990528292838244, Final residual = 1.009442245355727e-05, No Iterations 29
+PISO loop
+Cg:  Solving for p, Initial residual = 0.09492234807223575, Final residual = 9.930470740138068e-07, No Iterations 1630
+time step continuity errors : sum local = 3.015084273111289e-11, global = 2.3536766887207095e-21, cumulative = -5.459765016285967e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.08045367504737669, Final residual = 9.737636221052892e-07, No Iterations 1628
+time step continuity errors : sum local = 2.957511447634606e-11, global = 2.7920383785269955e-21, cumulative = 2.2460618768983987e-21
+step timing [ms]: momentum assembly 14.782115000000005 solve 175.173957 | pressure assembly 5.11429999999973 solve 2944.9984830000003 | step 3210.791757
+ExecutionTime = 65.8 s  ClockTime = 66 s
+
+Time = 0.003200000000000001
+Courant Number mean: 0.04205026673122922 max: 0.3871166443970179
+Bicgstab:  Solving for Ux, Initial residual = 0.006126110657581489, Final residual = 6.928033484697015e-07, No Iterations 29
+Bicgstab:  Solving for Uy, Initial residual = 0.013098466424600165, Final residual = 1.1337686708892543e-06, No Iterations 29
+Bicgstab:  Solving for Uz, Initial residual = 0.02625320606126598, Final residual = 8.759756372033698e-06, No Iterations 29
+PISO loop
+Cg:  Solving for p, Initial residual = 0.07679745281178658, Final residual = 9.760491331813905e-07, No Iterations 1621
+time step continuity errors : sum local = 2.902028383946628e-11, global = 5.4564474333500695e-22, cumulative = 2.7917066202334056e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.06517030033583446, Final residual = 9.969979494238225e-07, No Iterations 1618
+time step continuity errors : sum local = 2.9618073869344454e-11, global = -2.732348426748188e-21, cumulative = 5.935819348521757e-23
+step timing [ms]: momentum assembly 14.788253999999995 solve 174.305842 | pressure assembly 5.107209000000239 solve 2926.85439 | step 3191.728158
+ExecutionTime = 68.99 s  ClockTime = 70 s
+
+Time = 0.003400000000000001
+Courant Number mean: 0.04299507865136735 max: 0.3874548493688244
+Bicgstab:  Solving for Ux, Initial residual = 0.005709011379603201, Final residual = 6.845119566268116e-07, No Iterations 28
+Bicgstab:  Solving for Uy, Initial residual = 0.01210601477042033, Final residual = 1.19279756602108e-06, No Iterations 28
+Bicgstab:  Solving for Uz, Initial residual = 0.02394765194186452, Final residual = 7.849576804689385e-06, No Iterations 28
+PISO loop
+Cg:  Solving for p, Initial residual = 0.06569094385391548, Final residual = 9.879266780829223e-07, No Iterations 1621
+time step continuity errors : sum local = 2.934416622025669e-11, global = -1.0062642761107361e-21, cumulative = -9.469060826255186e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.05560597756042792, Final residual = 9.98860995780646e-07, No Iterations 1618
+time step continuity errors : sum local = 2.967058278844347e-11, global = -1.5514256357752824e-21, cumulative = -2.498331718400801e-21
+step timing [ms]: momentum assembly 14.788454999999999 solve 169.604642 | pressure assembly 5.105949000000237 solve 2928.6780989999997 | step 3189.33919
+ExecutionTime = 72.17 s  ClockTime = 73 s
+
+Time = 0.003600000000000001
+Courant Number mean: 0.043888654830911526 max: 0.3877613345539317
+Bicgstab:  Solving for Ux, Initial residual = 0.005351331732144296, Final residual = 5.994486806856147e-07, No Iterations 27
+Bicgstab:  Solving for Uy, Initial residual = 0.01134529986046893, Final residual = 1.1893376102941767e-06, No Iterations 27
+Bicgstab:  Solving for Uz, Initial residual = 0.02265472853746803, Final residual = 8.943893048489802e-06, No Iterations 27
+PISO loop
+Cg:  Solving for p, Initial residual = 0.05292346769290606, Final residual = 9.891378911586722e-07, No Iterations 1612
+time step continuity errors : sum local = 2.899958073770449e-11, global = 1.7623138789172563e-21, cumulative = -7.360178394835447e-22
+PISO loop
+Cg:  Solving for p, Initial residual = 0.04491552845065848, Final residual = 9.62376168340823e-07, No Iterations 1610
+time step continuity errors : sum local = 2.820533926363959e-11, global = -3.283166759713349e-21, cumulative = -4.019184599196894e-21
+step timing [ms]: momentum assembly 14.816803000000021 solve 164.839263 | pressure assembly 5.103634000000056 solve 2911.82215 | step 3167.364925
+ExecutionTime = 75.33 s  ClockTime = 76 s
+
+Time = 0.0038000000000000013
+Courant Number mean: 0.04473730318735448 max: 0.3880397376753004
+Bicgstab:  Solving for Ux, Initial residual = 0.005023357125387337, Final residual = 6.48687301451692e-07, No Iterations 27
+Bicgstab:  Solving for Uy, Initial residual = 0.010589329353019603, Final residual = 1.1270516478453107e-06, No Iterations 27
+Bicgstab:  Solving for Uz, Initial residual = 0.020994100691822896, Final residual = 6.23571803613927e-06, No Iterations 27
+PISO loop
+Cg:  Solving for p, Initial residual = 0.046078736596824106, Final residual = 9.7888378418325e-07, No Iterations 1611
+time step continuity errors : sum local = 2.865342369442104e-11, global = -1.4260636623960337e-21, cumulative = -5.445248261592928e-21
+PISO loop
+Cg:  Solving for p, Initial residual = 0.039026040415132066, Final residual = 9.749982859970647e-07, No Iterations 1609
+time step continuity errors : sum local = 2.853877074083911e-11, global = -2.260836201618971e-21, cumulative = -7.706084463211899e-21
+step timing [ms]: momentum assembly 14.821409999999986 solve 164.8523 | pressure assembly 5.104225000000042 solve 2910.330587 | step 3165.91527
+ExecutionTime = 78.49 s  ClockTime = 79 s
+
+Time = 0.004000000000000001
+Courant Number mean: 0.04554421639403238 max: 0.3882948152602185
+Bicgstab:  Solving for Ux, Initial residual = 0.004738243650138031, Final residual = 5.674520992366581e-07, No Iterations 26
+Bicgstab:  Solving for Uy, Initial residual = 0.0099862381589743, Final residual = 1.356704657281291e-06, No Iterations 26
+Bicgstab:  Solving for Uz, Initial residual = 0.019958661831523884, Final residual = 7.492516795465276e-06, No Iterations 26
+PISO loop
+Cg:  Solving for p, Initial residual = 0.036928119694415805, Final residual = 9.905488875902404e-07, No Iterations 1607
+time step continuity errors : sum local = 2.8773028328526827e-11, global = -4.1304503956037316e-21, cumulative = -1.183653485881563e-20
+PISO loop
+Cg:  Solving for p, Initial residual = 0.03141566701797571, Final residual = 9.804252107711303e-07, No Iterations 1605
+time step continuity errors : sum local = 2.8476328197902475e-11, global = 1.1862934216488774e-22, cumulative = -1.1717905516650743e-20
+step timing [ms]: momentum assembly 15.651963999999992 solve 167.949803 | pressure assembly 5.083016000000043 solve 2904.429294 | step 3183.005742
+ExecutionTime = 81.65 s  ClockTime = 82 s
+
+total timing [ms] over 20 steps: momentum assembly 1046.0090279999997 solve 4135.399436000001 | pressure assembly 102.43709399999989 solve 61007.013783999995 | loop 67822.44762
+Finalizing NeoN

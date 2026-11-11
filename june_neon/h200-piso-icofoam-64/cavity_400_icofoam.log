@@ -1,0 +1,316 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : icoFoamTimed -case /storage/home/lupeterm/nobackup/june-piso/400/icofoam/case -parallel
+Date   : Nov 09 2026
+Time   : 13:47:09
+Host   : gpu-nvidia-h200-3.int.coma-cluster.de
+PID    : 2183414
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/june-piso/400/icofoam/case
+nProcs : 64
+Hosts  :
+(
+    (gpu-nvidia-h200-3.int.coma-cluster.de 64)
+)
+Pstream initialized with:
+    floatTransfer      : false
+    maxCommsSize       : 0
+    nProcsSimpleSum    : 0
+    nonBlockingExchange: 0 (tuning: 0)
+    exchange algorithm : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+
+PISO: Operating solver in PISO mode
+
+Reading transportProperties
+
+Reading field p
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+
+Starting time loop
+
+Time = 0.0001
+
+Courant Number mean: 0 max: 0
+nonePBiCGStab:  Solving for Ux, Initial residual = 1, Final residual = 8.9203516e-07, No Iterations 65
+nonePBiCGStab:  Solving for Uy, Initial residual = 0, Final residual = 0, No Iterations 0
+nonePBiCGStab:  Solving for Uz, Initial residual = 0, Final residual = 0, No Iterations 0
+nonePCG:  Solving for p, Initial residual = 1, Final residual = 9.9109818e-07, No Iterations 3649
+time step continuity errors : sum local = 1.9418502e-11, global = 1.7572084e-21, cumulative = 1.7572084e-21
+nonePCG:  Solving for p, Initial residual = 0.82310023, Final residual = 9.9391474e-07, No Iterations 3638
+time step continuity errors : sum local = 2.3441628e-11, global = 2.3322156e-22, cumulative = 1.9904299e-21
+step timing [ms]: momentum assembly 435.3934 solve 4015.0994 | pressure assembly 156.68059 solve 195527.17 | step 200950.93
+ExecutionTime = 202.12 s  ClockTime = 205 s
+
+Time = 0.0002
+
+Courant Number mean: 0.0089555071 max: 0.34535026
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.11290094, Final residual = 6.7514962e-07, No Iterations 58
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.44291959, Final residual = 8.6809922e-07, No Iterations 67
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.9976915, Final residual = 9.1887374e-07, No Iterations 69
+nonePCG:  Solving for p, Initial residual = 0.87393854, Final residual = 9.9660822e-07, No Iterations 3902
+time step continuity errors : sum local = 4.1484923e-11, global = -4.0257281e-22, cumulative = 1.5878571e-21
+nonePCG:  Solving for p, Initial residual = 0.82441923, Final residual = 9.9776124e-07, No Iterations 3868
+time step continuity errors : sum local = 4.2355123e-11, global = -2.5418194e-23, cumulative = 1.5624389e-21
+step timing [ms]: momentum assembly 356.81936 solve 11496.902 | pressure assembly 155.26885 solve 205659.46 | step 218474.63
+ExecutionTime = 419.63 s  ClockTime = 424 s
+
+Time = 0.0003
+
+Courant Number mean: 0.013578782 max: 0.39967376
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.051663789, Final residual = 7.5411369e-07, No Iterations 58
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.21499439, Final residual = 9.4399311e-07, No Iterations 64
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.88035602, Final residual = 7.4219145e-07, No Iterations 79
+nonePCG:  Solving for p, Initial residual = 0.91707937, Final residual = 9.9190475e-07, No Iterations 3624
+time step continuity errors : sum local = 4.9931225e-11, global = -5.1581929e-22, cumulative = 1.0466196e-21
+nonePCG:  Solving for p, Initial residual = 0.89254131, Final residual = 9.9250011e-07, No Iterations 3622
+time step continuity errors : sum local = 4.9334513e-11, global = 9.0913733e-23, cumulative = 1.1375334e-21
+step timing [ms]: momentum assembly 356.33655 solve 11822.521 | pressure assembly 154.75967 solve 192884.78 | step 206027.04
+ExecutionTime = 624.75 s  ClockTime = 630 s
+
+Time = 0.0004
+
+Courant Number mean: 0.016408362 max: 0.38043562
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.036785477, Final residual = 7.2271361e-07, No Iterations 60
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.16645805, Final residual = 8.6148609e-07, No Iterations 67
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.74522196, Final residual = 9.6260548e-07, No Iterations 68
+nonePCG:  Solving for p, Initial residual = 0.89545274, Final residual = 9.9042623e-07, No Iterations 3568
+time step continuity errors : sum local = 5.289282e-11, global = 3.2164805e-22, cumulative = 1.4591814e-21
+nonePCG:  Solving for p, Initial residual = 0.83894055, Final residual = 9.9400365e-07, No Iterations 3565
+time step continuity errors : sum local = 5.4175029e-11, global = -2.3935602e-22, cumulative = 1.2198254e-21
+step timing [ms]: momentum assembly 362.0615 solve 11507.157 | pressure assembly 156.43502 solve 190145.25 | step 202978.61
+ExecutionTime = 826.89 s  ClockTime = 833 s
+
+Time = 0.0005
+
+Courant Number mean: 0.018887498 max: 0.4133325
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.031047707, Final residual = 9.6968139e-07, No Iterations 63
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.12435307, Final residual = 9.8239596e-07, No Iterations 63
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.68901558, Final residual = 8.7154908e-07, No Iterations 75
+nonePCG:  Solving for p, Initial residual = 0.91554846, Final residual = 9.8442445e-07, No Iterations 3567
+time step continuity errors : sum local = 5.3796482e-11, global = -2.0370871e-22, cumulative = 1.0161167e-21
+nonePCG:  Solving for p, Initial residual = 0.88282182, Final residual = 9.9226684e-07, No Iterations 3565
+time step continuity errors : sum local = 5.3559299e-11, global = -1.6898779e-22, cumulative = 8.4712889e-22
+step timing [ms]: momentum assembly 353.25725 solve 11688.631 | pressure assembly 154.21928 solve 191175.33 | step 204173.53
+ExecutionTime = 1030.28 s  ClockTime = 1037 s
+
+Time = 0.0006
+
+Courant Number mean: 0.020837202 max: 0.38539707
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.026234537, Final residual = 2.6856841e-07, No Iterations 61
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.10902036, Final residual = 9.4389119e-07, No Iterations 61
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.59867183, Final residual = 8.3002288e-07, No Iterations 66
+nonePCG:  Solving for p, Initial residual = 0.89833989, Final residual = 9.9801686e-07, No Iterations 3559
+time step continuity errors : sum local = 5.6955366e-11, global = -3.8374702e-22, cumulative = 4.6338187e-22
+nonePCG:  Solving for p, Initial residual = 0.83683952, Final residual = 9.9113708e-07, No Iterations 3555
+time step continuity errors : sum local = 5.7560455e-11, global = 5.1303406e-22, cumulative = 9.7641593e-22
+step timing [ms]: momentum assembly 357.0196 solve 11144.641 | pressure assembly 158.04367 solve 186769.66 | step 199255.67
+ExecutionTime = 1228.65 s  ClockTime = 1236 s
+
+Time = 0.0007
+
+Courant Number mean: 0.022642024 max: 0.42478591
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.024074336, Final residual = 8.8632127e-07, No Iterations 57
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.096664247, Final residual = 8.4868897e-07, No Iterations 60
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.57897115, Final residual = 9.3483167e-07, No Iterations 72
+nonePCG:  Solving for p, Initial residual = 0.91639832, Final residual = 9.8984645e-07, No Iterations 3559
+time step continuity errors : sum local = 5.7157085e-11, global = -4.7567423e-22, cumulative = 5.007417e-22
+nonePCG:  Solving for p, Initial residual = 0.87514067, Final residual = 9.872971e-07, No Iterations 3556
+time step continuity errors : sum local = 5.6421497e-11, global = 2.561364e-23, cumulative = 5.2635533e-22
+step timing [ms]: momentum assembly 352.32173 solve 11004.755 | pressure assembly 155.04545 solve 186531.9 | step 198842.93
+ExecutionTime = 1426.57 s  ClockTime = 1435 s
+
+Time = 0.0008
+
+Courant Number mean: 0.024156039 max: 0.38805679
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.022026672, Final residual = 5.8807496e-07, No Iterations 59
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.087611544, Final residual = 9.3292684e-07, No Iterations 61
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.54667891, Final residual = 9.1433728e-07, No Iterations 61
+nonePCG:  Solving for p, Initial residual = 0.90173647, Final residual = 9.821839e-07, No Iterations 3555
+time step continuity errors : sum local = 5.9706375e-11, global = -1.6297397e-22, cumulative = 3.6338137e-22
+nonePCG:  Solving for p, Initial residual = 0.83553319, Final residual = 9.9043965e-07, No Iterations 3552
+time step continuity errors : sum local = 6.1178589e-11, global = -2.400901e-22, cumulative = 1.2329127e-22
+step timing [ms]: momentum assembly 352.8056 solve 10606.88 | pressure assembly 154.84089 solve 185717.2 | step 197628.92
+ExecutionTime = 1623.36 s  ClockTime = 1633 s
+
+Time = 0.0009
+
+Courant Number mean: 0.025608439 max: 0.43817993
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.020840315, Final residual = 6.6540656e-07, No Iterations 58
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.083986822, Final residual = 6.7074775e-07, No Iterations 58
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.54967985, Final residual = 9.4000981e-07, No Iterations 66
+nonePCG:  Solving for p, Initial residual = 0.920086, Final residual = 9.9778715e-07, No Iterations 3555
+time step continuity errors : sum local = 6.2411774e-11, global = 7.0449818e-23, cumulative = 1.9374108e-22
+nonePCG:  Solving for p, Initial residual = 0.87145781, Final residual = 9.9390827e-07, No Iterations 3553
+time step continuity errors : sum local = 6.1613818e-11, global = -3.447871e-23, cumulative = 1.5926237e-22
+step timing [ms]: momentum assembly 352.35709 solve 10600.987 | pressure assembly 154.81574 solve 185774.55 | step 197680.87
+ExecutionTime = 1820.23 s  ClockTime = 1830 s
+
+Time = 0.001
+
+Courant Number mean: 0.026857453 max: 0.39136819
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.020016767, Final residual = 9.0520657e-07, No Iterations 52
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.077633326, Final residual = 6.6988744e-07, No Iterations 62
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.53834939, Final residual = 9.5573622e-07, No Iterations 67
+nonePCG:  Solving for p, Initial residual = 0.90855526, Final residual = 9.867899e-07, No Iterations 3554
+time step continuity errors : sum local = 6.5995275e-11, global = 3.334712e-22, cumulative = 4.9273357e-22
+nonePCG:  Solving for p, Initial residual = 0.83861938, Final residual = 9.8665457e-07, No Iterations 3550
+time step continuity errors : sum local = 6.6956802e-11, global = 1.9579704e-22, cumulative = 6.8853062e-22
+step timing [ms]: momentum assembly 351.70192 solve 10514.344 | pressure assembly 154.28104 solve 185790.57 | step 197607.01
+ExecutionTime = 2017 s  ClockTime = 2028 s
+
+Time = 0.0011
+
+Courant Number mean: 0.028088591 max: 0.45524998
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.019281277, Final residual = 9.0116539e-07, No Iterations 55
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.077887933, Final residual = 9.2329995e-07, No Iterations 58
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.5490189, Final residual = 5.3978055e-07, No Iterations 65
+nonePCG:  Solving for p, Initial residual = 0.92570091, Final residual = 9.9310321e-07, No Iterations 3555
+time step continuity errors : sum local = 6.9015884e-11, global = 1.7124408e-22, cumulative = 8.5977469e-22
+nonePCG:  Solving for p, Initial residual = 0.87187954, Final residual = 9.957964e-07, No Iterations 3552
+time step continuity errors : sum local = 6.8696375e-11, global = -6.6245232e-23, cumulative = 7.9352946e-22
+step timing [ms]: momentum assembly 351.83922 solve 10364.251 | pressure assembly 154.51502 solve 185434.81 | step 197101.54
+ExecutionTime = 2213.34 s  ClockTime = 2225 s
+
+Time = 0.0012
+
+Courant Number mean: 0.02915553 max: 0.39544652
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.019164778, Final residual = 9.7440422e-07, No Iterations 52
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.073421906, Final residual = 7.4275422e-07, No Iterations 62
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.54737038, Final residual = 9.9952087e-07, No Iterations 67
+nonePCG:  Solving for p, Initial residual = 0.91587919, Final residual = 9.9156236e-07, No Iterations 3555
+time step continuity errors : sum local = 7.3951912e-11, global = 3.3422083e-22, cumulative = 1.1277503e-21
+nonePCG:  Solving for p, Initial residual = 0.84386098, Final residual = 9.9849523e-07, No Iterations 3551
+time step continuity errors : sum local = 7.5461998e-11, global = -2.0374458e-22, cumulative = 9.2400571e-22
+step timing [ms]: momentum assembly 351.55837 solve 10567.099 | pressure assembly 154.96332 solve 185950.5 | step 197819.85
+ExecutionTime = 2410.3 s  ClockTime = 2423 s
+
+Time = 0.0013
+
+Courant Number mean: 0.030234104 max: 0.47737976
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.018731594, Final residual = 9.7283198e-07, No Iterations 53
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.075673312, Final residual = 8.777474e-07, No Iterations 63
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.56186595, Final residual = 7.2519384e-07, No Iterations 67
+nonePCG:  Solving for p, Initial residual = 0.93125614, Final residual = 9.9706567e-07, No Iterations 3557
+time step continuity errors : sum local = 7.7774113e-11, global = -2.46255e-22, cumulative = 6.7775071e-22
+nonePCG:  Solving for p, Initial residual = 0.87332907, Final residual = 9.8664097e-07, No Iterations 3554
+time step continuity errors : sum local = 7.6524765e-11, global = -1.8133413e-22, cumulative = 4.9641659e-22
+step timing [ms]: momentum assembly 352.04667 solve 10653.746 | pressure assembly 154.55361 solve 185792.3 | step 197750.38
+ExecutionTime = 2607.26 s  ClockTime = 2621 s
+
+Time = 0.0014
+
+Courant Number mean: 0.031166688 max: 0.40070257
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.019086225, Final residual = 7.8687832e-07, No Iterations 55
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.07273181, Final residual = 9.2341886e-07, No Iterations 62
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.56536606, Final residual = 5.1679531e-07, No Iterations 66
+nonePCG:  Solving for p, Initial residual = 0.92287996, Final residual = 9.9423813e-07, No Iterations 3558
+time step continuity errors : sum local = 8.3422263e-11, global = 5.115171e-23, cumulative = 5.475683e-22
+nonePCG:  Solving for p, Initial residual = 0.84959526, Final residual = 9.815892e-07, No Iterations 3554
+time step continuity errors : sum local = 8.335351e-11, global = -2.9382199e-22, cumulative = 2.5374631e-22
+step timing [ms]: momentum assembly 352.86746 solve 10678.725 | pressure assembly 154.71184 solve 185965.85 | step 197948.93
+ExecutionTime = 2804.38 s  ClockTime = 2819 s
+
+Time = 0.0015
+
+Courant Number mean: 0.032134469 max: 0.50616566
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.018944745, Final residual = 9.9054034e-07, No Iterations 51
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.076281021, Final residual = 6.954678e-07, No Iterations 62
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.58138523, Final residual = 9.0154434e-07, No Iterations 65
+nonePCG:  Solving for p, Initial residual = 0.9362055, Final residual = 9.9852638e-07, No Iterations 1965
+time step continuity errors : sum local = 9.5980351e-11, global = 1.4458212e-22, cumulative = 3.9832844e-22
+nonePCG:  Solving for p, Initial residual = 0.8750516, Final residual = 9.8278713e-07, No Iterations 1943
+time step continuity errors : sum local = 8.8626766e-11, global = -6.3693889e-22, cumulative = -2.3861045e-22
+step timing [ms]: momentum assembly 352.49807 solve 10410.374 | pressure assembly 154.28395 solve 102301.21 | step 114013.57
+ExecutionTime = 2917.91 s  ClockTime = 2933 s
+
+Time = 0.0016
+
+Courant Number mean: 0.032962701 max: 0.40747188
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.019655507, Final residual = 9.2175278e-07, No Iterations 53
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.074697029, Final residual = 8.0631584e-07, No Iterations 61
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.58739243, Final residual = 8.3400758e-07, No Iterations 65
+nonePCG:  Solving for p, Initial residual = 0.92980037, Final residual = 9.8803661e-07, No Iterations 2181
+time step continuity errors : sum local = 1.0067596e-10, global = -1.5705446e-23, cumulative = -2.543159e-22
+nonePCG:  Solving for p, Initial residual = 0.85569838, Final residual = 9.8485166e-07, No Iterations 2155
+time step continuity errors : sum local = 9.6974833e-11, global = 3.7366252e-22, cumulative = 1.1934663e-22
+step timing [ms]: momentum assembly 352.23161 solve 10415.645 | pressure assembly 154.33413 solve 113334.56 | step 125053.67
+ExecutionTime = 3042.44 s  ClockTime = 3058 s
+
+Time = 0.0017
+
+Courant Number mean: 0.033847884 max: 0.54360351
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.0198355, Final residual = 8.9817641e-07, No Iterations 59
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.079382894, Final residual = 6.5942519e-07, No Iterations 62
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.6031812, Final residual = 9.251911e-07, No Iterations 65
+nonePCG:  Solving for p, Initial residual = 0.94132924, Final residual = 9.8691608e-07, No Iterations 3565
+time step continuity errors : sum local = 9.9983614e-11, global = -1.077059e-21, cumulative = -9.5771238e-22
+nonePCG:  Solving for p, Initial residual = 0.87712486, Final residual = 9.9802836e-07, No Iterations 3561
+time step continuity errors : sum local = 1.0087532e-10, global = 1.0852339e-22, cumulative = -8.4918899e-22
+step timing [ms]: momentum assembly 352.95115 solve 10852.78 | pressure assembly 154.64559 solve 185863.62 | step 198020.63
+ExecutionTime = 3239.66 s  ClockTime = 3256 s
+
+Time = 0.0018
+
+Courant Number mean: 0.034591976 max: 0.41632562
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.020883283, Final residual = 9.1372753e-07, No Iterations 55
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.079205976, Final residual = 6.1937399e-07, No Iterations 60
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.61053416, Final residual = 9.7178454e-07, No Iterations 65
+nonePCG:  Solving for p, Initial residual = 0.93789954, Final residual = 9.9120413e-07, No Iterations 3566
+time step continuity errors : sum local = 1.0882443e-10, global = -6.0254752e-22, cumulative = -1.4517365e-21
+nonePCG:  Solving for p, Initial residual = 0.86317806, Final residual = 9.8378351e-07, No Iterations 3562
+time step continuity errors : sum local = 1.0905583e-10, global = -5.5839053e-23, cumulative = -1.5075756e-21
+step timing [ms]: momentum assembly 352.7411 solve 10494.529 | pressure assembly 154.50375 solve 186513.35 | step 198312.19
+ExecutionTime = 3437.11 s  ClockTime = 3454 s
+
+Time = 0.0019
+
+Courant Number mean: 0.035415643 max: 0.59237255
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.021437575, Final residual = 9.5794847e-07, No Iterations 57
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.084980803, Final residual = 1.1680791e-07, No Iterations 66
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.62521181, Final residual = 8.534634e-07, No Iterations 62
+nonePCG:  Solving for p, Initial residual = 0.94698521, Final residual = 9.9439827e-07, No Iterations 3568
+time step continuity errors : sum local = 1.1714998e-10, global = 6.0825095e-22, cumulative = -8.9932462e-22
+nonePCG:  Solving for p, Initial residual = 0.88039852, Final residual = 9.855886e-07, No Iterations 3565
+time step continuity errors : sum local = 1.1602503e-10, global = 5.0547864e-22, cumulative = -3.9384598e-22
+step timing [ms]: momentum assembly 352.56326 solve 10788.122 | pressure assembly 154.15933 solve 186709.21 | step 198800.31
+ExecutionTime = 3635.05 s  ClockTime = 3653 s
+
+Time = 0.002
+
+Courant Number mean: 0.03609039 max: 0.44318955
+nonePBiCGStab:  Solving for Ux, Initial residual = 0.022860639, Final residual = 9.0250376e-07, No Iterations 55
+nonePBiCGStab:  Solving for Uy, Initial residual = 0.086190054, Final residual = 9.7687337e-07, No Iterations 58
+nonePBiCGStab:  Solving for Uz, Initial residual = 0.63323719, Final residual = 5.1318691e-07, No Iterations 62
+nonePCG:  Solving for p, Initial residual = 0.94517812, Final residual = 9.8363496e-07, No Iterations 3570
+time step continuity errors : sum local = 1.2612485e-10, global = 4.4023376e-23, cumulative = -3.498226e-22
+nonePCG:  Solving for p, Initial residual = 0.8703256, Final residual = 9.8388032e-07, No Iterations 3566
+time step continuity errors : sum local = 1.2726186e-10, global = 4.6047864e-22, cumulative = 1.1065604e-22
+step timing [ms]: momentum assembly 352.23763 solve 10205.169 | pressure assembly 161.88237 solve 199217.57 | step 210786.59
+ExecutionTime = 3844.92 s  ClockTime = 3864 s
+
+total timing [ms] over 20 steps: momentum assembly 7153.6085 solve 209832.36 | pressure assembly 3106.9431 solve 3623058.9 | loop 3859787.3
+End
+
+Finalising parallel run

@@ -1,0 +1,5 @@
+=== 200^3 cells, icoFoam on 64 ranks of h200, Mon Nov  9 13:45:07 CET 2026
+total timing [ms] over 20 steps: momentum assembly 849.54459 solve 13988.946 | pressure assembly 364.26281 solve 104014.3 | loop 121124.42
+=== 400^3 cells, icoFoam on 64 ranks of h200, Mon Nov  9 13:47:09 CET 2026
+total timing [ms] over 20 steps: momentum assembly 7153.6085 solve 209832.36 | pressure assembly 3106.9431 solve 3623058.9 | loop 3859787.3
+done Mon Nov  9 14:51:33 CET 2026

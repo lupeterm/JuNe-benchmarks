@@ -1,0 +1,6 @@
+Model name:                              AMD EPYC 9555 64-Core Processor
+Thread(s) per core:                      2
+Core(s) per socket:                      64
+Socket(s):                               2
+NUMA node(s):                            2
+icoFoamTimed: /storage/home/lupeterm/OpenFOAM/lupeterm-v2412/platforms/linux64GccDPInt32Opt/bin/icoFoamTimed

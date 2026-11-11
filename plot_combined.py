@@ -91,6 +91,8 @@ def plot(data: pd.DataFrame, column: str, ylabel: str, out: Path):
 
 def main(results: Path):
     gpu = pd.read_csv(results / "h200" / "cavity_throughput.csv")
+    if "matrix" in gpu:  # the Vec3 matrix only; the scalar one has its own figure
+        gpu = gpu.loc[gpu["matrix"].eq("Vec3")]
     cpu = pd.read_csv(results / "cavity_icofoam.csv")
     data = pd.concat([gpu, cpu], ignore_index=True)
     data = data.loc[data["strategy"].isin(SERIES)]

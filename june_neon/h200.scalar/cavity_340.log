@@ -1,0 +1,98 @@
+/storage/home/lupeterm/NeoFOAM/test/catch2/test_main.cpp:25
+Initializing NeoN
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity
+Date   : Nov 11 2026
+Time   : 17:02:55
+Host   : gpu-nvidia-h200-3.int.coma-cluster.de
+PID    : 757759
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/julia/view/base/mesh/340/case
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+profiling initialized
+Create mesh for time = 0
+Randomness seeded to: 3366242169
+Creating NeoFOAM runTime
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,T)'
+cells: 39304000
+matrix: scalar
+Assembly time (JuNe batched 0) = 15466102 [us]
+Assembly time (JuNe batched 1) = 17237 [us]
+Assembly time (JuNe batched 2) = 16890 [us]
+batches: 6
+nnz: 274434400
+Assembly time (NeoN face-based 0) = 22517 [us]
+Assembly time (NeoN face-based 1) = 20909 [us]
+Assembly time (NeoN face-based 2) = 20896 [us]
+Assembly time (NeoN global face-based 0) = 21012 [us]
+Assembly time (NeoN global face-based 1) = 20274 [us]
+Assembly time (NeoN global face-based 2) = 20292 [us]
+Assembly time (NeoN cell-based 0) = 2376596 [us]
+Assembly time (NeoN cell-based 1) = 22423 [us]
+Assembly time (NeoN cell-based 2) = 22535 [us]
+Assembly time (NeoN batched 0) = 41472 [us]
+Assembly time (NeoN batched 1) = 40094 [us]
+Assembly time (NeoN batched 2) = 39837 [us]
+Assembly time (NeoN fused face-based 0) = 11267 [us]
+Assembly time (NeoN fused face-based 1) = 11399 [us]
+Assembly time (NeoN fused face-based 2) = 10967 [us]
+Assembly time (NeoN fused global face-based 0) = 11363 [us]
+Assembly time (NeoN fused global face-based 1) = 11426 [us]
+Assembly time (NeoN fused global face-based 2) = 10997 [us]
+Assembly time (NeoN fused cell-based 0) = 16656 [us]
+Assembly time (NeoN fused cell-based 1) = 15131 [us]
+Assembly time (NeoN fused cell-based 2) = 14716 [us]
+Assembly time (NeoN fused batched 0) = 22116 [us]
+Assembly time (NeoN fused batched 1) = 20292 [us]
+Assembly time (NeoN fused batched 2) = 20299 [us]
+Assembly time (JuNe face-based 0) = 1401190 [us]
+Assembly time (JuNe face-based 1) = 10406 [us]
+Assembly time (JuNe face-based 2) = 10074 [us]
+Assembly time (JuNe global face-based 0) = 487313 [us]
+Assembly time (JuNe global face-based 1) = 11542 [us]
+
+[757759] signal 11 (2): Segmentation fault
+in expression starting at none:0
+jl_object_id__cold at /cache/build/builder-amdci4-7/julialang/julia-release-1-dot-11/src/builtins.c:441
+jl_idset_peek_bp at /cache/build/builder-amdci4-7/julialang/julia-release-1-dot-11/src/idset.c:34
+jl_idset_get at /cache/build/builder-amdci4-7/julialang/julia-release-1-dot-11/src/idset.c:40
+jl_as_global_root at /cache/build/builder-amdci4-7/julialang/julia-release-1-dot-11/src/staticdata.c:2538 [inlined]
+jl_as_global_root at /cache/build/builder-amdci4-7/julialang/julia-release-1-dot-11/src/staticdata.c:2518
+inst_datatype_inner at /cache/build/builder-amdci4-7/julialang/julia-release-1-dot-11/src/jltypes.c:2115
+jl_inst_arg_tuple_type at /cache/build/builder-amdci4-7/julialang/julia-release-1-dot-11/src/jltypes.c:2338
+arg_type_tuple at /cache/build/builder-amdci4-7/julialang/julia-release-1-dot-11/src/gf.c:2280 [inlined]
+jl_lookup_generic_ at /cache/build/builder-amdci4-7/julialang/julia-release-1-dot-11/src/gf.c:3077 [inlined]
+ijl_apply_generic at /cache/build/builder-amdci4-7/julialang/julia-release-1-dot-11/src/gf.c:3124
+jl_apply at /cache/build/builder-amdci4-7/julialang/julia-release-1-dot-11/src/julia.h:2157 [inlined]
+ijl_call at /cache/build/builder-amdci4-7/julialang/julia-release-1-dot-11/src/jlapi.c:297
+_ZN4NeoN3dsl4june8assembleINS_4Vec3EidEEvRKNS0_10ExpressionIT_T0_EERNS_2la12LinearSystemIT1_S5_NSA_6MatrixISC_NSA_18CsrSparsityPatternIiEEEENSD_ISC_NSA_18CooSparsityPatternIiEEEEEEdNS1_8StrategyE at /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity (unknown line)
+_ZN12_GLOBAL__N_115cavityBenchmarkIdEEvv at /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity (unknown line)
+_ZL22CATCH2_INTERNAL_TEST_0v at /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity (unknown line)
+_ZN5Catch10RunContext14runCurrentTestERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ at /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity (unknown line)
+_ZN5Catch10RunContext7runTestERKNS_14TestCaseHandleE at /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity (unknown line)
+_ZN5Catch12_GLOBAL__N_19TestGroup7executeEv at /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity (unknown line)
+_ZN5Catch7Session11runInternalEv at /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity (unknown line)
+_ZN5Catch7Session3runEv at /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity (unknown line)
+main at /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity (unknown line)
+__libc_start_call_main at /lib64/libc.so.6 (unknown line)
+__libc_start_main at /lib64/libc.so.6 (unknown line)
+_start at /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity (unknown line)
+Allocations: 51240903 (Pool: 51239063; Big: 1840); GC: 40
+/var/spool/slurm/d/job613851/slurm_script: line 45: 757759 Segmentation fault      (core dumped) "$OLDPWD/$bin"

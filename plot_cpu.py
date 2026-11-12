@@ -79,7 +79,8 @@ def save(fig, out: Path):
     print("wrote", out.with_suffix(".svg"), "and .pdf")
 
 
-def plot_throughput(data: pd.DataFrame, threads: int, column: str, ylabel: str, out: Path):
+def plot_throughput(data: pd.DataFrame, threads: int, column: str, ylabel: str, out: Path,
+                    matrix: str = "Vec3"):
     fig, ax = setup()
     for strategy in (s for s in SERIES if s in set(data["strategy"])):
         col, m, filled = style(strategy)
@@ -91,13 +92,13 @@ def plot_throughput(data: pd.DataFrame, threads: int, column: str, ylabel: str, 
     ax.xaxis.set_major_formatter(EngFormatter())
     ax.set_ylim(bottom=0)
     ax.grid(True, which="minor", alpha=0.15)
-    ax.text(0.98, 0.97, f"{threads} thread{'s' if threads > 1 else ''}", transform=ax.transAxes,
+    ax.text(0.98, 0.97, f"{threads} thread{'s' if threads > 1 else ''}, {matrix} matrix", transform=ax.transAxes,
             ha="right", va="top", fontsize=18, fontweight="bold", color="0.2")
     legends(ax)
     save(fig, out)
 
 
-def plot_speedup(data: pd.DataFrame, n: int, out: Path):
+def plot_speedup(data: pd.DataFrame, n: int, out: Path, matrix: str = "Vec3"):
     """Speedup over the thread count for one mesh size, one subplot per executor:
     serial time / time with t threads."""
     plt.style.use("seaborn-v0_8-whitegrid")
@@ -122,6 +123,8 @@ def plot_speedup(data: pd.DataFrame, n: int, out: Path):
         ax.set_yticklabels([str(t) for t in threads])
         ax.minorticks_off()
     axes[0].set_ylabel("Speedup over 1 thread")
+    axes[-1].text(0.96, 0.04, f"{n}\u00b3 cells, {matrix} matrix", transform=axes[-1].transAxes,
+                  ha="right", va="bottom", fontsize=14, color="0.3")
     axes[0].legend(handles=[Line2D([], [], color="0.5", linestyle="--", linewidth=1.2, label="ideal")]
                    + [Patch(facecolor=c, label=k) for k, c in KINDS.items()],
                    loc="upper left", frameon=False, labelspacing=0.8)
@@ -142,16 +145,23 @@ def peak_sizes(data: pd.DataFrame) -> list[int]:
 
 
 def main(results: Path):
-    data = pd.read_csv(results / "cavity_throughput_cpu.csv")
-    data = data.loc[data["strategy"].isin(SERIES)]
-    for threads in sorted(data["threads"].unique()):
-        sub = data.loc[data["threads"].eq(threads)]
-        plot_throughput(sub, threads, "throughput_gbs", "Matrix assembly throughput [GB/s]",
-                        results / f"cpu_h200_threads{threads}_gbs")
-        plot_throughput(sub, threads, "throughput_mcells_s", "Matrix assembly throughput [million cells/s]",
-                        results / f"cpu_h200_threads{threads}_mcells")
-    for n in peak_sizes(data):
-        plot_speedup(data, n, results / f"cpu_h200_speedup_n{n}")
+    all_data = pd.read_csv(results / "cavity_throughput_cpu.csv")
+    all_data = all_data.loc[all_data["strategy"].isin(SERIES)]
+    if "matrix" not in all_data:
+        all_data["matrix"] = "Vec3"
+    # the speedup sizes come from the Vec3 series so that both matrix types show the same meshes
+    sizes = peak_sizes(all_data.loc[all_data["matrix"].eq("Vec3")])
+    # one set of figures per matrix type: the Vec3 ones keep their names, scalar gets a suffix
+    for matrix, data in all_data.groupby("matrix"):
+        suffix = "" if matrix == "Vec3" else f"_{matrix}"
+        for threads in sorted(data["threads"].unique()):
+            sub = data.loc[data["threads"].eq(threads)]
+            plot_throughput(sub, threads, "throughput_gbs", "Matrix assembly throughput [GB/s]",
+                            results / f"cpu_h200_threads{threads}_gbs{suffix}", matrix)
+            plot_throughput(sub, threads, "throughput_mcells_s", "Matrix assembly throughput [million cells/s]",
+                            results / f"cpu_h200_threads{threads}_mcells{suffix}", matrix)
+        for n in sizes:
+            plot_speedup(data, n, results / f"cpu_h200_speedup_n{n}{suffix}", matrix)
 
 
 if __name__ == "__main__":

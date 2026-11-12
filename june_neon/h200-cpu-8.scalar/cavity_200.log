@@ -1,0 +1,85 @@
+/storage/home/lupeterm/NeoFOAM/test/catch2/test_main.cpp:25
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+MPI detected: For OpenMP binding to work as intended, MPI ranks must be bound to exclusive CPU sets.
+
+Initializing NeoN
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-cpu/bin/tests/cavity
+Date   : Nov 11 2026
+Time   : 19:48:50
+Host   : gpu-nvidia-h200-2.int.coma-cluster.de
+PID    : 4105037
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/julia/view/base/mesh/200/case
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+profiling initialized
+Create mesh for time = 0
+Randomness seeded to: 1173898708
+Creating NeoFOAM runTime
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,T)'
+cells: 8000000
+matrix: scalar
+Assembly time (JuNe batched 0) = 1604112 [us]
+Assembly time (JuNe batched 1) = 97367 [us]
+Assembly time (JuNe batched 2) = 113307 [us]
+batches: 6
+nnz: 55760000
+Assembly time (NeoN face-based 0) = 110643 [us]
+Assembly time (NeoN face-based 1) = 111597 [us]
+Assembly time (NeoN face-based 2) = 109696 [us]
+Assembly time (NeoN global face-based 0) = 122680 [us]
+Assembly time (NeoN global face-based 1) = 121678 [us]
+Assembly time (NeoN global face-based 2) = 125926 [us]
+Assembly time (NeoN cell-based 0) = 588725 [us]
+Assembly time (NeoN cell-based 1) = 50670 [us]
+Assembly time (NeoN cell-based 2) = 48663 [us]
+Assembly time (NeoN batched 0) = 105714 [us]
+Assembly time (NeoN batched 1) = 105855 [us]
+Assembly time (NeoN batched 2) = 104109 [us]
+Assembly time (NeoN fused face-based 0) = 51740 [us]
+Assembly time (NeoN fused face-based 1) = 51324 [us]
+Assembly time (NeoN fused face-based 2) = 50894 [us]
+Assembly time (NeoN fused global face-based 0) = 56802 [us]
+Assembly time (NeoN fused global face-based 1) = 69855 [us]
+Assembly time (NeoN fused global face-based 2) = 68331 [us]
+Assembly time (NeoN fused cell-based 0) = 40507 [us]
+Assembly time (NeoN fused cell-based 1) = 43420 [us]
+Assembly time (NeoN fused cell-based 2) = 43114 [us]
+Assembly time (NeoN fused batched 0) = 72065 [us]
+Assembly time (NeoN fused batched 1) = 72003 [us]
+Assembly time (NeoN fused batched 2) = 71172 [us]
+Assembly time (JuNe face-based 0) = 390400 [us]
+Assembly time (JuNe face-based 1) = 62471 [us]
+Assembly time (JuNe face-based 2) = 62752 [us]
+Assembly time (JuNe global face-based 0) = 356836 [us]
+Assembly time (JuNe global face-based 1) = 149531 [us]
+Assembly time (JuNe global face-based 2) = 59425 [us]
+Assembly time (JuNe cell-based 0) = 438789 [us]
+Assembly time (JuNe cell-based 1) = 284720 [us]
+Assembly time (JuNe cell-based 2) = 272182 [us]
+  Activating project at `~/JuNe.jl`
+===============================================================================
+All tests passed (11 assertions in 1 test case)
+
+Finalizing NeoN

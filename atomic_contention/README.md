@@ -4,16 +4,16 @@ Cost of atomic adds under contention on the GPU: Julia (KernelAbstractions + Ato
 JuNe.jl) vs C++/Kokkos (as in NeoN).
 
 ```bash
-./run.sh            # N=2^24, 20 reps, 3 warmup -> results/*.csv, summary.md, plot.svg/png
+./run.sh            # N=2^24, 20 reps, 3 warmup -> results/*.csv, summary.md, plot.pdf
 ```
 
 ## Results
 
 `results/` holds a run on an RTX 4070 workstation (CUDA 13.2, driver 610.57, Kokkos 5.0.2,
 Julia 1.12.1 with KernelAbstractions 0.9.45, Atomix 1.5.0, CUDA.jl 6.4.2 as pinned in
-`julia/Manifest.toml`): `summary.md` has the tables, `plot.svg`/`plot.png` the figure.
+`julia/Manifest.toml`): `summary.md` has the tables, `plot.pdf` the figure.
 
-![median time per launch vs updates per target](results/plot.svg)
+[median time per launch vs updates per target](results/plot.pdf)
 
 - Julia/Atomix and Kokkos emit the same hardware atomics and are within a few percent at high
   contention; at moderate contention Kokkos is ~10-50% faster.

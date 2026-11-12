@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """Plot the benchmark CSVs: median time vs updates per target, double and vec3 side by side.
 
-Usage: plot.py [results_dir=results]  ->  <results_dir>/plot.svg (+ plot.png if rsvg-convert exists)
-Standard library only (no matplotlib).
+Usage: plot.py [results_dir=results]  ->  <results_dir>/plot.pdf
+Standard library only (no matplotlib); the SVG it draws is converted with rsvg-convert.
 """
 import csv
 import glob
 import math
 import os
-import shutil
 import subprocess
 import sys
+import tempfile
 
 RESULTS = sys.argv[1] if len(sys.argv) > 1 else "results"
 JULIA = "julia_wg64"  # wg256 is within noise of wg64, see summary.md
@@ -196,11 +196,9 @@ out.append(f'<text class="note" x="{LEFT}" y="{H-16}">Julia with workgroup 256 i
            '(see summary.md). Vec3s are interleaved xyz doubles on both sides; same index pattern '
            '(splitmix64 % M) on both sides.</text>')
 out.append("</svg>")
-svg_path = os.path.join(RESULTS, "plot.svg")
-with open(svg_path, "w") as f:
+pdf_path = os.path.join(RESULTS, "plot.pdf")
+with tempfile.NamedTemporaryFile("w", suffix=".svg") as f:
     f.write("\n".join(out))
-print(svg_path)
-if shutil.which("rsvg-convert"):
-    png_path = os.path.join(RESULTS, "plot.png")
-    subprocess.run(["rsvg-convert", "-z", "2", "-o", png_path, svg_path], check=True)
-    print(png_path)
+    f.flush()
+    subprocess.run(["rsvg-convert", "-f", "pdf", "-o", pdf_path, f.name], check=True)
+print(pdf_path)

@@ -2,7 +2,8 @@
 
 Reads june_neon/<node>-icofoam-<ranks>/cavity_<n>.log written by cavity_icofoam.job. Every run prints
 one "Momentum <seconds>" line per rank after a barrier; the run's time is the slowest rank. All runs
-count (no JIT), the matrix is Vec3 valued (24 bytes per entry) and the cavity mesh has
+count (no JIT), the fvVectorMatrix stores scalar coefficients (8 bytes per entry, as the scalar
+matrix of NeoN and JuNe) and the cavity mesh has
 n^3 cells and 3 n^2 (n - 1) internal faces, i.e. nnz = cells + 2 internal faces as in NeoN.
 
     python3 parse_results.py [results_dir]
@@ -34,6 +35,8 @@ def parse_log(log: Path, ranks: int) -> list[dict]:
 def main(results: Path):
     rows = []
     for folder in sorted(results.glob("*-icofoam-*")):
+        if folder.name.count("-") != 2:  # e.g. h200-piso-icofoam-64 belongs to the PISO benchmark
+            continue
         node, _, ranks = folder.name.split("-")
         for log in sorted(folder.glob("cavity_*.log")):
             try:
@@ -46,7 +49,7 @@ def main(results: Path):
     raw = pd.DataFrame(rows)
     data = (raw.groupby(["gpu", "n", "cells", "nnz", "strategy"], as_index=False)
             .agg(time_mean_ms=("time_ms", "mean"), time_std_ms=("time_ms", "std"), runs=("time_ms", "size")))
-    data["throughput_gbs"] = data["nnz"] * 24 / (data["time_mean_ms"] / 1e3) / 1e9
+    data["throughput_gbs"] = data["nnz"] * 8 / (data["time_mean_ms"] / 1e3) / 1e9
     data["throughput_mcells_s"] = data["cells"] / (data["time_mean_ms"] / 1e3) / 1e6
     data = data.sort_values(["gpu", "strategy", "cells"])
     out = results / "cavity_icofoam.csv"

@@ -1,0 +1,166 @@
+/storage/home/lupeterm/NeoFOAM/test/catch2/test_main.cpp:25
+Initializing NeoN
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity
+Date   : Nov 13 2026
+Time   : 11:31:33
+Host   : gpu-nvidia-h200-3.int.coma-cluster.de
+PID    : 1943166
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/driveAerLukas/occDrivAerStaticMesh
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+Randomness seeded to: 976081585
+Creating NeoFOAM runTime
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(omega)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(k)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'default'
+cells: 65334765
+matrix: scalar
+operators: ddt + div + laplacian
+Assembly time (JuNe batched 0) = 16539464 [us]
+Assembly time (JuNe batched 1) = 45675 [us]
+Assembly time (JuNe batched 2) = 45290 [us]
+Assembly time (JuNe batched 3) = 45275 [us]
+Assembly time (JuNe batched 4) = 45261 [us]
+batches: 21
+nnz: 460041233
+Assembly time (NeoN face-based 0) = 49304 [us]
+Assembly time (NeoN face-based 1) = 39306 [us]
+Assembly time (NeoN face-based 2) = 39476 [us]
+Assembly time (NeoN face-based 3) = 39338 [us]
+Assembly time (NeoN face-based 4) = 39190 [us]
+Assembly time (NeoN global face-based 0) = 35174 [us]
+Assembly time (NeoN global face-based 1) = 33954 [us]
+Assembly time (NeoN global face-based 2) = 34023 [us]
+Assembly time (NeoN global face-based 3) = 33887 [us]
+Assembly time (NeoN global face-based 4) = 33921 [us]
+Assembly time (NeoN cell-based 0) = 4184661 [us]
+Assembly time (NeoN cell-based 1) = 41953 [us]
+Assembly time (NeoN cell-based 2) = 42070 [us]
+Assembly time (NeoN cell-based 3) = 42294 [us]
+Assembly time (NeoN cell-based 4) = 41580 [us]
+Assembly time (NeoN batched 0) = 91770 [us]
+Assembly time (NeoN batched 1) = 88378 [us]
+Assembly time (NeoN batched 2) = 88512 [us]
+Assembly time (NeoN batched 3) = 88671 [us]
+Assembly time (NeoN batched 4) = 87899 [us]
+Assembly time (NeoN fused face-based 0) = 18846 [us]
+Assembly time (NeoN fused face-based 1) = 18131 [us]
+Assembly time (NeoN fused face-based 2) = 18091 [us]
+Assembly time (NeoN fused face-based 3) = 18089 [us]
+Assembly time (NeoN fused face-based 4) = 18096 [us]
+Assembly time (NeoN fused global face-based 0) = 18935 [us]
+Assembly time (NeoN fused global face-based 1) = 18267 [us]
+Assembly time (NeoN fused global face-based 2) = 18244 [us]
+Assembly time (NeoN fused global face-based 3) = 18255 [us]
+Assembly time (NeoN fused global face-based 4) = 18240 [us]
+Assembly time (NeoN fused cell-based 0) = 26515 [us]
+Assembly time (NeoN fused cell-based 1) = 25073 [us]
+Assembly time (NeoN fused cell-based 2) = 25087 [us]
+Assembly time (NeoN fused cell-based 3) = 25168 [us]
+Assembly time (NeoN fused cell-based 4) = 25196 [us]
+Assembly time (NeoN fused batched 0) = 46216 [us]
+Assembly time (NeoN fused batched 1) = 43900 [us]
+Assembly time (NeoN fused batched 2) = 43800 [us]
+Assembly time (NeoN fused batched 3) = 44016 [us]
+Assembly time (NeoN fused batched 4) = 43804 [us]
+Assembly time (JuNe face-based 0) = 1851040 [us]
+Assembly time (JuNe face-based 1) = 21406 [us]
+Assembly time (JuNe face-based 2) = 20938 [us]
+Assembly time (JuNe face-based 3) = 20902 [us]
+Assembly time (JuNe face-based 4) = 20898 [us]
+Assembly time (JuNe global face-based 0) = 720906 [us]
+Assembly time (JuNe global face-based 1) = 24221 [us]
+Assembly time (JuNe global face-based 2) = 23802 [us]
+Assembly time (JuNe global face-based 3) = 23773 [us]
+Assembly time (JuNe global face-based 4) = 24287 [us]
+Assembly time (JuNe cell-based 0) = 458439 [us]
+Assembly time (JuNe cell-based 1) = 33795 [us]
+Assembly time (JuNe cell-based 2) = 33301 [us]
+Assembly time (JuNe cell-based 3) = 33258 [us]
+Assembly time (JuNe cell-based 4) = 33264 [us]
+  Activating project at `~/JuNe.jl`
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcudart.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcublas.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcublas.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcublasLt.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcurand.so.10` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcurand.so.10`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcufft.so.11` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcufft.so.11`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+===============================================================================
+All tests passed (11 assertions in 1 test case)
+
+Finalizing NeoN

@@ -9,11 +9,11 @@ Initializing NeoN
 \*---------------------------------------------------------------------------*/
 Build  : v2412 OPENFOAM=2412 version=v2412
 Arch   : "LSB;label=32;scalar=64"
-Exec   : /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity
-Date   : Nov 11 2026
-Time   : 16:55:52
-Host   : gpu-nvidia-h200-3.int.coma-cluster.de
-PID    : 749685
+Exec   : /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu/bin/tests/cavity
+Date   : Nov 13 2026
+Time   : 17:34:00
+Host   : gpu-nvidia-h200-2.int.coma-cluster.de
+PID    : 3336669
 I/O    : uncollated
 Case   : /storage/home/lupeterm/nobackup/julia/view/base/mesh/280/case
 nProcs : 1
@@ -26,51 +26,76 @@ Create time
 
 profiling initialized
 Create mesh for time = 0
-Randomness seeded to: 3281718921
+Randomness seeded to: 2259030618
 Creating NeoFOAM runTime
 Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,U)'
 Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(U)'
 Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,T)'
 cells: 21952000
 matrix: scalar
-Assembly time (JuNe batched 0) = 14929592 [us]
-Assembly time (JuNe batched 1) = 9908 [us]
-Assembly time (JuNe batched 2) = 9595 [us]
+operators: div + laplacian
+Assembly time (JuNe batched 0) = 20459503 [us]
+Assembly time (JuNe batched 1) = 10203 [us]
+Assembly time (JuNe batched 2) = 9997 [us]
+Assembly time (JuNe batched 3) = 9867 [us]
+Assembly time (JuNe batched 4) = 9804 [us]
 batches: 6
 nnz: 153193600
-Assembly time (NeoN face-based 0) = 14198 [us]
-Assembly time (NeoN face-based 1) = 12755 [us]
-Assembly time (NeoN face-based 2) = 12743 [us]
-Assembly time (NeoN global face-based 0) = 12711 [us]
-Assembly time (NeoN global face-based 1) = 12227 [us]
-Assembly time (NeoN global face-based 2) = 12251 [us]
-Assembly time (NeoN cell-based 0) = 1329970 [us]
-Assembly time (NeoN cell-based 1) = 13341 [us]
-Assembly time (NeoN cell-based 2) = 13498 [us]
-Assembly time (NeoN batched 0) = 24017 [us]
-Assembly time (NeoN batched 1) = 23261 [us]
-Assembly time (NeoN batched 2) = 23127 [us]
-Assembly time (NeoN fused face-based 0) = 6568 [us]
-Assembly time (NeoN fused face-based 1) = 6571 [us]
-Assembly time (NeoN fused face-based 2) = 6310 [us]
-Assembly time (NeoN fused global face-based 0) = 6564 [us]
-Assembly time (NeoN fused global face-based 1) = 6586 [us]
-Assembly time (NeoN fused global face-based 2) = 6327 [us]
-Assembly time (NeoN fused cell-based 0) = 9307 [us]
-Assembly time (NeoN fused cell-based 1) = 8507 [us]
-Assembly time (NeoN fused cell-based 2) = 8505 [us]
-Assembly time (NeoN fused batched 0) = 12427 [us]
-Assembly time (NeoN fused batched 1) = 11541 [us]
-Assembly time (NeoN fused batched 2) = 11552 [us]
-Assembly time (JuNe face-based 0) = 1428889 [us]
-Assembly time (JuNe face-based 1) = 6022 [us]
-Assembly time (JuNe face-based 2) = 5757 [us]
-Assembly time (JuNe global face-based 0) = 473675 [us]
-Assembly time (JuNe global face-based 1) = 6657 [us]
-Assembly time (JuNe global face-based 2) = 6379 [us]
-Assembly time (JuNe cell-based 0) = 442174 [us]
-Assembly time (JuNe cell-based 1) = 10004 [us]
-Assembly time (JuNe cell-based 2) = 9746 [us]
+Assembly time (NeoN face-based 0) = 14147 [us]
+Assembly time (NeoN face-based 1) = 11284 [us]
+Assembly time (NeoN face-based 2) = 11244 [us]
+Assembly time (NeoN face-based 3) = 11304 [us]
+Assembly time (NeoN face-based 4) = 11257 [us]
+Assembly time (NeoN global face-based 0) = 11422 [us]
+Assembly time (NeoN global face-based 1) = 10955 [us]
+Assembly time (NeoN global face-based 2) = 10927 [us]
+Assembly time (NeoN global face-based 3) = 10875 [us]
+Assembly time (NeoN global face-based 4) = 10719 [us]
+Assembly time (NeoN cell-based 0) = 1431130 [us]
+Assembly time (NeoN cell-based 1) = 11805 [us]
+Assembly time (NeoN cell-based 2) = 11800 [us]
+Assembly time (NeoN cell-based 3) = 11789 [us]
+Assembly time (NeoN cell-based 4) = 12113 [us]
+Assembly time (NeoN batched 0) = 23001 [us]
+Assembly time (NeoN batched 1) = 21718 [us]
+Assembly time (NeoN batched 2) = 21668 [us]
+Assembly time (NeoN batched 3) = 21518 [us]
+Assembly time (NeoN batched 4) = 27338 [us]
+Assembly time (NeoN fused face-based 0) = 4809 [us]
+Assembly time (NeoN fused face-based 1) = 4615 [us]
+Assembly time (NeoN fused face-based 2) = 4600 [us]
+Assembly time (NeoN fused face-based 3) = 4595 [us]
+Assembly time (NeoN fused face-based 4) = 4592 [us]
+Assembly time (NeoN fused global face-based 0) = 4682 [us]
+Assembly time (NeoN fused global face-based 1) = 4625 [us]
+Assembly time (NeoN fused global face-based 2) = 4610 [us]
+Assembly time (NeoN fused global face-based 3) = 4601 [us]
+Assembly time (NeoN fused global face-based 4) = 4608 [us]
+Assembly time (NeoN fused cell-based 0) = 7184 [us]
+Assembly time (NeoN fused cell-based 1) = 6843 [us]
+Assembly time (NeoN fused cell-based 2) = 6856 [us]
+Assembly time (NeoN fused cell-based 3) = 6671 [us]
+Assembly time (NeoN fused cell-based 4) = 6678 [us]
+Assembly time (NeoN fused batched 0) = 10268 [us]
+Assembly time (NeoN fused batched 1) = 9665 [us]
+Assembly time (NeoN fused batched 2) = 9664 [us]
+Assembly time (NeoN fused batched 3) = 9625 [us]
+Assembly time (NeoN fused batched 4) = 9604 [us]
+Assembly time (JuNe face-based 0) = 1920544 [us]
+Assembly time (JuNe face-based 1) = 6222 [us]
+Assembly time (JuNe face-based 2) = 5988 [us]
+Assembly time (JuNe face-based 3) = 5842 [us]
+Assembly time (JuNe face-based 4) = 5887 [us]
+Assembly time (JuNe global face-based 0) = 641111 [us]
+Assembly time (JuNe global face-based 1) = 6882 [us]
+Assembly time (JuNe global face-based 2) = 6661 [us]
+Assembly time (JuNe global face-based 3) = 6597 [us]
+Assembly time (JuNe global face-based 4) = 6486 [us]
+Assembly time (JuNe cell-based 0) = 588393 [us]
+Assembly time (JuNe cell-based 1) = 10247 [us]
+Assembly time (JuNe cell-based 2) = 9998 [us]
+Assembly time (JuNe cell-based 3) = 9955 [us]
+Assembly time (JuNe cell-based 4) = 9917 [us]
   Activating project at `~/JuNe.jl`
 ┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcudart.so.12`.
 │ This may cause errors.

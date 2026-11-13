@@ -111,7 +111,8 @@ def plot_speedup(data: pd.DataFrame, n: int, out: Path, matrix: str = "Vec3"):
         ax.plot(threads, threads, color="0.5", linestyle="--", linewidth=1.2, label="ideal")
         for strategy in (s for s in SERIES if s in set(size["strategy"]) and SERIES[s][1] == executor):
             col, m, filled = style(strategy)
-            points = size.loc[size["strategy"].eq(strategy)].set_index("threads")["time_mean_ms"].sort_index()
+            column = "time_median_ms" if "time_median_ms" in size else "time_mean_ms"
+            points = size.loc[size["strategy"].eq(strategy)].set_index("threads")[column].sort_index()
             speedup = points.loc[1] / points
             ax.plot(speedup.index, speedup.values, color=col, alpha=0.35, linewidth=1)
             ax.scatter(speedup.index, speedup.values, s=50, edgecolors=col,
@@ -149,8 +150,8 @@ def main(results: Path):
     all_data = all_data.loc[all_data["strategy"].isin(SERIES)]
     if "matrix" not in all_data:
         all_data["matrix"] = "Vec3"
-    # the speedup sizes come from the Vec3 series so that both matrix types show the same meshes
-    sizes = peak_sizes(all_data.loc[all_data["matrix"].eq("Vec3")])
+    # the speedup sizes are shared by the matrix types; they come from the first one present
+    sizes = peak_sizes(all_data.loc[all_data["matrix"].eq(sorted(all_data["matrix"].unique())[-1])])
     # one set of figures per matrix type: the Vec3 ones keep their names, scalar gets a suffix
     for matrix, data in all_data.groupby("matrix"):
         suffix = "" if matrix == "Vec3" else f"_{matrix}"

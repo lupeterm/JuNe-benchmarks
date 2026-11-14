@@ -1,5 +1,4 @@
-"""Scalar-matrix assembly throughput on the H200 and on the H200 node's AMD EPYC 9555 CPUs (one set per thread
-count), one pair of executors at a time, in the style of
+"""Scalar-matrix assembly throughput on the H200, one pair of executors at a time, in the style of
 variant (c) of plot_scalar_variants.py (each strategy kind named once by colour, the executor by
 marker, in one legend inside the axes, placed where it needs the least room above the data: a column
 in a top corner for the throughput, a row at the top left or centre for the speedup):
@@ -10,12 +9,9 @@ in a top corner for the throughput, a row at the top left or centre for the spee
 
     python3 plot_scalar_pairs.py [results_dir]
 
-reads june_neon/h200/cavity_throughput.csv and june_neon/cavity_throughput_cpu.csv and writes
-
-  june_neon/h200/cavity_scalar_<plot>.pdf          GPU
-  june_neon/cpu_h200_threads<t>_scalar_<plot>.pdf  CPU, one set per thread count
-
-with <plot> one of neon_vs_fused, fused_vs_june, june_over_fused, and the three stacked in <plot> = pairs.
+reads june_neon/h200/cavity_throughput.csv and writes june_neon/h200/cavity_scalar_<plot>.pdf with
+<plot> one of neon_vs_fused, fused_vs_june, june_over_fused, and the three stacked in <plot> = pairs.
+plot_cpu.py draws the same plots for every CPU thread count with figures().
 """
 import sys
 from pathlib import Path
@@ -29,7 +25,6 @@ from matplotlib.ticker import EngFormatter, FixedLocator, FormatStrFormatter, Nu
 
 from plot_scalar_variants import CELL_TICKS, EXECUTORS, KINDS, SERIES, draw
 
-CPU = "AMD EPYC 9555"  # the CPUs of the H200 node
 FUSED = {kind: s for s, (kind, e) in SERIES.items() if e == "NeoN Fused"}  # kind -> NeoN Fused
 SPEEDUP_TICKS = [0.05, 0.1, 0.2, 0.3, 0.5, 0.75, 1, 1.5, 2, 3, 5, 7.5, 10, 15, 20, 30, 50]
 
@@ -182,13 +177,19 @@ def save(fig, out: Path):
 THROUGHPUT = ("neon_vs_fused", "fused_vs_june")  # the plots that share one y scale
 
 
-def figures(data: pd.DataFrame, label: str, prefix: Path):
-    """The three plots as standalone figures <prefix>_<plot>.pdf and stacked in <prefix>_pairs.pdf."""
+def figures(data: pd.DataFrame, label: str, out: dict[str, Path], fixed: bool = False):
+    """The three plots as standalone figures out[<plot>] and stacked in out["pairs"]. With fixed, every
+    legend stays top left below the title instead of moving to where it needs the least room."""
+    def pin(ax):
+        if fixed:
+            ax.get_legend().places = ("upper left",)
+
     standalone = {}
     for name, (plot, short, _) in PLOTS.items():
         fig, ax = plt.subplots(figsize=(15, 6), constrained_layout=True)
         plot(ax, data, f"{label}: {short}")
         finish(ax)
+        pin(ax)
         ax.set_xlabel("Cells")
         standalone[name] = ax
     # the legend sizes are known once drawn; each figure is drawn on its own
@@ -198,16 +199,17 @@ def figures(data: pd.DataFrame, label: str, prefix: Path):
     for name, ax in standalone.items():
         if name in THROUGHPUT:
             ax.set_ylim(top=common)
-        save(ax.figure, prefix.with_name(f"{prefix.name}_{name}"))
+        save(ax.figure, out[name])
 
     fig, axes = plt.subplots(len(PLOTS), 1, figsize=(15, 18), sharex=True, constrained_layout=True)
     for ax, (plot, _, long) in zip(axes, PLOTS.values()):
         plot(ax, data, long)
         finish(ax)
+        pin(ax)
     axes[-1].set_xlabel("Cells")
     fig.suptitle(label, fontsize=19, fontweight="bold", color="0.2")
     fit_legends(list(axes), shared=[ax for ax, name in zip(axes, PLOTS) if name in THROUGHPUT])
-    save(fig, prefix.with_name(f"{prefix.name}_pairs"))
+    save(fig, out["pairs"])
 
 
 def scalar(path: Path) -> pd.DataFrame:
@@ -215,16 +217,17 @@ def scalar(path: Path) -> pd.DataFrame:
     return data.loc[data["matrix"].eq("scalar") & data["strategy"].isin(SERIES)]
 
 
-def main(results: Path):
+def style_setup():
     plt.style.use("seaborn-v0_8-whitegrid")
     plt.rcParams.update({"font.size": 15, "axes.labelsize": 16, "xtick.labelsize": 14,
                          "ytick.labelsize": 14, "legend.fontsize": 15})
+
+
+def main(results: Path):
+    style_setup()
+    prefix = results / "h200" / "cavity_scalar"
     figures(scalar(results / "h200" / "cavity_throughput.csv"), "NVIDIA H200, scalar matrix",
-            results / "h200" / "cavity_scalar")
-    cpu = scalar(results / "cavity_throughput_cpu.csv")
-    for threads, data in cpu.groupby("threads"):
-        figures(data, f"{CPU}, {threads} thread{'s' if threads > 1 else ''}, scalar matrix",
-                results / f"cpu_h200_threads{threads}_scalar")
+            {name: prefix.with_name(f"{prefix.name}_{name}") for name in [*PLOTS, "pairs"]})
 
 
 if __name__ == "__main__":

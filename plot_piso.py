@@ -4,7 +4,7 @@ face-based, JuNe face-based), as stacked bars of the mean wall time per step.
 
     python3 plot_piso.py [csv] [out]
 
-reads june_neon/cavity_piso.csv (parse_piso.py of the NeoFOAM benchmark) and writes svg and pdf.
+reads june_neon/cavity_piso.csv (parse_piso.py of the NeoFOAM benchmark) and writes pdf.
 """
 import sys
 from pathlib import Path
@@ -57,9 +57,8 @@ def plot(data: pd.DataFrame, out: Path):
     axA.set_xticklabels(labels)
     axA.set_ylabel("Momentum assembly per time step [ms]")
     axA.set_ylim(top=assembly.max() * 1.2)
-    fig.savefig(out.with_suffix(".svg"), bbox_inches="tight")
     fig.savefig(out.with_suffix(".pdf"), bbox_inches="tight")
-    print("wrote", out.with_suffix(".svg"), "and .pdf")
+    print("wrote", out.with_suffix(".pdf"))
     return fig
 
 

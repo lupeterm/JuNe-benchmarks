@@ -7,7 +7,7 @@ the strategy colours are explained by two legends inside the axes, top left.
     python3 plot_combined.py [results_dir]
 
 reads june_neon/h200/cavity_throughput.csv (NeoFOAM benchmark) and june_neon/cavity_icofoam.csv
-(icofoam/parse_results.py) and writes june_neon/cavity_combined_{gbs,mcells}.{svg,pdf}.
+(icofoam/parse_results.py) and writes june_neon/cavity_combined_gbs.pdf.
 """
 import sys
 from pathlib import Path
@@ -84,9 +84,8 @@ def plot(data: pd.DataFrame, column: str, ylabel: str, out: Path):
                             frameon=False, labelspacing=0.8))
     ax.legend(handles=kind_handles(), loc="upper left", bbox_to_anchor=(0.01, 0.70), frameon=False,
               labelspacing=0.8)
-    fig.savefig(out.with_suffix(".svg"), bbox_inches="tight")
     fig.savefig(out.with_suffix(".pdf"), bbox_inches="tight")
-    print("wrote", out.with_suffix(".svg"), "and .pdf")
+    print("wrote", out.with_suffix(".pdf"))
 
 
 def main(results: Path):
@@ -97,7 +96,6 @@ def main(results: Path):
     data = pd.concat([gpu, cpu], ignore_index=True)
     data = data.loc[data["strategy"].isin(SERIES)]
     plot(data, "throughput_gbs", "Matrix assembly throughput [GB/s]", results / "cavity_combined_gbs")
-    plot(data, "throughput_mcells_s", "Matrix assembly throughput [million cells/s]", results / "cavity_combined_mcells")
 
 
 if __name__ == "__main__":

@@ -11,4 +11,4 @@ Challenge (460,041,233 non-zeros), every NeoN, fused NeoN and JuNe strategy on o
 - Timing: five assemblies per strategy, the first dropped; each includes the reset of the system and is
   fenced before and after, NeoN assembles the operators only, i.e. both sides do the same work. Every
   strategy's matrix and rhs equal the JuNe batched reference.
-- Throughput: nnz * 8 bytes / median time. `python3 parse_plot.py` -> drivaer.csv, drivaer_h200.{svg,pdf}.
+- Throughput: nnz * 8 bytes / median time. `python3 parse_plot.py` -> drivaer.csv, drivaer_h200.pdf.

@@ -5,7 +5,7 @@ NeoFOAM (test/test_cavity.cpp with CAVITY_DDT=1 CAVITY_MATRIX=scalar, three time
 strategy, the first one dropped).
 
     python3 parse_plot.py     reads <gpu>/drivaer.log next to this file, writes drivaer.csv and
-                              drivaer_<gpu>.{svg,pdf}
+                              drivaer_<gpu>.pdf
 """
 import re
 from pathlib import Path
@@ -80,9 +80,8 @@ def plot(data: pd.DataFrame, out: Path):
     ax.text(0.02, 0.97, f"occDrivAer, {cells:,} cells, {data['matrix'].iloc[0]} matrix, {data['gpu'].iloc[0]}",
             transform=ax.transAxes, ha="left", va="top", fontsize=15, fontweight="bold", color="0.2")
     ax.legend(loc="upper right", bbox_to_anchor=(1.0, 0.9), frameon=False)  # the right bars are the lowest
-    fig.savefig(out.with_suffix(".svg"), bbox_inches="tight")
     fig.savefig(out.with_suffix(".pdf"), bbox_inches="tight")
-    print("wrote", out.with_suffix(".svg"), "and .pdf")
+    print("wrote", out.with_suffix(".pdf"))
 
 
 if __name__ == "__main__":

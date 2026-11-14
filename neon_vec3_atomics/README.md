@@ -43,7 +43,7 @@ python3 parse_plot.py     # <gpu>/cavity_<n>_<variant>.log -> cavity_vec3_atomic
 | L40S | face-based | 32.8 ms, 41 GB/s | 33.2 ms, 40 GB/s |
 | L40S | fused face-based | 15.8 ms, 85 GB/s | 15.2 ms, 88 GB/s |
 
-Figure: `cavity_vec3_atomics_l40s_n200.{svg,pdf}`. The runtime switch and the job script were
+Figure: `cavity_vec3_atomics_l40s_n200.pdf`. The runtime switch and the job script were
 temporary and have been removed from NeoN and NeoFOAM again after this run; the H200 job was
 cancelled before it started.
 

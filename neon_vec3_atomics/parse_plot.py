@@ -64,9 +64,8 @@ def plot(data: pd.DataFrame, out: Path):
     ax.text(0.02, 0.97, f"NeoN Vec3 matrix, {n}³ = {n**3:,} cells, {data['gpu'].iloc[0]}",
             transform=ax.transAxes, ha="left", va="top", fontsize=15, fontweight="bold", color="0.2")
     ax.legend(loc="upper left", bbox_to_anchor=(0.0, 0.9), frameon=False, title="Diagonal and rhs update")
-    fig.savefig(out.with_suffix(".svg"), bbox_inches="tight")
     fig.savefig(out.with_suffix(".pdf"), bbox_inches="tight")
-    print("wrote", out.with_suffix(".svg"), "and .pdf")
+    print("wrote", out.with_suffix(".pdf"))
 
 
 if __name__ == "__main__":

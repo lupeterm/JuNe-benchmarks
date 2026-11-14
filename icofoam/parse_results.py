@@ -50,7 +50,6 @@ def main(results: Path):
     data = (raw.groupby(["gpu", "n", "cells", "nnz", "strategy"], as_index=False)
             .agg(time_mean_ms=("time_ms", "mean"), time_std_ms=("time_ms", "std"), runs=("time_ms", "size")))
     data["throughput_gbs"] = data["nnz"] * 8 / (data["time_mean_ms"] / 1e3) / 1e9
-    data["throughput_mcells_s"] = data["cells"] / (data["time_mean_ms"] / 1e3) / 1e6
     data = data.sort_values(["gpu", "strategy", "cells"])
     out = results / "cavity_icofoam.csv"
     data.to_csv(out, index=False)

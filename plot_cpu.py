@@ -2,14 +2,18 @@
 H200 node's CPUs, 1 to 64 threads), in the style of the GPU figures: colours by strategy kind,
 hollow circles for NeoN, filled circles for fused NeoN, filled squares for JuNe.
 
-  cpu_h200_threads<t>_{gbs,mcells}   throughput over the number of cells, one figure per thread count
+  cpu_h200_threads<t>_gbs_neon        throughput over the number of cells, NeoN fused against NeoN
+  cpu_h200_threads<t>_gbs_fused_june  throughput over the number of cells, NeoN fused against JuNe
+  cpu_h200_threads<t>_june_speedup    speedup of JuNe over fused NeoN (fused time / JuNe time) per
+                                      strategy kind, over the number of cells
+                                      (one set per thread count)
   cpu_h200_speedup_n<n>              speedup over the thread count, one subplot per executor, at the
                                      cache-resident size where the serial throughput peaks and at
                                      the largest mesh
 
     python3 plot_cpu.py [results_dir]
 
-reads june_neon/cavity_throughput_cpu.csv and writes svg and pdf next to it.
+reads june_neon/cavity_throughput_cpu.csv and writes pdf next to it.
 """
 import sys
 from pathlib import Path
@@ -54,14 +58,16 @@ def style(strategy: str):
     return KINDS[kind], m, filled
 
 
-def legends(ax, extra=()):
-    """Executor markers and strategy colours inside the axes, top left, below optional extra handles."""
+def legends(ax, extra=(), top=0.99, shown=tuple(EXECUTORS)):
+    """Executor markers (of the executors in shown) and strategy colours inside the axes, top left from
+    height top downwards, below optional extra handles."""
     executors = [Line2D([], [], color="0.25", marker=m, linestyle="none", markersize=9,
-                        markerfacecolor="0.25" if f else "none", label=e) for e, (m, f) in EXECUTORS.items()]
-    ax.add_artist(ax.legend(handles=list(extra) + executors, loc="upper left", bbox_to_anchor=(0.01, 0.99),
+                        markerfacecolor="0.25" if f else "none", label=e)
+                 for e, (m, f) in EXECUTORS.items() if e in shown]
+    ax.add_artist(ax.legend(handles=list(extra) + executors, loc="upper left", bbox_to_anchor=(0.01, top),
                             frameon=False, labelspacing=0.8))
     ax.legend(handles=[Patch(facecolor=c, label=k) for k, c in KINDS.items()], loc="upper left",
-              bbox_to_anchor=(0.01, 0.99 - 0.075 * (len(executors) + len(extra)) - 0.03), frameon=False,
+              bbox_to_anchor=(0.01, top - 0.075 * (len(executors) + len(extra)) - 0.03), frameon=False,
               labelspacing=0.8)
 
 
@@ -73,16 +79,16 @@ def setup():
 
 
 def save(fig, out: Path):
-    fig.savefig(out.with_suffix(".svg"), bbox_inches="tight")
     fig.savefig(out.with_suffix(".pdf"), bbox_inches="tight")
     plt.close(fig)
-    print("wrote", out.with_suffix(".svg"), "and .pdf")
+    print("wrote", out.with_suffix(".pdf"))
 
 
 def plot_throughput(data: pd.DataFrame, threads: int, column: str, ylabel: str, out: Path,
-                    matrix: str = "Vec3"):
+                    matrix: str = "Vec3", shown=tuple(EXECUTORS)):
+    """Throughput over the number of cells of the strategies of the executors in shown."""
     fig, ax = setup()
-    for strategy in (s for s in SERIES if s in set(data["strategy"])):
+    for strategy in (s for s in SERIES if s in set(data["strategy"]) and SERIES[s][1] in shown):
         col, m, filled = style(strategy)
         points = data.loc[data["strategy"].eq(strategy)].sort_values("cells")
         ax.plot(points["cells"], points[column], color=col, alpha=0.35, linewidth=1)
@@ -92,9 +98,42 @@ def plot_throughput(data: pd.DataFrame, threads: int, column: str, ylabel: str, 
     ax.xaxis.set_major_formatter(EngFormatter())
     ax.set_ylim(bottom=0)
     ax.grid(True, which="minor", alpha=0.15)
-    ax.text(0.98, 0.97, f"{threads} thread{'s' if threads > 1 else ''}, {matrix} matrix", transform=ax.transAxes,
-            ha="right", va="top", fontsize=18, fontweight="bold", color="0.2")
-    legends(ax)
+    # the title sits top left, the legends below it
+    ax.text(0.02, 0.97, f"{' vs '.join(shown)}, {threads} thread{'s' if threads > 1 else ''}, {matrix} matrix",
+            transform=ax.transAxes, ha="left", va="top", fontsize=18, fontweight="bold", color="0.2")
+    legends(ax, top=0.90, shown=shown)
+    save(fig, out)
+
+
+def plot_june_speedup(data: pd.DataFrame, threads: int, out: Path, matrix: str = "Vec3"):
+    """Speedup of JuNe over fused NeoN per strategy kind: fused NeoN time / JuNe time, above 1 JuNe is
+    faster."""
+    fig, ax = setup()
+    column = "time_median_ms" if "time_median_ms" in data else "time_mean_ms"
+    times = data.set_index(["strategy", "n"])[column]
+    cells = data.groupby("n")["cells"].first()
+    lo, hi = 1.0, 1.0
+    for kind, col in KINDS.items():
+        fused = next(s for s, (k, e) in SERIES.items() if k == kind and e == "NeoN fused")
+        june = next((s for s, (k, e) in SERIES.items() if k == kind and e == "JuNe"), None)
+        if june is None or fused not in times.index.get_level_values(0) or june not in times.index.get_level_values(0):
+            continue
+        ratio = (times[fused] / times[june]).dropna().sort_index()
+        lo, hi = min(lo, ratio.min()), max(hi, ratio.max())
+        ax.plot(cells[ratio.index], ratio.values, color=col, alpha=0.35, linewidth=1)
+        ax.scatter(cells[ratio.index], ratio.values, s=50, marker="s", color=col, alpha=0.85)
+    ax.axhline(1.0, color="0.4", linestyle="--", linewidth=1.2)
+    ax.set(xscale="log", yscale="log", xlabel="Number of cells", ylabel="Speedup of JuNe over fused NeoN")
+    ax.set_ylim(lo / 1.5, hi * 4)  # headroom on top for the title
+    ax.xaxis.set_major_formatter(EngFormatter())
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:g}"))
+    ax.grid(True, which="minor", alpha=0.15)
+    ax.text(0.02, 0.97, f"JuNe vs NeoN fused, {threads} thread{'s' if threads > 1 else ''}, {matrix} matrix",
+            transform=ax.transAxes, ha="left", va="top", fontsize=18, fontweight="bold", color="0.2")
+    ax.legend(handles=[Patch(facecolor=c, label=k) for k, c in KINDS.items()]
+              + [Line2D([], [], color="0.4", linestyle="--", label="equal time")],
+              loc="upper left", bbox_to_anchor=(1.01, 1.0), borderaxespad=0.0, frameon=False,
+              labelspacing=0.8)  # right of the axes: the ratios cover every corner of the plot
     save(fig, out)
 
 
@@ -159,10 +198,12 @@ def main(results: Path):
         suffix = "" if matrix == "Vec3" else f"_{matrix}"
         for threads in sorted(data["threads"].unique()):
             sub = data.loc[data["threads"].eq(threads)]
-            plot_throughput(sub, threads, "throughput_gbs", "Matrix assembly throughput [GB/s]",
-                            results / f"cpu_h200_threads{threads}_gbs{suffix}", matrix)
-            plot_throughput(sub, threads, "throughput_mcells_s", "Matrix assembly throughput [million cells/s]",
-                            results / f"cpu_h200_threads{threads}_mcells{suffix}", matrix)
+            ylabel = "Matrix assembly throughput [GB/s]"
+            plot_throughput(sub, threads, "throughput_gbs", ylabel,
+                            results / f"cpu_h200_threads{threads}_gbs_neon{suffix}", matrix, ("NeoN", "NeoN fused"))
+            plot_throughput(sub, threads, "throughput_gbs", ylabel,
+                            results / f"cpu_h200_threads{threads}_gbs_fused_june{suffix}", matrix, ("NeoN fused", "JuNe"))
+            plot_june_speedup(sub, threads, results / f"cpu_h200_threads{threads}_june_speedup{suffix}", matrix)
         for n in sizes:
             plot_speedup(data, n, results / f"cpu_h200_speedup_n{n}{suffix}", matrix)
 

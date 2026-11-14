@@ -139,7 +139,9 @@ def peak_sizes(data: pd.DataFrame) -> list[int]:
     median throughput over the strategies peaks, and the largest mesh, where the threaded runs reach
     their plateau."""
     serial = data.loc[data["threads"].eq(1)].groupby("n")["throughput_gbs"].median()
-    cache = int(serial.idxmax())
+    # the cache peak is searched among the small meshes: with the scalar matrix the serial throughput
+    # keeps rising slowly with the mesh size, so the global maximum would sit next to the largest mesh
+    cache = int(serial.loc[serial.index <= 100].idxmax())
     largest = int(data["n"].max())
     print(f"serial throughput peaks at n = {cache} ({serial[cache]:.1f} GB/s median), largest n = {largest}")
     return sorted({cache, largest})

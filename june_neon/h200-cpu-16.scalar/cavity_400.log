@@ -1,0 +1,110 @@
+/storage/home/lupeterm/NeoFOAM/test/catch2/test_main.cpp:25
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+MPI detected: For OpenMP binding to work as intended, MPI ranks must be bound to exclusive CPU sets.
+
+Initializing NeoN
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-cpu/bin/tests/cavity
+Date   : Nov 13 2026
+Time   : 21:45:27
+Host   : gpu-nvidia-h200-2.int.coma-cluster.de
+PID    : 33936
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/julia/view/base/mesh/400/case
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+profiling initialized
+Create mesh for time = 0
+Randomness seeded to: 3178956963
+Creating NeoFOAM runTime
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,T)'
+cells: 64000000
+matrix: scalar
+operators: div + laplacian
+Assembly time (JuNe batched 0) = 2483928 [us]
+Assembly time (JuNe batched 1) = 508794 [us]
+Assembly time (JuNe batched 2) = 490506 [us]
+Assembly time (JuNe batched 3) = 536569 [us]
+Assembly time (JuNe batched 4) = 536731 [us]
+batches: 6
+nnz: 447040000
+Assembly time (NeoN face-based 0) = 327791 [us]
+Assembly time (NeoN face-based 1) = 327517 [us]
+Assembly time (NeoN face-based 2) = 326438 [us]
+Assembly time (NeoN face-based 3) = 326570 [us]
+Assembly time (NeoN face-based 4) = 327544 [us]
+Assembly time (NeoN global face-based 0) = 368878 [us]
+Assembly time (NeoN global face-based 1) = 369957 [us]
+Assembly time (NeoN global face-based 2) = 369486 [us]
+Assembly time (NeoN global face-based 3) = 369750 [us]
+Assembly time (NeoN global face-based 4) = 369896 [us]
+Assembly time (NeoN cell-based 0) = 4114957 [us]
+Assembly time (NeoN cell-based 1) = 174078 [us]
+Assembly time (NeoN cell-based 2) = 176308 [us]
+Assembly time (NeoN cell-based 3) = 175324 [us]
+Assembly time (NeoN cell-based 4) = 176360 [us]
+Assembly time (NeoN batched 0) = 425083 [us]
+Assembly time (NeoN batched 1) = 424609 [us]
+Assembly time (NeoN batched 2) = 423829 [us]
+Assembly time (NeoN batched 3) = 424363 [us]
+Assembly time (NeoN batched 4) = 423327 [us]
+Assembly time (NeoN fused face-based 0) = 170359 [us]
+Assembly time (NeoN fused face-based 1) = 169662 [us]
+Assembly time (NeoN fused face-based 2) = 169637 [us]
+Assembly time (NeoN fused face-based 3) = 170049 [us]
+Assembly time (NeoN fused face-based 4) = 169584 [us]
+Assembly time (NeoN fused global face-based 0) = 200856 [us]
+Assembly time (NeoN fused global face-based 1) = 202388 [us]
+Assembly time (NeoN fused global face-based 2) = 202944 [us]
+Assembly time (NeoN fused global face-based 3) = 203157 [us]
+Assembly time (NeoN fused global face-based 4) = 202233 [us]
+Assembly time (NeoN fused cell-based 0) = 120237 [us]
+Assembly time (NeoN fused cell-based 1) = 120234 [us]
+Assembly time (NeoN fused cell-based 2) = 120244 [us]
+Assembly time (NeoN fused cell-based 3) = 120210 [us]
+Assembly time (NeoN fused cell-based 4) = 120363 [us]
+Assembly time (NeoN fused batched 0) = 276217 [us]
+Assembly time (NeoN fused batched 1) = 276465 [us]
+Assembly time (NeoN fused batched 2) = 276146 [us]
+Assembly time (NeoN fused batched 3) = 275920 [us]
+Assembly time (NeoN fused batched 4) = 276173 [us]
+Assembly time (JuNe face-based 0) = 573796 [us]
+Assembly time (JuNe face-based 1) = 279577 [us]
+Assembly time (JuNe face-based 2) = 276541 [us]
+Assembly time (JuNe face-based 3) = 248764 [us]
+Assembly time (JuNe face-based 4) = 267495 [us]
+Assembly time (JuNe global face-based 0) = 608640 [us]
+Assembly time (JuNe global face-based 1) = 344985 [us]
+Assembly time (JuNe global face-based 2) = 345542 [us]
+Assembly time (JuNe global face-based 3) = 341942 [us]
+Assembly time (JuNe global face-based 4) = 338838 [us]
+Assembly time (JuNe cell-based 0) = 1462885 [us]
+Assembly time (JuNe cell-based 1) = 1390744 [us]
+Assembly time (JuNe cell-based 2) = 1389721 [us]
+Assembly time (JuNe cell-based 3) = 1403607 [us]
+Assembly time (JuNe cell-based 4) = 1402744 [us]
+  Activating project at `~/JuNe.jl`
+===============================================================================
+All tests passed (11 assertions in 1 test case)
+
+Finalizing NeoN

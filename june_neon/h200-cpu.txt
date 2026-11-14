@@ -1,0 +1,8 @@
+Model name:                              AMD EPYC 9555 64-Core Processor
+Thread(s) per core:                      2
+Core(s) per socket:                      64
+Socket(s):                               2
+NUMA node(s):                            2
+NUMA node0 CPU(s):                       0-63,128-191
+NUMA node1 CPU(s):                       64-127,192-255
+allocated CPUs:  0-255

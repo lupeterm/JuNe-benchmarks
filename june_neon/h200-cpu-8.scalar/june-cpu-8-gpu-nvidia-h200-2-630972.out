@@ -1,0 +1,1258 @@
+NeoFOAM cpu build in build/julia-gpu-nvidia-h200-2-cpu with Julia at /storage/home/lupeterm/.julia/juliaup/julia-1.11.9+0.x64.linux.gnu
+Preset CMake variables:
+
+  CMAKE_BUILD_TYPE="Release"
+  CMAKE_CUDA_ARCHITECTURES="native"
+  GINKGO_BUILD_PAPI_SDE="OFF"
+  Kokkos_ENABLE_DEBUG="OFF"
+  Kokkos_ENABLE_DEBUG_BOUNDS_CHECK="OFF"
+  NEOFOAM_BUILD_BENCHMARKS="OFF"
+  NEOFOAM_BUILD_TESTS="ON"
+  NEOFOAM_ENABLE_KOKKOS_TOOLS="ON"
+
+-- Kokkos Tools enabled
+-- Cloning kokkos-tools (tag: 33693813b125096cc72a90d495fd02a7bb7574ea)
+-- --------------------------------------------------
+-- Kokkos Tools build dir : /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-cpu/kokkos_tools_build
+-- --------------------------------------------------
+-- using NEOFOAM_NEON_DIR ../NeoN
+-- Set CPM_USE_LOCAL_PACKAGES=ON by default.
+-- NeoN: MPI_THREAD_MULTIPLE supported — NeoN_ENABLE_MPI_WITH_THREAD_SUPPORT=ON
+-- Auto detecting accelerator devices
+-- Found OpenMP_C: -fopenmp (found version "4.5")
+-- Found OpenMP_CXX: -fopenmp (found version "4.5")
+-- Found OpenMP: TRUE (found version "4.5")
+-- Set Kokkos_ENABLE_OPENMP=ON
+-- Skip CUDA detection Kokkos_ENABLE_CUDA=OFF
+-- Skip HIP detection Kokkos_ENABLE_HIP=OFF
+-- Setting default Kokkos CXX standard to 20
+-- Kokkos version: 5.0.2
+-- The project name is: Kokkos
+-- Using internal gtest for testing
+-- Kokkos is configured for CMake languages CXX compilation (using GNU version 11.5.0)
+-- Using -std=c++20 for C++20 standard as feature
+-- Built-in Execution Spaces:
+--     Device Parallel: NoTypeDefined
+--     Host Parallel: Kokkos::OpenMP
+--       Host Serial: SERIAL
+-- 
+-- Architectures:
+-- Found OpenMP_CXX: -fopenmp (found suitable version "4.5", minimum required is "3.0")
+-- Found OpenMP: TRUE (found suitable version "4.5", minimum required is "3.0") found components: CXX
+-- Using bundled desul_atomics copy (desul/desul@79f928075837ffb5d302aae188e0ec7b7a79ae94)
+-- Performing Test KOKKOS_LINK_OPTIONS_CHECK
+-- Performing Test KOKKOS_LINK_OPTIONS_CHECK - Success
+-- Using bundled mdspan copy (kokkos/mdspan@5d4eb209c77f4744980c0b0c2af44636cc81b08b)
+-- Kokkos Backends: OPENMP;SERIAL
+-- CPM: Adding package cpptrace@0.7.3 (0.7.3)
+-- Cpptrace auto config: Using libgcc unwind for unwinding
+-- Cpptrace auto config: Using libdwarf for symbols
+-- Cpptrace auto config: Using cxxabi for demangling
+-- ZSTD VERSION: 1.5.6
+-- CMAKE_INSTALL_PREFIX: /usr/local
+-- CMAKE_INSTALL_LIBDIR: lib64
+-- ZSTD_LEGACY_SUPPORT not defined!
+-- ZSTD_MULTITHREAD_SUPPORT is enabled
+-- Building dwarfgen    ... OFF
+-- Building dwarfexample... OFF
+-- Building api tests   ... 
+-- HAVE_UINTPTR_T 1: uintptr_t defined in stdint.h... YES
+-- uintptr_t value considered NO 
+-- HAVE_INTPTR_T 1: intptr_t defined in stdint.h... YES
+-- intptr_t value considered NO 
+-- CMAKE_SIZEOF_VOID_P ... 8
+-- Compiler warning options... NO
+-- Install prefix ... /usr/local
+-- CPM: Adding package fmt@12.1.0 (12.1.0)
+-- {fmt} version: 12.1.0
+-- Build type: Release
+-- CPM: Adding package umpire@0 (18a808d1af81fed8823fcf12452d91c981f1bad1)
+-- Using CMake version 3.31.6
+-- BLT Source Directory: /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-cpu/_deps/umpire-src/blt
+-- BLT Version: 0.7.1
+-- CMake Version: 3.31.6
+-- CMake Build Type: Release
+-- CMake Executable: /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cmake-3.31.6-4ewdy2wbmyaceouqklvqlzsmenttqpz6/bin/cmake
+-- Standard C++17 selected
+-- BLT MPI support is OFF
+-- BLT OpenMP support is OFF
+-- BLT CUDA support is OFF
+-- BLT HIP support is OFF
+-- Git Support is ON
+-- Git Executable: /usr/bin/git
+-- Git Version: 2.47.3
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+-- Sphinx support is ON
+-- Failed to locate Sphinx executable (missing: SPHINX_EXECUTABLE) 
+-- Valgrind support is ON
+-- AStyle support is ON
+-- Failed to locate AStyle executable (missing: ASTYLE_EXECUTABLE) 
+-- ClangFormat support is ON
+-- Uncrustify support is ON
+-- Failed to locate Uncrustify executable (missing: UNCRUSTIFY_EXECUTABLE) 
+-- Yapf support is ON
+-- Failed to locate Yapf executable (missing: YAPF_EXECUTABLE) 
+-- CMakeFormat support is ON
+-- Failed to locate CMakeFormat executable (missing: CMAKEFORMAT_EXECUTABLE) 
+-- Cppcheck support is ON
+-- Failed to locate Cppcheck executable (missing: CPPCHECK_EXECUTABLE) 
+-- ClangQuery support is ON
+-- ClangTidy support is ON
+-- ClangApplyReplacements support is ON
+-- C Compiler family is GNU
+-- Adding optional BLT definitions and compiler flags
+-- Enabling all compiler warnings on all targets.
+-- Fortran support disabled.
+-- CMAKE_C_FLAGS flags are:   -Wall -Wextra  
+-- CMAKE_CXX_FLAGS flags are:   -Wall -Wextra     
+-- CMAKE_EXE_LINKER_FLAGS flags are:  
+-- CMake's C implicit link directories: /usr/lib/gcc/x86_64-redhat-linux/11;/usr/lib64;/lib64;/usr/lib
+-- CMake's CXX implicit link directories: /usr/lib/gcc/x86_64-redhat-linux/11;/usr/lib64;/lib64;/usr/lib
+-- CMake's C implicit link libraries: gcc;gcc_s;c;gcc;gcc_s
+-- CMake's CXX implicit link libraries: stdc++;m;gcc_s;gcc;c;gcc_s;gcc
+-- Setting C standard to 99
+-- Checking for std::filesystem
+-- std::filesystem found
+-- IPC Shared Memory Disabled
+-- MPI3 Shared Memory Disabled
+-- System nlohmann_json not found — fetching from GitHub via CPM.cmake...
+-- CPM: Adding package nlohmann_json@3.11.3 (v3.11.3)
+-- Using the multi-header code from /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-cpu/_deps/nlohmann_json-src/include/
+-- System Ginkgo not found — fetching from GitHub via CPM.cmake...
+-- CPM: Adding package Ginkgo@2.0.0 (6a3abf8c920228006f3b28bc3bf04fc7a5f6aee0)
+-- Found OpenMP_C: -fopenmp (found suitable version "4.5", minimum required is "3.0")
+-- Found OpenMP: TRUE (found suitable version "4.5", minimum required is "3.0")
+-- Could NOT find VTune (missing: VTune_EXECUTABLE VTune_LIBRARY VTune_INCLUDE_DIR) 
+-- Could NOT find METIS (missing: METIS_LIBRARY METIS_GKLIB_LIBRARY METIS_INCLUDE_DIR) 
+-- Found MPI: TRUE (found suitable version "3.1", minimum required is "3.1") found components: CXX
+-- 
+---------------------------------------------------------------------------------------------------------
+--
+--    Summary of Configuration for Ginkgo (version 2.0.0 with tag develop, shortrev a1795d8506)
+--    Ginkgo configuration:
+--        CMAKE_BUILD_TYPE:                                Release
+--        BUILD_SHARED_LIBS:                               OFF
+--        CMAKE_INSTALL_PREFIX:                            /usr/local
+--        PROJECT_SOURCE_DIR:                              /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-cpu/_deps/ginkgo-src
+--        PROJECT_BINARY_DIR:                              /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-cpu/_deps/ginkgo-build
+--        CMAKE_CXX_COMPILER:                              GNU 11.5.0 on platform Linux x86_64
+--                                                         /usr/bin/c++
+--    User configuration:
+--      Enabled modules:
+--        GINKGO_BUILD_OMP:                                ON
+--        GINKGO_BUILD_MPI:                                ON
+--        GINKGO_BUILD_REFERENCE:                          ON
+--        GINKGO_BUILD_CUDA:                               OFF
+--        GINKGO_BUILD_HIP:                                OFF
+--        GINKGO_BUILD_SYCL:                               OFF
+--      Enabled features:
+--        GINKGO_MIXED_PRECISION:                          OFF
+--        GINKGO_HAVE_GPU_AWARE_MPI:                       OFF
+--        GINKGO_ENABLE_HALF:                              OFF
+--        GINKGO_ENABLE_BFLOAT16:                          OFF
+--      Tests, benchmarks and examples:
+--        GINKGO_BUILD_TESTS:                              OFF
+--        GINKGO_FAST_TESTS:                               OFF
+--        GINKGO_BUILD_EXAMPLES:                           OFF
+--        GINKGO_EXTLIB_EXAMPLE:                           
+--        GINKGO_BUILD_BENCHMARKS:                         OFF
+--        GINKGO_BENCHMARK_ENABLE_TUNING:                  OFF
+--      Documentation:
+--        GINKGO_BUILD_DOC:                                OFF
+--        GINKGO_VERBOSE_LEVEL:                            1
+--    
+---------------------------------------------------------------------------------------------------------
+--
+--      Developer Tools:
+--        GINKGO_DEVEL_TOOLS:                              OFF
+--        GINKGO_WITH_CLANG_TIDY:                          OFF
+--        GINKGO_WITH_IWYU:                                OFF
+--        GINKGO_CHECK_CIRCULAR_DEPS:                      OFF
+--        GINKGO_WITH_CCACHE:                              ON
+---------------------------------------------------------------------------------------------------------
+--
+--      Components:
+--        GINKGO_BUILD_PAPI_SDE:                           OFF
+--        GINKGO_BUILD_HWLOC:                              OFF
+--
+--  Detailed information (More compiler flags, module configuration) can be found in detailed.log
+--   
+--
+--  Now, run  cmake --build .  to compile Ginkgo!
+--
+---------------------------------------------------------------------------------------------------------
+
+-- Julia 1.11.9 at /storage/home/lupeterm/.julia/juliaup/julia-1.11.9+0.x64.linux.gnu
+-- 
++------------------------------------------------------------------------------+
+
+
+         b.             8 8 8888888888       ,o888888o.     b.             8
+         888o.          8 8 8888          . 8888     `88.   888o.          8
+         Y88888o.       8 8 8888         ,8 8888       `8b  Y88888o.       8
+         .`Y888888o.    8 8 8888         88 8888        `8b .`Y888888o.    8
+         8o. `Y888888o. 8 8 888888888888 88 8888         88 8o. `Y888888o. 8
+         8`Y8o. `Y88888o8 8 8888         88 8888         88 8`Y8o. `Y88888o8
+         8   `Y8o. `Y8888 8 8888         88 8888        ,8P 8   `Y8o. `Y8888
+         8      `Y8o. `Y8 8 8888         `8 8888       ,8P  8      `Y8o. `Y8
+         8         `Y8o.` 8 8888          ` 8888     ,88'   8         `Y8o.`
+         8            `Yo 8 888888888888     `8888888P'     8            `Yo
+
+         Version: 0.1.0 Git commit: v0.3.0rc1-159-g623b7ab0bb-dirty
+
++------------------------------------------------------------------------------+
+ Build information:
+--	CMAKE_BUILD_TYPE = Release
+--	CMAKE_CXX_COMPILER = GNU@11.5.0
++------------------------------------------------------------------------------+
+ Third-Party dependencies:
+ -- 	NeoN_WITH_ADIOS2 = OFF
+ -- 	NeoN_WITH_CUDA = OFF
+ -- 	NeoN_WITH_GINKGO = ON
+ -- 	NeoN_WITH_JULIA = ON
+ -- 	NeoN_WITH_KOKKOS = ON
+ -- 	NeoN_WITH_MPI = ON
+ -- 	NeoN_WITH_OMP = ON
+ -- 	NeoN_WITH_PETSC = OFF
+ -- 	NeoN_WITH_SPDLOG = OFF
+ -- 	NeoN_WITH_SUNDIALS = OFF
+ -- 	NeoN_WITH_THREADS = OFF
+ -- 	NeoN_WITH_UMPIRE = ON
++------------------------------------------------------------------------------+
+ NeoN components:
+ -- 	NeoN_BUILD_BENCHMARKS = OFF
+ -- 	NeoN_BUILD_DOC = OFF
+ -- 	NeoN_BUILD_PYTHON_BINDINGS = OFF
+ -- 	NeoN_BUILD_TESTS = OFF
++------------------------------------------------------------------------------+
+ NeoN definitions:
+ -- 	NeoN_DEFINE_DP_LABEL = OFF
+ -- 	NeoN_DEFINE_DP_SCALAR = ON
+ -- 	NeoN_DEFINE_US_IDX = OFF
++------------------------------------------------------------------------------+
+CMake Warning at /storage/home/lupeterm/NeoN/CMakeLists.txt:403 (message):
+  Unable to create NeoNTargets.cmake with bundled Kokkos or Umpire
+
+
+-- Found MPI: TRUE (found suitable version "3.1", minimum required is "3.1")
+-- 
++------------------------------------------------------------------------------+
+
+
+                                                                                                                  .         .
+b.             8 8 8888888888       ,o888888o.     8 8888888888       ,o888888o.           .8.                   ,8.       ,8.
+888o.          8 8 8888          . 8888     `88.   8 8888          . 8888     `88.        .888.                 ,888.     ,888.
+Y88888o.       8 8 8888         ,8 8888       `8b  8 8888         ,8 8888       `8b      :88888.               .`8888.   .`8888.
+.`Y888888o.    8 8 8888         88 8888        `8b 8 8888         88 8888        `8b    . `88888.             ,8.`8888. ,8.`8888.
+8o. `Y888888o. 8 8 888888888888 88 8888         88 8 888888888888 88 8888         88   .8. `88888.           ,8'8.`8888,8^8.`8888.
+8`Y8o. `Y88888o8 8 8888         88 8888         88 8 8888         88 8888         88  .8`8. `88888.         ,8' `8.`8888' `8.`8888.
+8   `Y8o. `Y8888 8 8888         88 8888        ,8P 8 8888         88 8888        ,8P .8' `8. `88888.       ,8'   `8.`88'   `8.`8888.
+8      `Y8o. `Y8 8 8888         `8 8888       ,8P  8 8888         `8 8888       ,8P .8'   `8. `88888.     ,8'     `8.`'     `8.`8888.
+8         `Y8o.` 8 8888          ` 8888     ,88'   8 8888          ` 8888     ,88' .888888888. `88888.   ,8'       `8        `8.`8888.
+8            `Yo 8 888888888888     `8888888P'     8 8888             `8888888P'  .8'       `8. `88888. ,8'         `         `8.`8888.
+
+
+         Version: 0.1.0 Git commit: v0.2.0-915-g1b7184419-dirty
+
++------------------------------------------------------------------------------+
+ Build information:
+--	CMAKE_BUILD_TYPE = Release
+--	CMAKE_CXX_COMPILER = GNU@11.5.0
++------------------------------------------------------------------------------+
+ Third-Party dependencies:
+--	OpenFOAM version = 2412
+--	OpenFOAM MPI = sys-openmpi
++------------------------------------------------------------------------------+
+ NeoFOAM components:
+ -- 	NEOFOAM_BUILD_BENCHMARKS = OFF
+ -- 	NEOFOAM_BUILD_EXAMPLES = ON
+ -- 	NEOFOAM_BUILD_PYTHON_BINDINGS = OFF
+ -- 	NEOFOAM_BUILD_TESTS = ON
++------------------------------------------------------------------------------+
+ -- 	NEOFOAM_WITH_MPI = ON
++------------------------------------------------------------------------------+
+ External tools:
+ -- 	NEOFOAM_ENABLE_KOKKOS_TOOLS = ON
++------------------------------------------------------------------------------+
+ NeoN definitions:
+ -- 	NeoN_DEFINE_DP_LABEL = OFF
+ -- 	NeoN_DEFINE_DP_SCALAR = ON
+ -- 	NeoN_DEFINE_US_IDX = OFF
++------------------------------------------------------------------------------+
+-- Configuring done (3.5s)
+-- Generating done (0.4s)
+-- Build files have been written to: /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-cpu
+[0/2] Re-checking globbed directories...
+[1/9] Performing update step for 'kokkos_tools_ext'
+-- Already at requested ref: 33693813b125096cc72a90d495fd02a7bb7574ea
+[2/9] No patch step for 'kokkos_tools_ext'
+[3/9] cd /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-cpu/_deps/kokkos-build && /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cmake-3.31.6-4ewdy2wbmyaceouqklvqlzsmenttqpz6/bin/cmake -DRUN_CHECK_GIT_VERSION=1 -DKOKKOS_SOURCE_DIR=/storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-cpu/_deps/kokkos-src -P /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-cpu/_deps/kokkos-src/cmake/build_env_info.cmake
+[4/7] Performing configure step for 'kokkos_tools_ext'
+-- 
+-- ConfiguringKokkos-Tools
+-- 
+-- Kokkos NOT found
+-- PAPI support disabled
+-- MPI not available. MPI disabled.
+CMake Warning at cmake/configure_variorum.cmake:24 (message):
+  Variorum not found: set Variorum_ROOT CMake variable or VARIORUM_ROOT
+  environment variable to build Variorum connector
+Call Stack (most recent call first):
+  CMakeLists.txt:88 (include)
+
+
+CMake Warning at CMakeLists.txt:101 (message):
+  Set VTUNE_HOME in environment or VTune_ROOT in build options to build VTune
+  connectors
+
+
+-- Skipping memory-hwm-mpi (MPI disabled)
+-- Skipping systemtap-connector (dtrace executable wasn't found)
+-- Monolithic KokkosTools library skipped
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-cpu/kokkos_tools_build
+[4/7] Performing build step for 'kokkos_tools_ext'
+ninja: no work to do.
+[6/7] No install step for 'kokkos_tools_ext'
+[7/7] Completed 'kokkos_tools_ext'
+tests: ctest --test-dir build/julia-gpu-nvidia-h200-2-cpu   (or: NEON_DEVICE=-gpu-nvidia-h200-2-cpu ctest --preset julia)
+Model name:                              AMD EPYC 9555 64-Core Processor
+Thread(s) per core:                      2
+Core(s) per socket:                      64
+Socket(s):                               2
+NUMA node(s):                            2
+NUMA node0 CPU(s):                       0-63,128-191
+NUMA node1 CPU(s):                       64-127,192-255
+allocated CPUs:  0-255
+=== 10^3 cells, 8 threads on h200, Fri Nov 13 20:46:06 CET 2026
+Assembly time (NeoN fused global face-based 0) = 130 [us]
+Assembly time (NeoN fused global face-based 1) = 128 [us]
+Assembly time (NeoN fused global face-based 2) = 129 [us]
+Assembly time (NeoN fused global face-based 3) = 129 [us]
+Assembly time (NeoN fused global face-based 4) = 128 [us]
+Assembly time (NeoN fused cell-based 0) = 122 [us]
+Assembly time (NeoN fused cell-based 1) = 128 [us]
+Assembly time (NeoN fused cell-based 2) = 120 [us]
+Assembly time (NeoN fused cell-based 3) = 124 [us]
+Assembly time (NeoN fused cell-based 4) = 124 [us]
+Assembly time (NeoN fused batched 0) = 208 [us]
+Assembly time (NeoN fused batched 1) = 204 [us]
+Assembly time (NeoN fused batched 2) = 204 [us]
+Assembly time (NeoN fused batched 3) = 215 [us]
+Assembly time (NeoN fused batched 4) = 203 [us]
+Assembly time (JuNe face-based 0) = 291961 [us]
+Assembly time (JuNe face-based 1) = 572 [us]
+Assembly time (JuNe face-based 2) = 322 [us]
+Assembly time (JuNe face-based 3) = 298 [us]
+Assembly time (JuNe face-based 4) = 300 [us]
+Assembly time (JuNe global face-based 0) = 252938 [us]
+Assembly time (JuNe global face-based 1) = 600 [us]
+Assembly time (JuNe global face-based 2) = 353 [us]
+Assembly time (JuNe global face-based 3) = 331 [us]
+Assembly time (JuNe global face-based 4) = 316 [us]
+Assembly time (JuNe cell-based 0) = 190376 [us]
+Assembly time (JuNe cell-based 1) = 548 [us]
+Assembly time (JuNe cell-based 2) = 313 [us]
+Assembly time (JuNe cell-based 3) = 283 [us]
+Assembly time (JuNe cell-based 4) = 272 [us]
+=== 20^3 cells, 8 threads on h200, Fri Nov 13 20:46:15 CET 2026
+Assembly time (NeoN fused global face-based 0) = 281 [us]
+Assembly time (NeoN fused global face-based 1) = 276 [us]
+Assembly time (NeoN fused global face-based 2) = 275 [us]
+Assembly time (NeoN fused global face-based 3) = 266 [us]
+Assembly time (NeoN fused global face-based 4) = 298 [us]
+Assembly time (NeoN fused cell-based 0) = 167 [us]
+Assembly time (NeoN fused cell-based 1) = 167 [us]
+Assembly time (NeoN fused cell-based 2) = 167 [us]
+Assembly time (NeoN fused cell-based 3) = 174 [us]
+Assembly time (NeoN fused cell-based 4) = 167 [us]
+Assembly time (NeoN fused batched 0) = 261 [us]
+Assembly time (NeoN fused batched 1) = 270 [us]
+Assembly time (NeoN fused batched 2) = 279 [us]
+Assembly time (NeoN fused batched 3) = 275 [us]
+Assembly time (NeoN fused batched 4) = 268 [us]
+Assembly time (JuNe face-based 0) = 291417 [us]
+Assembly time (JuNe face-based 1) = 707 [us]
+Assembly time (JuNe face-based 2) = 436 [us]
+Assembly time (JuNe face-based 3) = 404 [us]
+Assembly time (JuNe face-based 4) = 377 [us]
+Assembly time (JuNe global face-based 0) = 252217 [us]
+Assembly time (JuNe global face-based 1) = 903 [us]
+Assembly time (JuNe global face-based 2) = 610 [us]
+Assembly time (JuNe global face-based 3) = 536 [us]
+Assembly time (JuNe global face-based 4) = 534 [us]
+Assembly time (JuNe cell-based 0) = 190397 [us]
+Assembly time (JuNe cell-based 1) = 720 [us]
+Assembly time (JuNe cell-based 2) = 472 [us]
+Assembly time (JuNe cell-based 3) = 436 [us]
+Assembly time (JuNe cell-based 4) = 412 [us]
+=== 30^3 cells, 8 threads on h200, Fri Nov 13 20:46:24 CET 2026
+Assembly time (NeoN fused global face-based 0) = 521 [us]
+Assembly time (NeoN fused global face-based 1) = 530 [us]
+Assembly time (NeoN fused global face-based 2) = 540 [us]
+Assembly time (NeoN fused global face-based 3) = 529 [us]
+Assembly time (NeoN fused global face-based 4) = 514 [us]
+Assembly time (NeoN fused cell-based 0) = 218 [us]
+Assembly time (NeoN fused cell-based 1) = 254 [us]
+Assembly time (NeoN fused cell-based 2) = 266 [us]
+Assembly time (NeoN fused cell-based 3) = 235 [us]
+Assembly time (NeoN fused cell-based 4) = 251 [us]
+Assembly time (NeoN fused batched 0) = 346 [us]
+Assembly time (NeoN fused batched 1) = 374 [us]
+Assembly time (NeoN fused batched 2) = 368 [us]
+Assembly time (NeoN fused batched 3) = 383 [us]
+Assembly time (NeoN fused batched 4) = 375 [us]
+Assembly time (JuNe face-based 0) = 296740 [us]
+Assembly time (JuNe face-based 1) = 824 [us]
+Assembly time (JuNe face-based 2) = 558 [us]
+Assembly time (JuNe face-based 3) = 524 [us]
+Assembly time (JuNe face-based 4) = 511 [us]
+Assembly time (JuNe global face-based 0) = 258082 [us]
+Assembly time (JuNe global face-based 1) = 1271 [us]
+Assembly time (JuNe global face-based 2) = 1109 [us]
+Assembly time (JuNe global face-based 3) = 1094 [us]
+Assembly time (JuNe global face-based 4) = 981 [us]
+Assembly time (JuNe cell-based 0) = 195064 [us]
+Assembly time (JuNe cell-based 1) = 1204 [us]
+Assembly time (JuNe cell-based 2) = 24363 [us]
+Assembly time (JuNe cell-based 3) = 692 [us]
+Assembly time (JuNe cell-based 4) = 721 [us]
+=== 40^3 cells, 8 threads on h200, Fri Nov 13 20:46:33 CET 2026
+Assembly time (NeoN fused global face-based 0) = 903 [us]
+Assembly time (NeoN fused global face-based 1) = 873 [us]
+Assembly time (NeoN fused global face-based 2) = 862 [us]
+Assembly time (NeoN fused global face-based 3) = 915 [us]
+Assembly time (NeoN fused global face-based 4) = 921 [us]
+Assembly time (NeoN fused cell-based 0) = 301 [us]
+Assembly time (NeoN fused cell-based 1) = 330 [us]
+Assembly time (NeoN fused cell-based 2) = 328 [us]
+Assembly time (NeoN fused cell-based 3) = 330 [us]
+Assembly time (NeoN fused cell-based 4) = 332 [us]
+Assembly time (NeoN fused batched 0) = 453 [us]
+Assembly time (NeoN fused batched 1) = 484 [us]
+Assembly time (NeoN fused batched 2) = 497 [us]
+Assembly time (NeoN fused batched 3) = 503 [us]
+Assembly time (NeoN fused batched 4) = 482 [us]
+Assembly time (JuNe face-based 0) = 289775 [us]
+Assembly time (JuNe face-based 1) = 1102 [us]
+Assembly time (JuNe face-based 2) = 853 [us]
+Assembly time (JuNe face-based 3) = 810 [us]
+Assembly time (JuNe face-based 4) = 778 [us]
+Assembly time (JuNe global face-based 0) = 252794 [us]
+Assembly time (JuNe global face-based 1) = 1831 [us]
+Assembly time (JuNe global face-based 2) = 1535 [us]
+Assembly time (JuNe global face-based 3) = 1484 [us]
+Assembly time (JuNe global face-based 4) = 1447 [us]
+Assembly time (JuNe cell-based 0) = 206632 [us]
+Assembly time (JuNe cell-based 1) = 1650 [us]
+Assembly time (JuNe cell-based 2) = 7945 [us]
+Assembly time (JuNe cell-based 3) = 1210 [us]
+Assembly time (JuNe cell-based 4) = 2714 [us]
+=== 50^3 cells, 8 threads on h200, Fri Nov 13 20:46:42 CET 2026
+Assembly time (NeoN fused global face-based 0) = 1368 [us]
+Assembly time (NeoN fused global face-based 1) = 1512 [us]
+Assembly time (NeoN fused global face-based 2) = 1417 [us]
+Assembly time (NeoN fused global face-based 3) = 1489 [us]
+Assembly time (NeoN fused global face-based 4) = 1435 [us]
+Assembly time (NeoN fused cell-based 0) = 485 [us]
+Assembly time (NeoN fused cell-based 1) = 534 [us]
+Assembly time (NeoN fused cell-based 2) = 510 [us]
+Assembly time (NeoN fused cell-based 3) = 516 [us]
+Assembly time (NeoN fused cell-based 4) = 539 [us]
+Assembly time (NeoN fused batched 0) = 676 [us]
+Assembly time (NeoN fused batched 1) = 717 [us]
+Assembly time (NeoN fused batched 2) = 719 [us]
+Assembly time (NeoN fused batched 3) = 745 [us]
+Assembly time (NeoN fused batched 4) = 737 [us]
+Assembly time (JuNe face-based 0) = 303607 [us]
+Assembly time (JuNe face-based 1) = 1573 [us]
+Assembly time (JuNe face-based 2) = 1294 [us]
+Assembly time (JuNe face-based 3) = 1217 [us]
+Assembly time (JuNe face-based 4) = 1203 [us]
+Assembly time (JuNe global face-based 0) = 273591 [us]
+Assembly time (JuNe global face-based 1) = 3028 [us]
+Assembly time (JuNe global face-based 2) = 2798 [us]
+Assembly time (JuNe global face-based 3) = 2651 [us]
+Assembly time (JuNe global face-based 4) = 3591 [us]
+Assembly time (JuNe cell-based 0) = 199126 [us]
+Assembly time (JuNe cell-based 1) = 12387 [us]
+Assembly time (JuNe cell-based 2) = 7082 [us]
+Assembly time (JuNe cell-based 3) = 2611 [us]
+Assembly time (JuNe cell-based 4) = 19003 [us]
+=== 60^3 cells, 8 threads on h200, Fri Nov 13 20:46:51 CET 2026
+Assembly time (NeoN fused global face-based 0) = 1854 [us]
+Assembly time (NeoN fused global face-based 1) = 1943 [us]
+Assembly time (NeoN fused global face-based 2) = 1880 [us]
+Assembly time (NeoN fused global face-based 3) = 1907 [us]
+Assembly time (NeoN fused global face-based 4) = 1882 [us]
+Assembly time (NeoN fused cell-based 0) = 558 [us]
+Assembly time (NeoN fused cell-based 1) = 601 [us]
+Assembly time (NeoN fused cell-based 2) = 594 [us]
+Assembly time (NeoN fused cell-based 3) = 599 [us]
+Assembly time (NeoN fused cell-based 4) = 585 [us]
+Assembly time (NeoN fused batched 0) = 842 [us]
+Assembly time (NeoN fused batched 1) = 843 [us]
+Assembly time (NeoN fused batched 2) = 890 [us]
+Assembly time (NeoN fused batched 3) = 903 [us]
+Assembly time (NeoN fused batched 4) = 879 [us]
+Assembly time (JuNe face-based 0) = 302474 [us]
+Assembly time (JuNe face-based 1) = 1903 [us]
+Assembly time (JuNe face-based 2) = 1702 [us]
+Assembly time (JuNe face-based 3) = 1669 [us]
+Assembly time (JuNe face-based 4) = 9535 [us]
+Assembly time (JuNe global face-based 0) = 263601 [us]
+Assembly time (JuNe global face-based 1) = 3774 [us]
+Assembly time (JuNe global face-based 2) = 3198 [us]
+Assembly time (JuNe global face-based 3) = 3382 [us]
+Assembly time (JuNe global face-based 4) = 3300 [us]
+Assembly time (JuNe cell-based 0) = 214534 [us]
+Assembly time (JuNe cell-based 1) = 20746 [us]
+Assembly time (JuNe cell-based 2) = 20941 [us]
+Assembly time (JuNe cell-based 3) = 19808 [us]
+Assembly time (JuNe cell-based 4) = 34903 [us]
+=== 70^3 cells, 8 threads on h200, Fri Nov 13 20:47:01 CET 2026
+Assembly time (NeoN fused global face-based 0) = 3002 [us]
+Assembly time (NeoN fused global face-based 1) = 2779 [us]
+Assembly time (NeoN fused global face-based 2) = 2859 [us]
+Assembly time (NeoN fused global face-based 3) = 2991 [us]
+Assembly time (NeoN fused global face-based 4) = 2875 [us]
+Assembly time (NeoN fused cell-based 0) = 1048 [us]
+Assembly time (NeoN fused cell-based 1) = 975 [us]
+Assembly time (NeoN fused cell-based 2) = 973 [us]
+Assembly time (NeoN fused cell-based 3) = 961 [us]
+Assembly time (NeoN fused cell-based 4) = 963 [us]
+Assembly time (NeoN fused batched 0) = 1373 [us]
+Assembly time (NeoN fused batched 1) = 1329 [us]
+Assembly time (NeoN fused batched 2) = 1454 [us]
+Assembly time (NeoN fused batched 3) = 1365 [us]
+Assembly time (NeoN fused batched 4) = 1398 [us]
+Assembly time (JuNe face-based 0) = 301653 [us]
+Assembly time (JuNe face-based 1) = 2709 [us]
+Assembly time (JuNe face-based 2) = 2577 [us]
+Assembly time (JuNe face-based 3) = 2547 [us]
+Assembly time (JuNe face-based 4) = 2562 [us]
+Assembly time (JuNe global face-based 0) = 267162 [us]
+Assembly time (JuNe global face-based 1) = 4678 [us]
+Assembly time (JuNe global face-based 2) = 4240 [us]
+Assembly time (JuNe global face-based 3) = 4268 [us]
+Assembly time (JuNe global face-based 4) = 4394 [us]
+Assembly time (JuNe cell-based 0) = 224901 [us]
+Assembly time (JuNe cell-based 1) = 24984 [us]
+Assembly time (JuNe cell-based 2) = 6422 [us]
+Assembly time (JuNe cell-based 3) = 21362 [us]
+Assembly time (JuNe cell-based 4) = 21355 [us]
+=== 80^3 cells, 8 threads on h200, Fri Nov 13 20:47:11 CET 2026
+Assembly time (NeoN fused global face-based 0) = 3924 [us]
+Assembly time (NeoN fused global face-based 1) = 3788 [us]
+Assembly time (NeoN fused global face-based 2) = 3856 [us]
+Assembly time (NeoN fused global face-based 3) = 3971 [us]
+Assembly time (NeoN fused global face-based 4) = 3765 [us]
+Assembly time (NeoN fused cell-based 0) = 1249 [us]
+Assembly time (NeoN fused cell-based 1) = 1244 [us]
+Assembly time (NeoN fused cell-based 2) = 1185 [us]
+Assembly time (NeoN fused cell-based 3) = 1236 [us]
+Assembly time (NeoN fused cell-based 4) = 1271 [us]
+Assembly time (NeoN fused batched 0) = 1819 [us]
+Assembly time (NeoN fused batched 1) = 1875 [us]
+Assembly time (NeoN fused batched 2) = 1802 [us]
+Assembly time (NeoN fused batched 3) = 1843 [us]
+Assembly time (NeoN fused batched 4) = 1712 [us]
+Assembly time (JuNe face-based 0) = 295377 [us]
+Assembly time (JuNe face-based 1) = 3574 [us]
+Assembly time (JuNe face-based 2) = 3352 [us]
+Assembly time (JuNe face-based 3) = 3275 [us]
+Assembly time (JuNe face-based 4) = 12047 [us]
+Assembly time (JuNe global face-based 0) = 256669 [us]
+Assembly time (JuNe global face-based 1) = 6084 [us]
+Assembly time (JuNe global face-based 2) = 5848 [us]
+Assembly time (JuNe global face-based 3) = 26519 [us]
+Assembly time (JuNe global face-based 4) = 6442 [us]
+Assembly time (JuNe cell-based 0) = 217566 [us]
+Assembly time (JuNe cell-based 1) = 24676 [us]
+Assembly time (JuNe cell-based 2) = 23060 [us]
+Assembly time (JuNe cell-based 3) = 23169 [us]
+Assembly time (JuNe cell-based 4) = 23745 [us]
+=== 90^3 cells, 8 threads on h200, Fri Nov 13 20:47:22 CET 2026
+Assembly time (NeoN fused global face-based 0) = 5144 [us]
+Assembly time (NeoN fused global face-based 1) = 5343 [us]
+Assembly time (NeoN fused global face-based 2) = 5167 [us]
+Assembly time (NeoN fused global face-based 3) = 5455 [us]
+Assembly time (NeoN fused global face-based 4) = 5414 [us]
+Assembly time (NeoN fused cell-based 0) = 1805 [us]
+Assembly time (NeoN fused cell-based 1) = 1688 [us]
+Assembly time (NeoN fused cell-based 2) = 1637 [us]
+Assembly time (NeoN fused cell-based 3) = 1651 [us]
+Assembly time (NeoN fused cell-based 4) = 1632 [us]
+Assembly time (NeoN fused batched 0) = 2938 [us]
+Assembly time (NeoN fused batched 1) = 2663 [us]
+Assembly time (NeoN fused batched 2) = 2723 [us]
+Assembly time (NeoN fused batched 3) = 2751 [us]
+Assembly time (NeoN fused batched 4) = 2763 [us]
+Assembly time (JuNe face-based 0) = 287418 [us]
+Assembly time (JuNe face-based 1) = 27778 [us]
+Assembly time (JuNe face-based 2) = 4826 [us]
+Assembly time (JuNe face-based 3) = 4709 [us]
+Assembly time (JuNe face-based 4) = 9039 [us]
+Assembly time (JuNe global face-based 0) = 256582 [us]
+Assembly time (JuNe global face-based 1) = 27211 [us]
+Assembly time (JuNe global face-based 2) = 9084 [us]
+Assembly time (JuNe global face-based 3) = 8126 [us]
+Assembly time (JuNe global face-based 4) = 8246 [us]
+Assembly time (JuNe cell-based 0) = 231008 [us]
+Assembly time (JuNe cell-based 1) = 43055 [us]
+Assembly time (JuNe cell-based 2) = 41827 [us]
+Assembly time (JuNe cell-based 3) = 26960 [us]
+Assembly time (JuNe cell-based 4) = 42280 [us]
+=== 100^3 cells, 8 threads on h200, Fri Nov 13 20:47:34 CET 2026
+Assembly time (NeoN fused global face-based 0) = 6891 [us]
+Assembly time (NeoN fused global face-based 1) = 7029 [us]
+Assembly time (NeoN fused global face-based 2) = 6915 [us]
+Assembly time (NeoN fused global face-based 3) = 6908 [us]
+Assembly time (NeoN fused global face-based 4) = 7042 [us]
+Assembly time (NeoN fused cell-based 0) = 2207 [us]
+Assembly time (NeoN fused cell-based 1) = 2236 [us]
+Assembly time (NeoN fused cell-based 2) = 2186 [us]
+Assembly time (NeoN fused cell-based 3) = 2122 [us]
+Assembly time (NeoN fused cell-based 4) = 2157 [us]
+Assembly time (NeoN fused batched 0) = 4082 [us]
+Assembly time (NeoN fused batched 1) = 3883 [us]
+Assembly time (NeoN fused batched 2) = 3945 [us]
+Assembly time (NeoN fused batched 3) = 3903 [us]
+Assembly time (NeoN fused batched 4) = 3883 [us]
+Assembly time (JuNe face-based 0) = 295546 [us]
+Assembly time (JuNe face-based 1) = 6584 [us]
+Assembly time (JuNe face-based 2) = 10568 [us]
+Assembly time (JuNe face-based 3) = 6423 [us]
+Assembly time (JuNe face-based 4) = 7622 [us]
+Assembly time (JuNe global face-based 0) = 283766 [us]
+Assembly time (JuNe global face-based 1) = 11110 [us]
+Assembly time (JuNe global face-based 2) = 11128 [us]
+Assembly time (JuNe global face-based 3) = 28226 [us]
+Assembly time (JuNe global face-based 4) = 11210 [us]
+Assembly time (JuNe cell-based 0) = 228692 [us]
+Assembly time (JuNe cell-based 1) = 46247 [us]
+Assembly time (JuNe cell-based 2) = 60792 [us]
+Assembly time (JuNe cell-based 3) = 44999 [us]
+Assembly time (JuNe cell-based 4) = 61804 [us]
+=== 110^3 cells, 8 threads on h200, Fri Nov 13 20:47:46 CET 2026
+Assembly time (NeoN fused global face-based 0) = 9191 [us]
+Assembly time (NeoN fused global face-based 1) = 8652 [us]
+Assembly time (NeoN fused global face-based 2) = 8597 [us]
+Assembly time (NeoN fused global face-based 3) = 8723 [us]
+Assembly time (NeoN fused global face-based 4) = 9183 [us]
+Assembly time (NeoN fused cell-based 0) = 2983 [us]
+Assembly time (NeoN fused cell-based 1) = 2769 [us]
+Assembly time (NeoN fused cell-based 2) = 2776 [us]
+Assembly time (NeoN fused cell-based 3) = 2781 [us]
+Assembly time (NeoN fused cell-based 4) = 2840 [us]
+Assembly time (NeoN fused batched 0) = 5722 [us]
+Assembly time (NeoN fused batched 1) = 5400 [us]
+Assembly time (NeoN fused batched 2) = 5434 [us]
+Assembly time (NeoN fused batched 3) = 5454 [us]
+Assembly time (NeoN fused batched 4) = 5519 [us]
+Assembly time (JuNe face-based 0) = 288929 [us]
+Assembly time (JuNe face-based 1) = 15890 [us]
+Assembly time (JuNe face-based 2) = 25386 [us]
+Assembly time (JuNe face-based 3) = 8420 [us]
+Assembly time (JuNe face-based 4) = 9482 [us]
+Assembly time (JuNe global face-based 0) = 268921 [us]
+Assembly time (JuNe global face-based 1) = 13176 [us]
+Assembly time (JuNe global face-based 2) = 38112 [us]
+Assembly time (JuNe global face-based 3) = 13464 [us]
+Assembly time (JuNe global face-based 4) = 14162 [us]
+Assembly time (JuNe cell-based 0) = 237414 [us]
+Assembly time (JuNe cell-based 1) = 71026 [us]
+Assembly time (JuNe cell-based 2) = 52414 [us]
+Assembly time (JuNe cell-based 3) = 55369 [us]
+Assembly time (JuNe cell-based 4) = 45466 [us]
+=== 120^3 cells, 8 threads on h200, Fri Nov 13 20:48:01 CET 2026
+Assembly time (NeoN fused global face-based 0) = 11651 [us]
+Assembly time (NeoN fused global face-based 1) = 11268 [us]
+Assembly time (NeoN fused global face-based 2) = 11079 [us]
+Assembly time (NeoN fused global face-based 3) = 11502 [us]
+Assembly time (NeoN fused global face-based 4) = 11236 [us]
+Assembly time (NeoN fused cell-based 0) = 3837 [us]
+Assembly time (NeoN fused cell-based 1) = 3739 [us]
+Assembly time (NeoN fused cell-based 2) = 3731 [us]
+Assembly time (NeoN fused cell-based 3) = 3607 [us]
+Assembly time (NeoN fused cell-based 4) = 3597 [us]
+Assembly time (NeoN fused batched 0) = 8137 [us]
+Assembly time (NeoN fused batched 1) = 7816 [us]
+Assembly time (NeoN fused batched 2) = 7534 [us]
+Assembly time (NeoN fused batched 3) = 7569 [us]
+Assembly time (NeoN fused batched 4) = 7426 [us]
+Assembly time (JuNe face-based 0) = 293954 [us]
+Assembly time (JuNe face-based 1) = 16014 [us]
+Assembly time (JuNe face-based 2) = 13700 [us]
+Assembly time (JuNe face-based 3) = 13187 [us]
+Assembly time (JuNe face-based 4) = 13037 [us]
+Assembly time (JuNe global face-based 0) = 261506 [us]
+Assembly time (JuNe global face-based 1) = 40258 [us]
+Assembly time (JuNe global face-based 2) = 16613 [us]
+Assembly time (JuNe global face-based 3) = 33176 [us]
+Assembly time (JuNe global face-based 4) = 16367 [us]
+Assembly time (JuNe cell-based 0) = 262323 [us]
+Assembly time (JuNe cell-based 1) = 74665 [us]
+Assembly time (JuNe cell-based 2) = 90271 [us]
+Assembly time (JuNe cell-based 3) = 75279 [us]
+Assembly time (JuNe cell-based 4) = 91018 [us]
+=== 130^3 cells, 8 threads on h200, Fri Nov 13 20:48:17 CET 2026
+Assembly time (NeoN fused global face-based 0) = 13911 [us]
+Assembly time (NeoN fused global face-based 1) = 13943 [us]
+Assembly time (NeoN fused global face-based 2) = 14098 [us]
+Assembly time (NeoN fused global face-based 3) = 13922 [us]
+Assembly time (NeoN fused global face-based 4) = 14239 [us]
+Assembly time (NeoN fused cell-based 0) = 5159 [us]
+Assembly time (NeoN fused cell-based 1) = 5502 [us]
+Assembly time (NeoN fused cell-based 2) = 5280 [us]
+Assembly time (NeoN fused cell-based 3) = 5519 [us]
+Assembly time (NeoN fused cell-based 4) = 5261 [us]
+Assembly time (NeoN fused batched 0) = 10430 [us]
+Assembly time (NeoN fused batched 1) = 10601 [us]
+Assembly time (NeoN fused batched 2) = 10308 [us]
+Assembly time (NeoN fused batched 3) = 10239 [us]
+Assembly time (NeoN fused batched 4) = 10348 [us]
+Assembly time (JuNe face-based 0) = 298157 [us]
+Assembly time (JuNe face-based 1) = 31392 [us]
+Assembly time (JuNe face-based 2) = 16361 [us]
+Assembly time (JuNe face-based 3) = 32364 [us]
+Assembly time (JuNe face-based 4) = 17247 [us]
+Assembly time (JuNe global face-based 0) = 264356 [us]
+Assembly time (JuNe global face-based 1) = 37756 [us]
+Assembly time (JuNe global face-based 2) = 21183 [us]
+Assembly time (JuNe global face-based 3) = 36493 [us]
+Assembly time (JuNe global face-based 4) = 20930 [us]
+Assembly time (JuNe cell-based 0) = 291419 [us]
+Assembly time (JuNe cell-based 1) = 81272 [us]
+Assembly time (JuNe cell-based 2) = 95248 [us]
+Assembly time (JuNe cell-based 3) = 99924 [us]
+Assembly time (JuNe cell-based 4) = 96986 [us]
+=== 140^3 cells, 8 threads on h200, Fri Nov 13 20:48:36 CET 2026
+Assembly time (NeoN fused global face-based 0) = 19060 [us]
+Assembly time (NeoN fused global face-based 1) = 19064 [us]
+Assembly time (NeoN fused global face-based 2) = 18870 [us]
+Assembly time (NeoN fused global face-based 3) = 18809 [us]
+Assembly time (NeoN fused global face-based 4) = 18157 [us]
+Assembly time (NeoN fused cell-based 0) = 6795 [us]
+Assembly time (NeoN fused cell-based 1) = 7284 [us]
+Assembly time (NeoN fused cell-based 2) = 6857 [us]
+Assembly time (NeoN fused cell-based 3) = 6368 [us]
+Assembly time (NeoN fused cell-based 4) = 6554 [us]
+Assembly time (NeoN fused batched 0) = 12373 [us]
+Assembly time (NeoN fused batched 1) = 13123 [us]
+Assembly time (NeoN fused batched 2) = 13111 [us]
+Assembly time (NeoN fused batched 3) = 13056 [us]
+Assembly time (NeoN fused batched 4) = 12799 [us]
+Assembly time (JuNe face-based 0) = 326218 [us]
+Assembly time (JuNe face-based 1) = 35208 [us]
+Assembly time (JuNe face-based 2) = 19304 [us]
+Assembly time (JuNe face-based 3) = 20914 [us]
+Assembly time (JuNe face-based 4) = 22412 [us]
+Assembly time (JuNe global face-based 0) = 279661 [us]
+Assembly time (JuNe global face-based 1) = 46556 [us]
+Assembly time (JuNe global face-based 2) = 37878 [us]
+Assembly time (JuNe global face-based 3) = 27098 [us]
+Assembly time (JuNe global face-based 4) = 58916 [us]
+Assembly time (JuNe cell-based 0) = 368944 [us]
+Assembly time (JuNe cell-based 1) = 103544 [us]
+Assembly time (JuNe cell-based 2) = 104974 [us]
+Assembly time (JuNe cell-based 3) = 121555 [us]
+Assembly time (JuNe cell-based 4) = 104466 [us]
+=== 150^3 cells, 8 threads on h200, Fri Nov 13 20:48:58 CET 2026
+Assembly time (NeoN fused global face-based 0) = 20615 [us]
+Assembly time (NeoN fused global face-based 1) = 20614 [us]
+Assembly time (NeoN fused global face-based 2) = 20317 [us]
+Assembly time (NeoN fused global face-based 3) = 20579 [us]
+Assembly time (NeoN fused global face-based 4) = 20293 [us]
+Assembly time (NeoN fused cell-based 0) = 7459 [us]
+Assembly time (NeoN fused cell-based 1) = 7122 [us]
+Assembly time (NeoN fused cell-based 2) = 7070 [us]
+Assembly time (NeoN fused cell-based 3) = 7477 [us]
+Assembly time (NeoN fused cell-based 4) = 7187 [us]
+Assembly time (NeoN fused batched 0) = 16290 [us]
+Assembly time (NeoN fused batched 1) = 15808 [us]
+Assembly time (NeoN fused batched 2) = 15387 [us]
+Assembly time (NeoN fused batched 3) = 15253 [us]
+Assembly time (NeoN fused batched 4) = 15538 [us]
+Assembly time (JuNe face-based 0) = 325575 [us]
+Assembly time (JuNe face-based 1) = 22080 [us]
+Assembly time (JuNe face-based 2) = 20243 [us]
+Assembly time (JuNe face-based 3) = 38377 [us]
+Assembly time (JuNe face-based 4) = 38453 [us]
+Assembly time (JuNe global face-based 0) = 276094 [us]
+Assembly time (JuNe global face-based 1) = 49098 [us]
+Assembly time (JuNe global face-based 2) = 58008 [us]
+Assembly time (JuNe global face-based 3) = 28119 [us]
+Assembly time (JuNe global face-based 4) = 94603 [us]
+Assembly time (JuNe cell-based 0) = 282642 [us]
+Assembly time (JuNe cell-based 1) = 106349 [us]
+Assembly time (JuNe cell-based 2) = 111555 [us]
+Assembly time (JuNe cell-based 3) = 111311 [us]
+Assembly time (JuNe cell-based 4) = 125595 [us]
+=== 160^3 cells, 8 threads on h200, Fri Nov 13 20:49:21 CET 2026
+Assembly time (NeoN fused global face-based 0) = 26632 [us]
+Assembly time (NeoN fused global face-based 1) = 27032 [us]
+Assembly time (NeoN fused global face-based 2) = 26510 [us]
+Assembly time (NeoN fused global face-based 3) = 27473 [us]
+Assembly time (NeoN fused global face-based 4) = 26345 [us]
+Assembly time (NeoN fused cell-based 0) = 8823 [us]
+Assembly time (NeoN fused cell-based 1) = 8374 [us]
+Assembly time (NeoN fused cell-based 2) = 8558 [us]
+Assembly time (NeoN fused cell-based 3) = 8802 [us]
+Assembly time (NeoN fused cell-based 4) = 8594 [us]
+Assembly time (NeoN fused batched 0) = 19472 [us]
+Assembly time (NeoN fused batched 1) = 19083 [us]
+Assembly time (NeoN fused batched 2) = 19083 [us]
+Assembly time (NeoN fused batched 3) = 19086 [us]
+Assembly time (NeoN fused batched 4) = 19077 [us]
+Assembly time (JuNe face-based 0) = 322750 [us]
+Assembly time (JuNe face-based 1) = 26165 [us]
+Assembly time (JuNe face-based 2) = 42123 [us]
+Assembly time (JuNe face-based 3) = 41168 [us]
+Assembly time (JuNe face-based 4) = 25781 [us]
+Assembly time (JuNe global face-based 0) = 296057 [us]
+Assembly time (JuNe global face-based 1) = 33673 [us]
+Assembly time (JuNe global face-based 2) = 54363 [us]
+Assembly time (JuNe global face-based 3) = 68011 [us]
+Assembly time (JuNe global face-based 4) = 98463 [us]
+Assembly time (JuNe cell-based 0) = 310608 [us]
+Assembly time (JuNe cell-based 1) = 118418 [us]
+Assembly time (JuNe cell-based 2) = 123069 [us]
+Assembly time (JuNe cell-based 3) = 119659 [us]
+Assembly time (JuNe cell-based 4) = 137547 [us]
+=== 170^3 cells, 8 threads on h200, Fri Nov 13 20:49:48 CET 2026
+Assembly time (NeoN fused global face-based 0) = 29707 [us]
+Assembly time (NeoN fused global face-based 1) = 29275 [us]
+Assembly time (NeoN fused global face-based 2) = 29661 [us]
+Assembly time (NeoN fused global face-based 3) = 29510 [us]
+Assembly time (NeoN fused global face-based 4) = 29553 [us]
+Assembly time (NeoN fused cell-based 0) = 10416 [us]
+Assembly time (NeoN fused cell-based 1) = 11519 [us]
+Assembly time (NeoN fused cell-based 2) = 10766 [us]
+Assembly time (NeoN fused cell-based 3) = 10505 [us]
+Assembly time (NeoN fused cell-based 4) = 10572 [us]
+Assembly time (NeoN fused batched 0) = 23384 [us]
+Assembly time (NeoN fused batched 1) = 23004 [us]
+Assembly time (NeoN fused batched 2) = 23007 [us]
+Assembly time (NeoN fused batched 3) = 22589 [us]
+Assembly time (NeoN fused batched 4) = 22604 [us]
+Assembly time (JuNe face-based 0) = 331134 [us]
+Assembly time (JuNe face-based 1) = 49872 [us]
+Assembly time (JuNe face-based 2) = 46962 [us]
+Assembly time (JuNe face-based 3) = 45903 [us]
+Assembly time (JuNe face-based 4) = 46242 [us]
+Assembly time (JuNe global face-based 0) = 301548 [us]
+Assembly time (JuNe global face-based 1) = 38812 [us]
+Assembly time (JuNe global face-based 2) = 59984 [us]
+Assembly time (JuNe global face-based 3) = 53585 [us]
+Assembly time (JuNe global face-based 4) = 55509 [us]
+Assembly time (JuNe cell-based 0) = 374707 [us]
+Assembly time (JuNe cell-based 1) = 194899 [us]
+Assembly time (JuNe cell-based 2) = 164510 [us]
+Assembly time (JuNe cell-based 3) = 201278 [us]
+Assembly time (JuNe cell-based 4) = 150918 [us]
+=== 180^3 cells, 8 threads on h200, Fri Nov 13 20:50:19 CET 2026
+Assembly time (NeoN fused global face-based 0) = 34451 [us]
+Assembly time (NeoN fused global face-based 1) = 34472 [us]
+Assembly time (NeoN fused global face-based 2) = 34422 [us]
+Assembly time (NeoN fused global face-based 3) = 35179 [us]
+Assembly time (NeoN fused global face-based 4) = 34368 [us]
+Assembly time (NeoN fused cell-based 0) = 12701 [us]
+Assembly time (NeoN fused cell-based 1) = 13008 [us]
+Assembly time (NeoN fused cell-based 2) = 12957 [us]
+Assembly time (NeoN fused cell-based 3) = 12970 [us]
+Assembly time (NeoN fused cell-based 4) = 13194 [us]
+Assembly time (NeoN fused batched 0) = 31467 [us]
+Assembly time (NeoN fused batched 1) = 30915 [us]
+Assembly time (NeoN fused batched 2) = 30652 [us]
+Assembly time (NeoN fused batched 3) = 32040 [us]
+Assembly time (NeoN fused batched 4) = 33703 [us]
+Assembly time (JuNe face-based 0) = 341526 [us]
+Assembly time (JuNe face-based 1) = 34354 [us]
+Assembly time (JuNe face-based 2) = 33881 [us]
+Assembly time (JuNe face-based 3) = 34127 [us]
+Assembly time (JuNe face-based 4) = 50034 [us]
+Assembly time (JuNe global face-based 0) = 307103 [us]
+Assembly time (JuNe global face-based 1) = 52987 [us]
+Assembly time (JuNe global face-based 2) = 42075 [us]
+Assembly time (JuNe global face-based 3) = 67900 [us]
+Assembly time (JuNe global face-based 4) = 57159 [us]
+Assembly time (JuNe cell-based 0) = 363230 [us]
+Assembly time (JuNe cell-based 1) = 155555 [us]
+Assembly time (JuNe cell-based 2) = 169700 [us]
+Assembly time (JuNe cell-based 3) = 138805 [us]
+Assembly time (JuNe cell-based 4) = 138172 [us]
+=== 190^3 cells, 8 threads on h200, Fri Nov 13 20:50:53 CET 2026
+Assembly time (NeoN fused global face-based 0) = 43022 [us]
+Assembly time (NeoN fused global face-based 1) = 43257 [us]
+Assembly time (NeoN fused global face-based 2) = 43136 [us]
+Assembly time (NeoN fused global face-based 3) = 43173 [us]
+Assembly time (NeoN fused global face-based 4) = 42976 [us]
+Assembly time (NeoN fused cell-based 0) = 14576 [us]
+Assembly time (NeoN fused cell-based 1) = 14531 [us]
+Assembly time (NeoN fused cell-based 2) = 13981 [us]
+Assembly time (NeoN fused cell-based 3) = 17230 [us]
+Assembly time (NeoN fused cell-based 4) = 14411 [us]
+Assembly time (NeoN fused batched 0) = 36938 [us]
+Assembly time (NeoN fused batched 1) = 33007 [us]
+Assembly time (NeoN fused batched 2) = 32892 [us]
+Assembly time (NeoN fused batched 3) = 33291 [us]
+Assembly time (NeoN fused batched 4) = 32944 [us]
+Assembly time (JuNe face-based 0) = 345676 [us]
+Assembly time (JuNe face-based 1) = 57541 [us]
+Assembly time (JuNe face-based 2) = 57620 [us]
+Assembly time (JuNe face-based 3) = 56731 [us]
+Assembly time (JuNe face-based 4) = 57493 [us]
+Assembly time (JuNe global face-based 0) = 310923 [us]
+Assembly time (JuNe global face-based 1) = 82490 [us]
+Assembly time (JuNe global face-based 2) = 112318 [us]
+Assembly time (JuNe global face-based 3) = 54938 [us]
+Assembly time (JuNe global face-based 4) = 72566 [us]
+Assembly time (JuNe cell-based 0) = 324057 [us]
+Assembly time (JuNe cell-based 1) = 181168 [us]
+Assembly time (JuNe cell-based 2) = 169320 [us]
+Assembly time (JuNe cell-based 3) = 171273 [us]
+Assembly time (JuNe cell-based 4) = 161891 [us]
+=== 200^3 cells, 8 threads on h200, Fri Nov 13 20:51:33 CET 2026
+Assembly time (NeoN fused global face-based 0) = 47082 [us]
+Assembly time (NeoN fused global face-based 1) = 48231 [us]
+Assembly time (NeoN fused global face-based 2) = 47772 [us]
+Assembly time (NeoN fused global face-based 3) = 47110 [us]
+Assembly time (NeoN fused global face-based 4) = 47681 [us]
+Assembly time (NeoN fused cell-based 0) = 18503 [us]
+Assembly time (NeoN fused cell-based 1) = 20837 [us]
+Assembly time (NeoN fused cell-based 2) = 19170 [us]
+Assembly time (NeoN fused cell-based 3) = 18981 [us]
+Assembly time (NeoN fused cell-based 4) = 19168 [us]
+Assembly time (NeoN fused batched 0) = 51236 [us]
+Assembly time (NeoN fused batched 1) = 50729 [us]
+Assembly time (NeoN fused batched 2) = 51780 [us]
+Assembly time (NeoN fused batched 3) = 50958 [us]
+Assembly time (NeoN fused batched 4) = 50911 [us]
+Assembly time (JuNe face-based 0) = 355507 [us]
+Assembly time (JuNe face-based 1) = 44480 [us]
+Assembly time (JuNe face-based 2) = 45786 [us]
+Assembly time (JuNe face-based 3) = 47709 [us]
+Assembly time (JuNe face-based 4) = 45564 [us]
+Assembly time (JuNe global face-based 0) = 325571 [us]
+Assembly time (JuNe global face-based 1) = 82278 [us]
+Assembly time (JuNe global face-based 2) = 76098 [us]
+Assembly time (JuNe global face-based 3) = 78468 [us]
+Assembly time (JuNe global face-based 4) = 83296 [us]
+Assembly time (JuNe cell-based 0) = 378057 [us]
+Assembly time (JuNe cell-based 1) = 220357 [us]
+Assembly time (JuNe cell-based 2) = 218766 [us]
+Assembly time (JuNe cell-based 3) = 219907 [us]
+Assembly time (JuNe cell-based 4) = 218821 [us]
+=== 220^3 cells, 8 threads on h200, Fri Nov 13 20:52:16 CET 2026
+Assembly time (NeoN fused global face-based 0) = 61669 [us]
+Assembly time (NeoN fused global face-based 1) = 62996 [us]
+Assembly time (NeoN fused global face-based 2) = 62358 [us]
+Assembly time (NeoN fused global face-based 3) = 62639 [us]
+Assembly time (NeoN fused global face-based 4) = 62239 [us]
+Assembly time (NeoN fused cell-based 0) = 22059 [us]
+Assembly time (NeoN fused cell-based 1) = 22266 [us]
+Assembly time (NeoN fused cell-based 2) = 22698 [us]
+Assembly time (NeoN fused cell-based 3) = 20249 [us]
+Assembly time (NeoN fused cell-based 4) = 20467 [us]
+Assembly time (NeoN fused batched 0) = 51622 [us]
+Assembly time (NeoN fused batched 1) = 51538 [us]
+Assembly time (NeoN fused batched 2) = 51748 [us]
+Assembly time (NeoN fused batched 3) = 51557 [us]
+Assembly time (NeoN fused batched 4) = 51587 [us]
+Assembly time (JuNe face-based 0) = 361055 [us]
+Assembly time (JuNe face-based 1) = 76705 [us]
+Assembly time (JuNe face-based 2) = 76955 [us]
+Assembly time (JuNe face-based 3) = 76773 [us]
+Assembly time (JuNe face-based 4) = 76498 [us]
+Assembly time (JuNe global face-based 0) = 343778 [us]
+Assembly time (JuNe global face-based 1) = 102941 [us]
+Assembly time (JuNe global face-based 2) = 101565 [us]
+Assembly time (JuNe global face-based 3) = 112812 [us]
+Assembly time (JuNe global face-based 4) = 109569 [us]
+Assembly time (JuNe cell-based 0) = 465235 [us]
+Assembly time (JuNe cell-based 1) = 236753 [us]
+Assembly time (JuNe cell-based 2) = 263014 [us]
+Assembly time (JuNe cell-based 3) = 260536 [us]
+Assembly time (JuNe cell-based 4) = 254272 [us]
+=== 240^3 cells, 8 threads on h200, Fri Nov 13 20:53:13 CET 2026
+Assembly time (NeoN fused global face-based 0) = 79243 [us]
+Assembly time (NeoN fused global face-based 1) = 80635 [us]
+Assembly time (NeoN fused global face-based 2) = 79988 [us]
+Assembly time (NeoN fused global face-based 3) = 80462 [us]
+Assembly time (NeoN fused global face-based 4) = 80243 [us]
+Assembly time (NeoN fused cell-based 0) = 26152 [us]
+Assembly time (NeoN fused cell-based 1) = 24720 [us]
+Assembly time (NeoN fused cell-based 2) = 25074 [us]
+Assembly time (NeoN fused cell-based 3) = 24888 [us]
+Assembly time (NeoN fused cell-based 4) = 24882 [us]
+Assembly time (NeoN fused batched 0) = 60754 [us]
+Assembly time (NeoN fused batched 1) = 59792 [us]
+Assembly time (NeoN fused batched 2) = 59694 [us]
+Assembly time (NeoN fused batched 3) = 59485 [us]
+Assembly time (NeoN fused batched 4) = 59796 [us]
+Assembly time (JuNe face-based 0) = 388990 [us]
+Assembly time (JuNe face-based 1) = 95517 [us]
+Assembly time (JuNe face-based 2) = 92446 [us]
+Assembly time (JuNe face-based 3) = 92752 [us]
+Assembly time (JuNe face-based 4) = 93319 [us]
+Assembly time (JuNe global face-based 0) = 363623 [us]
+Assembly time (JuNe global face-based 1) = 114998 [us]
+Assembly time (JuNe global face-based 2) = 129095 [us]
+Assembly time (JuNe global face-based 3) = 130675 [us]
+Assembly time (JuNe global face-based 4) = 131543 [us]
+Assembly time (JuNe cell-based 0) = 465880 [us]
+Assembly time (JuNe cell-based 1) = 309716 [us]
+Assembly time (JuNe cell-based 2) = 312793 [us]
+Assembly time (JuNe cell-based 3) = 294932 [us]
+Assembly time (JuNe cell-based 4) = 314653 [us]
+=== 260^3 cells, 8 threads on h200, Fri Nov 13 20:54:24 CET 2026
+Assembly time (NeoN fused global face-based 0) = 95945 [us]
+Assembly time (NeoN fused global face-based 1) = 95957 [us]
+Assembly time (NeoN fused global face-based 2) = 95655 [us]
+Assembly time (NeoN fused global face-based 3) = 97037 [us]
+Assembly time (NeoN fused global face-based 4) = 96390 [us]
+Assembly time (NeoN fused cell-based 0) = 31849 [us]
+Assembly time (NeoN fused cell-based 1) = 31405 [us]
+Assembly time (NeoN fused cell-based 2) = 31437 [us]
+Assembly time (NeoN fused cell-based 3) = 31909 [us]
+Assembly time (NeoN fused cell-based 4) = 31880 [us]
+Assembly time (NeoN fused batched 0) = 83692 [us]
+Assembly time (NeoN fused batched 1) = 84232 [us]
+Assembly time (NeoN fused batched 2) = 84717 [us]
+Assembly time (NeoN fused batched 3) = 84263 [us]
+Assembly time (NeoN fused batched 4) = 83835 [us]
+Assembly time (JuNe face-based 0) = 420939 [us]
+Assembly time (JuNe face-based 1) = 114322 [us]
+Assembly time (JuNe face-based 2) = 112663 [us]
+Assembly time (JuNe face-based 3) = 128047 [us]
+Assembly time (JuNe face-based 4) = 112160 [us]
+Assembly time (JuNe global face-based 0) = 380804 [us]
+Assembly time (JuNe global face-based 1) = 132781 [us]
+Assembly time (JuNe global face-based 2) = 152853 [us]
+Assembly time (JuNe global face-based 3) = 150138 [us]
+Assembly time (JuNe global face-based 4) = 146331 [us]
+Assembly time (JuNe cell-based 0) = 513812 [us]
+Assembly time (JuNe cell-based 1) = 362641 [us]
+Assembly time (JuNe cell-based 2) = 344758 [us]
+Assembly time (JuNe cell-based 3) = 357096 [us]
+Assembly time (JuNe cell-based 4) = 350377 [us]
+=== 280^3 cells, 8 threads on h200, Fri Nov 13 20:55:54 CET 2026
+Assembly time (NeoN fused global face-based 0) = 120006 [us]
+Assembly time (NeoN fused global face-based 1) = 119226 [us]
+Assembly time (NeoN fused global face-based 2) = 118511 [us]
+Assembly time (NeoN fused global face-based 3) = 121142 [us]
+Assembly time (NeoN fused global face-based 4) = 120278 [us]
+Assembly time (NeoN fused cell-based 0) = 39693 [us]
+Assembly time (NeoN fused cell-based 1) = 39417 [us]
+Assembly time (NeoN fused cell-based 2) = 39538 [us]
+Assembly time (NeoN fused cell-based 3) = 39128 [us]
+Assembly time (NeoN fused cell-based 4) = 39111 [us]
+Assembly time (NeoN fused batched 0) = 104683 [us]
+Assembly time (NeoN fused batched 1) = 106556 [us]
+Assembly time (NeoN fused batched 2) = 104741 [us]
+Assembly time (NeoN fused batched 3) = 104250 [us]
+Assembly time (NeoN fused batched 4) = 103932 [us]
+Assembly time (JuNe face-based 0) = 437347 [us]
+Assembly time (JuNe face-based 1) = 153023 [us]
+Assembly time (JuNe face-based 2) = 137508 [us]
+Assembly time (JuNe face-based 3) = 136548 [us]
+Assembly time (JuNe face-based 4) = 135594 [us]
+Assembly time (JuNe global face-based 0) = 399327 [us]
+Assembly time (JuNe global face-based 1) = 178722 [us]
+Assembly time (JuNe global face-based 2) = 179616 [us]
+Assembly time (JuNe global face-based 3) = 181560 [us]
+Assembly time (JuNe global face-based 4) = 176475 [us]
+Assembly time (JuNe cell-based 0) = 635172 [us]
+Assembly time (JuNe cell-based 1) = 462689 [us]
+Assembly time (JuNe cell-based 2) = 471248 [us]
+Assembly time (JuNe cell-based 3) = 450529 [us]
+Assembly time (JuNe cell-based 4) = 458612 [us]
+=== 300^3 cells, 8 threads on h200, Fri Nov 13 20:57:43 CET 2026
+Assembly time (NeoN fused global face-based 0) = 144927 [us]
+Assembly time (NeoN fused global face-based 1) = 145713 [us]
+Assembly time (NeoN fused global face-based 2) = 144670 [us]
+Assembly time (NeoN fused global face-based 3) = 145269 [us]
+Assembly time (NeoN fused global face-based 4) = 145784 [us]
+Assembly time (NeoN fused cell-based 0) = 50161 [us]
+Assembly time (NeoN fused cell-based 1) = 49224 [us]
+Assembly time (NeoN fused cell-based 2) = 50054 [us]
+Assembly time (NeoN fused cell-based 3) = 50084 [us]
+Assembly time (NeoN fused cell-based 4) = 49955 [us]
+Assembly time (NeoN fused batched 0) = 124553 [us]
+Assembly time (NeoN fused batched 1) = 125522 [us]
+Assembly time (NeoN fused batched 2) = 124834 [us]
+Assembly time (NeoN fused batched 3) = 124558 [us]
+Assembly time (NeoN fused batched 4) = 124712 [us]
+Assembly time (JuNe face-based 0) = 463638 [us]
+Assembly time (JuNe face-based 1) = 190422 [us]
+Assembly time (JuNe face-based 2) = 174497 [us]
+Assembly time (JuNe face-based 3) = 189195 [us]
+Assembly time (JuNe face-based 4) = 172895 [us]
+Assembly time (JuNe global face-based 0) = 433636 [us]
+Assembly time (JuNe global face-based 1) = 209460 [us]
+Assembly time (JuNe global face-based 2) = 216824 [us]
+Assembly time (JuNe global face-based 3) = 210391 [us]
+Assembly time (JuNe global face-based 4) = 212528 [us]
+Assembly time (JuNe cell-based 0) = 752487 [us]
+Assembly time (JuNe cell-based 1) = 531914 [us]
+Assembly time (JuNe cell-based 2) = 608538 [us]
+Assembly time (JuNe cell-based 3) = 570962 [us]
+Assembly time (JuNe cell-based 4) = 560029 [us]
+=== 320^3 cells, 8 threads on h200, Fri Nov 13 20:59:54 CET 2026
+Assembly time (NeoN fused global face-based 0) = 177574 [us]
+Assembly time (NeoN fused global face-based 1) = 178362 [us]
+Assembly time (NeoN fused global face-based 2) = 177491 [us]
+Assembly time (NeoN fused global face-based 3) = 177758 [us]
+Assembly time (NeoN fused global face-based 4) = 178003 [us]
+Assembly time (NeoN fused cell-based 0) = 57466 [us]
+Assembly time (NeoN fused cell-based 1) = 57329 [us]
+Assembly time (NeoN fused cell-based 2) = 56928 [us]
+Assembly time (NeoN fused cell-based 3) = 57056 [us]
+Assembly time (NeoN fused cell-based 4) = 56798 [us]
+Assembly time (NeoN fused batched 0) = 135467 [us]
+Assembly time (NeoN fused batched 1) = 136552 [us]
+Assembly time (NeoN fused batched 2) = 138026 [us]
+Assembly time (NeoN fused batched 3) = 137698 [us]
+Assembly time (NeoN fused batched 4) = 138045 [us]
+Assembly time (JuNe face-based 0) = 498373 [us]
+Assembly time (JuNe face-based 1) = 201586 [us]
+Assembly time (JuNe face-based 2) = 205964 [us]
+Assembly time (JuNe face-based 3) = 205391 [us]
+Assembly time (JuNe face-based 4) = 221110 [us]
+Assembly time (JuNe global face-based 0) = 458916 [us]
+Assembly time (JuNe global face-based 1) = 231802 [us]
+Assembly time (JuNe global face-based 2) = 253073 [us]
+Assembly time (JuNe global face-based 3) = 249211 [us]
+Assembly time (JuNe global face-based 4) = 245245 [us]
+Assembly time (JuNe cell-based 0) = 945150 [us]
+Assembly time (JuNe cell-based 1) = 755997 [us]
+Assembly time (JuNe cell-based 2) = 734102 [us]
+Assembly time (JuNe cell-based 3) = 761392 [us]
+Assembly time (JuNe cell-based 4) = 784365 [us]
+=== 340^3 cells, 8 threads on h200, Fri Nov 13 21:02:27 CET 2026
+Assembly time (NeoN fused global face-based 0) = 206838 [us]
+Assembly time (NeoN fused global face-based 1) = 206901 [us]
+Assembly time (NeoN fused global face-based 2) = 207796 [us]
+Assembly time (NeoN fused global face-based 3) = 207899 [us]
+Assembly time (NeoN fused global face-based 4) = 206968 [us]
+Assembly time (NeoN fused cell-based 0) = 83240 [us]
+Assembly time (NeoN fused cell-based 1) = 85338 [us]
+Assembly time (NeoN fused cell-based 2) = 84624 [us]
+Assembly time (NeoN fused cell-based 3) = 84480 [us]
+Assembly time (NeoN fused cell-based 4) = 84462 [us]
+Assembly time (NeoN fused batched 0) = 191654 [us]
+Assembly time (NeoN fused batched 1) = 192229 [us]
+Assembly time (NeoN fused batched 2) = 192535 [us]
+Assembly time (NeoN fused batched 3) = 192753 [us]
+Assembly time (NeoN fused batched 4) = 192875 [us]
+Assembly time (JuNe face-based 0) = 539673 [us]
+Assembly time (JuNe face-based 1) = 244925 [us]
+Assembly time (JuNe face-based 2) = 227030 [us]
+Assembly time (JuNe face-based 3) = 240581 [us]
+Assembly time (JuNe face-based 4) = 229237 [us]
+Assembly time (JuNe global face-based 0) = 598100 [us]
+Assembly time (JuNe global face-based 1) = 269133 [us]
+Assembly time (JuNe global face-based 2) = 261257 [us]
+Assembly time (JuNe global face-based 3) = 299507 [us]
+Assembly time (JuNe global face-based 4) = 303959 [us]
+Assembly time (JuNe cell-based 0) = 889964 [us]
+Assembly time (JuNe cell-based 1) = 698992 [us]
+Assembly time (JuNe cell-based 2) = 704175 [us]
+Assembly time (JuNe cell-based 3) = 676776 [us]
+Assembly time (JuNe cell-based 4) = 705970 [us]
+=== 360^3 cells, 8 threads on h200, Fri Nov 13 21:05:37 CET 2026
+Assembly time (NeoN fused global face-based 0) = 250558 [us]
+Assembly time (NeoN fused global face-based 1) = 250967 [us]
+Assembly time (NeoN fused global face-based 2) = 250597 [us]
+Assembly time (NeoN fused global face-based 3) = 247678 [us]
+Assembly time (NeoN fused global face-based 4) = 247466 [us]
+Assembly time (NeoN fused cell-based 0) = 96943 [us]
+Assembly time (NeoN fused cell-based 1) = 98944 [us]
+Assembly time (NeoN fused cell-based 2) = 98831 [us]
+Assembly time (NeoN fused cell-based 3) = 98807 [us]
+Assembly time (NeoN fused cell-based 4) = 98926 [us]
+Assembly time (NeoN fused batched 0) = 223044 [us]
+Assembly time (NeoN fused batched 1) = 222992 [us]
+Assembly time (NeoN fused batched 2) = 223047 [us]
+Assembly time (NeoN fused batched 3) = 222929 [us]
+Assembly time (NeoN fused batched 4) = 223467 [us]
+Assembly time (JuNe face-based 0) = 593232 [us]
+Assembly time (JuNe face-based 1) = 293937 [us]
+Assembly time (JuNe face-based 2) = 278112 [us]
+Assembly time (JuNe face-based 3) = 278490 [us]
+Assembly time (JuNe face-based 4) = 278124 [us]
+Assembly time (JuNe global face-based 0) = 620787 [us]
+Assembly time (JuNe global face-based 1) = 296451 [us]
+Assembly time (JuNe global face-based 2) = 312304 [us]
+Assembly time (JuNe global face-based 3) = 314892 [us]
+Assembly time (JuNe global face-based 4) = 316397 [us]
+Assembly time (JuNe cell-based 0) = 1009621 [us]
+Assembly time (JuNe cell-based 1) = 819264 [us]
+Assembly time (JuNe cell-based 2) = 809875 [us]
+Assembly time (JuNe cell-based 3) = 816402 [us]
+Assembly time (JuNe cell-based 4) = 819203 [us]
+=== 380^3 cells, 8 threads on h200, Fri Nov 13 21:09:18 CET 2026
+Assembly time (NeoN fused global face-based 0) = 284512 [us]
+Assembly time (NeoN fused global face-based 1) = 286436 [us]
+Assembly time (NeoN fused global face-based 2) = 284806 [us]
+Assembly time (NeoN fused global face-based 3) = 286889 [us]
+Assembly time (NeoN fused global face-based 4) = 284707 [us]
+Assembly time (NeoN fused cell-based 0) = 102588 [us]
+Assembly time (NeoN fused cell-based 1) = 104243 [us]
+Assembly time (NeoN fused cell-based 2) = 103149 [us]
+Assembly time (NeoN fused cell-based 3) = 103689 [us]
+Assembly time (NeoN fused cell-based 4) = 103821 [us]
+Assembly time (NeoN fused batched 0) = 257654 [us]
+Assembly time (NeoN fused batched 1) = 259041 [us]
+Assembly time (NeoN fused batched 2) = 259028 [us]
+Assembly time (NeoN fused batched 3) = 258615 [us]
+Assembly time (NeoN fused batched 4) = 259675 [us]
+Assembly time (JuNe face-based 0) = 605735 [us]
+Assembly time (JuNe face-based 1) = 316457 [us]
+Assembly time (JuNe face-based 2) = 331085 [us]
+Assembly time (JuNe face-based 3) = 316414 [us]
+Assembly time (JuNe face-based 4) = 316338 [us]
+Assembly time (JuNe global face-based 0) = 602683 [us]
+Assembly time (JuNe global face-based 1) = 385327 [us]
+Assembly time (JuNe global face-based 2) = 377943 [us]
+Assembly time (JuNe global face-based 3) = 386653 [us]
+Assembly time (JuNe global face-based 4) = 386472 [us]
+Assembly time (JuNe cell-based 0) = 1404060 [us]
+Assembly time (JuNe cell-based 1) = 1241896 [us]
+Assembly time (JuNe cell-based 2) = 1184649 [us]
+Assembly time (JuNe cell-based 3) = 1254180 [us]
+Assembly time (JuNe cell-based 4) = 1286332 [us]
+=== 400^3 cells, 8 threads on h200, Fri Nov 13 21:13:45 CET 2026
+Assembly time (NeoN fused global face-based 0) = 338530 [us]
+Assembly time (NeoN fused global face-based 1) = 339934 [us]
+Assembly time (NeoN fused global face-based 2) = 339835 [us]
+Assembly time (NeoN fused global face-based 3) = 340549 [us]
+Assembly time (NeoN fused global face-based 4) = 339167 [us]
+Assembly time (NeoN fused cell-based 0) = 135122 [us]
+Assembly time (NeoN fused cell-based 1) = 135144 [us]
+Assembly time (NeoN fused cell-based 2) = 134562 [us]
+Assembly time (NeoN fused cell-based 3) = 134430 [us]
+Assembly time (NeoN fused cell-based 4) = 134971 [us]
+Assembly time (NeoN fused batched 0) = 293212 [us]
+Assembly time (NeoN fused batched 1) = 293345 [us]
+Assembly time (NeoN fused batched 2) = 293336 [us]
+Assembly time (NeoN fused batched 3) = 292792 [us]
+Assembly time (NeoN fused batched 4) = 293584 [us]
+Assembly time (JuNe face-based 0) = 681137 [us]
+Assembly time (JuNe face-based 1) = 363991 [us]
+Assembly time (JuNe face-based 2) = 392258 [us]
+Assembly time (JuNe face-based 3) = 380479 [us]
+Assembly time (JuNe face-based 4) = 380122 [us]
+Assembly time (JuNe global face-based 0) = 742676 [us]
+Assembly time (JuNe global face-based 1) = 434371 [us]
+Assembly time (JuNe global face-based 2) = 421559 [us]
+Assembly time (JuNe global face-based 3) = 435522 [us]
+Assembly time (JuNe global face-based 4) = 433632 [us]
+Assembly time (JuNe cell-based 0) = 1281091 [us]
+Assembly time (JuNe cell-based 1) = 1150522 [us]
+Assembly time (JuNe cell-based 2) = 1099413 [us]
+Assembly time (JuNe cell-based 3) = 1068779 [us]
+Assembly time (JuNe cell-based 4) = 1046622 [us]
+done Fri Nov 13 21:18:32 CET 2026

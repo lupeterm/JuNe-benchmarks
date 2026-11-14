@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
-from matplotlib.ticker import EngFormatter
+from matplotlib.ticker import EngFormatter, FixedLocator
 
 TAB10 = plt.get_cmap("tab10").colors
 KINDS = {  # strategy kind -> colour
@@ -27,7 +27,7 @@ KINDS = {  # strategy kind -> colour
 }
 EXECUTORS = {  # executor -> (marker, filled)
     "NeoN": ("o", False),
-    "NeoN fused": ("o", True),
+    "NeoN Fused": ("o", True),
     "JuNe": ("s", True),
     "icoFoam": ("^", True),
 }
@@ -36,10 +36,10 @@ SERIES = {  # strategy in the CSVs -> (kind, executor)
     "NeoN global face-based": ("Global Face-Based", "NeoN"),
     "NeoN cell-based": ("Cell-Based", "NeoN"),
     "NeoN batched": ("Batched Face-Based", "NeoN"),
-    "NeoN fused face-based": ("Face-Based", "NeoN fused"),
-    "NeoN fused global face-based": ("Global Face-Based", "NeoN fused"),
-    "NeoN fused cell-based": ("Cell-Based", "NeoN fused"),
-    "NeoN fused batched": ("Batched Face-Based", "NeoN fused"),
+    "NeoN fused face-based": ("Face-Based", "NeoN Fused"),
+    "NeoN fused global face-based": ("Global Face-Based", "NeoN Fused"),
+    "NeoN fused cell-based": ("Cell-Based", "NeoN Fused"),
+    "NeoN fused batched": ("Batched Face-Based", "NeoN Fused"),
     "JuNe face-based": ("Face-Based", "JuNe"),
     "JuNe global face-based": ("Global Face-Based", "JuNe"),
     "JuNe cell-based": ("Cell-Based", "JuNe"),
@@ -47,6 +47,7 @@ SERIES = {  # strategy in the CSVs -> (kind, executor)
     "icoFoam 64 ranks": (None, "icoFoam"),  # no kind: drawn in dark grey
 }
 ICOFOAM_COLOR = "0.15"
+CELL_TICKS = [1e3, 1e4, 1e5, 1e6, 1e7, 6.4e7]  # 64 M = 400^3, the largest mesh, instead of 100 M
 
 
 def style(strategy: str):
@@ -77,6 +78,7 @@ def plot(data: pd.DataFrame, column: str, ylabel: str, out: Path):
         ax.scatter(points["cells"], points[column], s=50, marker=m, edgecolors=col,
                    facecolors=col if filled else "none", linewidths=1.3, alpha=0.85)
     ax.set(xscale="log", xlabel="Number of cells", ylabel=ylabel)
+    ax.xaxis.set_major_locator(FixedLocator(CELL_TICKS))
     ax.xaxis.set_major_formatter(EngFormatter())
     ax.set_ylim(bottom=0)
     ax.grid(True, which="minor", alpha=0.15)

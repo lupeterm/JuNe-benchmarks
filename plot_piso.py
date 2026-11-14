@@ -12,7 +12,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-VARIANTS = {"neon": "NeoN", "fused": "NeoN fused", "june": "JuNe", "icofoam": "icoFoam, 64 ranks"}
+VARIANTS = {"neon": "NeoN", "fused": "NeoN Fused", "june": "JuNe", "icofoam": "icoFoam, 64 ranks"}
 PARTS = {  # column -> (label, colour)
     "momentum_assembly_ms": ("Momentum assembly", "#1f77b4"),
     "momentum_solve_ms": ("Momentum solve", "#aec7e8"),

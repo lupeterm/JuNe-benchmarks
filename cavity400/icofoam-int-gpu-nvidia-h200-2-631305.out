@@ -1,0 +1,5 @@
+=== 400^3 cavity, ddt + div + laplacian on 64 ranks of h200, Sat Nov 14 20:31:42 CET 2026
+cells: 64000000
+momentum: ddt(U) + div(phi,U) - laplacian(nu,U), 5 runs
+Momentum lines: 320
+done Sat Nov 14 20:31:47 CET 2026

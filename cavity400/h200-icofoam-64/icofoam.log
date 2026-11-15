@@ -1,0 +1,370 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : icoFoamMomentumAssembly -case /storage/home/lupeterm/nobackup/june-icofoam/400/case -parallel
+Date   : Nov 14 2026
+Time   : 20:31:42
+Host   : gpu-nvidia-h200-2.int.coma-cluster.de
+PID    : 2662927
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/june-icofoam/400/case
+nProcs : 64
+Hosts  :
+(
+    (gpu-nvidia-h200-2.int.coma-cluster.de 64)
+)
+Pstream initialized with:
+    floatTransfer      : false
+    maxCommsSize       : 0
+    nProcsSimpleSum    : 0
+    nonBlockingExchange: 0 (tuning: 0)
+    exchange algorithm : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+profiling initialized
+Create mesh for time = 0
+
+Reading transportProperties
+
+Reading field p
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+cells: 64000000
+momentum: ddt(U) + div(phi,U) - laplacian(nu,U), 5 runs
+Momentum 0 0.282260926
+Momentum 0 0.282261047
+Momentum 0 0.28226367
+Momentum 0 0.282261598
+Momentum 0 0.282259996
+Momentum 0 0.282261158
+Momentum 0 0.2822701
+Momentum 0 0.282261118
+Momentum 0 0.2822631
+Momentum 0 0.282261328
+Momentum 0 0.282264391
+Momentum 0 0.282262859
+Momentum 0 0.282261518
+Momentum 0 0.282271932
+Momentum 0 0.282261909
+Momentum 0 0.282261298
+Momentum 0 0.282265443
+Momentum 0 0.282260987
+Momentum 0 0.282260867
+Momentum 0 0.282260466
+Momentum 0 0.2822634
+Momentum 0 0.282264122
+Momentum 0 0.282263951
+Momentum 0 0.282260356
+Momentum 0 0.282269418
+Momentum 0 0.282268827
+Momentum 0 0.282268608
+Momentum 0 0.282260877
+Momentum 0 0.282260927
+Momentum 0 0.282264052
+Momentum 0 0.282262829
+Momentum 0 0.282260426
+Momentum 0 0.282269489
+Momentum 0 0.282271322
+Momentum 0 0.282265363
+Momentum 0 0.282263791
+Momentum 0 0.282263721
+Momentum 0 0.282264582
+Momentum 0 0.2822634
+Momentum 0 0.282260497
+Momentum 0 0.282263651
+Momentum 0 0.28227063
+Momentum 0 0.282271752
+Momentum 0 0.28227042
+Momentum 0 0.282263681
+Momentum 0 0.28226283
+Momentum 0 0.282269999
+Momentum 0 0.28226275
+Momentum 0 0.282261308
+Momentum 0 0.282264081
+Momentum 0 0.282262068
+Momentum 0 0.282261638
+Momentum 0 0.282265063
+Momentum 0 0.282260216
+Momentum 0 0.282260817
+Momentum 0 0.282260486
+Momentum 0 0.282264452
+Momentum 0 0.282260887
+Momentum 0 0.282268127
+Momentum 0 0.282260977
+Momentum 0 0.282261267
+Momentum 0 0.282261388
+Momentum 0 0.282260346
+Momentum 0 0.282261948
+Momentum 1 0.188365675
+Momentum 1 0.188363803
+Momentum 1 0.188365274
+Momentum 1 0.188363703
+Momentum 1 0.188362571
+Momentum 1 0.188366236
+Momentum 1 0.188365795
+Momentum 1 0.188365335
+Momentum 1 0.188364694
+Momentum 1 0.188363573
+Momentum 1 0.188363583
+Momentum 1 0.188364082
+Momentum 1 0.188373877
+Momentum 1 0.188374948
+Momentum 1 0.188361779
+Momentum 1 0.188364314
+Momentum 1 0.188374758
+Momentum 1 0.188364574
+Momentum 1 0.188364173
+Momentum 1 0.188373596
+Momentum 1 0.188363201
+Momentum 1 0.188365134
+Momentum 1 0.188365455
+Momentum 1 0.188364574
+Momentum 1 0.188375328
+Momentum 1 0.188364934
+Momentum 1 0.188365064
+Momentum 1 0.188364804
+Momentum 1 0.188370882
+Momentum 1 0.188371223
+Momentum 1 0.188364393
+Momentum 1 0.188364043
+Momentum 1 0.188363252
+Momentum 1 0.188372995
+Momentum 1 0.188372825
+Momentum 1 0.188364123
+Momentum 1 0.188362611
+Momentum 1 0.188372815
+Momentum 1 0.188370942
+Momentum 1 0.188371383
+Momentum 1 0.188373145
+Momentum 1 0.188362461
+Momentum 1 0.188375028
+Momentum 1 0.188363893
+Momentum 1 0.188373535
+Momentum 1 0.188364884
+Momentum 1 0.188373276
+Momentum 1 0.188373315
+Momentum 1 0.188373827
+Momentum 1 0.188374607
+Momentum 1 0.188363592
+Momentum 1 0.188373766
+Momentum 1 0.188372975
+Momentum 1 0.188373586
+Momentum 1 0.188373416
+Momentum 1 0.188374006
+Momentum 1 0.188372404
+Momentum 1 0.188371573
+Momentum 1 0.188373375
+Momentum 1 0.188374137
+Momentum 1 0.188371423
+Momentum 1 0.188372895
+Momentum 1 0.188372625
+Momentum 1 0.188373566
+Momentum 2 0.192706358
+Momentum 2 0.192706939
+Momentum 2 0.192705747
+Momentum 2 0.192706418
+Momentum 2 0.192708071
+Momentum 2 0.192706579
+Momentum 2 0.192706819
+Momentum 2 0.192706388
+Momentum 2 0.192706328
+Momentum 2 0.19270823
+Momentum 2 0.192703664
+Momentum 2 0.192704416
+Momentum 2 0.19270743
+Momentum 2 0.192707449
+Momentum 2 0.192705516
+Momentum 2 0.192707139
+Momentum 2 0.192706959
+Momentum 2 0.19270806
+Momentum 2 0.192706018
+Momentum 2 0.192709382
+Momentum 2 0.192705467
+Momentum 2 0.192709192
+Momentum 2 0.192708
+Momentum 2 0.192708691
+Momentum 2 0.192706248
+Momentum 2 0.192706999
+Momentum 2 0.192705958
+Momentum 2 0.192706348
+Momentum 2 0.19270812
+Momentum 2 0.192705537
+Momentum 2 0.192708301
+Momentum 2 0.192706338
+Momentum 2 0.192704696
+Momentum 2 0.19270794
+Momentum 2 0.192707099
+Momentum 2 0.192708251
+Momentum 2 0.192706368
+Momentum 2 0.192706448
+Momentum 2 0.19270822
+Momentum 2 0.192706658
+Momentum 2 0.192707269
+Momentum 2 0.192706829
+Momentum 2 0.192707609
+Momentum 2 0.192704456
+Momentum 2 0.19270735
+Momentum 2 0.192708191
+Momentum 2 0.192707149
+Momentum 2 0.192706738
+Momentum 2 0.192707419
+Momentum 2 0.192707159
+Momentum 2 0.192707039
+Momentum 2 0.192705938
+Momentum 2 0.19270787
+Momentum 2 0.192706579
+Momentum 2 0.192703955
+Momentum 2 0.192704706
+Momentum 2 0.192705977
+Momentum 2 0.192707038
+Momentum 2 0.192708912
+Momentum 2 0.19270782
+Momentum 2 0.192705637
+Momentum 2 0.192708691
+Momentum 2 0.192708941
+Momentum 2 0.192706518
+Momentum 3 0.192898092
+Momentum 3 0.192897842
+Momentum 3 0.192898472
+Momentum 3 0.192913664
+Momentum 3 0.192898382
+Momentum 3 0.192912893
+Momentum 3 0.192913182
+Momentum 3 0.192912842
+Momentum 3 0.192913013
+Momentum 3 0.192898553
+Momentum 3 0.192899214
+Momentum 3 0.192914504
+Momentum 3 0.192912452
+Momentum 3 0.192897201
+Momentum 3 0.192912402
+Momentum 3 0.192914785
+Momentum 3 0.192914705
+Momentum 3 0.192898723
+Momentum 3 0.192915586
+Momentum 3 0.192913663
+Momentum 3 0.192898763
+Momentum 3 0.192899253
+Momentum 3 0.192913072
+Momentum 3 0.19291184
+Momentum 3 0.192911991
+Momentum 3 0.192897051
+Momentum 3 0.19289693
+Momentum 3 0.192915876
+Momentum 3 0.192913613
+Momentum 3 0.192897732
+Momentum 3 0.192911821
+Momentum 3 0.192911981
+Momentum 3 0.192916577
+Momentum 3 0.192914815
+Momentum 3 0.192898342
+Momentum 3 0.192915746
+Momentum 3 0.192915656
+Momentum 3 0.192913703
+Momentum 3 0.192916157
+Momentum 3 0.192898442
+Momentum 3 0.192913653
+Momentum 3 0.192897842
+Momentum 3 0.192914874
+Momentum 3 0.192913793
+Momentum 3 0.192913714
+Momentum 3 0.192915035
+Momentum 3 0.192913833
+Momentum 3 0.192912431
+Momentum 3 0.192898443
+Momentum 3 0.192914885
+Momentum 3 0.192913153
+Momentum 3 0.192914855
+Momentum 3 0.192897591
+Momentum 3 0.192913173
+Momentum 3 0.192914925
+Momentum 3 0.192915385
+Momentum 3 0.192913553
+Momentum 3 0.192915456
+Momentum 3 0.192914705
+Momentum 3 0.192913123
+Momentum 3 0.192913873
+Momentum 3 0.192914654
+Momentum 3 0.192915756
+Momentum 3 0.192915676
+Momentum 4 0.192589497
+Momentum 4 0.192590218
+Momentum 4 0.192589107
+Momentum 4 0.192589497
+Momentum 4 0.192589317
+Momentum 4 0.192590148
+Momentum 4 0.192588756
+Momentum 4 0.192589197
+Momentum 4 0.192588766
+Momentum 4 0.192590359
+Momentum 4 0.192590899
+Momentum 4 0.192589497
+Momentum 4 0.192589527
+Momentum 4 0.192590298
+Momentum 4 0.192588746
+Momentum 4 0.192588956
+Momentum 4 0.192589337
+Momentum 4 0.192590689
+Momentum 4 0.192589457
+Momentum 4 0.192589547
+Momentum 4 0.192590378
+Momentum 4 0.192588927
+Momentum 4 0.192589316
+Momentum 4 0.192590037
+Momentum 4 0.19259128
+Momentum 4 0.192590799
+Momentum 4 0.192588355
+Momentum 4 0.192588746
+Momentum 4 0.192590698
+Momentum 4 0.1925914
+Momentum 4 0.192590519
+Momentum 4 0.192590298
+Momentum 4 0.192590419
+Momentum 4 0.192589357
+Momentum 4 0.192588206
+Momentum 4 0.192588966
+Momentum 4 0.192592562
+Momentum 4 0.192589607
+Momentum 4 0.192590569
+Momentum 4 0.192589236
+Momentum 4 0.192590728
+Momentum 4 0.19259147
+Momentum 4 0.19259158
+Momentum 4 0.192591459
+Momentum 4 0.192590328
+Momentum 4 0.192591019
+Momentum 4 0.192589197
+Momentum 4 0.19259127
+Momentum 4 0.192591029
+Momentum 4 0.19259156
+Momentum 4 0.19259197
+Momentum 4 0.192592691
+Momentum 4 0.19259142
+Momentum 4 0.192592191
+Momentum 4 0.192592391
+Momentum 4 0.192591079
+Momentum 4 0.192591851
+Momentum 4 0.192588886
+Momentum 4 0.192588766
+Momentum 4 0.192592351
+Momentum 4 0.19259154
+Momentum 4 0.192591239
+Momentum 4 0.192590849
+Momentum 4 0.192592521
+Finalising parallel run

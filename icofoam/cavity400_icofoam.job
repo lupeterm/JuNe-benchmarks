@@ -1,0 +1,36 @@
+#!/bin/bash
+#SBATCH --job-name=icofoam-int
+#SBATCH --nodes=1
+#SBATCH --ntasks=64
+#SBATCH --cpus-per-task=2
+#SBATCH --exclusive
+#SBATCH --time=01:00:00
+#SBATCH --output=/storage/home/lupeterm/JuNe-benchmarks/cavity400/%x-%N-%j.out
+#
+# icoFoam counterpart of the cavity400 integration benchmark: icoFoamMomentumAssembly
+# ($WM_PROJECT_USER_DIR/applications/solvers/icoFoamMomentumAssembly) assembles
+# ddt(U) + div(phi,U) - laplacian(nu,U) five times on the 64-rank decomposition of the 400^3 cavity
+# (view case of cavity_icofoam.job: Euler ddt, upwind div, uncorrected laplacian), node to itself.
+#   sbatch --nodelist=gpu-nvidia-h200-2 icofoam/cavity400_icofoam.job
+
+VIEW=/storage/home/lupeterm/nobackup/june-icofoam/400/case
+NRANKS=64
+
+cd /storage/home/lupeterm/JuNe-benchmarks
+source /storage/home/lupeterm/openfoam-OpenFOAM-v2412/etc/bashrc
+case "$(hostname -s)" in
+    gpu-nvidia-h200-*) node=h200 ;;
+    *) node=$(hostname -s) ;;
+esac
+out="cavity400/$node-icofoam-$NRANKS"
+mkdir -p "$out"
+lscpu | grep -E "Model name|Socket|Core|Thread|NUMA node\(" > "$out/cpu.txt"
+echo "icoFoamMomentumAssembly: $(which icoFoamMomentumAssembly)" >> "$out/cpu.txt"
+[ -d "$VIEW/processor0" ] || { echo "no $NRANKS-rank view case in $VIEW"; exit 1; }
+
+echo "=== 400^3 cavity, ddt + div + laplacian on $NRANKS ranks of $node, $(date)"
+mpirun -np $NRANKS --map-by socket --bind-to core icoFoamMomentumAssembly -case "$VIEW" -parallel \
+    > "$out/icofoam.log" 2>&1 || echo "run failed, see $out/icofoam.log"
+grep -E "^(cells|momentum)" "$out/icofoam.log"
+grep -c "^Momentum" "$out/icofoam.log" | xargs echo "Momentum lines:"
+echo "done $(date)"

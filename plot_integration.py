@@ -3,8 +3,9 @@ as a scalar matrix on a real case (upwind convection), every NeoN, fused NeoN an
 one GPU. Logs come from benchmarks/june/drivaer_assembly.job of NeoFOAM (test/test_cavity.cpp with
 CAVITY_DDT=1 CAVITY_MATRIX=scalar, five timed assemblies per strategy, the first one dropped).
 
-    python3 plot_integration.py <dir> [...]   reads <dir>/<gpu>/<name>.log, writes <dir>/<name>.csv and
-                                             <dir>/<name>_<gpu>.pdf, e.g. drivaer, cavity400
+    python3 plot_integration.py <dir> [...]   reads <dir>/<gpu>/<name>.log (and the icoFoam baseline
+                                             <dir>/<node>-icofoam-<ranks>/icofoam.log if present),
+                                             writes <dir>/<name>.csv and <dir>/<name>_<gpu>.pdf
 """
 import sys
 import re
@@ -50,7 +51,22 @@ def parse(here: Path) -> pd.DataFrame:
                          "time_median_ms": ms.median(), "runs": len(ms),
                          # the median, as in the cavity series: a single stalled run must not dominate
                          "throughput_gbs": nnz * MATRIX_BYTES[matrix] / (ms.median() / 1e3) / 1e9})
-    return pd.DataFrame(rows)
+    data = pd.DataFrame(rows)
+    # the icoFoam baseline on the CPUs of the same node, if present: <node>-icofoam-<ranks>/icofoam.log of
+    # icofoam/cavity400_icofoam.job, every rank prints "Momentum <run> <seconds>" after a barrier
+    for log in sorted(here.glob("*-icofoam-*/icofoam.log")):
+        node, _, ranks = log.parent.name.split("-")
+        per_run = {}
+        for run, seconds in re.findall(r"^Momentum (\d+) ([0-9.eE+-]+)$", log.read_text(), re.M):
+            per_run[int(run)] = max(per_run.get(int(run), 0.0), float(seconds) * 1e3)  # slowest rank
+        ms = pd.Series([v for run, v in sorted(per_run.items()) if run > 0])
+        ref = data.loc[data["gpu"].eq(node.upper())].iloc[0]  # same mesh: cells and nnz of the GPU run
+        data = pd.concat([data, pd.DataFrame([{
+            "case": here.name, "gpu": node.upper(), "cells": ref["cells"], "nnz": ref["nnz"], "matrix": "scalar",
+            "strategy": f"icoFoam {ranks} ranks", "time_mean_ms": ms.mean(), "time_std_ms": ms.std(ddof=0),
+            "time_median_ms": ms.median(), "runs": len(ms),
+            "throughput_gbs": ref["nnz"] * MATRIX_BYTES["scalar"] / (ms.median() / 1e3) / 1e9}])], ignore_index=True)
+    return data
 
 
 def plot(data: pd.DataFrame, out: Path):
@@ -75,6 +91,10 @@ def plot(data: pd.DataFrame, out: Path):
                 ax.text(xi, v * 1.01, f"{v:.0f}\n{data.loc[name, 'time_median_ms']:.0f} ms", ha="center",
                         va="bottom", fontsize=11)
                 top = max(top, v)
+    for name in (s for s in data.index if s.startswith("icoFoam")):  # CPU baseline as a reference line
+        v = data.loc[name, "throughput_gbs"]
+        ax.axhline(v, color="0.25", linestyle="--", linewidth=1.3,
+                   label=f"{name}, CPU: {v:.0f} GB/s, {data.loc[name, 'time_median_ms']:.0f} ms")
     ax.set_xticks(range(len(KINDS)))
     ax.set_xticklabels(KINDS)
     ax.set_ylabel("Assembly throughput [GB/s]")

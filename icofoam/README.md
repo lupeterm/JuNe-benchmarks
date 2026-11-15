@@ -11,3 +11,8 @@ assembly, `Momentum <s>` printed by every rank) on 64 MPI ranks of the H200 node
 2. `python3 icofoam/parse_results.py` takes the slowest rank per run, averages the runs and writes
    `june_neon/cavity_icofoam.csv` with the columns of the NeoFOAM `cavity_throughput.csv`
    (`throughput_gbs` = nnz * 24 B / time).
+
+`cavity400_icofoam.job` runs the integration counterpart on the 400^3 cavity: the full momentum
+equation ddt + div + laplacian with `icoFoamMomentumAssembly` (source in `icoFoamMomentumAssembly/`),
+five assemblies on 64 ranks, results in `../cavity400/h200-icofoam-64/`.
+

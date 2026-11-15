@@ -17,3 +17,16 @@ strategy on one H200 GPU.
 
 Unlike the 400^3 point of the cavity series in ../june_neon, which assembles div + laplacian only,
 this run includes the ddt term.
+
+## icoFoam baseline
+
+The same assembly with OpenFOAM v2412 on 64 MPI ranks of the H200 node's CPUs, node to itself:
+icofoam/icoFoamMomentumAssembly (source in ../icofoam, build with wmake into $FOAM_USER_APPBIN)
+constructs fvm::ddt(U) + fvm::div(phi,U) - fvm::laplacian(nu,U) five times between two barriers on
+the 64-rank decomposition of the same mesh (Euler ddt, upwind div, uncorrected laplacian; nu from
+the case, which does not change the work). Run: icofoam/cavity400_icofoam.job, job 631305 on
+gpu-nvidia-h200-2, log in h200-icofoam-64/. The slowest rank per run counts, the first run is
+dropped, the throughput uses the median and 8 bytes per non-zero (fvVectorMatrix stores scalar
+coefficients): 192.7 ms, 18.6 GB/s. plot_integration.py adds it to cavity400.csv and draws it as a
+dashed reference line.
+

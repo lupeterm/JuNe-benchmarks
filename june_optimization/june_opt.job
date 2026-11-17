@@ -1,0 +1,46 @@
+#!/bin/bash
+#SBATCH --job-name=june-opt
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:nvidia:1
+#SBATCH --cpus-per-task=32
+#SBATCH --time=02:00:00
+#SBATCH --output=/storage/home/lupeterm/NeoFOAM/benchmarks/june/results/%x-%N-%j.out
+#
+# JuNe with Julia's default options (-O2) against -O3 (JUNE_JULIA_ARGS="-O3"): the cavity benchmark (div + laplacian, scalar matrix) on the 300^3 mesh,
+# every JuNe strategy plus fused NeoN face-based as a reference that Julia's options cannot affect.
+# Each variant runs in REPS separate processes, alternating, so drifts of the GPU hit both alike.
+# --check-bounds=no is not used: it breaks the type inference of JuNe's atomic updates (Atomix), and
+# CUDA.jl then rejects the face-based kernels with InvalidIRError (job 632923). On the GPU, -O3 only
+# affects JuNe's host code: CUDA.jl compiles the kernels at LLVM level 2 and ptxas at -O3 in any case.
+#   sbatch --exclude=<non-H200 nodes> benchmarks/june/june_opt.job
+
+N=${N:-300}
+REPS=${REPS:-3}
+MAX_ARGS=${MAX_ARGS:-"-O3"}
+
+cd /storage/home/lupeterm/NeoFOAM
+source "${WM_PROJECT_DIR:-/storage/home/lupeterm/openfoam-OpenFOAM-v2412}/etc/bashrc"
+case $(hostname -s) in
+    *h100*) gpu=h100 ;;
+    *h200*) gpu=h200 ;;
+    *) gpu=$(hostname -s) ;;
+esac
+out="benchmarks/june/results/$gpu-june-opt"
+mkdir -p "$out"
+
+./xbuild.sh gpu
+bin="$PWD/build/julia-$(hostname -s)-gpu/bin/tests/cavity"
+nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv | tee "$out/gpu.txt"
+
+export JUNE_MODULE_INIT=/storage/home/lupeterm/JuNe.jl/init.jl JULIA_NUM_THREADS=1 CAVITY_MATRIX=scalar
+export CAVITY_ONLY="JuNe,NeoN fused face-based"
+for i in $(seq 1 $REPS); do
+    for variant in default O3; do
+        if [ "$variant" = O3 ]; then export JUNE_JULIA_ARGS="$MAX_ARGS"; else unset JUNE_JULIA_ARGS; fi
+        echo "=== ${N}^3, $variant, process $i, $(date)"
+        (cd /storage/home/lupeterm/nobackup/julia/view/base/mesh/$N/case && "$bin") \
+            > "$out/cavity_${N}_${variant}_$i.log" 2>&1 || echo "$variant $i failed"
+        grep -E "julia options|Assembly time \(JuNe face-based [1-4]\)|All tests" "$out/cavity_${N}_${variant}_$i.log" | tr '\n' ' '; echo
+    done
+done
+echo "done $(date)"

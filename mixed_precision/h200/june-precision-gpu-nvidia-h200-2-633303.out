@@ -1,0 +1,943 @@
+=== blockMesh 250^3, Mon Nov 16 17:32:39 CET 2026
+=== blockMesh 350^3, Mon Nov 16 17:33:21 CET 2026
+NeoFOAM gpu build in build/julia-gpu-nvidia-h200-2-gpu with Julia at /storage/home/lupeterm/.julia/juliaup/julia-1.11.9+0.x64.linux.gnu
+Preset CMake variables:
+
+  CMAKE_BUILD_TYPE="Release"
+  GINKGO_BUILD_PAPI_SDE="OFF"
+  Kokkos_ENABLE_DEBUG="OFF"
+  Kokkos_ENABLE_DEBUG_BOUNDS_CHECK="OFF"
+  NEOFOAM_BUILD_BENCHMARKS="OFF"
+  NEOFOAM_BUILD_TESTS="ON"
+  NEOFOAM_ENABLE_KOKKOS_TOOLS="ON"
+
+-- Kokkos Tools enabled
+-- Cloning kokkos-tools (tag: 33693813b125096cc72a90d495fd02a7bb7574ea)
+-- --------------------------------------------------
+-- Kokkos Tools build dir : /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu/kokkos_tools_build
+-- --------------------------------------------------
+-- using NEOFOAM_NEON_DIR ../NeoN
+-- Set CPM_USE_LOCAL_PACKAGES=ON by default.
+-- NeoN: MPI_THREAD_MULTIPLE supported — NeoN_ENABLE_MPI_WITH_THREAD_SUPPORT=ON
+-- Auto detecting accelerator devices
+-- Set Kokkos_ENABLE_Threads=ON
+-- Skip CUDA detection Kokkos_ENABLE_CUDA=ON
+-- Skip HIP detection Kokkos_ENABLE_HIP=OFF
+-- Setting default Kokkos CXX standard to 20
+-- Kokkos version: 5.0.2
+-- The project name is: Kokkos
+-- Using internal gtest for testing
+-- Kokkos is configured for CMake languages CXX compilation (using Clang version 19.1.7)
+-- Using -std=c++20 for C++20 standard as feature
+-- Built-in Execution Spaces:
+--     Device Parallel: Kokkos::Cuda
+--     Host Parallel: NoTypeDefined
+--       Host Serial: SERIAL
+-- 
+-- Architectures:
+--  HOPPER90
+-- Found CUDAToolkit: /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/targets/x86_64-linux/include (found version "12.5.82")
+-- Using bundled desul_atomics copy (desul/desul@79f928075837ffb5d302aae188e0ec7b7a79ae94)
+-- Performing Test KOKKOS_LINK_OPTIONS_CHECK
+-- Performing Test KOKKOS_LINK_OPTIONS_CHECK - Success
+-- Performing Test KOKKOS_COMPILE_OPTIONS_CHECK
+-- Performing Test KOKKOS_COMPILE_OPTIONS_CHECK - Success
+-- Using bundled mdspan copy (kokkos/mdspan@5d4eb209c77f4744980c0b0c2af44636cc81b08b)
+-- Kokkos Backends: SERIAL;CUDA
+-- CPM: Adding package cpptrace@0.7.3 (0.7.3)
+-- Cpptrace auto config: Using libgcc unwind for unwinding
+-- Cpptrace auto config: Using libdwarf for symbols
+-- Cpptrace auto config: Using cxxabi for demangling
+-- ZSTD VERSION: 1.5.6
+-- CMAKE_INSTALL_PREFIX: /usr/local
+-- CMAKE_INSTALL_LIBDIR: lib64
+-- ZSTD_LEGACY_SUPPORT not defined!
+-- ZSTD_MULTITHREAD_SUPPORT is enabled
+-- Building dwarfgen    ... OFF
+-- Building dwarfexample... OFF
+-- Building api tests   ... 
+-- HAVE_UINTPTR_T 1: uintptr_t defined in stdint.h... YES
+-- uintptr_t value considered NO 
+-- HAVE_INTPTR_T 1: intptr_t defined in stdint.h... YES
+-- intptr_t value considered NO 
+-- CMAKE_SIZEOF_VOID_P ... 8
+-- Compiler warning options... NO
+-- Install prefix ... /usr/local
+-- CPM: Adding package fmt@12.1.0 (12.1.0)
+-- {fmt} version: 12.1.0
+-- Build type: Release
+CMake Warning at /storage/home/lupeterm/NeoN/cmake/CxxThirdParty.cmake:98 (message):
+  Setting CMAKE_CUDA_HOST_COMPILER to
+  /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/llvm-19.1.7-dvgsglzrsla35ozhfjz7j4n2hua64p4m/bin/clang++
+  use -DCMAKE_CUDA_HOST_COMPILER to override
+Call Stack (most recent call first):
+  /storage/home/lupeterm/NeoN/CMakeLists.txt:164 (include)
+
+
+-- CPM: Adding package umpire@0 (18a808d1af81fed8823fcf12452d91c981f1bad1)
+-- Using CMake version 3.31.6
+-- BLT Source Directory: /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu/_deps/umpire-src/blt
+-- BLT Version: 0.7.1
+-- CMake Version: 3.31.6
+-- CMake Build Type: Release
+-- CMake Executable: /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cmake-3.31.6-4ewdy2wbmyaceouqklvqlzsmenttqpz6/bin/cmake
+-- Standard C++17 selected
+-- Standard C++17 selected for CUDA
+-- BLT MPI support is OFF
+-- BLT OpenMP support is OFF
+-- BLT CUDA support is ON
+-- BLT HIP support is OFF
+-- Creating BLT CUDA targets...
+-- CUDA Version:                   12.5
+-- CUDA Toolkit Root Dir:          /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex
+-- CUDA Compiler:                  /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/llvm-19.1.7-dvgsglzrsla35ozhfjz7j4n2hua64p4m/bin/clang++
+-- CUDA Host Compiler:             /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/llvm-19.1.7-dvgsglzrsla35ozhfjz7j4n2hua64p4m/bin/clang++
+-- CUDA Standard:                  17
+-- CUDA Architectures:             90
+-- CUDA Include Path:              /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/include
+-- CUDA Libraries:                 /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcudart_static.a;Threads::Threads;dl;/usr/lib64/librt.a
+-- CUDA Compile Flags:             
+-- CUDA Link Flags:                -L/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64
+-- BLT CUDA Separable Compilation: OFF
+-- CUDA Separable Compilation:     
+-- CUDA Link with NVCC:            
+-- CUDA Implicit Link Libraries:   stdc++;m;gcc_s;gcc;c;gcc_s;gcc
+-- CUDA Implicit Link Directories: /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64;/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/llvm-19.1.7-dvgsglzrsla35ozhfjz7j4n2hua64p4m/lib/x86_64-unknown-linux-gnu;/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/llvm-19.1.7-dvgsglzrsla35ozhfjz7j4n2hua64p4m/lib/clang/19/lib/x86_64-unknown-linux-gnu;/usr/lib/gcc/x86_64-redhat-linux/11;/usr/lib64;/lib64;/lib;/usr/lib
+-- Git Support is ON
+-- Git Executable: /usr/bin/git
+-- Git Version: 2.47.3
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+-- Sphinx support is ON
+-- Failed to locate Sphinx executable (missing: SPHINX_EXECUTABLE) 
+-- Valgrind support is ON
+-- AStyle support is ON
+-- Failed to locate AStyle executable (missing: ASTYLE_EXECUTABLE) 
+-- ClangFormat support is ON
+-- Uncrustify support is ON
+-- Failed to locate Uncrustify executable (missing: UNCRUSTIFY_EXECUTABLE) 
+-- Yapf support is ON
+-- Failed to locate Yapf executable (missing: YAPF_EXECUTABLE) 
+-- CMakeFormat support is ON
+-- Failed to locate CMakeFormat executable (missing: CMAKEFORMAT_EXECUTABLE) 
+-- Cppcheck support is ON
+-- Failed to locate Cppcheck executable (missing: CPPCHECK_EXECUTABLE) 
+-- ClangQuery support is ON
+-- ClangTidy support is ON
+-- ClangApplyReplacements support is ON
+-- C Compiler family is Clang
+-- Adding optional BLT definitions and compiler flags
+-- Enabling all compiler warnings on all targets.
+-- Fortran support disabled.
+-- CMAKE_C_FLAGS flags are:   -Wall -Wextra  
+-- CMAKE_CXX_FLAGS flags are:   -Wall -Wextra     
+-- CMAKE_EXE_LINKER_FLAGS flags are:  
+-- CMake's C implicit link directories: /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/llvm-19.1.7-dvgsglzrsla35ozhfjz7j4n2hua64p4m/lib/x86_64-unknown-linux-gnu;/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/llvm-19.1.7-dvgsglzrsla35ozhfjz7j4n2hua64p4m/lib/clang/19/lib/x86_64-unknown-linux-gnu;/usr/lib/gcc/x86_64-redhat-linux/11;/usr/lib64;/lib64;/lib;/usr/lib
+-- CMake's CXX implicit link directories: /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/llvm-19.1.7-dvgsglzrsla35ozhfjz7j4n2hua64p4m/lib/x86_64-unknown-linux-gnu;/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/llvm-19.1.7-dvgsglzrsla35ozhfjz7j4n2hua64p4m/lib/clang/19/lib/x86_64-unknown-linux-gnu;/usr/lib/gcc/x86_64-redhat-linux/11;/usr/lib64;/lib64;/lib;/usr/lib
+-- CMake's CUDA implicit link directories: /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64;/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/llvm-19.1.7-dvgsglzrsla35ozhfjz7j4n2hua64p4m/lib/x86_64-unknown-linux-gnu;/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/llvm-19.1.7-dvgsglzrsla35ozhfjz7j4n2hua64p4m/lib/clang/19/lib/x86_64-unknown-linux-gnu;/usr/lib/gcc/x86_64-redhat-linux/11;/usr/lib64;/lib64;/lib;/usr/lib
+-- CMake's C implicit link libraries: gcc;gcc_s;c;gcc;gcc_s
+-- CMake's CXX implicit link libraries: stdc++;m;gcc_s;gcc;c;gcc_s;gcc
+-- CMake's CUDA implicit link libraries: stdc++;m;gcc_s;gcc;c;gcc_s;gcc
+-- Setting C standard to 99
+-- Checking for std::filesystem
+-- std::filesystem found
+-- IPC Shared Memory Disabled
+-- MPI3 Shared Memory Disabled
+-- System nlohmann_json not found — fetching from GitHub via CPM.cmake...
+-- CPM: Adding package nlohmann_json@3.11.3 (v3.11.3)
+-- Using the multi-header code from /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu/_deps/nlohmann_json-src/include/
+-- System Ginkgo not found — fetching from GitHub via CPM.cmake...
+-- CPM: Adding package Ginkgo@2.0.0 (6a3abf8c920228006f3b28bc3bf04fc7a5f6aee0)
+-- Found CUDAToolkit: /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/include (found version "12.5.82")
+-- Enable custom thrust namespace for cuda
+-- Could NOT find VTune (missing: VTune_EXECUTABLE VTune_LIBRARY VTune_INCLUDE_DIR) 
+-- Could NOT find METIS (missing: METIS_LIBRARY METIS_GKLIB_LIBRARY METIS_INCLUDE_DIR) 
+-- Found MPI: TRUE (found suitable version "3.1", minimum required is "3.1") found components: CXX
+-- 
+---------------------------------------------------------------------------------------------------------
+--
+--    Summary of Configuration for Ginkgo (version 2.0.0 with tag develop, shortrev a1795d8506)
+--    Ginkgo configuration:
+--        CMAKE_BUILD_TYPE:                                Release
+--        BUILD_SHARED_LIBS:                               OFF
+--        CMAKE_INSTALL_PREFIX:                            /usr/local
+--        PROJECT_SOURCE_DIR:                              /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu/_deps/ginkgo-src
+--        PROJECT_BINARY_DIR:                              /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu/_deps/ginkgo-build
+--        CMAKE_CXX_COMPILER:                              Clang 19.1.7 on platform Linux x86_64
+--                                                         /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/llvm-19.1.7-dvgsglzrsla35ozhfjz7j4n2hua64p4m/bin/clang++
+--    User configuration:
+--      Enabled modules:
+--        GINKGO_BUILD_OMP:                                OFF
+--        GINKGO_BUILD_MPI:                                ON
+--        GINKGO_BUILD_REFERENCE:                          ON
+--        GINKGO_BUILD_CUDA:                               ON
+--        GINKGO_BUILD_HIP:                                OFF
+--        GINKGO_BUILD_SYCL:                               OFF
+--      Enabled features:
+--        GINKGO_MIXED_PRECISION:                          OFF
+--        GINKGO_HAVE_GPU_AWARE_MPI:                       OFF
+--        GINKGO_ENABLE_HALF:                              OFF
+--        GINKGO_ENABLE_BFLOAT16:                          OFF
+--      Tests, benchmarks and examples:
+--        GINKGO_BUILD_TESTS:                              OFF
+--        GINKGO_FAST_TESTS:                               OFF
+--        GINKGO_BUILD_EXAMPLES:                           OFF
+--        GINKGO_EXTLIB_EXAMPLE:                           
+--        GINKGO_BUILD_BENCHMARKS:                         OFF
+--        GINKGO_BENCHMARK_ENABLE_TUNING:                  OFF
+--      Documentation:
+--        GINKGO_BUILD_DOC:                                OFF
+--        GINKGO_VERBOSE_LEVEL:                            1
+--    
+---------------------------------------------------------------------------------------------------------
+--
+--      Developer Tools:
+--        GINKGO_DEVEL_TOOLS:                              OFF
+--        GINKGO_WITH_CLANG_TIDY:                          OFF
+--        GINKGO_WITH_IWYU:                                OFF
+--        GINKGO_CHECK_CIRCULAR_DEPS:                      OFF
+--        GINKGO_WITH_CCACHE:                              ON
+---------------------------------------------------------------------------------------------------------
+--
+--      Components:
+--        GINKGO_BUILD_PAPI_SDE:                           OFF
+--        GINKGO_BUILD_HWLOC:                              OFF
+--
+--  Detailed information (More compiler flags, module configuration) can be found in detailed.log
+--   
+--
+--  Now, run  cmake --build .  to compile Ginkgo!
+--
+---------------------------------------------------------------------------------------------------------
+
+-- Julia 1.11.9 at /storage/home/lupeterm/.julia/juliaup/julia-1.11.9+0.x64.linux.gnu
+-- 
++------------------------------------------------------------------------------+
+
+
+         b.             8 8 8888888888       ,o888888o.     b.             8
+         888o.          8 8 8888          . 8888     `88.   888o.          8
+         Y88888o.       8 8 8888         ,8 8888       `8b  Y88888o.       8
+         .`Y888888o.    8 8 8888         88 8888        `8b .`Y888888o.    8
+         8o. `Y888888o. 8 8 888888888888 88 8888         88 8o. `Y888888o. 8
+         8`Y8o. `Y88888o8 8 8888         88 8888         88 8`Y8o. `Y88888o8
+         8   `Y8o. `Y8888 8 8888         88 8888        ,8P 8   `Y8o. `Y8888
+         8      `Y8o. `Y8 8 8888         `8 8888       ,8P  8      `Y8o. `Y8
+         8         `Y8o.` 8 8888          ` 8888     ,88'   8         `Y8o.`
+         8            `Yo 8 888888888888     `8888888P'     8            `Yo
+
+         Version: 0.1.0 Git commit: v0.3.0rc1-162-g47084bb08e-dirty
+
++------------------------------------------------------------------------------+
+ Build information:
+--	CMAKE_BUILD_TYPE = Release
+--	CMAKE_CXX_COMPILER = Clang@19.1.7
++------------------------------------------------------------------------------+
+ Third-Party dependencies:
+ -- 	NeoN_WITH_ADIOS2 = OFF
+ -- 	NeoN_WITH_CUDA = ON
+ -- 	NeoN_WITH_GINKGO = ON
+ -- 	NeoN_WITH_JULIA = ON
+ -- 	NeoN_WITH_KOKKOS = ON
+ -- 	NeoN_WITH_MPI = ON
+ -- 	NeoN_WITH_OMP = OFF
+ -- 	NeoN_WITH_PETSC = OFF
+ -- 	NeoN_WITH_SPDLOG = OFF
+ -- 	NeoN_WITH_SUNDIALS = OFF
+ -- 	NeoN_WITH_THREADS = ON
+ -- 	NeoN_WITH_UMPIRE = ON
++------------------------------------------------------------------------------+
+ NeoN components:
+ -- 	NeoN_BUILD_BENCHMARKS = OFF
+ -- 	NeoN_BUILD_DOC = OFF
+ -- 	NeoN_BUILD_PYTHON_BINDINGS = OFF
+ -- 	NeoN_BUILD_TESTS = OFF
++------------------------------------------------------------------------------+
+ NeoN definitions:
+ -- 	NeoN_DEFINE_DP_LABEL = OFF
+ -- 	NeoN_DEFINE_DP_SCALAR = ON
+ -- 	NeoN_DEFINE_US_IDX = OFF
++------------------------------------------------------------------------------+
+CMake Warning at /storage/home/lupeterm/NeoN/CMakeLists.txt:403 (message):
+  Unable to create NeoNTargets.cmake with bundled Kokkos or Umpire
+
+
+-- Found MPI: TRUE (found suitable version "3.1", minimum required is "3.1")
+-- 
++------------------------------------------------------------------------------+
+
+
+                                                                                                                  .         .
+b.             8 8 8888888888       ,o888888o.     8 8888888888       ,o888888o.           .8.                   ,8.       ,8.
+888o.          8 8 8888          . 8888     `88.   8 8888          . 8888     `88.        .888.                 ,888.     ,888.
+Y88888o.       8 8 8888         ,8 8888       `8b  8 8888         ,8 8888       `8b      :88888.               .`8888.   .`8888.
+.`Y888888o.    8 8 8888         88 8888        `8b 8 8888         88 8888        `8b    . `88888.             ,8.`8888. ,8.`8888.
+8o. `Y888888o. 8 8 888888888888 88 8888         88 8 888888888888 88 8888         88   .8. `88888.           ,8'8.`8888,8^8.`8888.
+8`Y8o. `Y88888o8 8 8888         88 8888         88 8 8888         88 8888         88  .8`8. `88888.         ,8' `8.`8888' `8.`8888.
+8   `Y8o. `Y8888 8 8888         88 8888        ,8P 8 8888         88 8888        ,8P .8' `8. `88888.       ,8'   `8.`88'   `8.`8888.
+8      `Y8o. `Y8 8 8888         `8 8888       ,8P  8 8888         `8 8888       ,8P .8'   `8. `88888.     ,8'     `8.`'     `8.`8888.
+8         `Y8o.` 8 8888          ` 8888     ,88'   8 8888          ` 8888     ,88' .888888888. `88888.   ,8'       `8        `8.`8888.
+8            `Yo 8 888888888888     `8888888P'     8 8888             `8888888P'  .8'       `8. `88888. ,8'         `         `8.`8888.
+
+
+         Version: 0.1.0 Git commit: v0.2.0-915-g1b7184419-dirty
+
++------------------------------------------------------------------------------+
+ Build information:
+--	CMAKE_BUILD_TYPE = Release
+--	CMAKE_CXX_COMPILER = Clang@19.1.7
++------------------------------------------------------------------------------+
+ Third-Party dependencies:
+--	OpenFOAM version = 2412
+--	OpenFOAM MPI = sys-openmpi
++------------------------------------------------------------------------------+
+ NeoFOAM components:
+ -- 	NEOFOAM_BUILD_BENCHMARKS = OFF
+ -- 	NEOFOAM_BUILD_EXAMPLES = ON
+ -- 	NEOFOAM_BUILD_PYTHON_BINDINGS = OFF
+ -- 	NEOFOAM_BUILD_TESTS = ON
++------------------------------------------------------------------------------+
+ -- 	NEOFOAM_WITH_MPI = ON
++------------------------------------------------------------------------------+
+ External tools:
+ -- 	NEOFOAM_ENABLE_KOKKOS_TOOLS = ON
++------------------------------------------------------------------------------+
+ NeoN definitions:
+ -- 	NeoN_DEFINE_DP_LABEL = OFF
+ -- 	NeoN_DEFINE_DP_SCALAR = ON
+ -- 	NeoN_DEFINE_US_IDX = OFF
++------------------------------------------------------------------------------+
+-- Configuring done (4.5s)
+-- Generating done (0.5s)
+-- Build files have been written to: /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu
+[0/2] Re-checking globbed directories...
+[1/9] Performing update step for 'kokkos_tools_ext'
+-- Already at requested ref: 33693813b125096cc72a90d495fd02a7bb7574ea
+[2/9] No patch step for 'kokkos_tools_ext'
+[3/9] cd /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu/_deps/kokkos-build && /storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cmake-3.31.6-4ewdy2wbmyaceouqklvqlzsmenttqpz6/bin/cmake -DRUN_CHECK_GIT_VERSION=1 -DKOKKOS_SOURCE_DIR=/storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu/_deps/kokkos-src -P /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu/_deps/kokkos-src/cmake/build_env_info.cmake
+[4/7] Performing configure step for 'kokkos_tools_ext'
+-- 
+-- ConfiguringKokkos-Tools
+-- 
+-- Kokkos NOT found
+-- PAPI support disabled
+-- MPI not available. MPI disabled.
+CMake Warning at cmake/configure_variorum.cmake:24 (message):
+  Variorum not found: set Variorum_ROOT CMake variable or VARIORUM_ROOT
+  environment variable to build Variorum connector
+Call Stack (most recent call first):
+  CMakeLists.txt:88 (include)
+
+
+CMake Warning at CMakeLists.txt:101 (message):
+  Set VTUNE_HOME in environment or VTune_ROOT in build options to build VTune
+  connectors
+
+
+-- Skipping memory-hwm-mpi (MPI disabled)
+-- Skipping systemtap-connector (dtrace executable wasn't found)
+-- Monolithic KokkosTools library skipped
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu/kokkos_tools_build
+[4/7] Performing build step for 'kokkos_tools_ext'
+ninja: no work to do.
+[6/7] No install step for 'kokkos_tools_ext'
+[7/7] Completed 'kokkos_tools_ext'
+tests: ctest --test-dir build/julia-gpu-nvidia-h200-2-gpu   (or: NEON_DEVICE=-gpu-nvidia-h200-2-gpu ctest --preset julia)
+name, memory.total [MiB], driver_version
+NVIDIA H200 NVL, 143771 MiB, 610.57.04
+=== JuNe GPU tests, Mon Nov 16 17:35:18 CET 2026
+JuNe tests passed
+=== 50^3, Mon Nov 16 17:36:16 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 9.498e-08 rhs 2.526e-08
+Precision deviation (JuNe face-based fp16): matrix 2.963e-01 rhs 4.901e-01
+Precision deviation (JuNe face-based bf16): matrix 5.839e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based ddt-fp32): matrix 1.139e-12 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-bf16): matrix 1.286e-07 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp32): matrix 4.933e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-bf16): matrix 2.844e-04 rhs 0.000e+00
+Precision deviation (JuNe face-based lap-fp32): matrix 2.289e-08 rhs 2.526e-08
+Precision deviation (JuNe face-based lap-bf16): matrix 1.231e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp32): matrix 1.021e-07 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp16): matrix 3.827e-03 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-bf16): matrix 6.371e-03 rhs 0.000e+00
+Precision deviation (JuNe face-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe face-based only-lap-fp16): matrix 3.259e-01 rhs 4.901e-01
+Precision deviation (JuNe face-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based fp32): matrix 1.116e-07 rhs 2.526e-08
+Precision deviation (JuNe global face-based fp16): matrix 2.965e-01 rhs 4.901e-01
+Precision deviation (JuNe global face-based bf16): matrix 6.685e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based ddt-fp32): matrix 1.139e-12 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-bf16): matrix 1.286e-07 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp32): matrix 4.933e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-bf16): matrix 2.844e-04 rhs 0.000e+00
+Precision deviation (JuNe global face-based lap-fp32): matrix 2.289e-08 rhs 2.526e-08
+Precision deviation (JuNe global face-based lap-bf16): matrix 1.231e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp32): matrix 1.021e-07 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp16): matrix 3.827e-03 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-bf16): matrix 6.371e-03 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe global face-based only-lap-fp16): matrix 3.272e-01 rhs 4.901e-01
+Precision deviation (JuNe global face-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based fp32): matrix 9.581e-08 rhs 2.526e-08
+Precision deviation (JuNe cell-based fp16): matrix 2.963e-01 rhs 4.901e-01
+Precision deviation (JuNe cell-based bf16): matrix 6.901e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based ddt-fp32): matrix 1.139e-12 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-bf16): matrix 1.286e-07 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp32): matrix 4.933e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-bf16): matrix 2.844e-04 rhs 0.000e+00
+Precision deviation (JuNe cell-based lap-fp32): matrix 2.289e-08 rhs 2.526e-08
+Precision deviation (JuNe cell-based lap-bf16): matrix 1.231e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp32): matrix 1.021e-07 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp16): matrix 3.827e-03 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-bf16): matrix 6.371e-03 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe cell-based only-lap-fp16): matrix 3.259e-01 rhs 4.901e-01
+Precision deviation (JuNe cell-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+Precision deviation (JuNe batched fp32): matrix 1.195e-07 rhs 2.526e-08
+Precision deviation (JuNe batched fp16): matrix 2.963e-01 rhs 4.901e-01
+Precision deviation (JuNe batched bf16): matrix 6.854e-03 rhs 1.358e-03
+Precision deviation (JuNe batched ddt-fp32): matrix 1.139e-12 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-bf16): matrix 1.286e-07 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp32): matrix 4.933e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-bf16): matrix 2.844e-04 rhs 0.000e+00
+Precision deviation (JuNe batched lap-fp32): matrix 2.289e-08 rhs 2.526e-08
+Precision deviation (JuNe batched lap-bf16): matrix 1.231e-03 rhs 1.358e-03
+Precision deviation (JuNe batched only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp32): matrix 1.021e-07 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp16): matrix 3.827e-03 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-bf16): matrix 6.371e-03 rhs 0.000e+00
+Precision deviation (JuNe batched only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe batched only-lap-fp16): matrix 3.259e-01 rhs 4.901e-01
+Precision deviation (JuNe batched only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+All tests passed (4 assertions in 1 test case)
+=== 100^3, Mon Nov 16 17:38:51 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 1.070e-07 rhs 2.526e-08
+Precision deviation (JuNe face-based fp16): matrix 6.297e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based bf16): matrix 6.972e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based ddt-fp32): matrix 2.989e-13 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-bf16): matrix 3.372e-08 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp32): matrix 2.751e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-bf16): matrix 1.783e-04 rhs 0.000e+00
+Precision deviation (JuNe face-based lap-fp32): matrix 2.400e-08 rhs 2.526e-08
+Precision deviation (JuNe face-based lap-bf16): matrix 1.290e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp32): matrix 1.139e-07 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp16): matrix 1.503e-02 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-bf16): matrix 7.337e-03 rhs 0.000e+00
+Precision deviation (JuNe face-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe face-based only-lap-fp16): matrix 6.622e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based fp32): matrix 1.170e-07 rhs 2.526e-08
+Precision deviation (JuNe global face-based fp16): matrix 6.297e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based bf16): matrix 7.155e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based ddt-fp32): matrix 2.989e-13 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-bf16): matrix 3.372e-08 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp32): matrix 2.751e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-bf16): matrix 1.783e-04 rhs 0.000e+00
+Precision deviation (JuNe global face-based lap-fp32): matrix 2.400e-08 rhs 2.526e-08
+Precision deviation (JuNe global face-based lap-bf16): matrix 1.290e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp32): matrix 1.139e-07 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp16): matrix 1.503e-02 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-bf16): matrix 7.337e-03 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe global face-based only-lap-fp16): matrix 6.622e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based fp32): matrix 1.467e-07 rhs 2.526e-08
+Precision deviation (JuNe cell-based fp16): matrix 6.297e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based bf16): matrix 7.668e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based ddt-fp32): matrix 2.988e-13 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-bf16): matrix 3.372e-08 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp32): matrix 2.751e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-bf16): matrix 1.783e-04 rhs 0.000e+00
+Precision deviation (JuNe cell-based lap-fp32): matrix 2.400e-08 rhs 2.526e-08
+Precision deviation (JuNe cell-based lap-bf16): matrix 1.290e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp32): matrix 1.139e-07 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp16): matrix 1.503e-02 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-bf16): matrix 7.337e-03 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe cell-based only-lap-fp16): matrix 6.622e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+Precision deviation (JuNe batched fp32): matrix 1.207e-07 rhs 2.526e-08
+Precision deviation (JuNe batched fp16): matrix 6.297e-01 rhs 1.000e+00
+Precision deviation (JuNe batched bf16): matrix 7.290e-03 rhs 1.358e-03
+Precision deviation (JuNe batched ddt-fp32): matrix 2.988e-13 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-bf16): matrix 3.372e-08 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp32): matrix 2.751e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-bf16): matrix 1.783e-04 rhs 0.000e+00
+Precision deviation (JuNe batched lap-fp32): matrix 2.400e-08 rhs 2.526e-08
+Precision deviation (JuNe batched lap-bf16): matrix 1.290e-03 rhs 1.358e-03
+Precision deviation (JuNe batched only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp32): matrix 1.139e-07 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp16): matrix 1.503e-02 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-bf16): matrix 7.337e-03 rhs 0.000e+00
+Precision deviation (JuNe batched only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe batched only-lap-fp16): matrix 6.622e-01 rhs 1.000e+00
+Precision deviation (JuNe batched only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+All tests passed (4 assertions in 1 test case)
+=== 150^3, Mon Nov 16 17:41:18 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 1.075e-07 rhs 1.139e-07
+Precision deviation (JuNe face-based fp16): matrix 6.633e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based bf16): matrix 8.559e-03 rhs 5.828e-03
+Precision deviation (JuNe face-based ddt-fp32): matrix 1.238e-13 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-bf16): matrix 3.200e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp32): matrix 1.364e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-bf16): matrix 8.911e-05 rhs 0.000e+00
+Precision deviation (JuNe face-based lap-fp32): matrix 3.424e-08 rhs 1.139e-07
+Precision deviation (JuNe face-based lap-bf16): matrix 3.749e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based only-ddt-fp32): matrix 2.593e-08 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-bf16): matrix 6.716e-04 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp32): matrix 9.747e-08 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp16): matrix 3.411e-02 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-bf16): matrix 6.416e-03 rhs 0.000e+00
+Precision deviation (JuNe face-based only-lap-fp32): matrix 9.188e-08 rhs 1.139e-07
+Precision deviation (JuNe face-based only-lap-fp16): matrix 6.871e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based only-lap-bf16): matrix 5.332e-03 rhs 5.828e-03
+Precision deviation (JuNe global face-based fp32): matrix 1.075e-07 rhs 1.139e-07
+Precision deviation (JuNe global face-based fp16): matrix 6.633e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based bf16): matrix 8.559e-03 rhs 5.828e-03
+Precision deviation (JuNe global face-based ddt-fp32): matrix 1.238e-13 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-bf16): matrix 3.200e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp32): matrix 1.364e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-bf16): matrix 8.911e-05 rhs 0.000e+00
+Precision deviation (JuNe global face-based lap-fp32): matrix 3.424e-08 rhs 1.139e-07
+Precision deviation (JuNe global face-based lap-bf16): matrix 3.749e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based only-ddt-fp32): matrix 2.593e-08 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-bf16): matrix 6.716e-04 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp32): matrix 9.747e-08 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp16): matrix 3.411e-02 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-bf16): matrix 6.416e-03 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-lap-fp32): matrix 9.188e-08 rhs 1.139e-07
+Precision deviation (JuNe global face-based only-lap-fp16): matrix 6.871e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based only-lap-bf16): matrix 5.332e-03 rhs 5.828e-03
+Precision deviation (JuNe cell-based fp32): matrix 1.530e-07 rhs 1.139e-07
+Precision deviation (JuNe cell-based fp16): matrix 6.633e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based bf16): matrix 8.559e-03 rhs 5.828e-03
+Precision deviation (JuNe cell-based ddt-fp32): matrix 1.237e-13 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-bf16): matrix 3.200e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp32): matrix 1.364e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-bf16): matrix 8.911e-05 rhs 0.000e+00
+Precision deviation (JuNe cell-based lap-fp32): matrix 3.424e-08 rhs 1.139e-07
+Precision deviation (JuNe cell-based lap-bf16): matrix 3.749e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based only-ddt-fp32): matrix 2.593e-08 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-bf16): matrix 6.716e-04 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp32): matrix 9.747e-08 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp16): matrix 3.411e-02 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-bf16): matrix 6.416e-03 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-lap-fp32): matrix 9.053e-08 rhs 1.139e-07
+Precision deviation (JuNe cell-based only-lap-fp16): matrix 6.871e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based only-lap-bf16): matrix 5.332e-03 rhs 5.828e-03
+Precision deviation (JuNe batched fp32): matrix 1.188e-07 rhs 1.139e-07
+Precision deviation (JuNe batched fp16): matrix 6.633e-01 rhs 1.000e+00
+Precision deviation (JuNe batched bf16): matrix 8.692e-03 rhs 5.828e-03
+Precision deviation (JuNe batched ddt-fp32): matrix 1.237e-13 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-bf16): matrix 3.200e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp32): matrix 1.364e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-bf16): matrix 8.911e-05 rhs 0.000e+00
+Precision deviation (JuNe batched lap-fp32): matrix 3.424e-08 rhs 1.139e-07
+Precision deviation (JuNe batched lap-bf16): matrix 3.749e-03 rhs 1.358e-03
+Precision deviation (JuNe batched only-ddt-fp32): matrix 2.593e-08 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-bf16): matrix 6.716e-04 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp32): matrix 9.747e-08 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp16): matrix 3.411e-02 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-bf16): matrix 6.416e-03 rhs 0.000e+00
+Precision deviation (JuNe batched only-lap-fp32): matrix 7.189e-08 rhs 1.139e-07
+Precision deviation (JuNe batched only-lap-fp16): matrix 6.871e-01 rhs 1.000e+00
+Precision deviation (JuNe batched only-lap-bf16): matrix 5.332e-03 rhs 5.828e-03
+All tests passed (4 assertions in 1 test case)
+=== 200^3, Mon Nov 16 17:44:00 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 1.193e-07 rhs 2.526e-08
+Precision deviation (JuNe face-based fp16): matrix 6.657e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based bf16): matrix 7.572e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based ddt-fp32): matrix 7.690e-14 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-bf16): matrix 8.646e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp32): matrix 1.615e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-bf16): matrix 1.010e-04 rhs 0.000e+00
+Precision deviation (JuNe face-based lap-fp32): matrix 2.462e-08 rhs 2.526e-08
+Precision deviation (JuNe face-based lap-bf16): matrix 1.323e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp32): matrix 1.242e-07 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp16): matrix 6.036e-02 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-bf16): matrix 7.648e-03 rhs 0.000e+00
+Precision deviation (JuNe face-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe face-based only-lap-fp16): matrix 6.821e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based fp32): matrix 1.193e-07 rhs 2.526e-08
+Precision deviation (JuNe global face-based fp16): matrix 6.657e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based bf16): matrix 7.582e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based ddt-fp32): matrix 7.690e-14 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-bf16): matrix 8.646e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp32): matrix 1.615e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-bf16): matrix 1.010e-04 rhs 0.000e+00
+Precision deviation (JuNe global face-based lap-fp32): matrix 2.462e-08 rhs 2.526e-08
+Precision deviation (JuNe global face-based lap-bf16): matrix 1.323e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp32): matrix 1.242e-07 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp16): matrix 6.036e-02 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-bf16): matrix 7.648e-03 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe global face-based only-lap-fp16): matrix 6.821e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based fp32): matrix 1.472e-07 rhs 2.526e-08
+Precision deviation (JuNe cell-based fp16): matrix 6.657e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based bf16): matrix 7.303e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based ddt-fp32): matrix 7.675e-14 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-bf16): matrix 8.646e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp32): matrix 1.615e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-bf16): matrix 1.010e-04 rhs 0.000e+00
+Precision deviation (JuNe cell-based lap-fp32): matrix 2.462e-08 rhs 2.526e-08
+Precision deviation (JuNe cell-based lap-bf16): matrix 1.323e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp32): matrix 1.242e-07 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp16): matrix 6.036e-02 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-bf16): matrix 7.648e-03 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe cell-based only-lap-fp16): matrix 6.821e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+Precision deviation (JuNe batched fp32): matrix 1.265e-07 rhs 2.526e-08
+Precision deviation (JuNe batched fp16): matrix 6.657e-01 rhs 1.000e+00
+Precision deviation (JuNe batched bf16): matrix 7.628e-03 rhs 1.358e-03
+Precision deviation (JuNe batched ddt-fp32): matrix 7.675e-14 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-bf16): matrix 8.646e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp32): matrix 1.615e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-bf16): matrix 1.010e-04 rhs 0.000e+00
+Precision deviation (JuNe batched lap-fp32): matrix 2.462e-08 rhs 2.526e-08
+Precision deviation (JuNe batched lap-bf16): matrix 1.323e-03 rhs 1.358e-03
+Precision deviation (JuNe batched only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp32): matrix 1.242e-07 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp16): matrix 6.036e-02 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-bf16): matrix 7.648e-03 rhs 0.000e+00
+Precision deviation (JuNe batched only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe batched only-lap-fp16): matrix 6.821e-01 rhs 1.000e+00
+Precision deviation (JuNe batched only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+All tests passed (4 assertions in 1 test case)
+=== 250^3, Mon Nov 16 17:47:20 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 1.020e-07 rhs 2.525e-09
+Precision deviation (JuNe face-based fp16): matrix 6.157e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based bf16): matrix 7.901e-03 rhs 1.622e-03
+Precision deviation (JuNe face-based ddt-fp32): matrix 7.190e-15 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-bf16): matrix 3.248e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp32): matrix 1.149e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-bf16): matrix 7.564e-05 rhs 2.118e-16
+Precision deviation (JuNe face-based lap-fp32): matrix 2.473e-09 rhs 2.525e-09
+Precision deviation (JuNe face-based lap-bf16): matrix 1.589e-03 rhs 1.622e-03
+Precision deviation (JuNe face-based only-ddt-fp32): matrix 3.996e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-bf16): matrix 1.865e-03 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp32): matrix 1.043e-07 rhs 3.562e-08
+Precision deviation (JuNe face-based only-div-fp16): matrix 9.389e-02 rhs 1.000e+00
+Precision deviation (JuNe face-based only-div-bf16): matrix 6.820e-03 rhs 1.366e-03
+Precision deviation (JuNe face-based only-lap-fp32): matrix 6.568e-08 rhs 2.525e-09
+Precision deviation (JuNe face-based only-lap-fp16): matrix 6.275e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based only-lap-bf16): matrix 2.230e-03 rhs 1.622e-03
+Precision deviation (JuNe global face-based fp32): matrix 1.020e-07 rhs 2.525e-09
+Precision deviation (JuNe global face-based fp16): matrix 6.157e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based bf16): matrix 7.901e-03 rhs 1.622e-03
+Precision deviation (JuNe global face-based ddt-fp32): matrix 7.190e-15 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-bf16): matrix 3.248e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp32): matrix 1.149e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-bf16): matrix 7.564e-05 rhs 2.118e-16
+Precision deviation (JuNe global face-based lap-fp32): matrix 2.473e-09 rhs 2.525e-09
+Precision deviation (JuNe global face-based lap-bf16): matrix 1.589e-03 rhs 1.622e-03
+Precision deviation (JuNe global face-based only-ddt-fp32): matrix 3.996e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-bf16): matrix 1.865e-03 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp32): matrix 1.043e-07 rhs 3.562e-08
+Precision deviation (JuNe global face-based only-div-fp16): matrix 9.389e-02 rhs 1.000e+00
+Precision deviation (JuNe global face-based only-div-bf16): matrix 6.820e-03 rhs 1.366e-03
+Precision deviation (JuNe global face-based only-lap-fp32): matrix 6.568e-08 rhs 2.525e-09
+Precision deviation (JuNe global face-based only-lap-fp16): matrix 6.275e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based only-lap-bf16): matrix 6.589e-03 rhs 1.622e-03
+Precision deviation (JuNe cell-based fp32): matrix 1.222e-07 rhs 2.525e-09
+Precision deviation (JuNe cell-based fp16): matrix 6.157e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based bf16): matrix 9.668e-03 rhs 1.622e-03
+Precision deviation (JuNe cell-based ddt-fp32): matrix 7.006e-15 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-bf16): matrix 3.248e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp32): matrix 1.149e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-bf16): matrix 7.564e-05 rhs 2.118e-16
+Precision deviation (JuNe cell-based lap-fp32): matrix 2.473e-09 rhs 2.525e-09
+Precision deviation (JuNe cell-based lap-bf16): matrix 1.589e-03 rhs 1.622e-03
+Precision deviation (JuNe cell-based only-ddt-fp32): matrix 3.996e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-bf16): matrix 1.865e-03 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp32): matrix 1.043e-07 rhs 3.562e-08
+Precision deviation (JuNe cell-based only-div-fp16): matrix 9.389e-02 rhs 1.000e+00
+Precision deviation (JuNe cell-based only-div-bf16): matrix 6.820e-03 rhs 1.366e-03
+Precision deviation (JuNe cell-based only-lap-fp32): matrix 6.568e-08 rhs 2.525e-09
+Precision deviation (JuNe cell-based only-lap-fp16): matrix 6.275e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based only-lap-bf16): matrix 2.230e-03 rhs 1.622e-03
+Precision deviation (JuNe batched fp32): matrix 1.109e-07 rhs 2.525e-09
+Precision deviation (JuNe batched fp16): matrix 6.157e-01 rhs 1.000e+00
+Precision deviation (JuNe batched bf16): matrix 7.841e-03 rhs 1.622e-03
+Precision deviation (JuNe batched ddt-fp32): matrix 7.006e-15 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-bf16): matrix 3.248e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp32): matrix 1.149e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-bf16): matrix 7.564e-05 rhs 2.118e-16
+Precision deviation (JuNe batched lap-fp32): matrix 2.473e-09 rhs 2.525e-09
+Precision deviation (JuNe batched lap-bf16): matrix 1.589e-03 rhs 1.622e-03
+Precision deviation (JuNe batched only-ddt-fp32): matrix 3.996e-09 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-bf16): matrix 1.865e-03 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp32): matrix 1.043e-07 rhs 3.562e-08
+Precision deviation (JuNe batched only-div-fp16): matrix 9.389e-02 rhs 1.000e+00
+Precision deviation (JuNe batched only-div-bf16): matrix 6.820e-03 rhs 1.366e-03
+Precision deviation (JuNe batched only-lap-fp32): matrix 6.568e-08 rhs 2.525e-09
+Precision deviation (JuNe batched only-lap-fp16): matrix 6.275e-01 rhs 1.000e+00
+Precision deviation (JuNe batched only-lap-bf16): matrix 2.230e-03 rhs 1.622e-03
+All tests passed (4 assertions in 1 test case)
+=== 300^3, Mon Nov 16 17:51:36 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 1.508e-07 rhs 1.289e-07
+Precision deviation (JuNe face-based fp16): matrix 6.328e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based bf16): matrix 9.453e-03 rhs 5.828e-03
+Precision deviation (JuNe face-based ddt-fp32): matrix 5.329e-14 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-bf16): matrix 8.151e-10 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp32): matrix 6.953e-10 rhs 0.000e+00
+Precision deviation (JuNe face-based div-bf16): matrix 4.565e-05 rhs 0.000e+00
+Precision deviation (JuNe face-based lap-fp32): matrix 9.950e-08 rhs 1.289e-07
+Precision deviation (JuNe face-based lap-bf16): matrix 5.730e-03 rhs 5.828e-03
+Precision deviation (JuNe face-based only-ddt-fp32): matrix 4.374e-08 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-bf16): matrix 6.716e-04 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp32): matrix 9.721e-08 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp16): matrix 1.356e-01 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-bf16): matrix 6.363e-03 rhs 0.000e+00
+Precision deviation (JuNe face-based only-lap-fp32): matrix 1.315e-07 rhs 1.289e-07
+Precision deviation (JuNe face-based only-lap-fp16): matrix 6.424e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based only-lap-bf16): matrix 5.332e-03 rhs 5.828e-03
+Precision deviation (JuNe global face-based fp32): matrix 1.508e-07 rhs 1.289e-07
+Precision deviation (JuNe global face-based fp16): matrix 6.328e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based bf16): matrix 8.583e-03 rhs 5.828e-03
+Precision deviation (JuNe global face-based ddt-fp32): matrix 5.329e-14 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-bf16): matrix 8.151e-10 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp32): matrix 6.953e-10 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-bf16): matrix 4.565e-05 rhs 0.000e+00
+Precision deviation (JuNe global face-based lap-fp32): matrix 9.950e-08 rhs 1.289e-07
+Precision deviation (JuNe global face-based lap-bf16): matrix 5.730e-03 rhs 5.828e-03
+Precision deviation (JuNe global face-based only-ddt-fp32): matrix 4.374e-08 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-bf16): matrix 6.716e-04 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp32): matrix 9.721e-08 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp16): matrix 1.356e-01 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-bf16): matrix 6.363e-03 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-lap-fp32): matrix 1.315e-07 rhs 1.289e-07
+Precision deviation (JuNe global face-based only-lap-fp16): matrix 6.424e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based only-lap-bf16): matrix 5.332e-03 rhs 5.828e-03
+Precision deviation (JuNe cell-based fp32): matrix 1.572e-07 rhs 1.289e-07
+Precision deviation (JuNe cell-based fp16): matrix 6.328e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based bf16): matrix 8.697e-03 rhs 5.828e-03
+Precision deviation (JuNe cell-based ddt-fp32): matrix 5.307e-14 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-bf16): matrix 8.151e-10 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp32): matrix 6.953e-10 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-bf16): matrix 4.565e-05 rhs 0.000e+00
+Precision deviation (JuNe cell-based lap-fp32): matrix 9.950e-08 rhs 1.289e-07
+Precision deviation (JuNe cell-based lap-bf16): matrix 5.730e-03 rhs 5.828e-03
+Precision deviation (JuNe cell-based only-ddt-fp32): matrix 4.374e-08 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-bf16): matrix 6.716e-04 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp32): matrix 9.721e-08 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp16): matrix 1.356e-01 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-bf16): matrix 6.363e-03 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-lap-fp32): matrix 1.315e-07 rhs 1.289e-07
+Precision deviation (JuNe cell-based only-lap-fp16): matrix 6.424e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based only-lap-bf16): matrix 5.332e-03 rhs 5.828e-03
+Precision deviation (JuNe batched fp32): matrix 1.508e-07 rhs 1.289e-07
+Precision deviation (JuNe batched fp16): matrix 6.328e-01 rhs 1.000e+00
+Precision deviation (JuNe batched bf16): matrix 8.921e-03 rhs 5.828e-03
+Precision deviation (JuNe batched ddt-fp32): matrix 5.329e-14 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-bf16): matrix 8.151e-10 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp32): matrix 6.953e-10 rhs 0.000e+00
+Precision deviation (JuNe batched div-bf16): matrix 4.565e-05 rhs 0.000e+00
+Precision deviation (JuNe batched lap-fp32): matrix 9.950e-08 rhs 1.289e-07
+Precision deviation (JuNe batched lap-bf16): matrix 5.730e-03 rhs 5.828e-03
+Precision deviation (JuNe batched only-ddt-fp32): matrix 4.374e-08 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-bf16): matrix 6.716e-04 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp32): matrix 9.721e-08 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp16): matrix 1.356e-01 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-bf16): matrix 6.363e-03 rhs 0.000e+00
+Precision deviation (JuNe batched only-lap-fp32): matrix 1.315e-07 rhs 1.289e-07
+Precision deviation (JuNe batched only-lap-fp16): matrix 6.424e-01 rhs 1.000e+00
+Precision deviation (JuNe batched only-lap-bf16): matrix 5.332e-03 rhs 5.828e-03
+All tests passed (4 assertions in 1 test case)
+=== 350^3, Mon Nov 16 17:57:04 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 1.430e-07 rhs 6.569e-08
+Precision deviation (JuNe face-based fp16): matrix 7.473e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based bf16): matrix 7.247e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based ddt-fp32): matrix 1.739e-14 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-bf16): matrix 6.823e-10 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp32): matrix 8.138e-10 rhs 0.000e+00
+Precision deviation (JuNe face-based div-bf16): matrix 5.336e-05 rhs 1.482e-16
+Precision deviation (JuNe face-based lap-fp32): matrix 6.469e-08 rhs 6.569e-08
+Precision deviation (JuNe face-based lap-bf16): matrix 2.533e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based only-ddt-fp32): matrix 1.921e-08 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-bf16): matrix 7.638e-04 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp32): matrix 1.025e-07 rhs 1.071e-08
+Precision deviation (JuNe face-based only-div-fp16): matrix 1.844e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based only-div-bf16): matrix 6.735e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based only-lap-fp32): matrix 6.569e-08 rhs 6.569e-08
+Precision deviation (JuNe face-based only-lap-fp16): matrix 7.566e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based only-lap-bf16): matrix 3.731e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based fp32): matrix 1.375e-07 rhs 6.569e-08
+Precision deviation (JuNe global face-based fp16): matrix 7.473e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based bf16): matrix 7.277e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based ddt-fp32): matrix 1.739e-14 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-bf16): matrix 6.823e-10 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp32): matrix 8.138e-10 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-bf16): matrix 5.336e-05 rhs 1.482e-16
+Precision deviation (JuNe global face-based lap-fp32): matrix 6.469e-08 rhs 6.569e-08
+Precision deviation (JuNe global face-based lap-bf16): matrix 2.533e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based only-ddt-fp32): matrix 1.921e-08 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-bf16): matrix 7.638e-04 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp32): matrix 1.025e-07 rhs 1.071e-08
+Precision deviation (JuNe global face-based only-div-fp16): matrix 1.844e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based only-div-bf16): matrix 6.735e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based only-lap-fp32): matrix 6.569e-08 rhs 6.569e-08
+Precision deviation (JuNe global face-based only-lap-fp16): matrix 7.566e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based only-lap-bf16): matrix 3.731e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based fp32): matrix 1.557e-07 rhs 6.569e-08
+Precision deviation (JuNe cell-based fp16): matrix 7.473e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based bf16): matrix 7.082e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based ddt-fp32): matrix 1.713e-14 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-bf16): matrix 6.823e-10 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp32): matrix 8.138e-10 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-bf16): matrix 5.336e-05 rhs 1.482e-16
+Precision deviation (JuNe cell-based lap-fp32): matrix 6.469e-08 rhs 6.569e-08
+Precision deviation (JuNe cell-based lap-bf16): matrix 2.533e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based only-ddt-fp32): matrix 1.921e-08 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-bf16): matrix 7.638e-04 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp32): matrix 1.025e-07 rhs 1.071e-08
+Precision deviation (JuNe cell-based only-div-fp16): matrix 1.844e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based only-div-bf16): matrix 6.735e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based only-lap-fp32): matrix 6.569e-08 rhs 6.569e-08
+Precision deviation (JuNe cell-based only-lap-fp16): matrix 7.566e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based only-lap-bf16): matrix 3.731e-03 rhs 1.358e-03
+Precision deviation (JuNe batched fp32): matrix 1.419e-07 rhs 6.569e-08
+Precision deviation (JuNe batched fp16): matrix 7.473e-01 rhs 1.000e+00
+Precision deviation (JuNe batched bf16): matrix 7.350e-03 rhs 1.358e-03
+Precision deviation (JuNe batched ddt-fp32): matrix 1.739e-14 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-bf16): matrix 6.823e-10 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp32): matrix 8.138e-10 rhs 0.000e+00
+Precision deviation (JuNe batched div-bf16): matrix 5.336e-05 rhs 1.482e-16
+Precision deviation (JuNe batched lap-fp32): matrix 6.469e-08 rhs 6.569e-08
+Precision deviation (JuNe batched lap-bf16): matrix 2.533e-03 rhs 1.358e-03
+Precision deviation (JuNe batched only-ddt-fp32): matrix 1.921e-08 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-bf16): matrix 7.638e-04 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp32): matrix 1.025e-07 rhs 1.071e-08
+Precision deviation (JuNe batched only-div-fp16): matrix 1.844e-01 rhs 1.000e+00
+Precision deviation (JuNe batched only-div-bf16): matrix 6.735e-03 rhs 1.358e-03
+Precision deviation (JuNe batched only-lap-fp32): matrix 6.569e-08 rhs 6.569e-08
+Precision deviation (JuNe batched only-lap-fp16): matrix 7.566e-01 rhs 1.000e+00
+Precision deviation (JuNe batched only-lap-bf16): matrix 3.731e-03 rhs 1.358e-03
+All tests passed (4 assertions in 1 test case)
+=== 400^3, Mon Nov 16 18:04:40 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 1.237e-07 rhs 2.526e-08
+Precision deviation (JuNe face-based fp16): matrix 6.746e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based bf16): matrix 6.282e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based ddt-fp32): matrix 1.962e-14 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-bf16): matrix 2.189e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp32): matrix 8.230e-10 rhs 0.000e+00
+Precision deviation (JuNe face-based div-bf16): matrix 5.396e-05 rhs 0.000e+00
+Precision deviation (JuNe face-based lap-fp32): matrix 2.494e-08 rhs 2.526e-08
+Precision deviation (JuNe face-based lap-bf16): matrix 1.341e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe face-based only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp32): matrix 1.257e-07 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-fp16): matrix 2.404e-01 rhs 0.000e+00
+Precision deviation (JuNe face-based only-div-bf16): matrix 7.739e-03 rhs 0.000e+00
+Precision deviation (JuNe face-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe face-based only-lap-fp16): matrix 6.821e-01 rhs 1.000e+00
+Precision deviation (JuNe face-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based fp32): matrix 1.203e-07 rhs 2.526e-08
+Precision deviation (JuNe global face-based fp16): matrix 6.746e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based bf16): matrix 6.157e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based ddt-fp32): matrix 1.962e-14 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-bf16): matrix 2.189e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp32): matrix 8.230e-10 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-bf16): matrix 5.396e-05 rhs 0.000e+00
+Precision deviation (JuNe global face-based lap-fp32): matrix 2.494e-08 rhs 2.526e-08
+Precision deviation (JuNe global face-based lap-bf16): matrix 1.341e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp32): matrix 1.257e-07 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-fp16): matrix 2.404e-01 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-div-bf16): matrix 7.739e-03 rhs 0.000e+00
+Precision deviation (JuNe global face-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe global face-based only-lap-fp16): matrix 6.821e-01 rhs 1.000e+00
+Precision deviation (JuNe global face-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based fp32): matrix 1.279e-07 rhs 2.526e-08
+Precision deviation (JuNe cell-based fp16): matrix 6.746e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based bf16): matrix 6.668e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based ddt-fp32): matrix 1.962e-14 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-bf16): matrix 2.189e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp32): matrix 8.230e-10 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-bf16): matrix 5.396e-05 rhs 0.000e+00
+Precision deviation (JuNe cell-based lap-fp32): matrix 2.494e-08 rhs 2.526e-08
+Precision deviation (JuNe cell-based lap-bf16): matrix 1.341e-03 rhs 1.358e-03
+Precision deviation (JuNe cell-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp32): matrix 1.257e-07 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-fp16): matrix 2.404e-01 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-div-bf16): matrix 7.739e-03 rhs 0.000e+00
+Precision deviation (JuNe cell-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe cell-based only-lap-fp16): matrix 6.821e-01 rhs 1.000e+00
+Precision deviation (JuNe cell-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+Precision deviation (JuNe batched fp32): matrix 1.198e-07 rhs 2.526e-08
+Precision deviation (JuNe batched fp16): matrix 6.746e-01 rhs 1.000e+00
+Precision deviation (JuNe batched bf16): matrix 6.000e-03 rhs 1.358e-03
+Precision deviation (JuNe batched ddt-fp32): matrix 1.962e-14 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-bf16): matrix 2.189e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp32): matrix 8.230e-10 rhs 0.000e+00
+Precision deviation (JuNe batched div-bf16): matrix 5.396e-05 rhs 0.000e+00
+Precision deviation (JuNe batched lap-fp32): matrix 2.494e-08 rhs 2.526e-08
+Precision deviation (JuNe batched lap-bf16): matrix 1.341e-03 rhs 1.358e-03
+Precision deviation (JuNe batched only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
+Precision deviation (JuNe batched only-ddt-bf16): matrix 3.194e-03 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp32): matrix 1.257e-07 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-fp16): matrix 2.404e-01 rhs 0.000e+00
+Precision deviation (JuNe batched only-div-bf16): matrix 7.739e-03 rhs 0.000e+00
+Precision deviation (JuNe batched only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
+Precision deviation (JuNe batched only-lap-fp16): matrix 6.821e-01 rhs 1.000e+00
+Precision deviation (JuNe batched only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
+All tests passed (4 assertions in 1 test case)
+done Mon Nov 16 18:14:26 CET 2026

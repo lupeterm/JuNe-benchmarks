@@ -1,0 +1,11 @@
+NVIDIA H200 NVL, capability 9.0.0
+Float64   atomix  exact                                                           0.058 ms  atom.acq_rel.gpu.global.add.f64 	%r, [..], %r;
+Float32   atomix  exact                                                           0.052 ms  atom.acq_rel.gpu.global.add.f32 	%r, [..], %r;
+Float16   atomix  exact                                                           0.538 ms  atom.acq_rel.gpu.global.cas.b16 %r, [..], %r, %r;
+Core.BFloat16 atomix  exact                                                           0.541 ms  atom.acq_rel.gpu.global.cas.b16 %r, [..], %r, %r;
+Float64   cuda    exact                                                           0.056 ms  atom.acq_rel.gpu.global.add.f64 	%r, [..], %r;
+Float32   cuda    exact                                                           0.050 ms  atom.acq_rel.gpu.global.add.f32 	%r, [..], %r;
+Float16   cuda    exact                                                           0.599 ms  atom.acq_rel.gpu.global.add.noftz.f16 	%r, [..], %r;
+Core.BFloat16 cuda    exact                                                           0.601 ms  atom.acq_rel.gpu.global.add.noftz.bf16 	%r, [..], %r;
+
+[exited with code 0]

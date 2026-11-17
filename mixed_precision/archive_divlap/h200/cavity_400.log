@@ -1,0 +1,204 @@
+/storage/home/lupeterm/NeoFOAM/test/catch2/test_main.cpp:25
+Initializing NeoN
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu/bin/tests/cavity
+Date   : Nov 16 2026
+Time   : 16:34:15
+Host   : gpu-nvidia-h200-2.int.coma-cluster.de
+PID    : 2819145
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/julia/view/base/mesh/400/case
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+profiling initialized
+Create mesh for time = 0
+Randomness seeded to: 665490104
+Creating NeoFOAM runTime
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,T)'
+cells: 64000000
+matrix: scalar
+operators: div + laplacian
+Assembly time (JuNe batched 0) = 16324717 [us]
+Assembly time (JuNe batched 1) = 27664 [us]
+Assembly time (JuNe batched 2) = 27335 [us]
+Assembly time (JuNe batched 3) = 27304 [us]
+Assembly time (JuNe batched 4) = 27307 [us]
+batches: 6
+nnz: 447040000
+julia options: opt_level=2 check_bounds=0 fast_math=0
+Assembly time (JuNe face-based fp64 0) = 2038526 [us]
+Assembly time (JuNe face-based fp64 1) = 14379 [us]
+Assembly time (JuNe face-based fp64 2) = 14307 [us]
+Assembly time (JuNe face-based fp64 3) = 14307 [us]
+Assembly time (JuNe face-based fp64 4) = 14311 [us]
+Assembly time (JuNe face-based fp32 0) = 833703 [us]
+Assembly time (JuNe face-based fp32 1) = 10343 [us]
+Assembly time (JuNe face-based fp32 2) = 10319 [us]
+Assembly time (JuNe face-based fp32 3) = 10313 [us]
+Assembly time (JuNe face-based fp32 4) = 10308 [us]
+Precision deviation (JuNe face-based fp32): matrix 1.220e-07 rhs 2.526e-08
+Assembly time (JuNe face-based fp16 0) = 869702 [us]
+Assembly time (JuNe face-based fp16 1) = 20054 [us]
+Assembly time (JuNe face-based fp16 2) = 19842 [us]
+Assembly time (JuNe face-based fp16 3) = 19846 [us]
+Assembly time (JuNe face-based fp16 4) = 19835 [us]
+Precision deviation (JuNe face-based fp16): matrix 6.746e-01 rhs 1.000e+00
+Assembly time (JuNe face-based bf16 0) = 855595 [us]
+Assembly time (JuNe face-based bf16 1) = 20896 [us]
+Assembly time (JuNe face-based bf16 2) = 20848 [us]
+Assembly time (JuNe face-based bf16 3) = 20836 [us]
+Assembly time (JuNe face-based bf16 4) = 20847 [us]
+Precision deviation (JuNe face-based bf16): matrix 6.316e-03 rhs 1.358e-03
+Assembly time (JuNe global face-based fp64 0) = 513892 [us]
+Assembly time (JuNe global face-based fp64 1) = 16267 [us]
+Assembly time (JuNe global face-based fp64 2) = 16237 [us]
+Assembly time (JuNe global face-based fp64 3) = 16228 [us]
+Assembly time (JuNe global face-based fp64 4) = 16217 [us]
+Assembly time (JuNe global face-based fp32 0) = 394936 [us]
+Assembly time (JuNe global face-based fp32 1) = 11394 [us]
+Assembly time (JuNe global face-based fp32 2) = 11370 [us]
+Assembly time (JuNe global face-based fp32 3) = 11363 [us]
+Assembly time (JuNe global face-based fp32 4) = 11356 [us]
+Precision deviation (JuNe global face-based fp32): matrix 1.220e-07 rhs 2.526e-08
+Assembly time (JuNe global face-based fp16 0) = 424017 [us]
+Assembly time (JuNe global face-based fp16 1) = 24543 [us]
+Assembly time (JuNe global face-based fp16 2) = 24327 [us]
+Assembly time (JuNe global face-based fp16 3) = 24328 [us]
+Assembly time (JuNe global face-based fp16 4) = 24323 [us]
+Precision deviation (JuNe global face-based fp16): matrix 6.746e-01 rhs 1.000e+00
+Assembly time (JuNe global face-based bf16 0) = 422345 [us]
+Assembly time (JuNe global face-based bf16 1) = 25346 [us]
+Assembly time (JuNe global face-based bf16 2) = 25319 [us]
+Assembly time (JuNe global face-based bf16 3) = 25305 [us]
+Assembly time (JuNe global face-based bf16 4) = 25295 [us]
+Precision deviation (JuNe global face-based bf16): matrix 6.335e-03 rhs 1.358e-03
+Assembly time (JuNe cell-based fp64 0) = 542917 [us]
+Assembly time (JuNe cell-based fp64 1) = 22116 [us]
+Assembly time (JuNe cell-based fp64 2) = 22087 [us]
+Assembly time (JuNe cell-based fp64 3) = 22050 [us]
+Assembly time (JuNe cell-based fp64 4) = 21983 [us]
+Assembly time (JuNe cell-based fp32 0) = 349464 [us]
+Assembly time (JuNe cell-based fp32 1) = 10074 [us]
+Assembly time (JuNe cell-based fp32 2) = 10068 [us]
+Assembly time (JuNe cell-based fp32 3) = 10075 [us]
+Assembly time (JuNe cell-based fp32 4) = 10072 [us]
+Precision deviation (JuNe cell-based fp32): matrix 1.259e-07 rhs 2.526e-08
+Assembly time (JuNe cell-based fp16 0) = 356269 [us]
+Assembly time (JuNe cell-based fp16 1) = 4761 [us]
+Assembly time (JuNe cell-based fp16 2) = 4627 [us]
+Assembly time (JuNe cell-based fp16 3) = 4631 [us]
+Assembly time (JuNe cell-based fp16 4) = 4626 [us]
+Precision deviation (JuNe cell-based fp16): matrix 6.746e-01 rhs 1.000e+00
+Assembly time (JuNe cell-based bf16 0) = 348587 [us]
+Assembly time (JuNe cell-based bf16 1) = 5656 [us]
+Assembly time (JuNe cell-based bf16 2) = 5627 [us]
+Assembly time (JuNe cell-based bf16 3) = 5624 [us]
+Assembly time (JuNe cell-based bf16 4) = 5625 [us]
+Precision deviation (JuNe cell-based bf16): matrix 6.669e-03 rhs 1.358e-03
+Assembly time (JuNe batched fp64 0) = 40646 [us]
+Assembly time (JuNe batched fp64 1) = 25551 [us]
+Assembly time (JuNe batched fp64 2) = 25529 [us]
+Assembly time (JuNe batched fp64 3) = 25553 [us]
+Assembly time (JuNe batched fp64 4) = 25558 [us]
+Assembly time (JuNe batched fp32 0) = 616356 [us]
+Assembly time (JuNe batched fp32 1) = 14608 [us]
+Assembly time (JuNe batched fp32 2) = 14382 [us]
+Assembly time (JuNe batched fp32 3) = 14359 [us]
+Assembly time (JuNe batched fp32 4) = 14328 [us]
+Precision deviation (JuNe batched fp32): matrix 1.217e-07 rhs 2.526e-08
+Assembly time (JuNe batched fp16 0) = 636148 [us]
+Assembly time (JuNe batched fp16 1) = 9797 [us]
+Assembly time (JuNe batched fp16 2) = 9562 [us]
+Assembly time (JuNe batched fp16 3) = 9551 [us]
+Assembly time (JuNe batched fp16 4) = 9554 [us]
+Precision deviation (JuNe batched fp16): matrix 6.746e-01 rhs 1.000e+00
+Assembly time (JuNe batched bf16 0) = 618753 [us]
+Assembly time (JuNe batched bf16 1) = 10882 [us]
+Assembly time (JuNe batched bf16 2) = 10615 [us]
+Assembly time (JuNe batched bf16 3) = 10603 [us]
+Assembly time (JuNe batched bf16 4) = 10603 [us]
+Precision deviation (JuNe batched bf16): matrix 6.001e-03 rhs 1.358e-03
+  Activating project at `~/JuNe.jl`
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcudart.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcublas.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcublas.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcublasLt.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcurand.so.10` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcurand.so.10`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcufft.so.11` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcufft.so.11`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+===============================================================================
+All tests passed (4 assertions in 1 test case)
+
+Finalizing NeoN

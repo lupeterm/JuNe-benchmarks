@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH --job-name=june-atomics
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:nvidia:1
+#SBATCH --cpus-per-task=8
+#SBATCH --time=00:30:00
+#SBATCH --output=/storage/home/lupeterm/NeoFOAM/benchmarks/june/precision/%x-%N-%j.out
+# GPU atomics in Float64, Float32, Float16 and BFloat16: sbatch --exclude=<non-H200> atomics_test.job
+module load cuda/12.5.1 2>/dev/null
+cd /storage/home/lupeterm/NeoFOAM/benchmarks/june/precision
+~/.julia/juliaup/julia-1.11.9+0.x64.linux.gnu/bin/julia --project=/storage/home/lupeterm/JuNe.jl atomics_test.jl 2>&1 | grep -v "CUDA runtime library\|│\|└"

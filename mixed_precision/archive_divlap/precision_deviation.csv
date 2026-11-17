@@ -1,0 +1,49 @@
+n,strategy,precision,matrix,rhs
+100,face-based,fp32,1.153e-07,2.526e-08
+100,face-based,fp16,0.6297,1.0
+100,face-based,bf16,0.00707,0.001358
+100,global face-based,fp32,1.179e-07,2.526e-08
+100,global face-based,fp16,0.6297,1.0
+100,global face-based,bf16,0.006923,0.001358
+100,cell-based,fp32,1.189e-07,2.526e-08
+100,cell-based,fp16,0.6297,1.0
+100,cell-based,bf16,0.007679,0.001358
+100,batched,fp32,1.268e-07,2.526e-08
+100,batched,fp16,0.6297,1.0
+100,batched,bf16,0.0073,0.001358
+200,face-based,fp32,1.224e-07,2.526e-08
+200,face-based,fp16,0.6657,1.0
+200,face-based,bf16,0.007574,0.001358
+200,global face-based,fp32,1.19e-07,2.526e-08
+200,global face-based,fp16,0.6657,1.0
+200,global face-based,bf16,0.007631,0.001358
+200,cell-based,fp32,1.227e-07,2.526e-08
+200,cell-based,fp16,0.6657,1.0
+200,cell-based,bf16,0.007306,0.001358
+200,batched,fp32,1.294e-07,2.526e-08
+200,batched,fp16,0.6657,1.0
+200,batched,bf16,0.007631,0.001358
+300,face-based,fp32,1.484e-07,1.289e-07
+300,face-based,fp16,0.6328,1.0
+300,face-based,bf16,0.009091,0.005828
+300,global face-based,fp32,1.484e-07,1.289e-07
+300,global face-based,fp16,0.6328,1.0
+300,global face-based,bf16,0.00845,0.005828
+300,cell-based,fp32,1.356e-07,1.289e-07
+300,cell-based,fp16,0.6328,1.0
+300,cell-based,bf16,0.008698,0.005828
+300,batched,fp32,1.478e-07,1.289e-07
+300,batched,fp16,0.6328,1.0
+300,batched,bf16,0.008922,0.005828
+400,face-based,fp32,1.22e-07,2.526e-08
+400,face-based,fp16,0.6746,1.0
+400,face-based,bf16,0.006316,0.001358
+400,global face-based,fp32,1.22e-07,2.526e-08
+400,global face-based,fp16,0.6746,1.0
+400,global face-based,bf16,0.006335,0.001358
+400,cell-based,fp32,1.259e-07,2.526e-08
+400,cell-based,fp16,0.6746,1.0
+400,cell-based,bf16,0.006669,0.001358
+400,batched,fp32,1.217e-07,2.526e-08
+400,batched,fp16,0.6746,1.0
+400,batched,bf16,0.006001,0.001358

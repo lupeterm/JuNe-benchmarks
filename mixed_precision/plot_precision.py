@@ -9,7 +9,8 @@ JuNe.jl src/precision.jl (NeoFOAM test_cavity.cpp with CAVITY_PRECISION=1 CAVITY
 Five repetitions of every measurement, the first dropped, median reported. Speedups: whole and reduce
 against the fp64 assembly of the whole equation, alone against the same operator alone in fp64.
 
-    python3 plot_precision.py [log_dir]   reads <log_dir>/cavity_<n>.log (default ./h200), writes
+    python3 plot_precision.py [log_dir] [--no-global]
+                                          reads <log_dir>/cavity_<n>.log (default ./h200), writes
                                           precision.csv, precision_deviation.csv and the figures
       precision_whole_speedup.pdf     whole assembly: speedup over fp64 against the number of cells
       precision_whole_gbs.pdf         whole assembly: throughput (nnz * sizeof(T) / time)
@@ -17,6 +18,9 @@ against the fp64 assembly of the whole equation, alone against the same operator
       precision_reduce_speedup.pdf    one operator reduced
       precision_alone_speedup.pdf     each operator alone
       precision_overheads.pdf         allocation, conversion and back-conversion against the assembly
+
+With --no-global the figures leave out the global face-based strategy and are written with a _noglobal
+suffix next to the full ones; the CSVs are not rewritten.
 """
 import re
 import sys
@@ -31,6 +35,8 @@ BYTES = {"fp64": 8, "fp32": 4, "fp16": 2, "bf16": 2}
 PRECISIONS = list(BYTES)
 OPERATORS = {"ddt": "ddt", "div": "div", "lap": "laplacian"}
 STRATEGIES = ["face-based", "global face-based", "cell-based", "batched"]
+MARKERS = dict(zip(STRATEGIES, "osD^"))  # per strategy, so that leaving one out keeps the others'
+TAG = ""  # appended to every figure name: "_noglobal" without the global face-based strategy
 LABELS = {"face-based": "Face-Based", "global face-based": "Global Face-Based", "cell-based": "Cell-Based",
           "batched": "Batched Face-Based"}
 COLOURS = {"fp64": "#08306b", "fp32": "#2171b5", "fp16": "#e6550d", "bf16": "#fdae6b"}
@@ -101,13 +107,15 @@ def line(ax, sub, column, colour, marker="o", label=None, linestyle="-"):
 
 
 def save(fig, path):
+    path = path.with_name(path.stem + TAG + path.suffix)
     fig.savefig(path, bbox_inches="tight")
     plt.close(fig)
     print("wrote", path)
 
 
 def plot_whole(data, here, column, ylabel, name, one, paper=False):
-    fig, axes = plt.subplots(1, 4, figsize=(18, 4.4), sharey=True, constrained_layout=True)
+    fig, axes = plt.subplots(1, len(STRATEGIES), figsize=(4.5 * len(STRATEGIES), 4.4), sharey=True,
+                             constrained_layout=True)
     logy = column == "assembly_ms"  # times span two orders of magnitude over the sweep
     whole = data[data["mode"].eq("whole")]
     for ax, strategy in zip(axes, STRATEGIES):
@@ -127,7 +135,8 @@ def plot_whole(data, here, column, ylabel, name, one, paper=False):
 
 
 def plot_reduce(data, here):
-    fig, axes = plt.subplots(1, 4, figsize=(18, 4.4), sharey=True, constrained_layout=True)
+    fig, axes = plt.subplots(1, len(STRATEGIES), figsize=(4.5 * len(STRATEGIES), 4.4), sharey=True,
+                             constrained_layout=True)
     red = data[data["mode"].eq("reduce")]
     for ax, strategy in zip(axes, STRATEGIES):
         for op in OPERATORS:
@@ -144,7 +153,8 @@ def plot_reduce(data, here):
 
 
 def plot_alone(data, here):
-    fig, axes = plt.subplots(3, 4, figsize=(18, 11), sharey=True, constrained_layout=True)
+    fig, axes = plt.subplots(3, len(STRATEGIES), figsize=(4.5 * len(STRATEGIES), 11), sharey=True,
+                             constrained_layout=True)
     alone = data[data["mode"].eq("alone")]
     for row, op in zip(axes, OPERATORS):
         for ax, strategy in zip(row, STRATEGIES):
@@ -168,7 +178,7 @@ def plot_overheads(data, here):
     whole = data[data["mode"].eq("whole") & ~data["precision"].eq("fp64")]
     for ax, prec in zip(axes, ["fp32", "fp16", "bf16"]):
         sub = whole[whole["precision"].eq(prec)]
-        for strategy, marker in zip(STRATEGIES, "osD^"):
+        for strategy, marker in ((s, MARKERS[s]) for s in STRATEGIES):
             s = sub[sub["strategy"].eq(strategy)]
             line(ax, s, "assembly_ms", "0.2", marker=marker)
             line(ax, s, "allocation_ms", "#9467bd", marker=marker, linestyle=":")
@@ -181,17 +191,22 @@ def plot_overheads(data, here):
     handles = [Line2D([], [], color=c, linestyle=ls, label=l) for c, ls, l in (
         ("0.2", "-", "assembly"), ("#9467bd", ":", "allocation"), ("#8c564b", "--", "conversion of the inputs"),
         ("#e377c2", "-.", "back-conversion to fp64"))]
-    handles += [Line2D([], [], color="0.4", marker=m, linestyle="none", label=LABELS[s]) for s, m in zip(STRATEGIES, "osD^")]
+    handles += [Line2D([], [], color="0.4", marker=m, linestyle="none", label=LABELS[s]) for s, m in ((s, MARKERS[s]) for s in STRATEGIES)]
     fig.legend(handles=handles, loc="outside upper center", ncols=4, frameon=False)
     save(fig, here / "precision_overheads.pdf")
 
 
 if __name__ == "__main__":
     here = Path(__file__).resolve().parent
-    logs = Path(sys.argv[1]) if len(sys.argv) > 1 else here / "h200"
+    args = [a for a in sys.argv[1:] if a != "--no-global"]
+    logs = Path(args[0]) if args else here / "h200"
     data, devs = parse(logs)
-    data.to_csv(here / "precision.csv", index=False)
-    devs.to_csv(here / "precision_deviation.csv", index=False)
+    if "--no-global" in sys.argv:
+        STRATEGIES.remove("global face-based")
+        TAG = "_noglobal"
+    else:
+        data.to_csv(here / "precision.csv", index=False)
+        devs.to_csv(here / "precision_deviation.csv", index=False)
     style()
     plot_whole(data, here, "throughput_gbs", "Throughput [GB/s]", "precision_whole_gbs.pdf", False)
     with plt.rc_context(LARGE):

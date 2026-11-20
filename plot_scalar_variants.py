@@ -55,6 +55,20 @@ CELL_TICKS = [1e3, 1e4, 1e5, 1e6, 1e7, 6.4e7]  # 64 M = 400^3, the largest mesh,
 BASELINE = {kind: s for s, (kind, e) in SERIES.items() if e == "NeoN"}  # kind -> non-fused NeoN
 
 
+def command_line(default: Path) -> tuple[Path, str]:
+    """The results directory and the tag for the figure names from the command line
+    [results_dir] [--no-global]. --no-global removes the global face-based strategy from KINDS and
+    SERIES, in place so that every script importing them leaves it out, and tags the figures
+    _noglobal so that they sit next to the full ones."""
+    args = [a for a in sys.argv[1:] if a != "--no-global"]
+    if "--no-global" not in sys.argv:
+        return (Path(args[0]) if args else default), ""
+    del KINDS["Global Face-Based"]
+    for strategy in [s for s, (kind, _) in SERIES.items() if kind == "Global Face-Based"]:
+        del SERIES[strategy]
+    return (Path(args[0]) if args else default), "_noglobal"
+
+
 def style(strategy: str):
     kind, executor = SERIES[strategy]
     m, filled, prefix = EXECUTORS[executor]

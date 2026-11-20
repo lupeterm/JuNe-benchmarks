@@ -11,6 +11,8 @@ in a top corner for the throughput, a row at the top left or centre for the spee
 
 reads june_neon/h200/cavity_throughput.csv and writes june_neon/h200/cavity_scalar_<plot>.pdf with
 <plot> one of neon_vs_fused, fused_vs_june, june_over_fused, and the three stacked in <plot> = pairs.
+With --no-global after the optional results_dir, the figures leave out the global face-based
+strategy and get a _noglobal suffix.
 plot_cpu.py draws the same plots for every CPU thread count with figures().
 """
 import sys
@@ -23,7 +25,7 @@ from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 from matplotlib.ticker import EngFormatter, FixedLocator, FormatStrFormatter, NullLocator
 
-from plot_scalar_variants import CELL_TICKS, EXECUTORS, KINDS, SERIES, draw
+from plot_scalar_variants import CELL_TICKS, EXECUTORS, KINDS, SERIES, command_line, draw
 
 FUSED = {kind: s for s, (kind, e) in SERIES.items() if e == "NeoN Fused"}  # kind -> NeoN Fused
 SPEEDUP_TICKS = [0.05, 0.1, 0.2, 0.3, 0.5, 0.75, 1, 1.5, 2, 3, 5, 7.5, 10, 15, 20, 30, 50]
@@ -223,12 +225,12 @@ def style_setup():
                          "ytick.labelsize": 14, "legend.fontsize": 15})
 
 
-def main(results: Path):
+def main(results: Path, tag: str = ""):
     style_setup()
     prefix = results / "h200" / "cavity_scalar"
     figures(scalar(results / "h200" / "cavity_throughput.csv"), "NVIDIA H200, scalar matrix",
-            {name: prefix.with_name(f"{prefix.name}_{name}") for name in [*PLOTS, "pairs"]})
+            {name: prefix.with_name(f"{prefix.name}_{name}{tag}") for name in [*PLOTS, "pairs"]})
 
 
 if __name__ == "__main__":
-    main(Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent / "june_neon")
+    main(*command_line(Path(__file__).resolve().parent / "june_neon"))

@@ -15,10 +15,11 @@ no point or line reaches them.
                                       the largest mesh
   cpu_h200_efficiency_n<n>            parallel efficiency (speedup / threads) at the same sizes
 
-    python3 plot_cpu.py [results_dir]
+    python3 plot_cpu.py [results_dir] [--no-global]
 
 reads june_neon/cavity_throughput_cpu.csv and writes pdf next to it, with the matrix type as a
-suffix for any matrix but Vec3.
+suffix for any matrix but Vec3. With --no-global the figures leave out the global face-based
+strategy and get a _noglobal suffix after the matrix one.
 """
 import sys
 from pathlib import Path
@@ -29,7 +30,7 @@ from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 
 from plot_scalar_pairs import figures, save, style_setup
-from plot_scalar_variants import EXECUTORS, KINDS, SERIES, style
+from plot_scalar_variants import EXECUTORS, KINDS, SERIES, command_line, style
 
 CPU = "AMD EPYC 9555"  # the CPUs of the H200 node
 PAIRS = {  # plot of plot_scalar_pairs.figures -> file name part
@@ -100,7 +101,7 @@ def peak_sizes(data: pd.DataFrame) -> list[int]:
     return sorted({cache, largest})
 
 
-def main(results: Path):
+def main(results: Path, tag: str = ""):
     all_data = pd.read_csv(results / "cavity_throughput_cpu.csv")
     all_data = all_data.loc[all_data["strategy"].isin(SERIES)]
     if "matrix" not in all_data:
@@ -109,7 +110,7 @@ def main(results: Path):
     sizes = peak_sizes(all_data.loc[all_data["matrix"].eq(sorted(all_data["matrix"].unique())[-1])])
     # one set of figures per matrix type: the Vec3 ones keep their names, the others get a suffix
     for matrix, data in all_data.groupby("matrix"):
-        suffix = "" if matrix == "Vec3" else f"_{matrix}"
+        suffix = ("" if matrix == "Vec3" else f"_{matrix}") + tag
         for threads in sorted(data["threads"].unique()):
             style_setup()
             figures(data.loc[data["threads"].eq(threads)],
@@ -122,4 +123,4 @@ def main(results: Path):
 
 
 if __name__ == "__main__":
-    main(Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent / "june_neon")
+    main(*command_line(Path(__file__).resolve().parent / "june_neon"))

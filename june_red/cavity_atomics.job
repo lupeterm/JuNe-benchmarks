@@ -1,0 +1,57 @@
+#!/bin/bash
+#SBATCH --job-name=june-atomics
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:nvidia:1
+#SBATCH --cpus-per-task=32
+#SBATCH --time=03:00:00
+#SBATCH --output=/storage/home/lupeterm/NeoFOAM/benchmarks/june/red/%x-%N-%j.out
+#
+# JuNe's three implementations of the matrix atomics, one after another on the same node: div +
+# laplacian (no ddt) on the lid-driven cavity, scalar matrix, fp64, GPU, every JuNe strategy and NeoN
+# fused as the reference (test_cavity.cpp, five fenced assemblies including the reset, first dropped):
+#   original  Atomix.@atomic: acquire-release on CUDA, MEMBAR.GPU + ATOMG + CCTL.IVALL
+#   atom      relaxed UnsafeAtomics.modify!: ATOMG without barriers
+#   red       relaxed, fp64 on the GPU as inline PTX red.relaxed.gpu.global.add.f64: REDG
+# The sources of the variants are in nobackup/june-atomics/<variant>. The test binary has the path of
+# ~/JuNe.jl/init.jl compiled in, so the job swaps each variant into ~/JuNe.jl/src and restores the
+# sources it found there on exit.
+#   sbatch --exclude=<non-H200-2/3 nodes> benchmarks/june/red/cavity_atomics.job
+
+CASES_DIR=${CASES_DIR:-/storage/home/lupeterm/nobackup/julia/view/base/mesh}
+CASES=${CASES:-"100 200 300 400"}
+VARIANTS=${VARIANTS:-"original atom red"}
+J=/storage/home/lupeterm/JuNe.jl
+V=/storage/home/lupeterm/nobackup/june-atomics
+
+cd /storage/home/lupeterm/NeoFOAM
+source "${WM_PROJECT_DIR:-/storage/home/lupeterm/openfoam-OpenFOAM-v2412}/etc/bashrc"
+case $(hostname -s) in
+    *h100*) gpu=h100 ;;
+    *h200*) gpu=h200 ;;
+    *) gpu=$(hostname -s) ;;
+esac
+out="benchmarks/june/red/results_atomics/$gpu"
+mkdir -p "$out"
+
+./xbuild.sh gpu
+bin="$PWD/build/julia-$(hostname -s)-gpu/bin/tests/cavity"
+nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv | tee "$out/gpu.txt"
+
+rm -rf $V/src_before && cp -a $J/src $V/src_before || exit 1
+trap 'rsync -a --delete $V/src_before/ $J/src/ && diff -rq $V/src_before $J/src && echo "JuNe sources restored $(date)"' EXIT
+
+export JUNE_MODULE_INIT=$J/init.jl JULIA_NUM_THREADS=1
+export CAVITY_MATRIX=scalar CAVITY_OPERATORS=div,lap CAVITY_ONLY="JuNe,NeoN fused"
+for variant in $VARIANTS; do
+    rsync -a --delete $V/$variant/ $J/src/
+    mkdir -p "$out/$variant"
+    echo "=== $variant: $(grep -c 'Atomix.@atomic vec.data' $J/src/types.jl) Atomix, $(grep -c 'red.relaxed' $J/src/types.jl) red"
+    for n in $CASES; do
+        case_dir="$CASES_DIR/$n/case"
+        [ -f "$case_dir/constant/polyMesh/owner" ] || { echo "skip $n: no mesh"; continue; }
+        echo "=== $variant ${n}^3, $(date)"
+        (cd "$case_dir" && "$bin") > "$out/$variant/cavity_${n}.log" 2>&1 || echo "case $variant $n failed, see $out/$variant/cavity_${n}.log"
+        grep -E "All tests|FAILED" "$out/$variant/cavity_${n}.log"
+    done
+done
+echo "done $(date)"

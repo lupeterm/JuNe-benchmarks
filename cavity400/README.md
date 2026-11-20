@@ -8,7 +8,10 @@ strategy on one H200 GPU.
 - Case: nobackup/julia/view/base/mesh/400/case of the cavity series, unchanged: Euler ddt, Gauss
   upwind div(phi,U), Gauss linear uncorrected laplacian(nu,U); nu = 1.507e-5 as for the DrivAer.
 - Run: NeoFOAM benchmarks/june/drivaer_assembly.job with NAME=cavity400 and CASE_DIR set to the case,
-  job 631300 on gpu-nvidia-h200-2, log in h200/.
+  job 631300 on gpu-nvidia-h200-2, log in h200/. JuNe from a
+  rerun with the relaxed REDG atomics of JuNe.jl src/types.jl (face-based, cell-based, batched; job
+  638988 on gpu-nvidia-h200-3, h200/cavity400_june.log); plot_integration.py takes JuNe's strategies from
+  it, NeoN's from cavity400.log. The figure leaves out global face-based.
 - Timing: as for the DrivAer, five fenced assemblies per strategy including the reset, the first
   dropped, NeoN assembling the operators only; every strategy's matrix and rhs equal the JuNe batched
   reference. One NeoN cell-based run took twice its median, the median is unaffected.

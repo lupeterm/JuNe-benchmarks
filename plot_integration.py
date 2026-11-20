@@ -6,6 +6,10 @@ CAVITY_DDT=1 CAVITY_MATRIX=scalar, five timed assemblies per strategy, the first
     python3 plot_integration.py <dir> [...]   reads <dir>/<gpu>/<name>.log (and the icoFoam baseline
                                              <dir>/<node>-icofoam-<ranks>/icofoam.log if present),
                                              writes <dir>/<name>.csv and <dir>/<name>_<gpu>.pdf
+
+<dir>/<gpu>/<name>_june.log, if present, is a later run of JuNe alone (face-based, cell-based, batched
+with the relaxed REDG atomics of JuNe.jl src/types.jl); its JuNe strategies replace those of <name>.log.
+The figure leaves out global face-based (it stays in the csv for NeoN).
 """
 import sys
 import re
@@ -31,7 +35,7 @@ STRATEGIES = {  # print name in the test -> (label, group)
     "JuNe batched": ("Batched Face-Based", "JuNe"),
 }
 CASES = {"drivaer": "occDrivAer", "cavity400": "Lid-driven cavity"}  # folder -> title
-KINDS = ["Face-Based", "Global Face-Based", "Cell-Based", "Batched Face-Based"]
+KINDS = ["Face-Based", "Cell-Based", "Batched Face-Based"]
 GROUPS = {"NeoN": ("#9ecae1", "none"), "NeoN fused": ("#1f77b4", "#1f77b4"), "JuNe": ("#d62728", "#d62728")}
 
 
@@ -43,6 +47,12 @@ def parse(here: Path) -> pd.DataFrame:
         nnz = int(re.search(r"^nnz: (\d+)", text, re.M).group(1))
         matrix = re.search(r"^matrix: (\w+)", text, re.M).group(1)
         runs = pd.DataFrame(TIME.findall(text), columns=["strategy", "run", "us"]).astype({"run": int, "us": float})
+        june = log.with_name(f"{log.stem}_june.log")
+        if june.exists():  # JuNe's strategies from the JuNe rerun only, on the same mesh
+            jtext = june.read_text()
+            assert int(re.search(r"^nnz: (\d+)", jtext, re.M).group(1)) == nnz, june
+            jruns = pd.DataFrame(TIME.findall(jtext), columns=["strategy", "run", "us"]).astype({"run": int, "us": float})
+            runs = pd.concat([runs[~runs["strategy"].str.startswith("JuNe")], jruns], ignore_index=True)
         runs = runs[runs["run"] > 0]
         for strategy, sub in runs.groupby("strategy"):
             ms = sub["us"] / 1e3

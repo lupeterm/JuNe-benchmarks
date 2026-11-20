@@ -1,11 +1,11 @@
-Test project /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-2-gpu
+Test project /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu
     Start 22: neofoam_test_juneStrategies
-1/3 Test #22: neofoam_test_juneStrategies .......   Passed   23.10 sec
+1/3 Test #22: neofoam_test_juneStrategies .......   Passed   22.30 sec
     Start 23: neofoam_test_junePiso
-2/3 Test #23: neofoam_test_junePiso .............   Passed   28.45 sec
+2/3 Test #23: neofoam_test_junePiso .............   Passed   27.52 sec
     Start 24: neofoam_test_juneCellBasedTypes
-3/3 Test #24: neofoam_test_juneCellBasedTypes ...   Passed    6.21 sec
+3/3 Test #24: neofoam_test_juneCellBasedTypes ...   Passed    6.00 sec
 
 100% tests passed, 0 tests failed out of 3
 
-Total Test time (real) =  57.77 sec
+Total Test time (real) =  55.82 sec

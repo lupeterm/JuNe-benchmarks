@@ -7,7 +7,10 @@ Challenge (460,041,233 non-zeros), every NeoN, fused NeoN and JuNe strategy on o
 - Case: nobackup/driveAerLukas/occDrivAerStaticMesh with div(phi,U) switched to Gauss upwind (JuNe has
   no linearUpwind), Euler ddt, uncorrected laplacian, nu = 1.507e-5.
 - Run: NeoFOAM benchmarks/june/drivaer_assembly.job (test/test_cavity.cpp with CAVITY_DDT=1
-  CAVITY_MATRIX=scalar), job 630461 on gpu-nvidia-h200-3, log in h200/.
+  CAVITY_MATRIX=scalar), job 630461 on gpu-nvidia-h200-3, log in h200/. JuNe from a
+  rerun with the relaxed REDG atomics of JuNe.jl src/types.jl (face-based, cell-based, batched; job
+  638987 on gpu-nvidia-h200-3, h200/drivaer_june.log); plot_integration.py takes JuNe's strategies from
+  it, NeoN's from drivaer.log. The figure leaves out global face-based.
 - Timing: five assemblies per strategy, the first dropped; each includes the reset of the system and is
   fenced before and after, NeoN assembles the operators only, i.e. both sides do the same work. Every
   strategy's matrix and rhs equal the JuNe batched reference.

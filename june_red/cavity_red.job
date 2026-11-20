@@ -1,0 +1,47 @@
+#!/bin/bash
+#SBATCH --job-name=june-red
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:nvidia:1
+#SBATCH --cpus-per-task=32
+#SBATCH --time=03:00:00
+#SBATCH --output=/storage/home/lupeterm/NeoFOAM/benchmarks/june/red/%x-%N-%j.out
+#
+# div + laplacian (no ddt) of the momentum equation on the lid-driven cavity, scalar matrix, fp64, GPU:
+# every strategy of NeoN, NeoN fused and JuNe, JuNe with relaxed atomics that compile to REDG
+# (JuNe.jl src/types.jl relaxed_add!). test_cavity.cpp, five fenced assemblies per strategy including
+# the reset (the first dropped), NeoN assembling the operators only.
+#   sbatch --exclude=<non-H200-2/3 nodes> benchmarks/june/red/cavity_red.job
+
+CASES_DIR=${CASES_DIR:-/storage/home/lupeterm/nobackup/julia/view/base/mesh}
+CASES=${CASES:-"100 200 300 400"}
+
+cd /storage/home/lupeterm/NeoFOAM
+source "${WM_PROJECT_DIR:-/storage/home/lupeterm/openfoam-OpenFOAM-v2412}/etc/bashrc"
+case $(hostname -s) in
+    *h100*) gpu=h100 ;;
+    *h200*) gpu=h200 ;;
+    *) gpu=$(hostname -s) ;;
+esac
+out="benchmarks/june/red/results/$gpu"
+mkdir -p "$out"
+
+./xbuild.sh gpu
+bin="$PWD/build/julia-$(hostname -s)-gpu/bin/tests/cavity"
+nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv | tee "$out/gpu.txt"
+grep -n "red.relaxed" /storage/home/lupeterm/JuNe.jl/src/types.jl | tee "$out/june_atomics.txt"
+
+export JUNE_MODULE_INIT=/storage/home/lupeterm/JuNe.jl/init.jl JULIA_NUM_THREADS=1
+# relaxed_add! changed JuNe's atomics: JuNe's tests first
+echo "=== JuNe GPU tests, $(date)"
+(cd "build/julia-$(hostname -s)-gpu" && ctest -R "juneStrategies|junePiso|juneCellBasedTypes" --output-on-failure) \
+    > "$out/june_tests.log" 2>&1 && echo "JuNe tests passed" || { echo "JuNe tests FAILED, see $out/june_tests.log"; exit 1; }
+
+export CAVITY_MATRIX=scalar CAVITY_OPERATORS=div,lap
+for n in $CASES; do
+    case_dir="$CASES_DIR/$n/case"
+    [ -f "$case_dir/constant/polyMesh/owner" ] || { echo "skip $n: no mesh"; continue; }
+    echo "=== ${n}^3, $(date)"
+    (cd "$case_dir" && "$bin") > "$out/cavity_${n}.log" 2>&1 || echo "case $n failed, see $out/cavity_${n}.log"
+    grep -E "All tests|FAILED" "$out/cavity_${n}.log"
+done
+echo "done $(date)"

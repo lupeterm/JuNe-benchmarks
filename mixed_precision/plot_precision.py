@@ -35,6 +35,8 @@ LABELS = {"face-based": "Face-Based", "global face-based": "Global Face-Based", 
           "batched": "Batched Face-Based"}
 COLOURS = {"fp64": "#08306b", "fp32": "#2171b5", "fp16": "#e6550d", "bf16": "#fdae6b"}
 OP_COLOURS = {"ddt": "#2ca02c", "div": "#1f77b4", "lap": "#d62728"}
+LARGE = {"font.size": 16, "axes.labelsize": 18, "axes.titlesize": 18, "legend.fontsize": 16,
+         "xtick.labelsize": 15, "ytick.labelsize": 15}  # the figures that go into the paper
 TIMES = re.compile(r"^(Assembly|Allocation|Conversion|Back-conversion) time \(JuNe (.+?) (\S+) (\d+)\) = (\d+) \[us\]", re.M)
 DEV = re.compile(r"Precision deviation \(JuNe (.+?) (\S+)\): matrix ([0-9.e+-]+) rhs ([0-9.e+-]+)")
 
@@ -80,8 +82,10 @@ def style():
     plt.rcParams.update({"font.size": 12, "axes.labelsize": 13, "axes.titlesize": 13, "legend.fontsize": 11})
 
 
-def finish(ax, ylabel=None, one=False):
+def finish(ax, ylabel=None, one=False, largest=False):
     ax.set_xscale("log")
+    if largest:  # label the largest mesh, 400^3 cells, too
+        ax.xaxis.set_major_locator(FixedLocator([1e5, 1e6, 1e7, 6.4e7]))
     ax.xaxis.set_major_formatter(EngFormatter())
     ax.grid(True, which="minor", alpha=0.15)
     if one:
@@ -102,14 +106,14 @@ def save(fig, path):
     print("wrote", path)
 
 
-def plot_whole(data, here, column, ylabel, name, one):
+def plot_whole(data, here, column, ylabel, name, one, paper=False):
     fig, axes = plt.subplots(1, 4, figsize=(18, 4.4), sharey=True, constrained_layout=True)
     logy = column == "assembly_ms"  # times span two orders of magnitude over the sweep
     whole = data[data["mode"].eq("whole")]
     for ax, strategy in zip(axes, STRATEGIES):
         for prec in PRECISIONS:
             line(ax, whole[whole["strategy"].eq(strategy) & whole["precision"].eq(prec)], column, COLOURS[prec], label=prec)
-        finish(ax, ylabel if strategy == STRATEGIES[0] else None, one)
+        finish(ax, ylabel if strategy == STRATEGIES[0] else None, one, paper)
         if logy:  # ticks at 1, 2, 5 times every power of ten, labelled with plain numbers
             ax.set_yscale("log")
             ax.yaxis.set_major_locator(FixedLocator([m * 10.0**e for e in range(-2, 3) for m in (1, 2, 5)]))
@@ -118,7 +122,7 @@ def plot_whole(data, here, column, ylabel, name, one):
         ax.set_title(LABELS[strategy])
         ax.set_xlabel("Cells")
     fig.legend(*axes[0].get_legend_handles_labels(), loc="outside upper center", ncols=4, frameon=False,
-               title="whole momentum assembly in one precision")
+               title=None if paper else "whole momentum assembly in one precision")
     save(fig, here / name)
 
 
@@ -130,13 +134,12 @@ def plot_reduce(data, here):
             for prec, ls in (("fp32", "-"), ("bf16", "--")):
                 line(ax, red[red["strategy"].eq(strategy) & red["operator"].eq(op) & red["precision"].eq(prec)],
                      "speedup_over_fp64", OP_COLOURS[op], linestyle=ls)
-        finish(ax, "Speedup over fp64" if strategy == STRATEGIES[0] else None, True)
+        finish(ax, "Speedup over fp64" if strategy == STRATEGIES[0] else None, True, True)
         ax.set_title(LABELS[strategy])
         ax.set_xlabel("Cells")
     handles = [Line2D([], [], color=OP_COLOURS[o], marker="o", label=f"{OPERATORS[o]} reduced") for o in OPERATORS]
     handles += [Line2D([], [], color="0.3", linestyle="-", label="fp32"), Line2D([], [], color="0.3", linestyle="--", label="bf16")]
-    fig.legend(handles=handles, loc="outside upper center", ncols=5, frameon=False,
-               title="one operator in reduced precision, the others and the matrix in fp64")
+    fig.legend(handles=handles, loc="outside upper center", ncols=5, frameon=False)
     save(fig, here / "precision_reduce_speedup.pdf")
 
 
@@ -190,9 +193,10 @@ if __name__ == "__main__":
     data.to_csv(here / "precision.csv", index=False)
     devs.to_csv(here / "precision_deviation.csv", index=False)
     style()
-    plot_whole(data, here, "speedup_over_fp64", "Speedup over fp64", "precision_whole_speedup.pdf", True)
     plot_whole(data, here, "throughput_gbs", "Throughput [GB/s]", "precision_whole_gbs.pdf", False)
-    plot_whole(data, here, "assembly_ms", "Assembly time [ms]", "precision_whole_time.pdf", False)
-    plot_reduce(data, here)
+    with plt.rc_context(LARGE):
+        plot_whole(data, here, "speedup_over_fp64", "Speedup over fp64", "precision_whole_speedup.pdf", True, True)
+        plot_whole(data, here, "assembly_ms", "Assembly time [ms]", "precision_whole_time.pdf", False, True)
+        plot_reduce(data, here)
     plot_alone(data, here)
     plot_overheads(data, here)

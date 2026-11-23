@@ -1,0 +1,310 @@
+==PROF== Connected to process 526905 (/storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity)
+/storage/home/lupeterm/NeoFOAM/test/catch2/test_main.cpp:25
+Initializing NeoN
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity
+Date   : Nov 23 2026
+Time   : 16:54:36
+Host   : gpu-nvidia-h200-3.int.coma-cluster.de
+PID    : 526905
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/julia/view/base/mesh/400/case
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+profiling initialized
+Create mesh for time = 0
+Randomness seeded to: 1446706450
+Creating NeoFOAM runTime
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,T)'
+cells: 64000000
+matrix: scalar
+operators: ddt,div,lap
+Assembly time (JuNe batched 0) = 16853963 [us]
+Assembly time (JuNe batched 1) = 31264 [us]
+batches: 6
+nnz: 447040000
+julia options: opt_level=2 check_bounds=0 fast_math=0
+Assembly time (JuNe face-based fp64 0) = 3084256 [us]
+Assembly time (JuNe face-based fp64 1) = 14975 [us]
+==PROF== Profiling "gpu_fill_kernel_" - 0: 0%.
+==WARNING== Backing up device memory in system memory. Kernel replay might be slow. Consider using "--replay-mode application" to avoid memory save-and-restore.
+...50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 1: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 2: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 3: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_ddt_kernel" - 4: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_innerFace_kernel" - 5: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_face_boundaryKernel" - 6: 0%....50%....100% - 3 passes
+Reset time (JuNe face-based fp64 0) = 1361 [us]
+Reset time (JuNe face-based fp64 1) = 1358 [us]
+Allocation time (JuNe face-based fp32 0) = 111663 [us]
+Conversion time (JuNe face-based fp32 0) = 585806 [us]
+Allocation time (JuNe face-based fp32 1) = 11603 [us]
+Conversion time (JuNe face-based fp32 1) = 4899 [us]
+Assembly time (JuNe face-based fp32 0) = 1742510 [us]
+Assembly time (JuNe face-based fp32 1) = 10063 [us]
+==PROF== Profiling "gpu_ddt_kernel" - 7: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_innerFace_kernel" - 8: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_face_boundaryKernel" - 9: 0%....50%....100% - 3 passes
+Reset time (JuNe face-based fp32 0) = 632 [us]
+Reset time (JuNe face-based fp32 1) = 622 [us]
+Back-conversion time (JuNe face-based fp32 0) = 528562 [us]
+Back-conversion time (JuNe face-based fp32 1) = 2961 [us]
+Precision deviation (JuNe face-based fp32): matrix 1.267e-07 rhs 2.526e-08
+Allocation time (JuNe face-based fp16 0) = 59862 [us]
+Conversion time (JuNe face-based fp16 0) = 484582 [us]
+Allocation time (JuNe face-based fp16 1) = 5938 [us]
+Conversion time (JuNe face-based fp16 1) = 4569 [us]
+Assembly time (JuNe face-based fp16 0) = 2094930 [us]
+Assembly time (JuNe face-based fp16 1) = 13646 [us]
+==PROF== Profiling "gpu_ddt_kernel" - 10: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_innerFace_kernel" - 11: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_face_boundaryKernel" - 12: 0%....50%....100% - 3 passes
+Reset time (JuNe face-based fp16 0) = 328 [us]
+Reset time (JuNe face-based fp16 1) = 321 [us]
+Back-conversion time (JuNe face-based fp16 0) = 551054 [us]
+Back-conversion time (JuNe face-based fp16 1) = 2762 [us]
+Precision deviation (JuNe face-based fp16): matrix 6.746e-01 rhs 1.000e+00
+Allocation time (JuNe face-based bf16 0) = 60947 [us]
+Conversion time (JuNe face-based bf16 0) = 492872 [us]
+Allocation time (JuNe face-based bf16 1) = 5983 [us]
+Conversion time (JuNe face-based bf16 1) = 4605 [us]
+Assembly time (JuNe face-based bf16 0) = 2151058 [us]
+Assembly time (JuNe face-based bf16 1) = 14204 [us]
+==PROF== Profiling "gpu_fill_kernel_" - 13: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 14: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 15: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 16: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_ddt_kernel" - 17: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_innerFace_kernel" - 18: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_face_boundaryKernel" - 19: 0%....50%....100% - 3 passes
+Reset time (JuNe face-based bf16 0) = 1353 [us]
+Reset time (JuNe face-based bf16 1) = 1346 [us]
+Back-conversion time (JuNe face-based bf16 0) = 561230 [us]
+Back-conversion time (JuNe face-based bf16 1) = 2774 [us]
+Precision deviation (JuNe face-based bf16): matrix 6.344e-03 rhs 1.358e-03
+Assembly time (JuNe cell-based fp64 0) = 651751 [us]
+Assembly time (JuNe cell-based fp64 1) = 28268 [us]
+==PROF== Profiling "gpu_fill_kernel_" - 20: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 21: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 22: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 23: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_cellbased_kernel" - 24: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_face_boundaryKernel" - 25: 0%....50%....100% - 3 passes
+Reset time (JuNe cell-based fp64 0) = 1364 [us]
+Reset time (JuNe cell-based fp64 1) = 1347 [us]
+Allocation time (JuNe cell-based fp32 0) = 62848 [us]
+Conversion time (JuNe cell-based fp32 0) = 6770 [us]
+Allocation time (JuNe cell-based fp32 1) = 14312 [us]
+Conversion time (JuNe cell-based fp32 1) = 6643 [us]
+Assembly time (JuNe cell-based fp32 0) = 571529 [us]
+Assembly time (JuNe cell-based fp32 1) = 10489 [us]
+==PROF== Profiling "gpu_cellbased_kernel" - 26: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_face_boundaryKernel" - 27: 0%....50%....100% - 3 passes
+Reset time (JuNe cell-based fp32 0) = 628 [us]
+Reset time (JuNe cell-based fp32 1) = 620 [us]
+Back-conversion time (JuNe cell-based fp32 0) = 3250 [us]
+Back-conversion time (JuNe cell-based fp32 1) = 2962 [us]
+Precision deviation (JuNe cell-based fp32): matrix 1.279e-07 rhs 2.526e-08
+Allocation time (JuNe cell-based fp16 0) = 29143 [us]
+Conversion time (JuNe cell-based fp16 0) = 6210 [us]
+Allocation time (JuNe cell-based fp16 1) = 7343 [us]
+Conversion time (JuNe cell-based fp16 1) = 6184 [us]
+Assembly time (JuNe cell-based fp16 0) = 530013 [us]
+Assembly time (JuNe cell-based fp16 1) = 5259 [us]
+==PROF== Profiling "gpu_cellbased_kernel" - 28: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_face_boundaryKernel" - 29: 0%....50%....100% - 3 passes
+Reset time (JuNe cell-based fp16 0) = 330 [us]
+Reset time (JuNe cell-based fp16 1) = 322 [us]
+Back-conversion time (JuNe cell-based fp16 0) = 3123 [us]
+Back-conversion time (JuNe cell-based fp16 1) = 2745 [us]
+Precision deviation (JuNe cell-based fp16): matrix 6.746e-01 rhs 1.000e+00
+Allocation time (JuNe cell-based bf16 0) = 28718 [us]
+Conversion time (JuNe cell-based bf16 0) = 6267 [us]
+Allocation time (JuNe cell-based bf16 1) = 7285 [us]
+Conversion time (JuNe cell-based bf16 1) = 6248 [us]
+Assembly time (JuNe cell-based bf16 0) = 539745 [us]
+Assembly time (JuNe cell-based bf16 1) = 5759 [us]
+==PROF== Profiling "gpu_fill_kernel_" - 30: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 31: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 32: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 33: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_cellbased_kernel" - 34: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_face_boundaryKernel" - 35: 0%....50%....100% - 3 passes
+Reset time (JuNe cell-based bf16 0) = 1337 [us]
+Reset time (JuNe cell-based bf16 1) = 1332 [us]
+Back-conversion time (JuNe cell-based bf16 0) = 3169 [us]
+Back-conversion time (JuNe cell-based bf16 1) = 2754 [us]
+Precision deviation (JuNe cell-based bf16): matrix 6.668e-03 rhs 1.358e-03
+Assembly time (JuNe batched fp64 0) = 37325 [us]
+Assembly time (JuNe batched fp64 1) = 28991 [us]
+==PROF== Profiling "gpu_fill_kernel_" - 36: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 37: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 38: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 39: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_ddt_kernel_" - 40: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 41: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 42: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 43: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 44: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 45: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 46: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_face_boundaryKernel_" - 47: 0%....50%....100% - 3 passes
+Reset time (JuNe batched fp64 0) = 1349 [us]
+Reset time (JuNe batched fp64 1) = 1350 [us]
+Allocation time (JuNe batched fp32 0) = 59576 [us]
+Conversion time (JuNe batched fp32 0) = 5005 [us]
+Allocation time (JuNe batched fp32 1) = 11441 [us]
+Conversion time (JuNe batched fp32 1) = 4896 [us]
+Assembly time (JuNe batched fp32 0) = 1502129 [us]
+Assembly time (JuNe batched fp32 1) = 16641 [us]
+==PROF== Profiling "cuda_ddt_kernel_" - 48: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 49: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 50: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 51: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 52: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 53: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 54: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_face_boundaryKernel_" - 55: 0%....50%....100% - 3 passes
+Reset time (JuNe batched fp32 0) = 625 [us]
+Reset time (JuNe batched fp32 1) = 621 [us]
+Back-conversion time (JuNe batched fp32 0) = 3341 [us]
+Back-conversion time (JuNe batched fp32 1) = 2956 [us]
+Precision deviation (JuNe batched fp32): matrix 1.198e-07 rhs 2.526e-08
+Allocation time (JuNe batched fp16 0) = 26402 [us]
+Conversion time (JuNe batched fp16 0) = 4578 [us]
+Allocation time (JuNe batched fp16 1) = 5888 [us]
+Conversion time (JuNe batched fp16 1) = 4552 [us]
+Assembly time (JuNe batched fp16 0) = 1461465 [us]
+Assembly time (JuNe batched fp16 1) = 11718 [us]
+==PROF== Profiling "cuda_ddt_kernel_" - 56: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 57: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 58: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 59: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 60: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 61: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 62: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_face_boundaryKernel_" - 63: 0%....50%....100% - 3 passes
+Reset time (JuNe batched fp16 0) = 328 [us]
+Reset time (JuNe batched fp16 1) = 323 [us]
+Back-conversion time (JuNe batched fp16 0) = 3162 [us]
+Back-conversion time (JuNe batched fp16 1) = 2762 [us]
+Precision deviation (JuNe batched fp16): matrix 6.746e-01 rhs 1.000e+00
+Allocation time (JuNe batched bf16 0) = 27020 [us]
+Conversion time (JuNe batched bf16 0) = 4618 [us]
+Allocation time (JuNe batched bf16 1) = 5846 [us]
+Conversion time (JuNe batched bf16 1) = 4661 [us]
+Assembly time (JuNe batched bf16 0) = 1468199 [us]
+Assembly time (JuNe batched bf16 1) = 12735 [us]
+==PROF== Profiling "gpu_fill_kernel_" - 64: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 65: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 66: 0%....50%....100% - 3 passes
+==PROF== Profiling "gpu_fill_kernel_" - 67: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_ddt_kernel_" - 68: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 69: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 70: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 71: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 72: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 73: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_batched_innerFace_kernel_" - 74: 0%....50%....100% - 3 passes
+==PROF== Profiling "cuda_face_boundaryKernel_" - 75: 0%....50%....100% - 3 passes
+Reset time (JuNe batched bf16 0) = 1337 [us]
+Reset time (JuNe batched bf16 1) = 1333 [us]
+Back-conversion time (JuNe batched bf16 0) = 3175 [us]
+Back-conversion time (JuNe batched bf16 1) = 2778 [us]
+Precision deviation (JuNe batched bf16): matrix 6.000e-03 rhs 1.358e-03
+  Activating project at `~/JuNe.jl`
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcudart.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcublas.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcublas.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcublasLt.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcurand.so.10` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcurand.so.10`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcufft.so.11` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spac/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/lib64/libcufft.so.11`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvperf_target.so` was loaded from a system path, `/storage/apps/opt/spack/opt/spack/linux-x86_64_v3/cuda-12.5.1-3qn57icowfxzh7tqp6i3ed2syfz5m4ex/nsight-compute-2024.2.1/target/linux-desktop-glibc_2_11_3-x64/./libnvperf_target.so`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+===============================================================================
+All tests passed (4 assertions in 1 test case)
+
+Finalizing NeoN
+==PROF== Disconnected from process 526905
+==PROF== Report: /storage/home/lupeterm/NeoFOAM/benchmarks/june/precision/roofline/h200/roofline_400.ncu-rep

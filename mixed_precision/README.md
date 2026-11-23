@@ -79,3 +79,22 @@ laplacian 8.8, which drop to 0.4 and 0.5 ms in fp16.
 
 The earlier div + laplacian study (4 configurations, 100^3 to 400^3, job 633259) is in
 archive_divlap/. atomics_test.* holds the 16-bit atomics test (exact, about 10x slower than 32/64 bit).
+
+## Roofline
+
+roofline.pdf places the whole assembly (ddt + div + laplacian, 400^3, scalar matrix) of JuNe
+face-based, cell-based and batched in fp64, fp32, fp16 and bf16 under the H200's ceilings, one panel
+per strategy. Measured with Nsight Compute (profile_roofline.job, job 641734 on gpu-nvidia-h200-3):
+one untimed reset + assembly per configuration in the NVTX range "precision <strategy> <precision>"
+of JuNe.jl src/precision.jl, its assembly kernels only (the reset is a fill kernel in fp64 and bf16
+but a driver memset, invisible to Nsight Compute, in fp32 and fp16). FLOPs: add + mul + 2 fma over the
+fp64, fp32 and half-precision instructions; bytes: DRAM read + write; time: the kernel durations at
+the clock Nsight Compute locks (SM 1.36 GHz). Ceilings: DRAM 4.9 TB/s, fp64 23 TFLOP/s, fp32 and half
+precision 46 TFLOP/s at that clock. `python3 plot_roofline.py` reads h200/roofline_400.csv and writes
+roofline.csv and roofline.pdf.
+
+Every configuration is memory-bound (0.05 to 0.65 FLOP/byte, ridge points at 4.7 and 9.4): reduced
+precision moves the points to the right, i.e. the same FLOPs over fewer bytes. Share of the DRAM peak
+reached: face-based 41 % (fp64), 34 % (fp32), 14 % (fp16, bf16: the 16-bit compare-and-swap loops of
+the atomics, not the bandwidth, limit it); cell-based 56 %, 33 %, 42 %, 42 %; batched 63 %, 66 %,
+57 %, 57 % (it moves about 4.7 times the interior-face data of face-based).

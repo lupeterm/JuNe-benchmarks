@@ -38,6 +38,7 @@ Measured, five times each, the first dropped, median reported, synchronised befo
 precision_whole_speedup.pdf, precision_whole_gbs.pdf, precision_reduce_speedup.pdf,
 precision_alone_speedup.pdf, precision_overheads.pdf (curves over the number of cells);
 `--no-global` writes the same figures without global face-based (suffix _noglobal).
+`python3 plot_shares.py [--no-global]` -> precision_shares.csv, precision_shares.pdf (see below).
 
 Speedup over fp64 at 400^3 (64M cells; fp64: face 14.8 ms, global 15.9, cell 28.1, batched 28.9):
 
@@ -62,3 +63,19 @@ cause not investigated).
 Deviation at 400^3: fp32 1.3e-7 (rhs 2.5e-8), bf16 6.7e-3 (1.4e-3), fp16 0.67 (1.0: face areas and
 fluxes underflow, unusable); alone in bf16: laplacian 1.4e-3, div 7.7e-3, ddt 3.2e-3; one operator in
 fp16: ddt 6.9e-7, div 3.9e-3, laplacian 0.67 (rhs 1.0: the face areas underflow, unusable).
+
+## Operator shares
+
+plot_shares.py splits the 400^3 assembly of every strategy and precision into the reset, the loop
+the operators share and ddt, div and laplacian, from the whole assembly, every operator alone and the
+reset (equations in its docstring): in face-based, global face-based and batched ddt is a kernel of its
+own and div and laplacian share the face loops (indices, face data, atomic updates, boundary kernel);
+in cell-based one cell kernel serves all three. The parts add up to the whole assembly by
+construction; batched fp64 gives div -1.1 ms (labelled in the figure): there the operators do not
+add up exactly (not investigated). Face-based fp64 (14.8 ms): reset 1.3, shared face loop 8.7, ddt 3.5, div 0.3,
+laplacian 1.0, i.e. the face loop with its index loads and atomics dominates, the arithmetic of the
+two operators is small; cell-based fp64 (28.1 ms): reset 1.3, cell loop 5.6, ddt 1.9, div 10.4,
+laplacian 8.8, which drop to 0.4 and 0.5 ms in fp16.
+
+The earlier div + laplacian study (4 configurations, 100^3 to 400^3, job 633259) is in
+archive_divlap/. atomics_test.* holds the 16-bit atomics test (exact, about 10x slower than 32/64 bit).

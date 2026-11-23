@@ -1,0 +1,69 @@
+/storage/home/lupeterm/NeoFOAM/test/catch2/test_main.cpp:25
+Initializing NeoN
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v2412 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu/bin/tests/cavity
+Date   : Nov 23 2026
+Time   : 13:03:31
+Host   : gpu-nvidia-h200-3.int.coma-cluster.de
+PID    : 505595
+I/O    : uncollated
+Case   : /storage/home/lupeterm/nobackup/julia/view/base/mesh/300/case
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+profiling initialized
+Create mesh for time = 0
+Randomness seeded to: 2576806304
+Creating NeoFOAM runTime
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(U)'
+Replacing ddt scheme 'Euler' → 'BDF1' for entry 'ddt(rho,T)'
+cells: 27000000
+matrix: scalar
+operators: div,lap
+Assembly time (JuNe batched 0) = 15062196 [us]
+Assembly time (JuNe batched 1) = 12052 [us]
+Assembly time (JuNe batched 2) = 11762 [us]
+Assembly time (JuNe batched 3) = 11710 [us]
+Assembly time (JuNe batched 4) = 11697 [us]
+batches: 6
+nnz: 188460000
+Assembly time (JuNe face-based 0) = 1482295 [us]
+Assembly time (JuNe face-based 1) = 5743 [us]
+Assembly time (JuNe face-based 2) = 5434 [us]
+Assembly time (JuNe face-based 3) = 5410 [us]
+Assembly time (JuNe face-based 4) = 5404 [us]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cavity is a Catch2 v3.4.0 host application.
+Run with -? for options
+
+-------------------------------------------------------------------------------
+Lid-driven cavity assembly strategies
+-------------------------------------------------------------------------------
+/storage/home/lupeterm/NeoFOAM/test/test_cavity.cpp:308
+...............................................................................
+
+/storage/home/lupeterm/NeoFOAM/test/test_cavity.cpp:291: FAILED:
+  REQUIRE( reference.matrixEquals(ls) )
+with expansion:
+  false
+
+===============================================================================
+test cases: 1 | 1 failed
+assertions: 2 | 1 passed | 1 failed
+
+Finalizing NeoN

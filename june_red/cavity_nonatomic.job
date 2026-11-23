@@ -1,0 +1,52 @@
+#!/bin/bash
+#SBATCH --job-name=june-nonatomic
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:nvidia:1
+#SBATCH --cpus-per-task=32
+#SBATCH --time=01:00:00
+#SBATCH --output=/storage/home/lupeterm/NeoFOAM/benchmarks/june/red/%x-%N-%j.out
+#
+# Upper bound for JuNe's atomics: the face-based assembly with every atomic update replaced by a plain
+# read-modify-write (nobackup/june-atomics/nonatomic: relaxed_add! as a[i] += val), same setup as
+# cavity_atomics.job (div + laplacian, scalar matrix, fp64, five fenced assemblies including the reset,
+# first dropped), results next to its variants in results_atomics/<gpu>/nonatomic.
+# The matrix is wrong (lost updates): the run is timed, then the check against the reference fails, as
+# it should. Only JuNe face-based is selected (CAVITY_ONLY), because the JuNe batched reference, which
+# also goes through relaxed_add!, is wrong too and every strategy after a failed check would be skipped.
+# The test binary has ~/JuNe.jl/init.jl compiled in: the variant is swapped into ~/JuNe.jl/src for the
+# run and the sources found there are restored on exit.
+#   sbatch --nodelist=gpu-nvidia-h200-3 benchmarks/june/red/cavity_nonatomic.job
+
+CASES_DIR=${CASES_DIR:-/storage/home/lupeterm/nobackup/julia/view/base/mesh}
+CASES=${CASES:-"100 200 300 400"}
+J=/storage/home/lupeterm/JuNe.jl
+V=/storage/home/lupeterm/nobackup/june-atomics
+
+cd /storage/home/lupeterm/NeoFOAM
+source "${WM_PROJECT_DIR:-/storage/home/lupeterm/openfoam-OpenFOAM-v2412}/etc/bashrc"
+case $(hostname -s) in
+    *h200*) gpu=h200 ;;
+    *) gpu=$(hostname -s) ;;
+esac
+out="benchmarks/june/red/results_atomics/$gpu/nonatomic"
+mkdir -p "$out"
+
+./xbuild.sh gpu
+bin="$PWD/build/julia-$(hostname -s)-gpu/bin/tests/cavity"
+nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv | tee "$out/gpu.txt"
+
+rm -rf $V/src_before && cp -a $J/src $V/src_before || exit 1
+trap 'rsync -a --delete $V/src_before/ $J/src/ && diff -rq $V/src_before $J/src && echo "JuNe sources restored $(date)"' EXIT
+rsync -a --delete $V/nonatomic/ $J/src/
+echo "=== nonatomic: $(grep -c 'a\[i\] += convert' $J/src/types.jl) plain update"
+
+export JUNE_MODULE_INIT=$J/init.jl JULIA_NUM_THREADS=1
+export CAVITY_MATRIX=scalar CAVITY_OPERATORS=div,lap CAVITY_ONLY="JuNe face-based"
+for n in $CASES; do
+    case_dir="$CASES_DIR/$n/case"
+    [ -f "$case_dir/constant/polyMesh/owner" ] || { echo "skip $n: no mesh"; continue; }
+    echo "=== nonatomic ${n}^3, $(date)"
+    (cd "$case_dir" && "$bin") > "$out/cavity_${n}.log" 2>&1
+    grep -E "Assembly time \(JuNe face-based|FAILED|failed" "$out/cavity_${n}.log" | head -8
+done
+echo "done $(date)"

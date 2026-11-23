@@ -7,11 +7,14 @@ variant's run as a check that the node behaves the same, it is in the csv but no
     original  Atomix.@atomic, acquire-release on CUDA: MEMBAR.GPU + ATOMG + CCTL.IVALL per update
     atom      relaxed UnsafeAtomics.modify!: ATOMG without barriers
     red       relaxed, fp64 on the GPU as inline PTX red.relaxed.gpu.global.add.f64: REDG
+    nonatomic every atomic update replaced by a plain read-modify-write: the upper bound for any
+              atomic implementation, the matrix itself is wrong (lost updates). Run separately
+              (cavity_nonatomic.job, job 641554 on the same node), JuNe face-based only.
 
     python3 plot_atomics.py [log_dir]   reads <log_dir>/<variant>/cavity_<n>.log (default
                                         ./h200_atomics), writes h200_atomics/cavity_atomics.csv and
       h200_atomics/cavity_atomics_gbs.pdf       throughput of the variants
-      h200_atomics/cavity_atomics_speedup.pdf   speedup of atom and red over original
+      h200_atomics/cavity_atomics_speedup.pdf   speedup of atom, red and nonatomic over original
 (the figures show face-based only; every JuNe strategy is measured and in the csv)
 """
 import sys
@@ -27,6 +30,7 @@ VARIANTS = {  # variant -> (label, colour, marker)
     "original": ("Atomix (acquire-release)", "0.55", "v"),
     "atom": ("relaxed, ATOMG", "#e6550d", "D"),
     "red": ("relaxed, REDG", "#08519c", "s"),
+    "nonatomic": ("non-atomic (upper bound)", "#2ca02c", "o"),
 }
 STRATEGIES = {"face-based": "Face-Based"}  # cell-based and batched barely use atomics, see the csv
 
@@ -55,7 +59,7 @@ def plot_gbs(data, here):
         ax.set_title(title)
     axes[0].set_ylabel("Throughput [GB/s]")
     axes[0].set_ylim(0, None)
-    fig.legend(*axes[0].get_legend_handles_labels(), loc="outside upper center", ncols=3, frameon=False,
+    fig.legend(*axes[0].get_legend_handles_labels(), loc="outside upper center", ncols=2, frameon=False,
                title="div + laplacian, scalar matrix, H200")
     fig.savefig(here / "cavity_atomics_gbs.pdf", bbox_inches="tight")
     plt.close(fig)

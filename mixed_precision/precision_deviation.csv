@@ -1,12 +1,15 @@
 n,strategy,config,matrix,rhs
-100,face-based,fp32,1.181e-07,2.526e-08
+100,face-based,fp32,1.168e-07,2.526e-08
 100,face-based,fp16,0.6297,1.0
-100,face-based,bf16,0.007192,0.001358
+100,face-based,bf16,0.007157,0.001358
 100,face-based,ddt-fp32,2.989e-13,0.0
+100,face-based,ddt-fp16,1.056e-05,0.0
 100,face-based,ddt-bf16,3.372e-08,0.0
 100,face-based,div-fp32,2.751e-09,0.0
+100,face-based,div-fp16,0.0009352,0.0
 100,face-based,div-bf16,0.0001783,0.0
 100,face-based,lap-fp32,2.4e-08,2.526e-08
+100,face-based,lap-fp16,0.6293,1.0
 100,face-based,lap-bf16,0.00129,0.001358
 100,face-based,only-ddt-fp32,2.828e-08,0.0
 100,face-based,only-ddt-fp16,1.0,0.0
@@ -17,14 +20,17 @@ n,strategy,config,matrix,rhs
 100,face-based,only-lap-fp32,6.568e-08,2.526e-08
 100,face-based,only-lap-fp16,0.6622,1.0
 100,face-based,only-lap-bf16,0.001358,0.001358
-100,global face-based,fp32,1.178e-07,2.526e-08
+100,global face-based,fp32,1.195e-07,2.526e-08
 100,global face-based,fp16,0.6297,1.0
-100,global face-based,bf16,0.006996,0.001358
+100,global face-based,bf16,0.007322,0.001358
 100,global face-based,ddt-fp32,2.989e-13,0.0
+100,global face-based,ddt-fp16,1.056e-05,0.0
 100,global face-based,ddt-bf16,3.372e-08,0.0
 100,global face-based,div-fp32,2.751e-09,0.0
+100,global face-based,div-fp16,0.0009352,0.0
 100,global face-based,div-bf16,0.0001783,0.0
 100,global face-based,lap-fp32,2.4e-08,2.526e-08
+100,global face-based,lap-fp16,0.6293,1.0
 100,global face-based,lap-bf16,0.00129,0.001358
 100,global face-based,only-ddt-fp32,2.828e-08,0.0
 100,global face-based,only-ddt-fp16,1.0,0.0
@@ -39,10 +45,13 @@ n,strategy,config,matrix,rhs
 100,cell-based,fp16,0.6297,1.0
 100,cell-based,bf16,0.007668,0.001358
 100,cell-based,ddt-fp32,2.988e-13,0.0
+100,cell-based,ddt-fp16,1.056e-05,0.0
 100,cell-based,ddt-bf16,3.372e-08,0.0
 100,cell-based,div-fp32,2.751e-09,0.0
+100,cell-based,div-fp16,0.0009352,0.0
 100,cell-based,div-bf16,0.0001783,0.0
 100,cell-based,lap-fp32,2.4e-08,2.526e-08
+100,cell-based,lap-fp16,0.6293,1.0
 100,cell-based,lap-bf16,0.00129,0.001358
 100,cell-based,only-ddt-fp32,2.828e-08,0.0
 100,cell-based,only-ddt-fp16,1.0,0.0
@@ -57,10 +66,13 @@ n,strategy,config,matrix,rhs
 100,batched,fp16,0.6297,1.0
 100,batched,bf16,0.00729,0.001358
 100,batched,ddt-fp32,2.988e-13,0.0
+100,batched,ddt-fp16,1.056e-05,0.0
 100,batched,ddt-bf16,3.372e-08,0.0
 100,batched,div-fp32,2.751e-09,0.0
+100,batched,div-fp16,0.0009352,0.0
 100,batched,div-bf16,0.0001783,0.0
 100,batched,lap-fp32,2.4e-08,2.526e-08
+100,batched,lap-fp16,0.6293,1.0
 100,batched,lap-bf16,0.00129,0.001358
 100,batched,only-ddt-fp32,2.828e-08,0.0
 100,batched,only-ddt-fp16,1.0,0.0
@@ -71,14 +83,17 @@ n,strategy,config,matrix,rhs
 100,batched,only-lap-fp32,6.568e-08,2.526e-08
 100,batched,only-lap-fp16,0.6622,1.0
 100,batched,only-lap-bf16,0.001358,0.001358
-150,face-based,fp32,1.134e-07,1.139e-07
+150,face-based,fp32,1.17e-07,1.139e-07
 150,face-based,fp16,0.6633,1.0
-150,face-based,bf16,0.009648,0.005828
+150,face-based,bf16,0.009357,0.005828
 150,face-based,ddt-fp32,1.238e-13,0.0
+150,face-based,ddt-fp16,4.765e-06,0.0
 150,face-based,ddt-bf16,3.2e-09,0.0
 150,face-based,div-fp32,1.364e-09,0.0
+150,face-based,div-fp16,0.001426,0.0
 150,face-based,div-bf16,8.911e-05,0.0
 150,face-based,lap-fp32,3.424e-08,1.139e-07
+150,face-based,lap-fp16,0.6629,1.0
 150,face-based,lap-bf16,0.003749,0.001358
 150,face-based,only-ddt-fp32,2.593e-08,0.0
 150,face-based,only-ddt-fp16,1.0,0.0
@@ -89,14 +104,17 @@ n,strategy,config,matrix,rhs
 150,face-based,only-lap-fp32,9.188e-08,1.139e-07
 150,face-based,only-lap-fp16,0.6871,1.0
 150,face-based,only-lap-bf16,0.005332,0.005828
-150,global face-based,fp32,1.21e-07,1.139e-07
+150,global face-based,fp32,1.174e-07,1.139e-07
 150,global face-based,fp16,0.6633,1.0
-150,global face-based,bf16,0.008559,0.005828
+150,global face-based,bf16,0.00859,0.005828
 150,global face-based,ddt-fp32,1.238e-13,0.0
+150,global face-based,ddt-fp16,4.765e-06,0.0
 150,global face-based,ddt-bf16,3.2e-09,0.0
 150,global face-based,div-fp32,1.364e-09,0.0
+150,global face-based,div-fp16,0.001426,0.0
 150,global face-based,div-bf16,8.911e-05,0.0
 150,global face-based,lap-fp32,3.424e-08,1.139e-07
+150,global face-based,lap-fp16,0.6629,1.0
 150,global face-based,lap-bf16,0.003749,0.001358
 150,global face-based,only-ddt-fp32,2.593e-08,0.0
 150,global face-based,only-ddt-fp16,1.0,0.0
@@ -110,11 +128,14 @@ n,strategy,config,matrix,rhs
 150,cell-based,fp32,1.53e-07,1.139e-07
 150,cell-based,fp16,0.6633,1.0
 150,cell-based,bf16,0.008559,0.005828
-150,cell-based,ddt-fp32,1.237e-13,0.0
+150,cell-based,ddt-fp32,1.236e-13,0.0
+150,cell-based,ddt-fp16,4.765e-06,0.0
 150,cell-based,ddt-bf16,3.2e-09,0.0
 150,cell-based,div-fp32,1.364e-09,0.0
+150,cell-based,div-fp16,0.001426,0.0
 150,cell-based,div-bf16,8.911e-05,0.0
 150,cell-based,lap-fp32,3.424e-08,1.139e-07
+150,cell-based,lap-fp16,0.6629,1.0
 150,cell-based,lap-bf16,0.003749,0.001358
 150,cell-based,only-ddt-fp32,2.593e-08,0.0
 150,cell-based,only-ddt-fp16,1.0,0.0
@@ -129,10 +150,13 @@ n,strategy,config,matrix,rhs
 150,batched,fp16,0.6633,1.0
 150,batched,bf16,0.008692,0.005828
 150,batched,ddt-fp32,1.237e-13,0.0
+150,batched,ddt-fp16,4.765e-06,0.0
 150,batched,ddt-bf16,3.2e-09,0.0
 150,batched,div-fp32,1.364e-09,0.0
+150,batched,div-fp16,0.001426,0.0
 150,batched,div-bf16,8.911e-05,0.0
 150,batched,lap-fp32,3.424e-08,1.139e-07
+150,batched,lap-fp16,0.6629,1.0
 150,batched,lap-bf16,0.003749,0.001358
 150,batched,only-ddt-fp32,2.593e-08,0.0
 150,batched,only-ddt-fp16,1.0,0.0
@@ -143,14 +167,17 @@ n,strategy,config,matrix,rhs
 150,batched,only-lap-fp32,7.189e-08,1.139e-07
 150,batched,only-lap-fp16,0.6871,1.0
 150,batched,only-lap-bf16,0.005332,0.005828
-200,face-based,fp32,1.255e-07,2.526e-08
+200,face-based,fp32,1.252e-07,2.526e-08
 200,face-based,fp16,0.6657,1.0
-200,face-based,bf16,0.007566,0.001358
+200,face-based,bf16,0.007628,0.001358
 200,face-based,ddt-fp32,7.69e-14,0.0
+200,face-based,ddt-fp16,2.707e-06,0.0
 200,face-based,ddt-bf16,8.646e-09,0.0
 200,face-based,div-fp32,1.615e-09,0.0
+200,face-based,div-fp16,0.001927,0.0
 200,face-based,div-bf16,0.000101,0.0
 200,face-based,lap-fp32,2.462e-08,2.526e-08
+200,face-based,lap-fp16,0.6647,1.0
 200,face-based,lap-bf16,0.001323,0.001358
 200,face-based,only-ddt-fp32,2.828e-08,0.0
 200,face-based,only-ddt-fp16,1.0,0.0
@@ -161,14 +188,17 @@ n,strategy,config,matrix,rhs
 200,face-based,only-lap-fp32,6.568e-08,2.526e-08
 200,face-based,only-lap-fp16,0.6821,1.0
 200,face-based,only-lap-bf16,0.001358,0.001358
-200,global face-based,fp32,1.259e-07,2.526e-08
+200,global face-based,fp32,1.208e-07,2.526e-08
 200,global face-based,fp16,0.6657,1.0
-200,global face-based,bf16,0.007493,0.001358
+200,global face-based,bf16,0.007628,0.001358
 200,global face-based,ddt-fp32,7.69e-14,0.0
+200,global face-based,ddt-fp16,2.707e-06,0.0
 200,global face-based,ddt-bf16,8.646e-09,0.0
 200,global face-based,div-fp32,1.615e-09,0.0
+200,global face-based,div-fp16,0.001927,0.0
 200,global face-based,div-bf16,0.000101,0.0
 200,global face-based,lap-fp32,2.462e-08,2.526e-08
+200,global face-based,lap-fp16,0.6647,1.0
 200,global face-based,lap-bf16,0.001323,0.001358
 200,global face-based,only-ddt-fp32,2.828e-08,0.0
 200,global face-based,only-ddt-fp16,1.0,0.0
@@ -183,10 +213,13 @@ n,strategy,config,matrix,rhs
 200,cell-based,fp16,0.6657,1.0
 200,cell-based,bf16,0.007303,0.001358
 200,cell-based,ddt-fp32,7.675e-14,0.0
+200,cell-based,ddt-fp16,2.707e-06,0.0
 200,cell-based,ddt-bf16,8.646e-09,0.0
 200,cell-based,div-fp32,1.615e-09,0.0
+200,cell-based,div-fp16,0.001927,0.0
 200,cell-based,div-bf16,0.000101,0.0
 200,cell-based,lap-fp32,2.462e-08,2.526e-08
+200,cell-based,lap-fp16,0.6647,1.0
 200,cell-based,lap-bf16,0.001323,0.001358
 200,cell-based,only-ddt-fp32,2.828e-08,0.0
 200,cell-based,only-ddt-fp16,1.0,0.0
@@ -201,10 +234,13 @@ n,strategy,config,matrix,rhs
 200,batched,fp16,0.6657,1.0
 200,batched,bf16,0.007628,0.001358
 200,batched,ddt-fp32,7.675e-14,0.0
+200,batched,ddt-fp16,2.707e-06,0.0
 200,batched,ddt-bf16,8.646e-09,0.0
 200,batched,div-fp32,1.615e-09,0.0
+200,batched,div-fp16,0.001927,0.0
 200,batched,div-bf16,0.000101,0.0
 200,batched,lap-fp32,2.462e-08,2.526e-08
+200,batched,lap-fp16,0.6647,1.0
 200,batched,lap-bf16,0.001323,0.001358
 200,batched,only-ddt-fp32,2.828e-08,0.0
 200,batched,only-ddt-fp16,1.0,0.0
@@ -217,12 +253,15 @@ n,strategy,config,matrix,rhs
 200,batched,only-lap-bf16,0.001358,0.001358
 250,face-based,fp32,1.062e-07,2.525e-09
 250,face-based,fp16,0.6157,1.0
-250,face-based,bf16,0.007721,0.001622
+250,face-based,bf16,0.00778,0.001622
 250,face-based,ddt-fp32,7.374e-15,0.0
+250,face-based,ddt-fp16,1.741e-06,0.0
 250,face-based,ddt-bf16,3.248e-09,0.0
 250,face-based,div-fp32,1.149e-09,0.0
+250,face-based,div-fp16,0.002422,1.482e-15
 250,face-based,div-bf16,7.564e-05,2.118e-16
 250,face-based,lap-fp32,2.473e-09,2.525e-09
+250,face-based,lap-fp16,0.6146,1.0
 250,face-based,lap-bf16,0.001589,0.001622
 250,face-based,only-ddt-fp32,3.996e-09,0.0
 250,face-based,only-ddt-fp16,1.0,0.0
@@ -233,14 +272,17 @@ n,strategy,config,matrix,rhs
 250,face-based,only-lap-fp32,6.568e-08,2.525e-09
 250,face-based,only-lap-fp16,0.6275,1.0
 250,face-based,only-lap-bf16,0.00223,0.001622
-250,global face-based,fp32,1.02e-07,2.525e-09
+250,global face-based,fp32,1.039e-07,2.525e-09
 250,global face-based,fp16,0.6157,1.0
-250,global face-based,bf16,0.007622,0.001622
-250,global face-based,ddt-fp32,7.374e-15,0.0
+250,global face-based,bf16,0.007703,0.001622
+250,global face-based,ddt-fp32,7.19e-15,0.0
+250,global face-based,ddt-fp16,1.741e-06,0.0
 250,global face-based,ddt-bf16,3.248e-09,0.0
 250,global face-based,div-fp32,1.149e-09,0.0
+250,global face-based,div-fp16,0.002422,1.482e-15
 250,global face-based,div-bf16,7.564e-05,2.118e-16
 250,global face-based,lap-fp32,2.473e-09,2.525e-09
+250,global face-based,lap-fp16,0.6146,1.0
 250,global face-based,lap-bf16,0.001589,0.001622
 250,global face-based,only-ddt-fp32,3.996e-09,0.0
 250,global face-based,only-ddt-fp16,1.0,0.0
@@ -250,15 +292,18 @@ n,strategy,config,matrix,rhs
 250,global face-based,only-div-bf16,0.00682,0.001366
 250,global face-based,only-lap-fp32,6.568e-08,2.525e-09
 250,global face-based,only-lap-fp16,0.6275,1.0
-250,global face-based,only-lap-bf16,0.002917,0.001622
+250,global face-based,only-lap-bf16,0.006656,0.001622
 250,cell-based,fp32,1.222e-07,2.525e-09
 250,cell-based,fp16,0.6157,1.0
 250,cell-based,bf16,0.009668,0.001622
 250,cell-based,ddt-fp32,7.006e-15,0.0
+250,cell-based,ddt-fp16,1.741e-06,0.0
 250,cell-based,ddt-bf16,3.248e-09,0.0
 250,cell-based,div-fp32,1.149e-09,0.0
+250,cell-based,div-fp16,0.002422,1.482e-15
 250,cell-based,div-bf16,7.564e-05,2.118e-16
 250,cell-based,lap-fp32,2.473e-09,2.525e-09
+250,cell-based,lap-fp16,0.6146,1.0
 250,cell-based,lap-bf16,0.001589,0.001622
 250,cell-based,only-ddt-fp32,3.996e-09,0.0
 250,cell-based,only-ddt-fp16,1.0,0.0
@@ -273,10 +318,13 @@ n,strategy,config,matrix,rhs
 250,batched,fp16,0.6157,1.0
 250,batched,bf16,0.007841,0.001622
 250,batched,ddt-fp32,7.19e-15,0.0
+250,batched,ddt-fp16,1.741e-06,0.0
 250,batched,ddt-bf16,3.248e-09,0.0
 250,batched,div-fp32,1.149e-09,0.0
+250,batched,div-fp16,0.002422,1.482e-15
 250,batched,div-bf16,7.564e-05,2.118e-16
 250,batched,lap-fp32,2.473e-09,2.525e-09
+250,batched,lap-fp16,0.6146,1.0
 250,batched,lap-bf16,0.001589,0.001622
 250,batched,only-ddt-fp32,3.996e-09,0.0
 250,batched,only-ddt-fp16,1.0,0.0
@@ -289,12 +337,15 @@ n,strategy,config,matrix,rhs
 250,batched,only-lap-bf16,0.00223,0.001622
 300,face-based,fp32,1.508e-07,1.289e-07
 300,face-based,fp16,0.6328,1.0
-300,face-based,bf16,0.009742,0.005828
+300,face-based,bf16,0.00975,0.005828
 300,face-based,ddt-fp32,5.329e-14,0.0
+300,face-based,ddt-fp16,1.214e-06,0.0
 300,face-based,ddt-bf16,8.151e-10,0.0
 300,face-based,div-fp32,6.953e-10,0.0
+300,face-based,div-fp16,0.002919,0.0
 300,face-based,div-bf16,4.565e-05,0.0
 300,face-based,lap-fp32,9.95e-08,1.289e-07
+300,face-based,lap-fp16,0.6315,1.0
 300,face-based,lap-bf16,0.00573,0.005828
 300,face-based,only-ddt-fp32,4.374e-08,0.0
 300,face-based,only-ddt-fp16,1.0,0.0
@@ -307,12 +358,15 @@ n,strategy,config,matrix,rhs
 300,face-based,only-lap-bf16,0.005332,0.005828
 300,global face-based,fp32,1.508e-07,1.289e-07
 300,global face-based,fp16,0.6328,1.0
-300,global face-based,bf16,0.009684,0.005828
+300,global face-based,bf16,0.009728,0.005828
 300,global face-based,ddt-fp32,5.329e-14,0.0
+300,global face-based,ddt-fp16,1.214e-06,0.0
 300,global face-based,ddt-bf16,8.151e-10,0.0
 300,global face-based,div-fp32,6.953e-10,0.0
+300,global face-based,div-fp16,0.002919,0.0
 300,global face-based,div-bf16,4.565e-05,0.0
 300,global face-based,lap-fp32,9.95e-08,1.289e-07
+300,global face-based,lap-fp16,0.6315,1.0
 300,global face-based,lap-bf16,0.00573,0.005828
 300,global face-based,only-ddt-fp32,4.374e-08,0.0
 300,global face-based,only-ddt-fp16,1.0,0.0
@@ -327,10 +381,13 @@ n,strategy,config,matrix,rhs
 300,cell-based,fp16,0.6328,1.0
 300,cell-based,bf16,0.008697,0.005828
 300,cell-based,ddt-fp32,5.307e-14,0.0
+300,cell-based,ddt-fp16,1.214e-06,0.0
 300,cell-based,ddt-bf16,8.151e-10,0.0
 300,cell-based,div-fp32,6.953e-10,0.0
+300,cell-based,div-fp16,0.002919,0.0
 300,cell-based,div-bf16,4.565e-05,0.0
 300,cell-based,lap-fp32,9.95e-08,1.289e-07
+300,cell-based,lap-fp16,0.6315,1.0
 300,cell-based,lap-bf16,0.00573,0.005828
 300,cell-based,only-ddt-fp32,4.374e-08,0.0
 300,cell-based,only-ddt-fp16,1.0,0.0
@@ -345,10 +402,13 @@ n,strategy,config,matrix,rhs
 300,batched,fp16,0.6328,1.0
 300,batched,bf16,0.008921,0.005828
 300,batched,ddt-fp32,5.329e-14,0.0
+300,batched,ddt-fp16,1.214e-06,0.0
 300,batched,ddt-bf16,8.151e-10,0.0
 300,batched,div-fp32,6.953e-10,0.0
+300,batched,div-fp16,0.002919,0.0
 300,batched,div-bf16,4.565e-05,0.0
 300,batched,lap-fp32,9.95e-08,1.289e-07
+300,batched,lap-fp16,0.6315,1.0
 300,batched,lap-bf16,0.00573,0.005828
 300,batched,only-ddt-fp32,4.374e-08,0.0
 300,batched,only-ddt-fp16,1.0,0.0
@@ -359,14 +419,17 @@ n,strategy,config,matrix,rhs
 300,batched,only-lap-fp32,1.315e-07,1.289e-07
 300,batched,only-lap-fp16,0.6424,1.0
 300,batched,only-lap-bf16,0.005332,0.005828
-350,face-based,fp32,1.502e-07,6.569e-08
+350,face-based,fp32,1.496e-07,6.569e-08
 350,face-based,fp16,0.7473,1.0
-350,face-based,bf16,0.007335,0.001358
+350,face-based,bf16,0.00732,0.001358
 350,face-based,ddt-fp32,1.739e-14,0.0
+350,face-based,ddt-fp16,8.933e-07,0.0
 350,face-based,ddt-bf16,6.823e-10,0.0
 350,face-based,div-fp32,8.138e-10,0.0
+350,face-based,div-fp16,0.003405,1.482e-15
 350,face-based,div-bf16,5.336e-05,1.482e-16
 350,face-based,lap-fp32,6.469e-08,6.569e-08
+350,face-based,lap-fp16,0.7452,1.0
 350,face-based,lap-bf16,0.002533,0.001358
 350,face-based,only-ddt-fp32,1.921e-08,0.0
 350,face-based,only-ddt-fp16,1.0,0.0
@@ -377,14 +440,17 @@ n,strategy,config,matrix,rhs
 350,face-based,only-lap-fp32,6.569e-08,6.569e-08
 350,face-based,only-lap-fp16,0.7566,1.0
 350,face-based,only-lap-bf16,0.003731,0.001358
-350,global face-based,fp32,1.468e-07,6.569e-08
+350,global face-based,fp32,1.496e-07,6.569e-08
 350,global face-based,fp16,0.7473,1.0
-350,global face-based,bf16,0.007305,0.001358
+350,global face-based,bf16,0.007273,0.001358
 350,global face-based,ddt-fp32,1.739e-14,0.0
+350,global face-based,ddt-fp16,8.933e-07,0.0
 350,global face-based,ddt-bf16,6.823e-10,0.0
 350,global face-based,div-fp32,8.138e-10,0.0
+350,global face-based,div-fp16,0.003405,1.482e-15
 350,global face-based,div-bf16,5.336e-05,1.482e-16
 350,global face-based,lap-fp32,6.469e-08,6.569e-08
+350,global face-based,lap-fp16,0.7452,1.0
 350,global face-based,lap-bf16,0.002533,0.001358
 350,global face-based,only-ddt-fp32,1.921e-08,0.0
 350,global face-based,only-ddt-fp16,1.0,0.0
@@ -399,10 +465,13 @@ n,strategy,config,matrix,rhs
 350,cell-based,fp16,0.7473,1.0
 350,cell-based,bf16,0.007082,0.001358
 350,cell-based,ddt-fp32,1.713e-14,0.0
+350,cell-based,ddt-fp16,8.933e-07,0.0
 350,cell-based,ddt-bf16,6.823e-10,0.0
 350,cell-based,div-fp32,8.138e-10,0.0
+350,cell-based,div-fp16,0.003405,1.482e-15
 350,cell-based,div-bf16,5.336e-05,1.482e-16
 350,cell-based,lap-fp32,6.469e-08,6.569e-08
+350,cell-based,lap-fp16,0.7452,1.0
 350,cell-based,lap-bf16,0.002533,0.001358
 350,cell-based,only-ddt-fp32,1.921e-08,0.0
 350,cell-based,only-ddt-fp16,1.0,0.0
@@ -417,10 +486,13 @@ n,strategy,config,matrix,rhs
 350,batched,fp16,0.7473,1.0
 350,batched,bf16,0.00735,0.001358
 350,batched,ddt-fp32,1.739e-14,0.0
+350,batched,ddt-fp16,8.933e-07,0.0
 350,batched,ddt-bf16,6.823e-10,0.0
 350,batched,div-fp32,8.138e-10,0.0
+350,batched,div-fp16,0.003405,1.482e-15
 350,batched,div-bf16,5.336e-05,1.482e-16
 350,batched,lap-fp32,6.469e-08,6.569e-08
+350,batched,lap-fp16,0.7452,1.0
 350,batched,lap-bf16,0.002533,0.001358
 350,batched,only-ddt-fp32,1.921e-08,0.0
 350,batched,only-ddt-fp16,1.0,0.0
@@ -431,14 +503,17 @@ n,strategy,config,matrix,rhs
 350,batched,only-lap-fp32,6.569e-08,6.569e-08
 350,batched,only-lap-fp16,0.7566,1.0
 350,batched,only-lap-bf16,0.003731,0.001358
-400,face-based,fp32,1.278e-07,2.526e-08
+400,face-based,fp32,1.277e-07,2.526e-08
 400,face-based,fp16,0.6746,1.0
-400,face-based,bf16,0.006384,0.001358
+400,face-based,bf16,0.006343,0.001358
 400,face-based,ddt-fp32,1.962e-14,0.0
+400,face-based,ddt-fp16,6.855e-07,0.0
 400,face-based,ddt-bf16,2.189e-09,0.0
 400,face-based,div-fp32,8.23e-10,0.0
+400,face-based,div-fp16,0.003918,0.0
 400,face-based,div-bf16,5.396e-05,0.0
 400,face-based,lap-fp32,2.494e-08,2.526e-08
+400,face-based,lap-fp16,0.6733,1.0
 400,face-based,lap-bf16,0.001341,0.001358
 400,face-based,only-ddt-fp32,2.828e-08,0.0
 400,face-based,only-ddt-fp16,1.0,0.0
@@ -449,14 +524,17 @@ n,strategy,config,matrix,rhs
 400,face-based,only-lap-fp32,6.568e-08,2.526e-08
 400,face-based,only-lap-fp16,0.6821,1.0
 400,face-based,only-lap-bf16,0.001358,0.001358
-400,global face-based,fp32,1.276e-07,2.526e-08
+400,global face-based,fp32,1.282e-07,2.526e-08
 400,global face-based,fp16,0.6746,1.0
-400,global face-based,bf16,0.006317,0.001358
+400,global face-based,bf16,0.006277,0.001358
 400,global face-based,ddt-fp32,1.962e-14,0.0
+400,global face-based,ddt-fp16,6.855e-07,0.0
 400,global face-based,ddt-bf16,2.189e-09,0.0
 400,global face-based,div-fp32,8.23e-10,0.0
+400,global face-based,div-fp16,0.003918,0.0
 400,global face-based,div-bf16,5.396e-05,0.0
 400,global face-based,lap-fp32,2.494e-08,2.526e-08
+400,global face-based,lap-fp16,0.6733,1.0
 400,global face-based,lap-bf16,0.001341,0.001358
 400,global face-based,only-ddt-fp32,2.828e-08,0.0
 400,global face-based,only-ddt-fp16,1.0,0.0
@@ -471,10 +549,13 @@ n,strategy,config,matrix,rhs
 400,cell-based,fp16,0.6746,1.0
 400,cell-based,bf16,0.006668,0.001358
 400,cell-based,ddt-fp32,1.962e-14,0.0
+400,cell-based,ddt-fp16,6.855e-07,0.0
 400,cell-based,ddt-bf16,2.189e-09,0.0
 400,cell-based,div-fp32,8.23e-10,0.0
+400,cell-based,div-fp16,0.003918,0.0
 400,cell-based,div-bf16,5.396e-05,0.0
 400,cell-based,lap-fp32,2.494e-08,2.526e-08
+400,cell-based,lap-fp16,0.6733,1.0
 400,cell-based,lap-bf16,0.001341,0.001358
 400,cell-based,only-ddt-fp32,2.828e-08,0.0
 400,cell-based,only-ddt-fp16,1.0,0.0
@@ -489,10 +570,13 @@ n,strategy,config,matrix,rhs
 400,batched,fp16,0.6746,1.0
 400,batched,bf16,0.006,0.001358
 400,batched,ddt-fp32,1.962e-14,0.0
+400,batched,ddt-fp16,6.855e-07,0.0
 400,batched,ddt-bf16,2.189e-09,0.0
 400,batched,div-fp32,8.23e-10,0.0
+400,batched,div-fp16,0.003918,0.0
 400,batched,div-bf16,5.396e-05,0.0
 400,batched,lap-fp32,2.494e-08,2.526e-08
+400,batched,lap-fp16,0.6733,1.0
 400,batched,lap-bf16,0.001341,0.001358
 400,batched,only-ddt-fp32,2.828e-08,0.0
 400,batched,only-ddt-fp16,1.0,0.0
@@ -503,14 +587,17 @@ n,strategy,config,matrix,rhs
 400,batched,only-lap-fp32,6.568e-08,2.526e-08
 400,batched,only-lap-fp16,0.6821,1.0
 400,batched,only-lap-bf16,0.001358,0.001358
-50,face-based,fp32,1.099e-07,2.526e-08
+50,face-based,fp32,1.195e-07,2.526e-08
 50,face-based,fp16,0.2963,0.4901
-50,face-based,bf16,0.00634,0.001358
+50,face-based,bf16,0.006086,0.001358
 50,face-based,ddt-fp32,1.139e-12,0.0
+50,face-based,ddt-fp16,4.027e-05,0.0
 50,face-based,ddt-bf16,1.286e-07,0.0
 50,face-based,div-fp32,4.933e-09,0.0
+50,face-based,div-fp16,0.0004449,0.0
 50,face-based,div-bf16,0.0002844,0.0
 50,face-based,lap-fp32,2.289e-08,2.526e-08
+50,face-based,lap-fp16,0.2956,0.4901
 50,face-based,lap-bf16,0.001231,0.001358
 50,face-based,only-ddt-fp32,2.828e-08,0.0
 50,face-based,only-ddt-fp16,1.0,0.0
@@ -521,14 +608,17 @@ n,strategy,config,matrix,rhs
 50,face-based,only-lap-fp32,6.568e-08,2.526e-08
 50,face-based,only-lap-fp16,0.3259,0.4901
 50,face-based,only-lap-bf16,0.001358,0.001358
-50,global face-based,fp32,1.168e-07,2.526e-08
+50,global face-based,fp32,1.182e-07,2.526e-08
 50,global face-based,fp16,0.2963,0.4901
-50,global face-based,bf16,0.007718,0.001358
+50,global face-based,bf16,0.00661,0.001358
 50,global face-based,ddt-fp32,1.139e-12,0.0
+50,global face-based,ddt-fp16,4.027e-05,0.0
 50,global face-based,ddt-bf16,1.286e-07,0.0
 50,global face-based,div-fp32,4.933e-09,0.0
+50,global face-based,div-fp16,0.0004449,0.0
 50,global face-based,div-bf16,0.0002844,0.0
 50,global face-based,lap-fp32,2.289e-08,2.526e-08
+50,global face-based,lap-fp16,0.2956,0.4901
 50,global face-based,lap-bf16,0.001231,0.001358
 50,global face-based,only-ddt-fp32,2.828e-08,0.0
 50,global face-based,only-ddt-fp16,1.0,0.0
@@ -543,10 +633,13 @@ n,strategy,config,matrix,rhs
 50,cell-based,fp16,0.2963,0.4901
 50,cell-based,bf16,0.006901,0.001358
 50,cell-based,ddt-fp32,1.139e-12,0.0
+50,cell-based,ddt-fp16,4.027e-05,0.0
 50,cell-based,ddt-bf16,1.286e-07,0.0
 50,cell-based,div-fp32,4.933e-09,0.0
+50,cell-based,div-fp16,0.0004449,0.0
 50,cell-based,div-bf16,0.0002844,0.0
 50,cell-based,lap-fp32,2.289e-08,2.526e-08
+50,cell-based,lap-fp16,0.2956,0.4901
 50,cell-based,lap-bf16,0.001231,0.001358
 50,cell-based,only-ddt-fp32,2.828e-08,0.0
 50,cell-based,only-ddt-fp16,1.0,0.0
@@ -561,10 +654,13 @@ n,strategy,config,matrix,rhs
 50,batched,fp16,0.2963,0.4901
 50,batched,bf16,0.006854,0.001358
 50,batched,ddt-fp32,1.139e-12,0.0
+50,batched,ddt-fp16,4.027e-05,0.0
 50,batched,ddt-bf16,1.286e-07,0.0
 50,batched,div-fp32,4.933e-09,0.0
+50,batched,div-fp16,0.0004449,0.0
 50,batched,div-bf16,0.0002844,0.0
 50,batched,lap-fp32,2.289e-08,2.526e-08
+50,batched,lap-fp16,0.2956,0.4901
 50,batched,lap-bf16,0.001231,0.001358
 50,batched,only-ddt-fp32,2.828e-08,0.0
 50,batched,only-ddt-fp16,1.0,0.0

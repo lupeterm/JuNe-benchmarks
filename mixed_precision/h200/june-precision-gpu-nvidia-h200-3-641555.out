@@ -304,7 +304,7 @@ Y88888o.       8 8 8888         ,8 8888       `8b  8 8888         ,8 8888       
  -- 	NeoN_DEFINE_DP_SCALAR = ON
  -- 	NeoN_DEFINE_US_IDX = OFF
 +------------------------------------------------------------------------------+
--- Configuring done (4.2s)
+-- Configuring done (4.1s)
 -- Generating done (0.5s)
 -- Build files have been written to: /storage/home/lupeterm/NeoFOAM/build/julia-gpu-nvidia-h200-3-gpu
 [0/2] Re-checking globbed directories...
@@ -344,17 +344,20 @@ ninja: no work to do.
 tests: ctest --test-dir build/julia-gpu-nvidia-h200-3-gpu   (or: NEON_DEVICE=-gpu-nvidia-h200-3-gpu ctest --preset julia)
 name, memory.total [MiB], driver_version
 NVIDIA H200 NVL, 143771 MiB, 610.57.04
-=== JuNe GPU tests, Fri Nov 20 18:02:14 CET 2026
+=== JuNe GPU tests, Mon Nov 23 13:10:30 CET 2026
 JuNe tests passed
-=== 50^3, Fri Nov 20 18:03:10 CET 2026
-Precision deviation (JuNe face-based fp32): matrix 1.099e-07 rhs 2.526e-08
+=== 50^3, Mon Nov 23 13:11:31 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 1.195e-07 rhs 2.526e-08
 Precision deviation (JuNe face-based fp16): matrix 2.963e-01 rhs 4.901e-01
-Precision deviation (JuNe face-based bf16): matrix 6.340e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based bf16): matrix 6.086e-03 rhs 1.358e-03
 Precision deviation (JuNe face-based ddt-fp32): matrix 1.139e-12 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-fp16): matrix 4.027e-05 rhs 0.000e+00
 Precision deviation (JuNe face-based ddt-bf16): matrix 1.286e-07 rhs 0.000e+00
 Precision deviation (JuNe face-based div-fp32): matrix 4.933e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp16): matrix 4.449e-04 rhs 0.000e+00
 Precision deviation (JuNe face-based div-bf16): matrix 2.844e-04 rhs 0.000e+00
 Precision deviation (JuNe face-based lap-fp32): matrix 2.289e-08 rhs 2.526e-08
+Precision deviation (JuNe face-based lap-fp16): matrix 2.956e-01 rhs 4.901e-01
 Precision deviation (JuNe face-based lap-bf16): matrix 1.231e-03 rhs 1.358e-03
 Precision deviation (JuNe face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -365,14 +368,17 @@ Precision deviation (JuNe face-based only-div-bf16): matrix 6.371e-03 rhs 0.000e
 Precision deviation (JuNe face-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
 Precision deviation (JuNe face-based only-lap-fp16): matrix 3.259e-01 rhs 4.901e-01
 Precision deviation (JuNe face-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
-Precision deviation (JuNe global face-based fp32): matrix 1.168e-07 rhs 2.526e-08
+Precision deviation (JuNe global face-based fp32): matrix 1.182e-07 rhs 2.526e-08
 Precision deviation (JuNe global face-based fp16): matrix 2.963e-01 rhs 4.901e-01
-Precision deviation (JuNe global face-based bf16): matrix 7.718e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based bf16): matrix 6.610e-03 rhs 1.358e-03
 Precision deviation (JuNe global face-based ddt-fp32): matrix 1.139e-12 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-fp16): matrix 4.027e-05 rhs 0.000e+00
 Precision deviation (JuNe global face-based ddt-bf16): matrix 1.286e-07 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-fp32): matrix 4.933e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp16): matrix 4.449e-04 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-bf16): matrix 2.844e-04 rhs 0.000e+00
 Precision deviation (JuNe global face-based lap-fp32): matrix 2.289e-08 rhs 2.526e-08
+Precision deviation (JuNe global face-based lap-fp16): matrix 2.956e-01 rhs 4.901e-01
 Precision deviation (JuNe global face-based lap-bf16): matrix 1.231e-03 rhs 1.358e-03
 Precision deviation (JuNe global face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -387,10 +393,13 @@ Precision deviation (JuNe cell-based fp32): matrix 9.581e-08 rhs 2.526e-08
 Precision deviation (JuNe cell-based fp16): matrix 2.963e-01 rhs 4.901e-01
 Precision deviation (JuNe cell-based bf16): matrix 6.901e-03 rhs 1.358e-03
 Precision deviation (JuNe cell-based ddt-fp32): matrix 1.139e-12 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-fp16): matrix 4.027e-05 rhs 0.000e+00
 Precision deviation (JuNe cell-based ddt-bf16): matrix 1.286e-07 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-fp32): matrix 4.933e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp16): matrix 4.449e-04 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-bf16): matrix 2.844e-04 rhs 0.000e+00
 Precision deviation (JuNe cell-based lap-fp32): matrix 2.289e-08 rhs 2.526e-08
+Precision deviation (JuNe cell-based lap-fp16): matrix 2.956e-01 rhs 4.901e-01
 Precision deviation (JuNe cell-based lap-bf16): matrix 1.231e-03 rhs 1.358e-03
 Precision deviation (JuNe cell-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -405,10 +414,13 @@ Precision deviation (JuNe batched fp32): matrix 1.195e-07 rhs 2.526e-08
 Precision deviation (JuNe batched fp16): matrix 2.963e-01 rhs 4.901e-01
 Precision deviation (JuNe batched bf16): matrix 6.854e-03 rhs 1.358e-03
 Precision deviation (JuNe batched ddt-fp32): matrix 1.139e-12 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-fp16): matrix 4.027e-05 rhs 0.000e+00
 Precision deviation (JuNe batched ddt-bf16): matrix 1.286e-07 rhs 0.000e+00
 Precision deviation (JuNe batched div-fp32): matrix 4.933e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp16): matrix 4.449e-04 rhs 0.000e+00
 Precision deviation (JuNe batched div-bf16): matrix 2.844e-04 rhs 0.000e+00
 Precision deviation (JuNe batched lap-fp32): matrix 2.289e-08 rhs 2.526e-08
+Precision deviation (JuNe batched lap-fp16): matrix 2.956e-01 rhs 4.901e-01
 Precision deviation (JuNe batched lap-bf16): matrix 1.231e-03 rhs 1.358e-03
 Precision deviation (JuNe batched only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -420,15 +432,18 @@ Precision deviation (JuNe batched only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
 Precision deviation (JuNe batched only-lap-fp16): matrix 3.259e-01 rhs 4.901e-01
 Precision deviation (JuNe batched only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
 All tests passed (5 assertions in 1 test case)
-=== 100^3, Fri Nov 20 18:05:25 CET 2026
-Precision deviation (JuNe face-based fp32): matrix 1.181e-07 rhs 2.526e-08
+=== 100^3, Mon Nov 23 13:14:03 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 1.168e-07 rhs 2.526e-08
 Precision deviation (JuNe face-based fp16): matrix 6.297e-01 rhs 1.000e+00
-Precision deviation (JuNe face-based bf16): matrix 7.192e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based bf16): matrix 7.157e-03 rhs 1.358e-03
 Precision deviation (JuNe face-based ddt-fp32): matrix 2.989e-13 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-fp16): matrix 1.056e-05 rhs 0.000e+00
 Precision deviation (JuNe face-based ddt-bf16): matrix 3.372e-08 rhs 0.000e+00
 Precision deviation (JuNe face-based div-fp32): matrix 2.751e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp16): matrix 9.352e-04 rhs 0.000e+00
 Precision deviation (JuNe face-based div-bf16): matrix 1.783e-04 rhs 0.000e+00
 Precision deviation (JuNe face-based lap-fp32): matrix 2.400e-08 rhs 2.526e-08
+Precision deviation (JuNe face-based lap-fp16): matrix 6.293e-01 rhs 1.000e+00
 Precision deviation (JuNe face-based lap-bf16): matrix 1.290e-03 rhs 1.358e-03
 Precision deviation (JuNe face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -439,14 +454,17 @@ Precision deviation (JuNe face-based only-div-bf16): matrix 7.337e-03 rhs 0.000e
 Precision deviation (JuNe face-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
 Precision deviation (JuNe face-based only-lap-fp16): matrix 6.622e-01 rhs 1.000e+00
 Precision deviation (JuNe face-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
-Precision deviation (JuNe global face-based fp32): matrix 1.178e-07 rhs 2.526e-08
+Precision deviation (JuNe global face-based fp32): matrix 1.195e-07 rhs 2.526e-08
 Precision deviation (JuNe global face-based fp16): matrix 6.297e-01 rhs 1.000e+00
-Precision deviation (JuNe global face-based bf16): matrix 6.996e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based bf16): matrix 7.322e-03 rhs 1.358e-03
 Precision deviation (JuNe global face-based ddt-fp32): matrix 2.989e-13 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-fp16): matrix 1.056e-05 rhs 0.000e+00
 Precision deviation (JuNe global face-based ddt-bf16): matrix 3.372e-08 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-fp32): matrix 2.751e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp16): matrix 9.352e-04 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-bf16): matrix 1.783e-04 rhs 0.000e+00
 Precision deviation (JuNe global face-based lap-fp32): matrix 2.400e-08 rhs 2.526e-08
+Precision deviation (JuNe global face-based lap-fp16): matrix 6.293e-01 rhs 1.000e+00
 Precision deviation (JuNe global face-based lap-bf16): matrix 1.290e-03 rhs 1.358e-03
 Precision deviation (JuNe global face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -461,10 +479,13 @@ Precision deviation (JuNe cell-based fp32): matrix 1.467e-07 rhs 2.526e-08
 Precision deviation (JuNe cell-based fp16): matrix 6.297e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based bf16): matrix 7.668e-03 rhs 1.358e-03
 Precision deviation (JuNe cell-based ddt-fp32): matrix 2.988e-13 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-fp16): matrix 1.056e-05 rhs 0.000e+00
 Precision deviation (JuNe cell-based ddt-bf16): matrix 3.372e-08 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-fp32): matrix 2.751e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp16): matrix 9.352e-04 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-bf16): matrix 1.783e-04 rhs 0.000e+00
 Precision deviation (JuNe cell-based lap-fp32): matrix 2.400e-08 rhs 2.526e-08
+Precision deviation (JuNe cell-based lap-fp16): matrix 6.293e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based lap-bf16): matrix 1.290e-03 rhs 1.358e-03
 Precision deviation (JuNe cell-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -479,10 +500,13 @@ Precision deviation (JuNe batched fp32): matrix 1.207e-07 rhs 2.526e-08
 Precision deviation (JuNe batched fp16): matrix 6.297e-01 rhs 1.000e+00
 Precision deviation (JuNe batched bf16): matrix 7.290e-03 rhs 1.358e-03
 Precision deviation (JuNe batched ddt-fp32): matrix 2.988e-13 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-fp16): matrix 1.056e-05 rhs 0.000e+00
 Precision deviation (JuNe batched ddt-bf16): matrix 3.372e-08 rhs 0.000e+00
 Precision deviation (JuNe batched div-fp32): matrix 2.751e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp16): matrix 9.352e-04 rhs 0.000e+00
 Precision deviation (JuNe batched div-bf16): matrix 1.783e-04 rhs 0.000e+00
 Precision deviation (JuNe batched lap-fp32): matrix 2.400e-08 rhs 2.526e-08
+Precision deviation (JuNe batched lap-fp16): matrix 6.293e-01 rhs 1.000e+00
 Precision deviation (JuNe batched lap-bf16): matrix 1.290e-03 rhs 1.358e-03
 Precision deviation (JuNe batched only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -494,15 +518,18 @@ Precision deviation (JuNe batched only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
 Precision deviation (JuNe batched only-lap-fp16): matrix 6.622e-01 rhs 1.000e+00
 Precision deviation (JuNe batched only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
 All tests passed (5 assertions in 1 test case)
-=== 150^3, Fri Nov 20 18:07:45 CET 2026
-Precision deviation (JuNe face-based fp32): matrix 1.134e-07 rhs 1.139e-07
+=== 150^3, Mon Nov 23 13:16:39 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 1.170e-07 rhs 1.139e-07
 Precision deviation (JuNe face-based fp16): matrix 6.633e-01 rhs 1.000e+00
-Precision deviation (JuNe face-based bf16): matrix 9.648e-03 rhs 5.828e-03
+Precision deviation (JuNe face-based bf16): matrix 9.357e-03 rhs 5.828e-03
 Precision deviation (JuNe face-based ddt-fp32): matrix 1.238e-13 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-fp16): matrix 4.765e-06 rhs 0.000e+00
 Precision deviation (JuNe face-based ddt-bf16): matrix 3.200e-09 rhs 0.000e+00
 Precision deviation (JuNe face-based div-fp32): matrix 1.364e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp16): matrix 1.426e-03 rhs 0.000e+00
 Precision deviation (JuNe face-based div-bf16): matrix 8.911e-05 rhs 0.000e+00
 Precision deviation (JuNe face-based lap-fp32): matrix 3.424e-08 rhs 1.139e-07
+Precision deviation (JuNe face-based lap-fp16): matrix 6.629e-01 rhs 1.000e+00
 Precision deviation (JuNe face-based lap-bf16): matrix 3.749e-03 rhs 1.358e-03
 Precision deviation (JuNe face-based only-ddt-fp32): matrix 2.593e-08 rhs 0.000e+00
 Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -513,14 +540,17 @@ Precision deviation (JuNe face-based only-div-bf16): matrix 6.416e-03 rhs 0.000e
 Precision deviation (JuNe face-based only-lap-fp32): matrix 9.188e-08 rhs 1.139e-07
 Precision deviation (JuNe face-based only-lap-fp16): matrix 6.871e-01 rhs 1.000e+00
 Precision deviation (JuNe face-based only-lap-bf16): matrix 5.332e-03 rhs 5.828e-03
-Precision deviation (JuNe global face-based fp32): matrix 1.210e-07 rhs 1.139e-07
+Precision deviation (JuNe global face-based fp32): matrix 1.174e-07 rhs 1.139e-07
 Precision deviation (JuNe global face-based fp16): matrix 6.633e-01 rhs 1.000e+00
-Precision deviation (JuNe global face-based bf16): matrix 8.559e-03 rhs 5.828e-03
+Precision deviation (JuNe global face-based bf16): matrix 8.590e-03 rhs 5.828e-03
 Precision deviation (JuNe global face-based ddt-fp32): matrix 1.238e-13 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-fp16): matrix 4.765e-06 rhs 0.000e+00
 Precision deviation (JuNe global face-based ddt-bf16): matrix 3.200e-09 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-fp32): matrix 1.364e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp16): matrix 1.426e-03 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-bf16): matrix 8.911e-05 rhs 0.000e+00
 Precision deviation (JuNe global face-based lap-fp32): matrix 3.424e-08 rhs 1.139e-07
+Precision deviation (JuNe global face-based lap-fp16): matrix 6.629e-01 rhs 1.000e+00
 Precision deviation (JuNe global face-based lap-bf16): matrix 3.749e-03 rhs 1.358e-03
 Precision deviation (JuNe global face-based only-ddt-fp32): matrix 2.593e-08 rhs 0.000e+00
 Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -534,11 +564,14 @@ Precision deviation (JuNe global face-based only-lap-bf16): matrix 5.332e-03 rhs
 Precision deviation (JuNe cell-based fp32): matrix 1.530e-07 rhs 1.139e-07
 Precision deviation (JuNe cell-based fp16): matrix 6.633e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based bf16): matrix 8.559e-03 rhs 5.828e-03
-Precision deviation (JuNe cell-based ddt-fp32): matrix 1.237e-13 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-fp32): matrix 1.236e-13 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-fp16): matrix 4.765e-06 rhs 0.000e+00
 Precision deviation (JuNe cell-based ddt-bf16): matrix 3.200e-09 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-fp32): matrix 1.364e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp16): matrix 1.426e-03 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-bf16): matrix 8.911e-05 rhs 0.000e+00
 Precision deviation (JuNe cell-based lap-fp32): matrix 3.424e-08 rhs 1.139e-07
+Precision deviation (JuNe cell-based lap-fp16): matrix 6.629e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based lap-bf16): matrix 3.749e-03 rhs 1.358e-03
 Precision deviation (JuNe cell-based only-ddt-fp32): matrix 2.593e-08 rhs 0.000e+00
 Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -553,10 +586,13 @@ Precision deviation (JuNe batched fp32): matrix 1.188e-07 rhs 1.139e-07
 Precision deviation (JuNe batched fp16): matrix 6.633e-01 rhs 1.000e+00
 Precision deviation (JuNe batched bf16): matrix 8.692e-03 rhs 5.828e-03
 Precision deviation (JuNe batched ddt-fp32): matrix 1.237e-13 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-fp16): matrix 4.765e-06 rhs 0.000e+00
 Precision deviation (JuNe batched ddt-bf16): matrix 3.200e-09 rhs 0.000e+00
 Precision deviation (JuNe batched div-fp32): matrix 1.364e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp16): matrix 1.426e-03 rhs 0.000e+00
 Precision deviation (JuNe batched div-bf16): matrix 8.911e-05 rhs 0.000e+00
 Precision deviation (JuNe batched lap-fp32): matrix 3.424e-08 rhs 1.139e-07
+Precision deviation (JuNe batched lap-fp16): matrix 6.629e-01 rhs 1.000e+00
 Precision deviation (JuNe batched lap-bf16): matrix 3.749e-03 rhs 1.358e-03
 Precision deviation (JuNe batched only-ddt-fp32): matrix 2.593e-08 rhs 0.000e+00
 Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -568,15 +604,18 @@ Precision deviation (JuNe batched only-lap-fp32): matrix 7.189e-08 rhs 1.139e-07
 Precision deviation (JuNe batched only-lap-fp16): matrix 6.871e-01 rhs 1.000e+00
 Precision deviation (JuNe batched only-lap-bf16): matrix 5.332e-03 rhs 5.828e-03
 All tests passed (5 assertions in 1 test case)
-=== 200^3, Fri Nov 20 18:10:21 CET 2026
-Precision deviation (JuNe face-based fp32): matrix 1.255e-07 rhs 2.526e-08
+=== 200^3, Mon Nov 23 13:19:35 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 1.252e-07 rhs 2.526e-08
 Precision deviation (JuNe face-based fp16): matrix 6.657e-01 rhs 1.000e+00
-Precision deviation (JuNe face-based bf16): matrix 7.566e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based bf16): matrix 7.628e-03 rhs 1.358e-03
 Precision deviation (JuNe face-based ddt-fp32): matrix 7.690e-14 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-fp16): matrix 2.707e-06 rhs 0.000e+00
 Precision deviation (JuNe face-based ddt-bf16): matrix 8.646e-09 rhs 0.000e+00
 Precision deviation (JuNe face-based div-fp32): matrix 1.615e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp16): matrix 1.927e-03 rhs 0.000e+00
 Precision deviation (JuNe face-based div-bf16): matrix 1.010e-04 rhs 0.000e+00
 Precision deviation (JuNe face-based lap-fp32): matrix 2.462e-08 rhs 2.526e-08
+Precision deviation (JuNe face-based lap-fp16): matrix 6.647e-01 rhs 1.000e+00
 Precision deviation (JuNe face-based lap-bf16): matrix 1.323e-03 rhs 1.358e-03
 Precision deviation (JuNe face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -587,14 +626,17 @@ Precision deviation (JuNe face-based only-div-bf16): matrix 7.648e-03 rhs 0.000e
 Precision deviation (JuNe face-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
 Precision deviation (JuNe face-based only-lap-fp16): matrix 6.821e-01 rhs 1.000e+00
 Precision deviation (JuNe face-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
-Precision deviation (JuNe global face-based fp32): matrix 1.259e-07 rhs 2.526e-08
+Precision deviation (JuNe global face-based fp32): matrix 1.208e-07 rhs 2.526e-08
 Precision deviation (JuNe global face-based fp16): matrix 6.657e-01 rhs 1.000e+00
-Precision deviation (JuNe global face-based bf16): matrix 7.493e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based bf16): matrix 7.628e-03 rhs 1.358e-03
 Precision deviation (JuNe global face-based ddt-fp32): matrix 7.690e-14 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-fp16): matrix 2.707e-06 rhs 0.000e+00
 Precision deviation (JuNe global face-based ddt-bf16): matrix 8.646e-09 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-fp32): matrix 1.615e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp16): matrix 1.927e-03 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-bf16): matrix 1.010e-04 rhs 0.000e+00
 Precision deviation (JuNe global face-based lap-fp32): matrix 2.462e-08 rhs 2.526e-08
+Precision deviation (JuNe global face-based lap-fp16): matrix 6.647e-01 rhs 1.000e+00
 Precision deviation (JuNe global face-based lap-bf16): matrix 1.323e-03 rhs 1.358e-03
 Precision deviation (JuNe global face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -609,10 +651,13 @@ Precision deviation (JuNe cell-based fp32): matrix 1.472e-07 rhs 2.526e-08
 Precision deviation (JuNe cell-based fp16): matrix 6.657e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based bf16): matrix 7.303e-03 rhs 1.358e-03
 Precision deviation (JuNe cell-based ddt-fp32): matrix 7.675e-14 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-fp16): matrix 2.707e-06 rhs 0.000e+00
 Precision deviation (JuNe cell-based ddt-bf16): matrix 8.646e-09 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-fp32): matrix 1.615e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp16): matrix 1.927e-03 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-bf16): matrix 1.010e-04 rhs 0.000e+00
 Precision deviation (JuNe cell-based lap-fp32): matrix 2.462e-08 rhs 2.526e-08
+Precision deviation (JuNe cell-based lap-fp16): matrix 6.647e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based lap-bf16): matrix 1.323e-03 rhs 1.358e-03
 Precision deviation (JuNe cell-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -627,10 +672,13 @@ Precision deviation (JuNe batched fp32): matrix 1.265e-07 rhs 2.526e-08
 Precision deviation (JuNe batched fp16): matrix 6.657e-01 rhs 1.000e+00
 Precision deviation (JuNe batched bf16): matrix 7.628e-03 rhs 1.358e-03
 Precision deviation (JuNe batched ddt-fp32): matrix 7.675e-14 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-fp16): matrix 2.707e-06 rhs 0.000e+00
 Precision deviation (JuNe batched ddt-bf16): matrix 8.646e-09 rhs 0.000e+00
 Precision deviation (JuNe batched div-fp32): matrix 1.615e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp16): matrix 1.927e-03 rhs 0.000e+00
 Precision deviation (JuNe batched div-bf16): matrix 1.010e-04 rhs 0.000e+00
 Precision deviation (JuNe batched lap-fp32): matrix 2.462e-08 rhs 2.526e-08
+Precision deviation (JuNe batched lap-fp16): matrix 6.647e-01 rhs 1.000e+00
 Precision deviation (JuNe batched lap-bf16): matrix 1.323e-03 rhs 1.358e-03
 Precision deviation (JuNe batched only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -642,15 +690,18 @@ Precision deviation (JuNe batched only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
 Precision deviation (JuNe batched only-lap-fp16): matrix 6.821e-01 rhs 1.000e+00
 Precision deviation (JuNe batched only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
 All tests passed (5 assertions in 1 test case)
-=== 250^3, Fri Nov 20 18:13:26 CET 2026
+=== 250^3, Mon Nov 23 13:23:00 CET 2026
 Precision deviation (JuNe face-based fp32): matrix 1.062e-07 rhs 2.525e-09
 Precision deviation (JuNe face-based fp16): matrix 6.157e-01 rhs 1.000e+00
-Precision deviation (JuNe face-based bf16): matrix 7.721e-03 rhs 1.622e-03
+Precision deviation (JuNe face-based bf16): matrix 7.780e-03 rhs 1.622e-03
 Precision deviation (JuNe face-based ddt-fp32): matrix 7.374e-15 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-fp16): matrix 1.741e-06 rhs 0.000e+00
 Precision deviation (JuNe face-based ddt-bf16): matrix 3.248e-09 rhs 0.000e+00
 Precision deviation (JuNe face-based div-fp32): matrix 1.149e-09 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp16): matrix 2.422e-03 rhs 1.482e-15
 Precision deviation (JuNe face-based div-bf16): matrix 7.564e-05 rhs 2.118e-16
 Precision deviation (JuNe face-based lap-fp32): matrix 2.473e-09 rhs 2.525e-09
+Precision deviation (JuNe face-based lap-fp16): matrix 6.146e-01 rhs 1.000e+00
 Precision deviation (JuNe face-based lap-bf16): matrix 1.589e-03 rhs 1.622e-03
 Precision deviation (JuNe face-based only-ddt-fp32): matrix 3.996e-09 rhs 0.000e+00
 Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -661,14 +712,17 @@ Precision deviation (JuNe face-based only-div-bf16): matrix 6.820e-03 rhs 1.366e
 Precision deviation (JuNe face-based only-lap-fp32): matrix 6.568e-08 rhs 2.525e-09
 Precision deviation (JuNe face-based only-lap-fp16): matrix 6.275e-01 rhs 1.000e+00
 Precision deviation (JuNe face-based only-lap-bf16): matrix 2.230e-03 rhs 1.622e-03
-Precision deviation (JuNe global face-based fp32): matrix 1.020e-07 rhs 2.525e-09
+Precision deviation (JuNe global face-based fp32): matrix 1.039e-07 rhs 2.525e-09
 Precision deviation (JuNe global face-based fp16): matrix 6.157e-01 rhs 1.000e+00
-Precision deviation (JuNe global face-based bf16): matrix 7.622e-03 rhs 1.622e-03
-Precision deviation (JuNe global face-based ddt-fp32): matrix 7.374e-15 rhs 0.000e+00
+Precision deviation (JuNe global face-based bf16): matrix 7.703e-03 rhs 1.622e-03
+Precision deviation (JuNe global face-based ddt-fp32): matrix 7.190e-15 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-fp16): matrix 1.741e-06 rhs 0.000e+00
 Precision deviation (JuNe global face-based ddt-bf16): matrix 3.248e-09 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-fp32): matrix 1.149e-09 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp16): matrix 2.422e-03 rhs 1.482e-15
 Precision deviation (JuNe global face-based div-bf16): matrix 7.564e-05 rhs 2.118e-16
 Precision deviation (JuNe global face-based lap-fp32): matrix 2.473e-09 rhs 2.525e-09
+Precision deviation (JuNe global face-based lap-fp16): matrix 6.146e-01 rhs 1.000e+00
 Precision deviation (JuNe global face-based lap-bf16): matrix 1.589e-03 rhs 1.622e-03
 Precision deviation (JuNe global face-based only-ddt-fp32): matrix 3.996e-09 rhs 0.000e+00
 Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -678,15 +732,18 @@ Precision deviation (JuNe global face-based only-div-fp16): matrix 9.389e-02 rhs
 Precision deviation (JuNe global face-based only-div-bf16): matrix 6.820e-03 rhs 1.366e-03
 Precision deviation (JuNe global face-based only-lap-fp32): matrix 6.568e-08 rhs 2.525e-09
 Precision deviation (JuNe global face-based only-lap-fp16): matrix 6.275e-01 rhs 1.000e+00
-Precision deviation (JuNe global face-based only-lap-bf16): matrix 2.917e-03 rhs 1.622e-03
+Precision deviation (JuNe global face-based only-lap-bf16): matrix 6.656e-03 rhs 1.622e-03
 Precision deviation (JuNe cell-based fp32): matrix 1.222e-07 rhs 2.525e-09
 Precision deviation (JuNe cell-based fp16): matrix 6.157e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based bf16): matrix 9.668e-03 rhs 1.622e-03
 Precision deviation (JuNe cell-based ddt-fp32): matrix 7.006e-15 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-fp16): matrix 1.741e-06 rhs 0.000e+00
 Precision deviation (JuNe cell-based ddt-bf16): matrix 3.248e-09 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-fp32): matrix 1.149e-09 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp16): matrix 2.422e-03 rhs 1.482e-15
 Precision deviation (JuNe cell-based div-bf16): matrix 7.564e-05 rhs 2.118e-16
 Precision deviation (JuNe cell-based lap-fp32): matrix 2.473e-09 rhs 2.525e-09
+Precision deviation (JuNe cell-based lap-fp16): matrix 6.146e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based lap-bf16): matrix 1.589e-03 rhs 1.622e-03
 Precision deviation (JuNe cell-based only-ddt-fp32): matrix 3.996e-09 rhs 0.000e+00
 Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -701,10 +758,13 @@ Precision deviation (JuNe batched fp32): matrix 1.109e-07 rhs 2.525e-09
 Precision deviation (JuNe batched fp16): matrix 6.157e-01 rhs 1.000e+00
 Precision deviation (JuNe batched bf16): matrix 7.841e-03 rhs 1.622e-03
 Precision deviation (JuNe batched ddt-fp32): matrix 7.190e-15 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-fp16): matrix 1.741e-06 rhs 0.000e+00
 Precision deviation (JuNe batched ddt-bf16): matrix 3.248e-09 rhs 0.000e+00
 Precision deviation (JuNe batched div-fp32): matrix 1.149e-09 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp16): matrix 2.422e-03 rhs 1.482e-15
 Precision deviation (JuNe batched div-bf16): matrix 7.564e-05 rhs 2.118e-16
 Precision deviation (JuNe batched lap-fp32): matrix 2.473e-09 rhs 2.525e-09
+Precision deviation (JuNe batched lap-fp16): matrix 6.146e-01 rhs 1.000e+00
 Precision deviation (JuNe batched lap-bf16): matrix 1.589e-03 rhs 1.622e-03
 Precision deviation (JuNe batched only-ddt-fp32): matrix 3.996e-09 rhs 0.000e+00
 Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -716,15 +776,18 @@ Precision deviation (JuNe batched only-lap-fp32): matrix 6.568e-08 rhs 2.525e-09
 Precision deviation (JuNe batched only-lap-fp16): matrix 6.275e-01 rhs 1.000e+00
 Precision deviation (JuNe batched only-lap-bf16): matrix 2.230e-03 rhs 1.622e-03
 All tests passed (5 assertions in 1 test case)
-=== 300^3, Fri Nov 20 18:17:26 CET 2026
+=== 300^3, Mon Nov 23 13:27:23 CET 2026
 Precision deviation (JuNe face-based fp32): matrix 1.508e-07 rhs 1.289e-07
 Precision deviation (JuNe face-based fp16): matrix 6.328e-01 rhs 1.000e+00
-Precision deviation (JuNe face-based bf16): matrix 9.742e-03 rhs 5.828e-03
+Precision deviation (JuNe face-based bf16): matrix 9.750e-03 rhs 5.828e-03
 Precision deviation (JuNe face-based ddt-fp32): matrix 5.329e-14 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-fp16): matrix 1.214e-06 rhs 0.000e+00
 Precision deviation (JuNe face-based ddt-bf16): matrix 8.151e-10 rhs 0.000e+00
 Precision deviation (JuNe face-based div-fp32): matrix 6.953e-10 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp16): matrix 2.919e-03 rhs 0.000e+00
 Precision deviation (JuNe face-based div-bf16): matrix 4.565e-05 rhs 0.000e+00
 Precision deviation (JuNe face-based lap-fp32): matrix 9.950e-08 rhs 1.289e-07
+Precision deviation (JuNe face-based lap-fp16): matrix 6.315e-01 rhs 1.000e+00
 Precision deviation (JuNe face-based lap-bf16): matrix 5.730e-03 rhs 5.828e-03
 Precision deviation (JuNe face-based only-ddt-fp32): matrix 4.374e-08 rhs 0.000e+00
 Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -737,12 +800,15 @@ Precision deviation (JuNe face-based only-lap-fp16): matrix 6.424e-01 rhs 1.000e
 Precision deviation (JuNe face-based only-lap-bf16): matrix 5.332e-03 rhs 5.828e-03
 Precision deviation (JuNe global face-based fp32): matrix 1.508e-07 rhs 1.289e-07
 Precision deviation (JuNe global face-based fp16): matrix 6.328e-01 rhs 1.000e+00
-Precision deviation (JuNe global face-based bf16): matrix 9.684e-03 rhs 5.828e-03
+Precision deviation (JuNe global face-based bf16): matrix 9.728e-03 rhs 5.828e-03
 Precision deviation (JuNe global face-based ddt-fp32): matrix 5.329e-14 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-fp16): matrix 1.214e-06 rhs 0.000e+00
 Precision deviation (JuNe global face-based ddt-bf16): matrix 8.151e-10 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-fp32): matrix 6.953e-10 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp16): matrix 2.919e-03 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-bf16): matrix 4.565e-05 rhs 0.000e+00
 Precision deviation (JuNe global face-based lap-fp32): matrix 9.950e-08 rhs 1.289e-07
+Precision deviation (JuNe global face-based lap-fp16): matrix 6.315e-01 rhs 1.000e+00
 Precision deviation (JuNe global face-based lap-bf16): matrix 5.730e-03 rhs 5.828e-03
 Precision deviation (JuNe global face-based only-ddt-fp32): matrix 4.374e-08 rhs 0.000e+00
 Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -757,10 +823,13 @@ Precision deviation (JuNe cell-based fp32): matrix 1.572e-07 rhs 1.289e-07
 Precision deviation (JuNe cell-based fp16): matrix 6.328e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based bf16): matrix 8.697e-03 rhs 5.828e-03
 Precision deviation (JuNe cell-based ddt-fp32): matrix 5.307e-14 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-fp16): matrix 1.214e-06 rhs 0.000e+00
 Precision deviation (JuNe cell-based ddt-bf16): matrix 8.151e-10 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-fp32): matrix 6.953e-10 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp16): matrix 2.919e-03 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-bf16): matrix 4.565e-05 rhs 0.000e+00
 Precision deviation (JuNe cell-based lap-fp32): matrix 9.950e-08 rhs 1.289e-07
+Precision deviation (JuNe cell-based lap-fp16): matrix 6.315e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based lap-bf16): matrix 5.730e-03 rhs 5.828e-03
 Precision deviation (JuNe cell-based only-ddt-fp32): matrix 4.374e-08 rhs 0.000e+00
 Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -775,10 +844,13 @@ Precision deviation (JuNe batched fp32): matrix 1.508e-07 rhs 1.289e-07
 Precision deviation (JuNe batched fp16): matrix 6.328e-01 rhs 1.000e+00
 Precision deviation (JuNe batched bf16): matrix 8.921e-03 rhs 5.828e-03
 Precision deviation (JuNe batched ddt-fp32): matrix 5.329e-14 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-fp16): matrix 1.214e-06 rhs 0.000e+00
 Precision deviation (JuNe batched ddt-bf16): matrix 8.151e-10 rhs 0.000e+00
 Precision deviation (JuNe batched div-fp32): matrix 6.953e-10 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp16): matrix 2.919e-03 rhs 0.000e+00
 Precision deviation (JuNe batched div-bf16): matrix 4.565e-05 rhs 0.000e+00
 Precision deviation (JuNe batched lap-fp32): matrix 9.950e-08 rhs 1.289e-07
+Precision deviation (JuNe batched lap-fp16): matrix 6.315e-01 rhs 1.000e+00
 Precision deviation (JuNe batched lap-bf16): matrix 5.730e-03 rhs 5.828e-03
 Precision deviation (JuNe batched only-ddt-fp32): matrix 4.374e-08 rhs 0.000e+00
 Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -790,15 +862,18 @@ Precision deviation (JuNe batched only-lap-fp32): matrix 1.315e-07 rhs 1.289e-07
 Precision deviation (JuNe batched only-lap-fp16): matrix 6.424e-01 rhs 1.000e+00
 Precision deviation (JuNe batched only-lap-bf16): matrix 5.332e-03 rhs 5.828e-03
 All tests passed (5 assertions in 1 test case)
-=== 350^3, Fri Nov 20 18:22:46 CET 2026
-Precision deviation (JuNe face-based fp32): matrix 1.502e-07 rhs 6.569e-08
+=== 350^3, Mon Nov 23 13:33:11 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 1.496e-07 rhs 6.569e-08
 Precision deviation (JuNe face-based fp16): matrix 7.473e-01 rhs 1.000e+00
-Precision deviation (JuNe face-based bf16): matrix 7.335e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based bf16): matrix 7.320e-03 rhs 1.358e-03
 Precision deviation (JuNe face-based ddt-fp32): matrix 1.739e-14 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-fp16): matrix 8.933e-07 rhs 0.000e+00
 Precision deviation (JuNe face-based ddt-bf16): matrix 6.823e-10 rhs 0.000e+00
 Precision deviation (JuNe face-based div-fp32): matrix 8.138e-10 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp16): matrix 3.405e-03 rhs 1.482e-15
 Precision deviation (JuNe face-based div-bf16): matrix 5.336e-05 rhs 1.482e-16
 Precision deviation (JuNe face-based lap-fp32): matrix 6.469e-08 rhs 6.569e-08
+Precision deviation (JuNe face-based lap-fp16): matrix 7.452e-01 rhs 1.000e+00
 Precision deviation (JuNe face-based lap-bf16): matrix 2.533e-03 rhs 1.358e-03
 Precision deviation (JuNe face-based only-ddt-fp32): matrix 1.921e-08 rhs 0.000e+00
 Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -809,14 +884,17 @@ Precision deviation (JuNe face-based only-div-bf16): matrix 6.735e-03 rhs 1.358e
 Precision deviation (JuNe face-based only-lap-fp32): matrix 6.569e-08 rhs 6.569e-08
 Precision deviation (JuNe face-based only-lap-fp16): matrix 7.566e-01 rhs 1.000e+00
 Precision deviation (JuNe face-based only-lap-bf16): matrix 3.731e-03 rhs 1.358e-03
-Precision deviation (JuNe global face-based fp32): matrix 1.468e-07 rhs 6.569e-08
+Precision deviation (JuNe global face-based fp32): matrix 1.496e-07 rhs 6.569e-08
 Precision deviation (JuNe global face-based fp16): matrix 7.473e-01 rhs 1.000e+00
-Precision deviation (JuNe global face-based bf16): matrix 7.305e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based bf16): matrix 7.273e-03 rhs 1.358e-03
 Precision deviation (JuNe global face-based ddt-fp32): matrix 1.739e-14 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-fp16): matrix 8.933e-07 rhs 0.000e+00
 Precision deviation (JuNe global face-based ddt-bf16): matrix 6.823e-10 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-fp32): matrix 8.138e-10 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp16): matrix 3.405e-03 rhs 1.482e-15
 Precision deviation (JuNe global face-based div-bf16): matrix 5.336e-05 rhs 1.482e-16
 Precision deviation (JuNe global face-based lap-fp32): matrix 6.469e-08 rhs 6.569e-08
+Precision deviation (JuNe global face-based lap-fp16): matrix 7.452e-01 rhs 1.000e+00
 Precision deviation (JuNe global face-based lap-bf16): matrix 2.533e-03 rhs 1.358e-03
 Precision deviation (JuNe global face-based only-ddt-fp32): matrix 1.921e-08 rhs 0.000e+00
 Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -831,10 +909,13 @@ Precision deviation (JuNe cell-based fp32): matrix 1.557e-07 rhs 6.569e-08
 Precision deviation (JuNe cell-based fp16): matrix 7.473e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based bf16): matrix 7.082e-03 rhs 1.358e-03
 Precision deviation (JuNe cell-based ddt-fp32): matrix 1.713e-14 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-fp16): matrix 8.933e-07 rhs 0.000e+00
 Precision deviation (JuNe cell-based ddt-bf16): matrix 6.823e-10 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-fp32): matrix 8.138e-10 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp16): matrix 3.405e-03 rhs 1.482e-15
 Precision deviation (JuNe cell-based div-bf16): matrix 5.336e-05 rhs 1.482e-16
 Precision deviation (JuNe cell-based lap-fp32): matrix 6.469e-08 rhs 6.569e-08
+Precision deviation (JuNe cell-based lap-fp16): matrix 7.452e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based lap-bf16): matrix 2.533e-03 rhs 1.358e-03
 Precision deviation (JuNe cell-based only-ddt-fp32): matrix 1.921e-08 rhs 0.000e+00
 Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -849,10 +930,13 @@ Precision deviation (JuNe batched fp32): matrix 1.419e-07 rhs 6.569e-08
 Precision deviation (JuNe batched fp16): matrix 7.473e-01 rhs 1.000e+00
 Precision deviation (JuNe batched bf16): matrix 7.350e-03 rhs 1.358e-03
 Precision deviation (JuNe batched ddt-fp32): matrix 1.739e-14 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-fp16): matrix 8.933e-07 rhs 0.000e+00
 Precision deviation (JuNe batched ddt-bf16): matrix 6.823e-10 rhs 0.000e+00
 Precision deviation (JuNe batched div-fp32): matrix 8.138e-10 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp16): matrix 3.405e-03 rhs 1.482e-15
 Precision deviation (JuNe batched div-bf16): matrix 5.336e-05 rhs 1.482e-16
 Precision deviation (JuNe batched lap-fp32): matrix 6.469e-08 rhs 6.569e-08
+Precision deviation (JuNe batched lap-fp16): matrix 7.452e-01 rhs 1.000e+00
 Precision deviation (JuNe batched lap-bf16): matrix 2.533e-03 rhs 1.358e-03
 Precision deviation (JuNe batched only-ddt-fp32): matrix 1.921e-08 rhs 0.000e+00
 Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -864,15 +948,18 @@ Precision deviation (JuNe batched only-lap-fp32): matrix 6.569e-08 rhs 6.569e-08
 Precision deviation (JuNe batched only-lap-fp16): matrix 7.566e-01 rhs 1.000e+00
 Precision deviation (JuNe batched only-lap-bf16): matrix 3.731e-03 rhs 1.358e-03
 All tests passed (5 assertions in 1 test case)
-=== 400^3, Fri Nov 20 18:30:03 CET 2026
-Precision deviation (JuNe face-based fp32): matrix 1.278e-07 rhs 2.526e-08
+=== 400^3, Mon Nov 23 13:41:55 CET 2026
+Precision deviation (JuNe face-based fp32): matrix 1.277e-07 rhs 2.526e-08
 Precision deviation (JuNe face-based fp16): matrix 6.746e-01 rhs 1.000e+00
-Precision deviation (JuNe face-based bf16): matrix 6.384e-03 rhs 1.358e-03
+Precision deviation (JuNe face-based bf16): matrix 6.343e-03 rhs 1.358e-03
 Precision deviation (JuNe face-based ddt-fp32): matrix 1.962e-14 rhs 0.000e+00
+Precision deviation (JuNe face-based ddt-fp16): matrix 6.855e-07 rhs 0.000e+00
 Precision deviation (JuNe face-based ddt-bf16): matrix 2.189e-09 rhs 0.000e+00
 Precision deviation (JuNe face-based div-fp32): matrix 8.230e-10 rhs 0.000e+00
+Precision deviation (JuNe face-based div-fp16): matrix 3.918e-03 rhs 0.000e+00
 Precision deviation (JuNe face-based div-bf16): matrix 5.396e-05 rhs 0.000e+00
 Precision deviation (JuNe face-based lap-fp32): matrix 2.494e-08 rhs 2.526e-08
+Precision deviation (JuNe face-based lap-fp16): matrix 6.733e-01 rhs 1.000e+00
 Precision deviation (JuNe face-based lap-bf16): matrix 1.341e-03 rhs 1.358e-03
 Precision deviation (JuNe face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -883,14 +970,17 @@ Precision deviation (JuNe face-based only-div-bf16): matrix 7.739e-03 rhs 0.000e
 Precision deviation (JuNe face-based only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
 Precision deviation (JuNe face-based only-lap-fp16): matrix 6.821e-01 rhs 1.000e+00
 Precision deviation (JuNe face-based only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
-Precision deviation (JuNe global face-based fp32): matrix 1.276e-07 rhs 2.526e-08
+Precision deviation (JuNe global face-based fp32): matrix 1.282e-07 rhs 2.526e-08
 Precision deviation (JuNe global face-based fp16): matrix 6.746e-01 rhs 1.000e+00
-Precision deviation (JuNe global face-based bf16): matrix 6.317e-03 rhs 1.358e-03
+Precision deviation (JuNe global face-based bf16): matrix 6.277e-03 rhs 1.358e-03
 Precision deviation (JuNe global face-based ddt-fp32): matrix 1.962e-14 rhs 0.000e+00
+Precision deviation (JuNe global face-based ddt-fp16): matrix 6.855e-07 rhs 0.000e+00
 Precision deviation (JuNe global face-based ddt-bf16): matrix 2.189e-09 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-fp32): matrix 8.230e-10 rhs 0.000e+00
+Precision deviation (JuNe global face-based div-fp16): matrix 3.918e-03 rhs 0.000e+00
 Precision deviation (JuNe global face-based div-bf16): matrix 5.396e-05 rhs 0.000e+00
 Precision deviation (JuNe global face-based lap-fp32): matrix 2.494e-08 rhs 2.526e-08
+Precision deviation (JuNe global face-based lap-fp16): matrix 6.733e-01 rhs 1.000e+00
 Precision deviation (JuNe global face-based lap-bf16): matrix 1.341e-03 rhs 1.358e-03
 Precision deviation (JuNe global face-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe global face-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -905,10 +995,13 @@ Precision deviation (JuNe cell-based fp32): matrix 1.279e-07 rhs 2.526e-08
 Precision deviation (JuNe cell-based fp16): matrix 6.746e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based bf16): matrix 6.668e-03 rhs 1.358e-03
 Precision deviation (JuNe cell-based ddt-fp32): matrix 1.962e-14 rhs 0.000e+00
+Precision deviation (JuNe cell-based ddt-fp16): matrix 6.855e-07 rhs 0.000e+00
 Precision deviation (JuNe cell-based ddt-bf16): matrix 2.189e-09 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-fp32): matrix 8.230e-10 rhs 0.000e+00
+Precision deviation (JuNe cell-based div-fp16): matrix 3.918e-03 rhs 0.000e+00
 Precision deviation (JuNe cell-based div-bf16): matrix 5.396e-05 rhs 0.000e+00
 Precision deviation (JuNe cell-based lap-fp32): matrix 2.494e-08 rhs 2.526e-08
+Precision deviation (JuNe cell-based lap-fp16): matrix 6.733e-01 rhs 1.000e+00
 Precision deviation (JuNe cell-based lap-bf16): matrix 1.341e-03 rhs 1.358e-03
 Precision deviation (JuNe cell-based only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe cell-based only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -923,10 +1016,13 @@ Precision deviation (JuNe batched fp32): matrix 1.198e-07 rhs 2.526e-08
 Precision deviation (JuNe batched fp16): matrix 6.746e-01 rhs 1.000e+00
 Precision deviation (JuNe batched bf16): matrix 6.000e-03 rhs 1.358e-03
 Precision deviation (JuNe batched ddt-fp32): matrix 1.962e-14 rhs 0.000e+00
+Precision deviation (JuNe batched ddt-fp16): matrix 6.855e-07 rhs 0.000e+00
 Precision deviation (JuNe batched ddt-bf16): matrix 2.189e-09 rhs 0.000e+00
 Precision deviation (JuNe batched div-fp32): matrix 8.230e-10 rhs 0.000e+00
+Precision deviation (JuNe batched div-fp16): matrix 3.918e-03 rhs 0.000e+00
 Precision deviation (JuNe batched div-bf16): matrix 5.396e-05 rhs 0.000e+00
 Precision deviation (JuNe batched lap-fp32): matrix 2.494e-08 rhs 2.526e-08
+Precision deviation (JuNe batched lap-fp16): matrix 6.733e-01 rhs 1.000e+00
 Precision deviation (JuNe batched lap-bf16): matrix 1.341e-03 rhs 1.358e-03
 Precision deviation (JuNe batched only-ddt-fp32): matrix 2.828e-08 rhs 0.000e+00
 Precision deviation (JuNe batched only-ddt-fp16): matrix 1.000e+00 rhs 0.000e+00
@@ -938,4 +1034,4 @@ Precision deviation (JuNe batched only-lap-fp32): matrix 6.568e-08 rhs 2.526e-08
 Precision deviation (JuNe batched only-lap-fp16): matrix 6.821e-01 rhs 1.000e+00
 Precision deviation (JuNe batched only-lap-bf16): matrix 1.358e-03 rhs 1.358e-03
 All tests passed (5 assertions in 1 test case)
-done Fri Nov 20 18:39:14 CET 2026
+done Mon Nov 23 13:52:54 CET 2026

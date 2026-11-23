@@ -3,7 +3,7 @@
 JuNe.jl src/precision.jl (NeoFOAM test_cavity.cpp with CAVITY_PRECISION=1 CAVITY_DDT=1):
 
     whole    all operators and the matrix in fp64, fp32, fp16, bf16        labels fp64, fp32, ...
-    reduce   one operator in fp32 or bf16, the rest and the matrix in fp64  labels ddt-fp32, div-bf16, ...
+    reduce   one operator in fp32, fp16 or bf16, the rest and the matrix in fp64  labels ddt-fp32, div-fp16, ...
     alone    one operator alone, it and the matrix in each precision        labels only-ddt-fp64, ...
 
 Five repetitions of every measurement, the first dropped, median reported. Speedups: whole and reduce
@@ -43,7 +43,7 @@ COLOURS = {"fp64": "#08306b", "fp32": "#2171b5", "fp16": "#e6550d", "bf16": "#fd
 OP_COLOURS = {"ddt": "#2ca02c", "div": "#1f77b4", "lap": "#d62728"}
 LARGE = {"font.size": 16, "axes.labelsize": 18, "axes.titlesize": 18, "legend.fontsize": 16,
          "xtick.labelsize": 15, "ytick.labelsize": 15}  # the figures that go into the paper
-TIMES = re.compile(r"^(Assembly|Allocation|Conversion|Back-conversion) time \(JuNe (.+?) (\S+) (\d+)\) = (\d+) \[us\]", re.M)
+TIMES = re.compile(r"^(Assembly|Allocation|Conversion|Back-conversion|Reset) time \(JuNe (.+?) (\S+) (\d+)\) = (\d+) \[us\]", re.M)
 DEV = re.compile(r"Precision deviation \(JuNe (.+?) (\S+)\): matrix ([0-9.e+-]+) rhs ([0-9.e+-]+)")
 
 
@@ -140,15 +140,15 @@ def plot_reduce(data, here):
     red = data[data["mode"].eq("reduce")]
     for ax, strategy in zip(axes, STRATEGIES):
         for op in OPERATORS:
-            for prec, ls in (("fp32", "-"), ("bf16", "--")):
+            for prec, ls in (("fp32", "-"), ("fp16", ":"), ("bf16", "--")):
                 line(ax, red[red["strategy"].eq(strategy) & red["operator"].eq(op) & red["precision"].eq(prec)],
                      "speedup_over_fp64", OP_COLOURS[op], linestyle=ls)
         finish(ax, "Speedup over fp64" if strategy == STRATEGIES[0] else None, True, True)
         ax.set_title(LABELS[strategy])
         ax.set_xlabel("Cells")
     handles = [Line2D([], [], color=OP_COLOURS[o], marker="o", label=f"{OPERATORS[o]} reduced") for o in OPERATORS]
-    handles += [Line2D([], [], color="0.3", linestyle="-", label="fp32"), Line2D([], [], color="0.3", linestyle="--", label="bf16")]
-    fig.legend(handles=handles, loc="outside upper center", ncols=5, frameon=False)
+    handles += [Line2D([], [], color="0.3", linestyle=ls, label=prec) for prec, ls in (("fp32", "-"), ("fp16", ":"), ("bf16", "--"))]
+    fig.legend(handles=handles, loc="outside upper center", ncols=6, frameon=False)
     save(fig, here / "precision_reduce_speedup.pdf")
 
 
